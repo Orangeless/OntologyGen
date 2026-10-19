@@ -1,0 +1,11 @@
+{
+  "sfaa-wba-nbn-ethernet-service-levels-schedule-20260701.pdf.coredownload": {
+    "30": [
+      {
+        "competency_question": "What Network Availability does nbn aim to achieve for the NBN Ethernet product?",
+        "expected_answer": "99.90% (99.70% for satellite)",
+        "source": "reference RD-09: sfaa-wba-nbn-ethernet-service-levels-schedule-20260701.pdf.coredownload.pdf section 14.2 page 31"
+      }
+    ]
+  }
+}

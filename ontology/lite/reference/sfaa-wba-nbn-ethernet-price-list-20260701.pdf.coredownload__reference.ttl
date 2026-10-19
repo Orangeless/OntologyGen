@@ -1,0 +1,4056 @@
+@prefix : <http://example.org/sfaa-wba-nbn-ethernet-price-list#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ===== REFERENCE SEED: reference ontology schema (reuse these terms; do not delete) =====
+:AVC_TC1_ProdComp_0_3_SixNetworks a :AVC_TC1_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 0.3 Mbps (Fibre, FTTB, FTTN, FTTC, HFC, Wireless)" ;
+    :hasBandwidthTier :BandwidthTier_0_3 ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC,
+        :AccessTechnology_Wireless ;
+    :hasRecurringCharge :RecurringCharge_AVCTC1_0_3 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:AVC_TC1_ProdComp_0_5_FiveNetworks a :AVC_TC1_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 0.5 Mbps (Fibre, FTTB, FTTN, FTTC, HFC)" ;
+    :hasBandwidthTier :BandwidthTier_0_5 ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_AVCTC1_0_5 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:AVC_TC1_ProdComp_1_0_FiveNetworks a :AVC_TC1_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 1.0 Mbps (Fibre, FTTB, FTTN, FTTC, HFC)" ;
+    :hasBandwidthTier :BandwidthTier_1_0 ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_AVCTC1_1_0 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:AVC_TC1_ProdComp_2_0_FiveNetworks a :AVC_TC1_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 2.0 Mbps (Fibre, FTTB, FTTN, FTTC, HFC)" ;
+    :hasBandwidthTier :BandwidthTier_2_0 ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_AVCTC1_2_0 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:AVC_TC1_ProdComp_5_0_FiveNetworks a :AVC_TC1_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 5.0 Mbps (Fibre, FTTB, FTTN, FTTC, HFC)" ;
+    :hasBandwidthTier :BandwidthTier_5_0 ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_AVCTC1_5_0 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:BasicOfferCondition_12_1 a :BasicOfferCondition,
+        owl:NamedIndividual ;
+    rdfs:label "Basic Offer Condition for 12/1 AVC TC-4" ;
+    :appliesTo :AVC_TC4_ProdComp_12_1_Basic ;
+    :conditionDescription "Basic Offer applies if RSP uses the AVC TC-4 as input into a broadband service with voice component, and the AVC does not utilise more than 0.1 Mbps average during any 60-minute period on that day." ;
+    :hasConditionTrigger :UsageCondition_LowUtilisation,
+        :UsageCondition_VoiceBroadband ;
+    :hasDayDefinition :Day_Sydney ;
+    :hasProRataRule :ProRataRule_12_1 ;
+    :sourceClause "nbn Ethernet Price List, Note 4, p.5" .
+
+:BasicOfferCondition_NNILink_NotSatellite a :BasicOfferCondition,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Link not available on nbn Ethernet (Satellite)" ;
+    :appliesTo :NNILink_ProductFeature ;
+    :conditionDescription "The NNI Link Product Feature is not available in connection with nbn Ethernet (Satellite)." .
+
+:BasicOfferCondition_VNNI_NotSatellite a :BasicOfferCondition,
+        owl:NamedIndividual ;
+    rdfs:label "V-NNI not available on nbn Ethernet (Satellite)" ;
+    :appliesTo :VNNI_ProductComponent ;
+    :conditionDescription "The V-NNI Product Component is not available in connection with nbn Ethernet (Satellite)." .
+
+:CVCClassAdjustment_Instance a :Cl_CVCClassAdjustment,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class Adjustment for nbn Ethernet (Satellite)" ;
+    :hasChargeTier :UsageTierCharge_CVC0_Tier1,
+        :UsageTierCharge_CVC0_Tier2,
+        :UsageTierCharge_CVC0_Tier3,
+        :UsageTierCharge_CVC1_Tier1,
+        :UsageTierCharge_CVC1_Tier2,
+        :UsageTierCharge_CVC2_Tier1 ;
+    :isAdditionalTo :Section_1_2,
+        :Section_2_3,
+        :Section_6 ;
+    :triggeredBy :ExceedanceEvent_BothLimitations,
+        :ExceedanceEvent_MultipleOccasions,
+        :ExcessUsageEvent_Instance ;
+    rdfs:comment "Any Charges applicable under section 6 are in addition to Charges that apply under sections 1.2 and 2.3. [extension: nbn Ethernet Price List, Section 6, Note, p.17]",
+        "Any Charges applicable under this section 6 are in addition to Charges that apply under sections 1.2 and 2.3. [extension: nbn Ethernet Price List, Section 6, Note, p.17]",
+        "CVC Class Adjustment triggered by exceedance events under section 6. [extension: nbn Ethernet Price List, Section 6, p.18]" .
+
+:CVC_ProdComp a :CVC_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Product Component" ;
+    :hasRecurringCharge :RecurringCharge_CVC_15_75 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2, p.6" .
+
+:CVC_TC1_ProdComp a :CVC_TC1_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "CVC-TC-1 Product Component" ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC,
+        :AccessTechnology_Wireless ;
+    :hasRecurringChargePerMbps :RecurringCharge_CVCTC1_17_50 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(b), p.6" .
+
+:CVC_TC4_Satellite_ProdComp a :CVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-4 Product Component (nbn Ethernet Satellite)" ;
+    :hasCVCClass :CVCClass_0 ;
+    :hasMinimumRequiredAVCs 0 ;
+    :hasRecurringCharge :RecurringCharge_CVCClass_0 ;
+    :hasTotalAssociatedAVCs 0 ;
+    rdfs:comment "CVC TC-4 Product Component for which the total number of associated AVCs during a calendar week is calculated including each AVC associated at any time during the week, regardless of dissociation. [extension: nbn Ethernet Price List, Section 6(c), p.18]" .
+
+:CVC_TC4_Satellite_ProdComp_Class1 a :CVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-4 Product Component (nbn Ethernet Satellite) - Class 1" ;
+    :hasCVCClass :CVCClass_1 ;
+    :hasMinimumRequiredAVCs 0 ;
+    :hasRecurringCharge :RecurringCharge_CVCClass_1 ;
+    :hasTotalAssociatedAVCs 0 ;
+    rdfs:comment "CVC TC-4 Product Component (Class 1) for which the total number of associated AVCs during a calendar week is calculated including each AVC associated at any time during the week, regardless of dissociation. [extension: nbn Ethernet Price List, Section 6(c), p.18]" .
+
+:CVC_TC4_Satellite_ProdComp_Class2 a :CVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-4 Product Component (nbn Ethernet Satellite) - Class 2" ;
+    :hasCVCClass :CVCClass_2 ;
+    :hasMinimumRequiredAVCs 0 ;
+    :hasRecurringCharge :RecurringCharge_CVCClass_2 ;
+    :hasTotalAssociatedAVCs 0 ;
+    rdfs:comment "CVC TC-4 Product Component (Class 2) for which the total number of associated AVCs during a calendar week is calculated including each AVC associated at any time during the week, regardless of dissociation. [extension: nbn Ethernet Price List, Section 6(c), p.18]" .
+
+:ChargeCalculationRule_FirstMonth_PostEvent a :ProRataRule,
+        owl:NamedIndividual ;
+    rdfs:label "Charge Calculation Rule: First Month portion after eSLA Change Event" ;
+    :conditionDescription "For the portion of the first month after the day on which the eSLA Change Event occurs, the Charge is calculated in accordance with the applicable Charge in section 2.2(a), without the application of any Discount, Credit, Rebate or Waiver." .
+
+:ChargeCalculationRule_FirstMonth_PreEvent a :ProRataRule,
+        owl:NamedIndividual ;
+    rdfs:label "Charge Calculation Rule: First Month portion on or before eSLA Change Event" ;
+    :conditionDescription "For the portion of the first month on or before the day on which the eSLA Change Event occurs, the Charge is calculated in accordance with the applicable Charge in this nbn Ethernet Price List and any applicable Discounts, Credits, Rebates or Waivers." .
+
+:DefaultNotice_Instance a :Cl_DefaultNotice,
+        owl:NamedIndividual ;
+    rdfs:label "Default Notice" ;
+    :hasDefault :Default_Instance ;
+    :hasNoticeName "Default Notice" ;
+    :hasNotifyingParty :nbn ;
+    rdfs:comment "A Default Notice given by one party to another when a party fails to comply with the Agreement. [extension: nbn Ethernet Price List, Section 7, p.18]" .
+
+:EarlyDisconnectionModificationCharge_Instance a :Cl_Charge,
+        :Cl_EarlyDisconnectionModificationCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Early Disconnection or Modification Charge",
+        "Early Disconnection or Modification Charge under Section 7" ;
+    :appliesToOrderedProduct :OrderedProduct_DisconnectedViaSTO,
+        :OrderedProduct_WithAVCTC2 ;
+    :currency "AUD" ;
+    :hasChargeFormula :ChargeFormula_Section7,
+        :ChargeFormula_Section7_Cancellation,
+        :ChargeFormula_Section7_DisconnectionModification,
+        :ChargeFormula_Section7_Modification ;
+    :hasChargeRule :EarlyDisconnectionModificationCharge_Rule ;
+    :hasDurationInMonths 12 ;
+    :hasExemptionCondition :ExemptionCondition_ServiceTransferOrder,
+        :ExemptionCondition_UnsuccessfulNetworkActivity ;
+    :hasTriggerEvent :TriggerEvent_Cancellation,
+        :TriggerEvent_Disconnection,
+        :TriggerEvent_Modification ;
+    :sourceClause "nbn Ethernet Price List, Section 7, p.19" ;
+    rdfs:comment "Charge triggered when an AVC TC-2 Product Component is cancelled, disconnected, or modified within 12 months of order completion, calculated as (Pre - Post) x Shortfall Period. [extension: nbn Ethernet Price List, Section 7, p.19]",
+        "Charge triggered when an AVC TC-2 Product Component is cancelled, disconnected, or modified within 12 months of order completion. [extension: nbn Ethernet Price List, Section 7, p.18]" .
+
+:EnhancedFaultRectification_Enhanced12 a :EnhancedFaultRectificationService,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced Fault Rectification Service Enhanced-12" ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC,
+        :AccessTechnology_Wireless ;
+    :hasRecurringCharge :RecurringCharge_Enhanced12_15_50 ;
+    :hasServiceOption :ServiceOption_Enhanced12 .
+
+:EnhancedFaultRectification_Enhanced12_24_7 a :EnhancedFaultRectificationService,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced Fault Rectification Service Enhanced-12 (24/7)" ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_Enhanced12_24_7_15_00 ;
+    :hasServiceOption :ServiceOption_Enhanced12_24_7 .
+
+:EnhancedFaultRectification_Enhanced4 a :EnhancedFaultRectificationService,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced Fault Rectification Service Enhanced-4" ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_Enhanced4_42_40 ;
+    :hasServiceOption :ServiceOption_Enhanced4 .
+
+:EnhancedFaultRectification_Enhanced6 a :EnhancedFaultRectificationService,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced Fault Rectification Service Enhanced-6" ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_Enhanced6_34_50 ;
+    :hasServiceOption :ServiceOption_Enhanced6 .
+
+:EnhancedFaultRectification_Enhanced6_24_7 a :EnhancedFaultRectificationService,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced Fault Rectification Service Enhanced-6 (24/7)" ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_Enhanced6_24_7_69_00 ;
+    :hasServiceOption :ServiceOption_Enhanced6_24_7 .
+
+:EnhancedFaultRectification_Enhanced8 a :EnhancedFaultRectificationService,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced Fault Rectification Service Enhanced-8" ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_Enhanced8_26_50 ;
+    :hasServiceOption :ServiceOption_Enhanced8 .
+
+:EnhancedFaultRectification_Enhanced8_24_7 a :EnhancedFaultRectificationService,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced Fault Rectification Service Enhanced-8 (24/7)" ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_Enhanced8_24_7_58_00 ;
+    :hasServiceOption :ServiceOption_Enhanced8_24_7 .
+
+:LabourRate_Instance a :Cl_LabourRate,
+        owl:NamedIndividual ;
+    rdfs:label "Labour Rate $75.00/hour" ;
+    :currency "AUD" ;
+    :hasLabourHours 1.0 ;
+    :numericValue 75.00 ;
+    :roundedUpToNextFullHour true ;
+    :sourceClause "nbn Ethernet Price List, Section 8(a), p.19" ;
+    rdfs:comment "$75.00 for each of the total number of labour hours required to perform the relevant activity (rounded up to the next full hour). [extension: nbn Ethernet Price List, Section 8(a), p.19]" .
+
+:ModifyOrder_10MbpsTo0 a :Cl_ModifyOrder,
+        owl:NamedIndividual ;
+    rdfs:label "Modify Order: 10 Mbps (CIR) to 0" ;
+    rdfs:comment "Modify Order to change AVC TC-2 bandwidth profile from 10 Mbps (CIR) to 0. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B)(2)b, p.18]" .
+
+:ModifyOrder_10MbpsTo5Mbps a :Cl_ModifyOrder,
+        owl:NamedIndividual ;
+    rdfs:label "Modify Order: 10 Mbps (CIR) to 5 Mbps (CIR)" ;
+    rdfs:comment "Modify Order to change AVC TC-2 bandwidth profile from 10 Mbps (CIR) to 5 Mbps (CIR). [extension: nbn Ethernet Price List, Section 7(b)(ii)(B)(2)a, p.18]" .
+
+:ModifyOrder_20MbpsTo0 a :Cl_ModifyOrder,
+        owl:NamedIndividual ;
+    rdfs:label "Modify Order: 20 Mbps (CIR) to 0" ;
+    rdfs:comment "Modify Order to change AVC TC-2 bandwidth profile from 20 Mbps (CIR) to 0. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B)(2)b, p.18]" .
+
+:ModifyOrder_20MbpsTo5Mbps a :Cl_ModifyOrder,
+        owl:NamedIndividual ;
+    rdfs:label "Modify Order: 20 Mbps (CIR) to 5 Mbps (CIR)" ;
+    rdfs:comment "Modify Order to change AVC TC-2 bandwidth profile from 20 Mbps (CIR) to 5 Mbps (CIR). [extension: nbn Ethernet Price List, Section 7(b)(ii)(B)(2)a, p.18]" .
+
+:ModifyOrder_5MbpsTo0 a :Cl_ModifyOrder,
+        owl:NamedIndividual ;
+    rdfs:label "Modify Order: 5 Mbps (CIR) to 0" ;
+    rdfs:comment "Modify Order to change AVC TC-2 bandwidth profile from 5 Mbps (CIR) to 0. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B)(2)c, p.18]" .
+
+:Note_CVCClass_AdditionalCharges a owl:NamedIndividual ;
+    rdfs:label "Note: CVC Class charges are in addition to sections 1.2 and 6" ;
+    rdfs:comment "Any Charges applicable under section 2.3 are in addition to any Charges that apply under sections 1.2 and 6. [extension: nbn Ethernet Price List, Section 2.3, Note, p.10]" .
+
+:OrderedProduct_FTTB_FTTN a :OrderedProduct,
+        owl:NamedIndividual ;
+    rdfs:label "Ordered Product supplied by means of FTTB Network or FTTN Network" ;
+    :hasNetworkActivity :NetworkActivity_Instance ;
+    rdfs:comment "An nbn Ethernet Ordered Product supplied (or to be supplied) by means of the FTTB Network or FTTN Network, to which section 7 applies. [extension: nbn Ethernet Price List, Section 7(a), p.18]" .
+
+:OrderedProduct_Instance a :OrderedProduct,
+        owl:NamedIndividual ;
+    rdfs:label "Ordered Product (any symmetrical AVC TC-1 >= 0.15Mbps)" ;
+    :providesRebateOrCredit :RebateOrCredit_Instance ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4, Note, p.6" .
+
+:ProRataRule_CVC_TC2 a :ProRataRule,
+        owl:NamedIndividual ;
+    rdfs:label "Pro-Rata Rule for CVC TC-2 Bandwidth" ;
+    :conditionDescription "Changes in capacity across a Billing Period are accounted for on a pro-rata daily basis." .
+
+:RSP_Instance a :RSP,
+        owl:NamedIndividual ;
+    rdfs:label "Retail Service Provider" ;
+    :hasExceedance :ExceedanceEvent_BothLimitations,
+        :ExceedanceEvent_MultipleOccasions ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4, Note, p.6" ;
+    rdfs:comment "RSP that may exceed download and upload limitations triggering charges under section 6. [extension: nbn Ethernet Price List, Section 6(d)-(e), p.18]" .
+
+:SatelliteLabourRate_Instance a :Cl_SatelliteLabourRate,
+        owl:NamedIndividual ;
+    rdfs:label "Satellite Labour Rate $98.00/hour" ;
+    :currency "AUD" ;
+    :hasLabourHours 1.0 ;
+    :numericValue 98.00 ;
+    :roundedUpToNextFullHour true ;
+    :sourceClause "nbn Ethernet Price List, Section 8(b), p.19" ;
+    rdfs:comment "$98.00 for each of the total number of labour hours required to perform the relevant activity (rounded up to the next full hour). [extension: nbn Ethernet Price List, Section 8(b), p.19]" .
+
+:Satellite_Test_Service a owl:NamedIndividual ;
+    rdfs:label "Satellite Test Service" ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4, Note, p.6" ;
+    rdfs:comment "To be read subject to section 34 of the nbn Ethernet Product Terms. [extension: nbn Ethernet Price List, Section 1.4, Note, p.6]" .
+
+:SecondUNIV_AVCTC1_Bundle_Instance a :SecondUNIV_AVCTC1_Bundle,
+        owl:NamedIndividual ;
+    rdfs:label "Second UNI-V and AVC TC-1 bundle (0.15 Mbps, Fibre)" ;
+    :hasBandwidthTierMbps 0.15 ;
+    :hasNetworkType :AccessTechnology_FIBRE ;
+    :hasRecurringCharge :RecurringCharge_SecondUNIV_17_50 .
+
+:Section_7 a :Cl_ChargeSection,
+        owl:NamedIndividual ;
+    rdfs:label "Section 7" ;
+    rdfs:comment "Section 7 of the nbn Ethernet Price List (Early disconnection or modification of AVC TC-2 Product Component). [extension: nbn Ethernet Price List, Section 7, p.18]" .
+
+:ServiceLevel a owl:Class ;
+    rdfs:label "ServiceLevel" ;
+    rdfs:comment "WBA availability and service levels (Network Availability, frame delay, frame loss). Not modelled." ;
+    skos:altLabel "Network Availability",
+        "Service Level",
+        "frame delay",
+        "frame loss" .
+
+:TC_1 a :TrafficClass,
+        owl:NamedIndividual ;
+    rdfs:label "TC-1" ;
+    :name "Priority / realtime" .
+
+:TC_2 a :TrafficClass,
+        owl:NamedIndividual ;
+    rdfs:label "TC-2" ;
+    :name "Interactive" .
+
+:TC_4 a :TrafficClass,
+        owl:NamedIndividual ;
+    rdfs:label "TC-4" ;
+    :name "Best effort / bulk" .
+
+:UNI_Inclusion_Instance a :UNI_Inclusion,
+        owl:NamedIndividual ;
+    rdfs:label "UNI Inclusion per Section 1.3" ;
+    :conditionalOn :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC,
+        :AccessTechnology_Wireless ;
+    :hasIncludedAVCTC1 :AVC_TC1_ProdComp_0_15_AllNetworks ;
+    :hasUNI :UNI_D,
+        :UNI_DSL,
+        :UNI_V ;
+    :sourceClause "nbn Ethernet Price List, Section 1.3, p.6" .
+
+:actionType a owl:ObjectProperty ;
+    rdfs:label "action_type" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :ActionType .
+
+:addressesConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "addresses_constraint_ids" ;
+    rdfs:comment "'|'-separated constraint ids covered, scoped to a resource." ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:addressesRule a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :PlanningRule .
+
+:amountEquals a owl:ObjectProperty ;
+    rdfs:label "amountEquals" ;
+    rdfs:comment "Links a Rebate or Credit to the Recurring Charge whose amount it equals. [extension: nbn Ethernet Price List, Section 1.4, p.6]" ;
+    rdfs:domain :RebateOrCredit ;
+    rdfs:range :RecurringCharge .
+
+:appliesTo a owl:ObjectProperty ;
+    rdfs:label "appliesTo" ;
+    rdfs:comment "Links a FlatRateAVCCharge to the AVC TC-4 Product Component or CVC TC-4 capacity it applies to. [extension: nbn Ethernet Price List, Section 1.1]",
+        "Links a Rebate or Credit to the Product Component it applies to. [extension: nbn Ethernet Price List, Section 1.4, p.6]" ;
+    rdfs:domain :FlatRateAVCCharge,
+        :RebateOrCredit ;
+    rdfs:range :AVC_TC4_ProductComponent,
+        :ProductComponent .
+
+:appliesToBandwidth a owl:ObjectProperty ;
+    rdfs:label "appliesToBandwidth" ;
+    rdfs:comment "Links an OrderedBandwidth or IncludedBandwidth to the CVC TC-2 Product Component it applies to. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" ;
+    rdfs:domain :OrderedBandwidth ;
+    rdfs:range :CVC_TC2_ProductComponent .
+
+:appliesToNetworkType a owl:ObjectProperty ;
+    rdfs:label "appliesToNetworkType" ;
+    rdfs:comment "Links a Product Feature or Charge to the network type it applies to. [extension: nbn Ethernet Price List, Section 2.4, p.10]" ;
+    rdfs:domain :ProductFeatures ;
+    rdfs:range :AccessTechnology .
+
+:appliesToOrderedProduct a owl:ObjectProperty ;
+    rdfs:label "applies to ordered product" ;
+    rdfs:comment "Links a section 7 charge to the ordered product it applies to. [extension: nbn Ethernet Price List, Section 7(a), p.18]" ;
+    rdfs:domain :Cl_EarlyDisconnectionModificationCharge ;
+    rdfs:range :OrderedProduct .
+
+:assessedAs a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :ActionAssessment .
+
+:associatedWith a owl:ObjectProperty ;
+    rdfs:label "associatedWith" ;
+    rdfs:comment "Links an AVC TC-2 Product Component to the CVC TC-2 Product Component it is associated with. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" ;
+    rdfs:domain :AVC_TC2_ProductComponent ;
+    rdfs:range :CVC_TC2_ProductComponent .
+
+:availableGbps a owl:DatatypeProperty ;
+    rdfs:label "available_gbps" ;
+    rdfs:comment "= protected - current load" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:avcs a owl:DatatypeProperty ;
+    rdfs:label "avcs" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:averageUtilisationThresholdMbps a owl:DatatypeProperty ;
+    rdfs:label "averageUtilisationThresholdMbps" ;
+    rdfs:comment "The average utilisation threshold in Mbps for a usage condition. [extension: nbn Ethernet Price List, Note 4, p.5]" ;
+    rdfs:domain :UsageCondition ;
+    rdfs:range xsd:decimal .
+
+:bandwidthTierMbps a owl:DatatypeProperty ;
+    rdfs:label "bandwidth_tier_mbps" ;
+    rdfs:domain :AVC ;
+    rdfs:range xsd:integer .
+
+:bandwidthValue a owl:DatatypeProperty ;
+    rdfs:label "bandwidthValue" ;
+    rdfs:comment "The numeric value of a bandwidth tier in symmetrical Mbps (CIR). [extension: nbn Ethernet Price List, Section 1.4, p.6]" ;
+    rdfs:domain :BandwidthTier ;
+    rdfs:range xsd:decimal .
+
+:bearerRateGbps a owl:DatatypeProperty ;
+    rdfs:label "bearer_rate_gbps" ;
+    rdfs:comment "Interface rate of every bearer in the group." ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:bearers a owl:DatatypeProperty ;
+    rdfs:label "bearers" ;
+    rdfs:comment "Number of bearers. Config product_rules: max_bearers_per_nni=8, by rate (Gbps) {'1': 2, '10': 4, '100': 8}." ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:integer .
+
+:belongsToSegment a owl:ObjectProperty ;
+    rdfs:domain :AVC ;
+    rdfs:range :CustomerSegment .
+
+:blockedBy a owl:DatatypeProperty ;
+    rdfs:label "blocked_by" ;
+    rdfs:comment "Blocking rule ids; BEARER_CEILING when the per-rate bearer limit blocks it.",
+        "Rule id blocking use, e.g. EP-02." ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:blockedByRule a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :PlanningRule .
+
+:busyHourFactor a owl:DatatypeProperty ;
+    rdfs:label "busy_hour_factor" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:double .
+
+:capacityGbps a owl:DatatypeProperty ;
+    rdfs:label "capacity_gbps" ;
+    rdfs:comment "= protected_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:carries a owl:ObjectProperty ;
+    rdfs:domain :CVC ;
+    rdfs:range :CSA .
+
+:commitmentPct a owl:DatatypeProperty ;
+    rdfs:label "commitment_pct" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:conditionDescription a owl:DatatypeProperty ;
+    rdfs:label "conditionDescription" ;
+    rdfs:comment "A textual description of a condition. [extension: nbn Ethernet Price List, Note 4, p.5]" ;
+    rdfs:domain :BasicOfferCondition,
+        :Day,
+        :UsageCondition ;
+    rdfs:range xsd:string .
+
+:conditionalOn a owl:ObjectProperty ;
+    rdfs:label "conditionalOn" ;
+    rdfs:comment "Links a UNI Inclusion to the Access Technology it is conditional on. [extension: nbn Ethernet Price List, Section 1.3, p.6]" ;
+    rdfs:domain :UNI_Inclusion ;
+    rdfs:range :AccessTechnology .
+
+:consumes a owl:ObjectProperty ;
+    rdfs:domain :CVC ;
+    rdfs:range :TrafficClass .
+
+:contractualGbps a owl:DatatypeProperty ;
+    rdfs:label "contractual_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:currency a owl:DatatypeProperty ;
+    rdfs:label "currency" ;
+    rdfs:comment "The currency of a Monetary Amount (e.g. 'AUD'). [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :MonetaryAmount ;
+    rdfs:range xsd:string .
+
+:currentBandwidthGbps a owl:DatatypeProperty ;
+    rdfs:label "current_bandwidth_gbps" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:double .
+
+:currentLoadGbps a owl:DatatypeProperty ;
+    rdfs:label "current_load_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:dependsOn a owl:ObjectProperty ;
+    rdfs:label "dependsOn" ;
+    rdfs:comment "Links a Recurring Charge to the Product Features that determine its value. [extension: nbn Ethernet Price List, Section 1]" ;
+    rdfs:domain :RecurringCharge ;
+    rdfs:range :ProductFeatures .
+
+:duration a owl:DatatypeProperty ;
+    rdfs:label "duration" ;
+    rdfs:comment "The duration of a Billing Period (ISO 8601 format). [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :BillingPeriod ;
+    rdfs:range xsd:string .
+
+:evidence a owl:DatatypeProperty ;
+    rdfs:label "evidence" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:exceedsDownloadLimitation a owl:ObjectProperty ;
+    rdfs:label "exceeds download limitation" ;
+    rdfs:comment "Links an exceedance event to the average download limitation that was exceeded. [extension: nbn Ethernet Price List, Section 6(d), p.18]" ;
+    rdfs:domain :Cl_ExceedanceEvent ;
+    rdfs:range :Threshold .
+
+:exceedsUploadLimitation a owl:ObjectProperty ;
+    rdfs:label "exceeds upload limitation" ;
+    rdfs:comment "Links an exceedance event to the average upload limitation that was exceeded. [extension: nbn Ethernet Price List, Section 6(d), p.18]" ;
+    rdfs:domain :Cl_ExceedanceEvent ;
+    rdfs:range :Threshold .
+
+:failureDomain a owl:DatatypeProperty ;
+    rdfs:label "failure_domain" ;
+    rdfs:comment "Cluster A/B the bearer lands in." ;
+    rdfs:domain :Bearer ;
+    rdfs:range xsd:string .
+
+:feasible a owl:DatatypeProperty ;
+    rdfs:label "feasible" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:boolean .
+
+:forScenario a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :Scenario .
+
+:forecastGrowthPct a owl:DatatypeProperty ;
+    rdfs:label "forecast_growth_pct" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:double .
+
+:hasAccessTechnology a owl:ObjectProperty ;
+    rdfs:label "hasAccessTechnology" ;
+    rdfs:comment "Links an AVC TC-4 Product Component to its Access Technology. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :AVC_TC4_ProductComponent ;
+    rdfs:range :AccessTechnology .
+
+:hasActivity a owl:ObjectProperty ;
+    rdfs:label "has activity" ;
+    rdfs:comment "Links a reified activity charge to the service management activity. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:domain :Cl_ActivityCharge ;
+    rdfs:range :Cl_ServiceManagementActivity .
+
+:hasAmount a owl:ObjectProperty ;
+    rdfs:label "hasAmount" ;
+    rdfs:comment "Links a Recurring Charge to its Monetary Amount. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :RecurringCharge ;
+    rdfs:range :MonetaryAmount .
+
+:hasAreaType a owl:ObjectProperty ;
+    rdfs:label "has area type" ;
+    rdfs:comment "Links a reified activity charge to the area type. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:domain :Cl_ActivityCharge ;
+    rdfs:range :Cl_AreaType .
+
+:hasAssociatedAVC a owl:ObjectProperty ;
+    rdfs:label "has associated AVC" ;
+    rdfs:comment "Links a CVC TC-4 to an AVC that is associated with it during a calendar week. [extension: nbn Ethernet Price List, Section 6(c), p.18]" ;
+    rdfs:domain :CVC_TC4_ProductComponent ;
+    rdfs:range :AVC .
+
+:hasBandwidthProfile a owl:ObjectProperty ;
+    rdfs:label "has bandwidth profile" ;
+    rdfs:comment "Links an AVC TC-2 Product Component to its bandwidth profile. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B)(2), p.18]" ;
+    rdfs:domain :AVC_TC2_ProductComponent ;
+    rdfs:range :BandwidthProfile .
+
+:hasBandwidthProfileCIR a owl:DatatypeProperty ;
+    rdfs:label "has bandwidth profile CIR" ;
+    rdfs:comment "The CIR value in Mbps of a bandwidth profile. [extension: nbn Ethernet Price List, Section 7, p.19]" ;
+    rdfs:domain :BandwidthProfile ;
+    rdfs:range xsd:decimal .
+
+:hasBandwidthTier a owl:ObjectProperty ;
+    rdfs:label "hasBandwidthTier" ;
+    rdfs:comment "Links an AVC TC-1 Product Component to its symmetrical bandwidth tier (CIR). [extension: nbn Ethernet Price List, Section 1.4, p.6]" ;
+    rdfs:domain :AVC_TC1_ProductComponent ;
+    rdfs:range :BandwidthTier .
+
+:hasBandwidthTierMbps a owl:DatatypeProperty ;
+    rdfs:label "hasBandwidthTierMbps" ;
+    rdfs:comment "The symmetrical Mbps (CIR) value for a bandwidth tier. [extension: nbn Ethernet Price List, Section 2.1, p.9]" ;
+    rdfs:domain :SecondUNIV_AVCTC1_Bundle ;
+    rdfs:range xsd:decimal .
+
+:hasBasicOfferCondition a owl:ObjectProperty ;
+    rdfs:label "hasBasicOfferCondition" ;
+    rdfs:comment "Links an AVC TC-4 Product Component to its Basic Offer Condition. [extension: nbn Ethernet Price List, Note 4, p.5]" ;
+    rdfs:domain :AVC_TC4_ProductComponent ;
+    rdfs:range :BasicOfferCondition .
+
+:hasBearer a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :Bearer .
+
+:hasBillingPeriod a owl:ObjectProperty ;
+    rdfs:label "hasBillingPeriod" ;
+    rdfs:comment "Links a Recurring Charge to its Billing Period. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :RecurringCharge ;
+    rdfs:range :BillingPeriod .
+
+:hasCIRObjective a owl:ObjectProperty ;
+    rdfs:label "has CIR objective" ;
+    rdfs:comment "Links an AVC TC-2 bandwidth profile or ordered product to its CIR Objective. [extension: nbn Ethernet Price List, Section 7(d), p.19]" ;
+    rdfs:range :Cl_CIRObjective .
+
+:hasCVCClass a owl:ObjectProperty ;
+    rdfs:label "has CVC class",
+        "hasCVCClass" ;
+    rdfs:comment "Links a CVC TC-4 Product Component to its CVC Class attribute. [extension: nbn Ethernet Price List, Section 2.3, p.10]",
+        "Links a usage tier charge to the Ordered CVC Class. [extension: nbn Ethernet Price List, Section 6(a), p.17]" ;
+    rdfs:domain :CVC_TC4_ProductComponent,
+        :Cl_UsageTierCharge ;
+    rdfs:range :CVCClass .
+
+:hasCalendarWeek a owl:ObjectProperty ;
+    rdfs:label "has calendar week" ;
+    rdfs:comment "Links an excess usage event or exceedance event to the calendar week in which it occurred. [extension: nbn Ethernet Price List, Section 6, p.18]" ;
+    rdfs:domain :Cl_ExcessUsageEvent ;
+    rdfs:range :Cl_CalendarWeek .
+
+:hasCapacityPool a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :CapacityPool .
+
+:hasCharge a owl:ObjectProperty ;
+    rdfs:label "has charge" ;
+    rdfs:comment "Links a service management activity to its reified activity charge. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:domain :Cl_ServiceManagementActivity ;
+    rdfs:range :Cl_ActivityCharge .
+
+:hasChargeFormula a owl:ObjectProperty ;
+    rdfs:label "has charge formula" ;
+    rdfs:comment "Links a Charge to its reified ChargeFormula. [extension: nbn Ethernet Price List, Section 7(c), p.19]" ;
+    rdfs:domain :Cl_Charge ;
+    rdfs:range :Cl_ChargeFormula .
+
+:hasChargePerAVC a owl:ObjectProperty ;
+    rdfs:label "has charge per AVC" ;
+    rdfs:comment "Links a usage tier charge to the monetary amount per each associated AVC TC-4. [extension: nbn Ethernet Price List, Section 6(a), p.17]" ;
+    rdfs:domain :Cl_UsageTierCharge ;
+    rdfs:range :MonetaryAmount .
+
+:hasChargeRule a owl:ObjectProperty ;
+    rdfs:label "has charge rule" ;
+    rdfs:comment "Links an early disconnection/modification charge to the charge rule that governs it. [extension: nbn Ethernet Price List, Section 7, p.18]" ;
+    rdfs:domain :Cl_EarlyDisconnectionModificationCharge ;
+    rdfs:range :Cl_ChargeRule .
+
+:hasChargeTier a owl:ObjectProperty ;
+    rdfs:label "has charge tier" ;
+    rdfs:comment "Links a CVC Class adjustment to its usage tier charges. [extension: nbn Ethernet Price List, Section 6(a), p.17]" ;
+    rdfs:domain :Cl_CVCClassAdjustment ;
+    rdfs:range :Cl_UsageTierCharge .
+
+:hasCondition a owl:ObjectProperty ;
+    rdfs:label "hasCondition" ;
+    rdfs:comment "Links an NNI Bearer Product Component to the condition for reduced charges. [extension: nbn Ethernet Price List, Section 1.6(b)-(c), p.8]" ;
+    rdfs:domain :NNIBearerProductComponent ;
+    rdfs:range :ReducedChargeCondition .
+
+:hasConditionTrigger a owl:ObjectProperty ;
+    rdfs:label "hasConditionTrigger" ;
+    rdfs:comment "Links a Basic Offer Condition to the Usage Condition that triggers it. [extension: nbn Ethernet Price List, Note 4, p.5]" ;
+    rdfs:domain :BasicOfferCondition ;
+    rdfs:range :UsageCondition .
+
+:hasCost a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :CostItem .
+
+:hasDayDefinition a owl:ObjectProperty ;
+    rdfs:label "hasDayDefinition" ;
+    rdfs:comment "Links a Basic Offer Condition to the Day definition it uses. [extension: nbn Ethernet Price List, Note 4, p.5]" ;
+    rdfs:domain :BasicOfferCondition ;
+    rdfs:range :Day .
+
+:hasDefault a owl:ObjectProperty ;
+    rdfs:label "has default" ;
+    rdfs:comment "Links a Default Notice to the Default that triggered it. [extension: nbn Ethernet Price List, Section 7, p.18]" ;
+    rdfs:domain :Cl_DefaultNotice ;
+    rdfs:range :Cl_Default .
+
+:hasDownstreamPIR a owl:ObjectProperty ;
+    rdfs:label "hasDownstreamPIR" ;
+    rdfs:comment "Links an AVC TC-4 Product Component to its Downstream PIR. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :AVC_TC4_ProductComponent ;
+    rdfs:range :DownstreamPIR .
+
+:hasDownstreamRange a owl:ObjectProperty ;
+    rdfs:label "hasDownstreamRange" ;
+    rdfs:comment "Links a ProductFeatures to a DownstreamPIR that defines a range. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :ProductFeatures ;
+    rdfs:range :DownstreamPIR .
+
+:hasDurationISO8601 a owl:DatatypeProperty ;
+    rdfs:label "has duration ISO 8601" ;
+    rdfs:comment "The duration of a time interval in ISO 8601 format. [extension: nbn Ethernet Price List, Section 7(c)(iii), p.19]" ;
+    rdfs:domain :TimeInterval ;
+    rdfs:range xsd:string .
+
+:hasDurationInMonths a owl:DatatypeProperty ;
+    rdfs:label "has duration in months" ;
+    rdfs:comment "The duration in months for a period. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B), p.18]" ;
+    rdfs:domain :Cl_EarlyDisconnectionModificationCharge ;
+    rdfs:range xsd:integer .
+
+:hasDurationUnit a owl:DatatypeProperty ;
+    rdfs:label "has duration unit" ;
+    rdfs:comment "The unit of measure for a duration. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B), p.18]" ;
+    rdfs:domain :Cl_CalendarWeek ;
+    rdfs:range xsd:string .
+
+:hasDurationValue a owl:DatatypeProperty ;
+    rdfs:label "has duration value" ;
+    rdfs:comment "The numeric value of a duration. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B), p.18]" ;
+    rdfs:domain :Cl_CalendarWeek ;
+    rdfs:range xsd:integer .
+
+:hasESLAChangeEvent a owl:ObjectProperty ;
+    rdfs:label "hasESLAChangeEvent" ;
+    rdfs:comment "Links an Enhanced Fault Rectification Service to an eSLA Change Event that occurs in respect of it. [extension: nbn Ethernet Price List, Section 2.2(e), p.10]" ;
+    rdfs:domain :EnhancedFaultRectificationService ;
+    rdfs:range :ESLAChangeEvent .
+
+:hasEndTime a owl:DatatypeProperty ;
+    rdfs:label "has end time" ;
+    rdfs:comment "The end time of a time interval. [extension: nbn Ethernet Price List, Section 6(f), p.18]" ;
+    rdfs:domain :TimeInterval ;
+    rdfs:range xsd:string .
+
+:hasExceedance a owl:ObjectProperty ;
+    rdfs:label "has exceedance" ;
+    rdfs:comment "Links an RSP to an exceedance event. [extension: nbn Ethernet Price List, Section 6(d)-(e), p.18]" ;
+    rdfs:domain :RSP ;
+    rdfs:range :Cl_ExceedanceEvent .
+
+:hasExemptionCondition a owl:ObjectProperty ;
+    rdfs:label "has exemption condition",
+        "hasExemptionCondition" ;
+    rdfs:comment "Links a Charge to an ExemptionCondition under which it does not apply. [extension: nbn Ethernet Price List, Section 7(d), p.19]",
+        "Links an eSLA Change Event to the condition under which section 2.2(b) does not apply. [extension: nbn Ethernet Price List, Section 2.2(d), p.10]" ;
+    rdfs:domain :Cl_Charge,
+        :ESLAChangeEvent ;
+    rdfs:range :BasicOfferCondition,
+        :Cl_ExemptionCondition .
+
+:hasFirstMonth a owl:ObjectProperty ;
+    rdfs:label "hasFirstMonth" ;
+    rdfs:comment "Links an Enhanced Fault Rectification Service to its First Month temporal interval. [extension: nbn Ethernet Price List, Section 2.2(b), p.10]" ;
+    rdfs:domain :EnhancedFaultRectificationService ;
+    rdfs:range :FirstMonth .
+
+:hasIncidentals a owl:ObjectProperty ;
+    rdfs:label "has incidentals" ;
+    rdfs:comment "Links a reified activity charge to incidentals that may apply. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:domain :Cl_ActivityCharge ;
+    rdfs:range :Cl_Incidentals .
+
+:hasIncludedAVCTC1 a owl:ObjectProperty ;
+    rdfs:label "hasIncludedAVCTC1" ;
+    rdfs:comment "Links a UNI Inclusion to the included AVC TC-1 Product Component. [extension: nbn Ethernet Price List, Section 1.3, p.6]" ;
+    rdfs:domain :UNI_Inclusion ;
+    rdfs:range :AVC_TC1_ProductComponent .
+
+:hasIncludedBandwidth a owl:ObjectProperty ;
+    rdfs:label "hasIncludedBandwidth" ;
+    rdfs:comment "Links a CVC TC-2 Product Component to its Included Bandwidth. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" ;
+    rdfs:domain :CVC_TC2_ProductComponent ;
+    rdfs:range :IncludedBandwidth .
+
+:hasLabourHours a owl:DatatypeProperty ;
+    rdfs:label "has labour hours" ;
+    rdfs:comment "The total number of labour hours required to perform the relevant activity. [extension: nbn Ethernet Price List, Section 8, p.19]" ;
+    rdfs:range xsd:decimal .
+
+:hasLosingRSP a owl:ObjectProperty ;
+    rdfs:label "has losing RSP" ;
+    rdfs:comment "Links a Service Transfer Order to the Losing RSP. [extension: nbn Ethernet Price List, Section 7(d)(ii), p.19]" ;
+    rdfs:domain :Cl_ServiceTransferOrder ;
+    rdfs:range :Party .
+
+:hasLowerBound a owl:DatatypeProperty ;
+    rdfs:label "has lower bound" ;
+    rdfs:comment "The lower bound of a usage range. [extension: nbn Ethernet Price List, Section 6(a), p.17]" ;
+    rdfs:domain :Cl_UsageRange ;
+    rdfs:range xsd:string .
+
+:hasMinimumRequiredAVCs a owl:DatatypeProperty ;
+    rdfs:label "has minimum required AVCs" ;
+    rdfs:comment "The minimum number of AVCs that RSP was required to associate with the relevant CVC TC-4 under section 2.2(d) of the nbn Ethernet Product Description. [extension: nbn Ethernet Price List, Section 6(b)(ii), p.18]" ;
+    rdfs:domain :CVC_TC4_ProductComponent ;
+    rdfs:range xsd:integer .
+
+:hasModifyOrder a owl:ObjectProperty ;
+    rdfs:label "has modify order" ;
+    rdfs:comment "Links an AVC TC-2 Product Component to a modify order event that modifies its bandwidth profile. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B)(2), p.18]" ;
+    rdfs:domain :AVC_TC2_ProductComponent ;
+    rdfs:range :Cl_ModifyOrder .
+
+:hasMonetaryAmount a owl:ObjectProperty ;
+    rdfs:label "has monetary amount" ;
+    rdfs:comment "Links a reified charge to its monetary amount. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:domain :Cl_ActivityCharge,
+        :Cl_UsageTierCharge ;
+    rdfs:range :MonetaryAmount .
+
+:hasName a owl:ObjectProperty ;
+    rdfs:label "hasName" ;
+    rdfs:comment "Links an AVC TC-4 Product Component to its Product Component Name. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :AVC_TC4_ProductComponent ;
+    rdfs:range :ProductComponentName .
+
+:hasNetworkActivity a owl:ObjectProperty ;
+    rdfs:label "has network activity" ;
+    rdfs:comment "Links an Ordered Product to the Network Activity required in respect of it. [extension: nbn Ethernet Price List, Section 7(b)(i), p.18]" ;
+    rdfs:domain :OrderedProduct ;
+    rdfs:range :Cl_NetworkActivity .
+
+:hasNetworkActivityOutcome a owl:DatatypeProperty ;
+    rdfs:label "has network activity outcome" ;
+    rdfs:comment "Indicates whether Network Activity to achieve the CIR Objective was unsuccessful. [extension: nbn Ethernet Price List, Section 7(d)(i), p.19]" ;
+    rdfs:range xsd:boolean .
+
+:hasNetworkType a owl:ObjectProperty ;
+    rdfs:label "hasNetworkType" ;
+    rdfs:comment "Links a Product Component to its Access Technology / network type. [extension: nbn Ethernet Price List, Section 1.4, p.6]" ;
+    rdfs:domain :ProductComponent ;
+    rdfs:range :AccessTechnology .
+
+:hasNni a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :NNI .
+
+:hasNoticeName a owl:DatatypeProperty ;
+    rdfs:label "has notice name" ;
+    rdfs:comment "The name of a notice. [extension: nbn Ethernet Price List, Section 7, p.18]" ;
+    rdfs:domain :Cl_DefaultNotice ;
+    rdfs:range xsd:string .
+
+:hasNotificationStatus a owl:DatatypeProperty ;
+    rdfs:label "has notification status" ;
+    rdfs:comment "Indicates whether nbn has notified RSP about Network Activity outcome. [extension: nbn Ethernet Price List, Section 7(d)(i), p.19]" ;
+    rdfs:range xsd:boolean .
+
+:hasNotifyingParty a owl:ObjectProperty ;
+    rdfs:label "has notifying party" ;
+    rdfs:comment "Links a Default Notice to the party that gives the notice. [extension: nbn Ethernet Price List, Section 7, p.18]" ;
+    rdfs:domain :Cl_DefaultNotice ;
+    rdfs:range :Party .
+
+:hasNumericValue a owl:DatatypeProperty ;
+    rdfs:label "hasNumericValue" ;
+    rdfs:comment "The numeric value of a bandwidth quantity in Mbps. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" ;
+    rdfs:domain :IncludedBandwidth,
+        :OrderedBandwidth ;
+    rdfs:range xsd:decimal .
+
+:hasOrderCompleted a owl:ObjectProperty ;
+    rdfs:label "has order completed event" ;
+    rdfs:comment "Links an AVC TC-2 Product Component to the order completed event that starts the 12-month period. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B), p.18]" ;
+    rdfs:domain :AVC_TC2_ProductComponent ;
+    rdfs:range :Cl_OrderCompleted .
+
+:hasOrderedAVCTC2 a owl:ObjectProperty ;
+    rdfs:label "has ordered AVC TC-2" ;
+    rdfs:comment "Links a Service Transfer Order to the AVC TC-2 Product Component ordered by the Other Gaining RSP. [extension: nbn Ethernet Price List, Section 7(d)(ii), p.19]" ;
+    rdfs:domain :Cl_ServiceTransferOrder ;
+    rdfs:range :AVC_TC2_ProductComponent .
+
+:hasOrderedBandwidth a owl:ObjectProperty ;
+    rdfs:label "hasOrderedBandwidth" ;
+    rdfs:comment "Links a CVC TC-2 Product Component to its Ordered Bandwidth. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" ;
+    rdfs:domain :CVC_TC2_ProductComponent ;
+    rdfs:range :OrderedBandwidth .
+
+:hasOtherGainingRSP a owl:ObjectProperty ;
+    rdfs:label "has other gaining RSP" ;
+    rdfs:comment "Links a Service Transfer Order to the Other Gaining RSP. [extension: nbn Ethernet Price List, Section 7(d)(ii), p.19]" ;
+    rdfs:domain :Cl_ServiceTransferOrder ;
+    rdfs:range :Party .
+
+:hasPostDisconnectionModificationCharges a owl:ObjectProperty ;
+    rdfs:label "has post disconnection modification charges" ;
+    rdfs:comment "Links a Charge or ChargeFormula to the Post Disconnection Modification Charges component. [extension: nbn Ethernet Price List, Section 7(c), p.19]" ;
+    rdfs:domain :Cl_ChargeFormula ;
+    rdfs:range :Cl_PostDisconnectionModificationCharges .
+
+:hasPreDisconnectionModificationCharges a owl:ObjectProperty ;
+    rdfs:label "has pre disconnection modification charges" ;
+    rdfs:comment "Links a Charge or ChargeFormula to the Pre Disconnection Modification Charges component. [extension: nbn Ethernet Price List, Section 7(c), p.19]" ;
+    rdfs:domain :Cl_ChargeFormula ;
+    rdfs:range :Cl_PreDisconnectionModificationCharges .
+
+:hasProRataDailyBasis a owl:DatatypeProperty ;
+    rdfs:label "has pro rata daily basis" ;
+    rdfs:comment "Indicates that a calculation is performed on a pro rata daily basis. [extension: nbn Ethernet Price List, Section 7(c)(iii)(B), p.19]" ;
+    rdfs:range xsd:boolean .
+
+:hasProRataRule a owl:ObjectProperty ;
+    rdfs:label "hasProRataRule" ;
+    rdfs:comment "Links a Basic Offer Condition to its Pro-Rata Rule. [extension: nbn Ethernet Price List, Note 4, p.5]" ;
+    rdfs:domain :BasicOfferCondition ;
+    rdfs:range :ProRataRule .
+
+:hasProductFeatures a owl:ObjectProperty ;
+    rdfs:label "hasProductFeatures" ;
+    rdfs:comment "Links a Recurring Charge to the Product Features it depends on. [extension: nbn Ethernet Price List, Section 1]" ;
+    rdfs:domain :RecurringCharge ;
+    rdfs:range :ProductFeatures .
+
+:hasProfile a owl:ObjectProperty ;
+    rdfs:label "hasProfile" ;
+    rdfs:comment "Links an NNI Bearer Product Component to its NNI Bearer Profile. [extension: nbn Ethernet Price List, Section 1.6, p.8]" ;
+    rdfs:domain :NNIBearerProductComponent ;
+    rdfs:range :NNIBearerProfile .
+
+:hasRecurringCharge a owl:ObjectProperty ;
+    rdfs:label "hasRecurringCharge" ;
+    rdfs:comment "Links a Product Component to its Recurring Charge. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :AVC_TC1_ProductComponent,
+        :AVC_TC4_ProductComponent,
+        :CVC_ProductComponent,
+        :CVC_TC1_ProductComponent,
+        :CVC_TC2_ProductComponent,
+        :NNIBearerProductComponent ;
+    rdfs:range :RecurringCharge .
+
+:hasRecurringChargePerMbps a owl:ObjectProperty ;
+    rdfs:label "hasRecurringChargePerMbps" ;
+    rdfs:comment "Links a CVC TC-1 Product Component to its recurring charge per provisioned symmetrical Mbps (CIR). [extension: nbn Ethernet Price List, Section 1.4(b), p.6]",
+        "Links a CVC TC-2 Product Component to its recurring charge per provisioned symmetrical Mbps (CIR). [extension: nbn Ethernet Price List, Section 1.5(b), p.8]" ;
+    rdfs:domain :CVC_TC1_ProductComponent,
+        :CVC_TC2_ProductComponent ;
+    rdfs:range :RecurringCharge .
+
+:hasSegmentMix a owl:ObjectProperty ;
+    rdfs:domain :CSA ;
+    rdfs:range :CustomerSegment .
+
+:hasServiceOption a owl:ObjectProperty ;
+    rdfs:label "hasServiceOption" ;
+    rdfs:comment "Links an Enhanced Fault Rectification Service to its Service Option. [extension: nbn Ethernet Price List, Section 2.2, p.9]" ;
+    rdfs:domain :EnhancedFaultRectificationService ;
+    rdfs:range :ServiceOption .
+
+:hasServiceTransferOrder a owl:ObjectProperty ;
+    rdfs:label "has service transfer order" ;
+    rdfs:comment "Links an Ordered Product to a Service Transfer Order accepted by nbn. [extension: nbn Ethernet Price List, Section 7(d)(ii), p.19]" ;
+    rdfs:domain :OrderedProduct ;
+    rdfs:range :Cl_ServiceTransferOrder .
+
+:hasShortfallPeriod a owl:ObjectProperty ;
+    rdfs:label "has shortfall period" ;
+    rdfs:comment "Links a Charge or ChargeFormula to the Shortfall Period component. [extension: nbn Ethernet Price List, Section 7(c), p.19]" ;
+    rdfs:domain :Cl_ChargeFormula ;
+    rdfs:range :Cl_ShortfallPeriod .
+
+:hasStartTime a owl:DatatypeProperty ;
+    rdfs:label "has start time" ;
+    rdfs:comment "The start time of a time interval. [extension: nbn Ethernet Price List, Section 6(f), p.18]" ;
+    rdfs:domain :TimeInterval ;
+    rdfs:range xsd:string .
+
+:hasTotalAssociatedAVCs a owl:DatatypeProperty ;
+    rdfs:label "has total associated AVCs" ;
+    rdfs:comment "The total number of AVCs associated with a CVC TC-4 during a calendar week. [extension: nbn Ethernet Price List, Section 6(c), p.18]" ;
+    rdfs:domain :CVC_TC4_ProductComponent ;
+    rdfs:range xsd:integer .
+
+:hasTriggerEvent a owl:ObjectProperty ;
+    rdfs:label "has trigger event" ;
+    rdfs:comment "Links a Charge to the Trigger Event that causes it. [extension: nbn Ethernet Price List, Section 7, p.19]" ;
+    rdfs:domain :Cl_Charge ;
+    rdfs:range :Cl_TriggerEvent .
+
+:hasUNI a owl:ObjectProperty ;
+    rdfs:label "hasUNI" ;
+    rdfs:comment "Links a UNI Inclusion to the type of UNI included. [extension: nbn Ethernet Price List, Section 1.3, p.6]" ;
+    rdfs:domain :UNI_Inclusion ;
+    rdfs:range :UNI_Type .
+
+:hasUnit a owl:DatatypeProperty ;
+    rdfs:label "hasUnit" ;
+    rdfs:comment "The unit of measure for a bandwidth quantity. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" ;
+    rdfs:domain :IncludedBandwidth,
+        :OrderedBandwidth ;
+    rdfs:range xsd:string .
+
+:hasUpperBound a owl:DatatypeProperty ;
+    rdfs:label "has upper bound" ;
+    rdfs:comment "The upper bound of a usage range. [extension: nbn Ethernet Price List, Section 6(a), p.17]" ;
+    rdfs:domain :Cl_UsageRange ;
+    rdfs:range xsd:string .
+
+:hasUpstreamPIR a owl:ObjectProperty ;
+    rdfs:label "hasUpstreamPIR" ;
+    rdfs:comment "Links an AVC TC-4 Product Component to its Upstream PIR. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :AVC_TC4_ProductComponent ;
+    rdfs:range :UpstreamPIR .
+
+:hasUpstreamRange a owl:ObjectProperty ;
+    rdfs:label "hasUpstreamRange" ;
+    rdfs:comment "Links a ProductFeatures to an UpstreamPIR that defines a range. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :ProductFeatures ;
+    rdfs:range :UpstreamPIR .
+
+:hasUsageRange a owl:ObjectProperty ;
+    rdfs:label "has usage range" ;
+    rdfs:comment "Links a usage tier charge to the usage range. [extension: nbn Ethernet Price List, Section 6(a), p.17]" ;
+    rdfs:domain :Cl_UsageTierCharge ;
+    rdfs:range :Cl_UsageRange .
+
+:inRegion a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Bearer :CSA :CVC :NNIGroup :POI ) ] ;
+    rdfs:range :PlanningRegion .
+
+:includedIn a owl:ObjectProperty ;
+    rdfs:label "includedIn" ;
+    rdfs:comment "Links a UNI Inclusion to the Recurring Charge it is included in. [extension: nbn Ethernet Price List, Section 1.3, p.6]" ;
+    rdfs:domain :UNI_Inclusion ;
+    rdfs:range :RecurringCharge .
+
+:informationRateType a owl:DatatypeProperty ;
+    rdfs:label "informationRateType" ;
+    rdfs:comment "The type of Information Rate (e.g. 'Peak Information Rate (PIR)', 'potential maximum Information Rate'). [extension: nbn Ethernet Price List, Note 2, p.5]" ;
+    rdfs:domain :AVC_TC4_ProductComponent ;
+    rdfs:range xsd:string .
+
+:isAdditionalTo a owl:ObjectProperty ;
+    rdfs:label "is additional to" ;
+    rdfs:comment "Links a CVC Class adjustment to the charge sections it is in addition to. [extension: nbn Ethernet Price List, Section 6, Note, p.17]" ;
+    rdfs:domain :Cl_CVCClassAdjustment ;
+    rdfs:range :Cl_ChargeSection .
+
+:isCancelled a owl:DatatypeProperty ;
+    rdfs:label "is cancelled" ;
+    rdfs:comment "Indicates whether the order for an AVC TC-2 Product Component is cancelled. [extension: nbn Ethernet Price List, Section 7(b)(ii)(A), p.18]" ;
+    rdfs:domain :AVC_TC2_ProductComponent ;
+    rdfs:range xsd:boolean .
+
+:isCausedByDisconnection a owl:ObjectProperty ;
+    rdfs:label "isCausedByDisconnection" ;
+    rdfs:comment "Links an eSLA Change Event to the Enhanced Fault Rectification Service that is disconnected causing the event. [extension: nbn Ethernet Price List, Section 2.2(e)(i), p.10]" ;
+    rdfs:domain :ESLAChangeEvent ;
+    rdfs:range :EnhancedFaultRectificationService .
+
+:isCausedByModification a owl:ObjectProperty ;
+    rdfs:label "isCausedByModification" ;
+    rdfs:comment "Links an eSLA Change Event to the Enhanced Fault Rectification Service that is modified to change the selected option causing the event. [extension: nbn Ethernet Price List, Section 2.2(e)(ii), p.10]" ;
+    rdfs:domain :ESLAChangeEvent ;
+    rdfs:range :EnhancedFaultRectificationService .
+
+:isDisconnected a owl:DatatypeProperty ;
+    rdfs:label "is disconnected" ;
+    rdfs:comment "Indicates whether an AVC TC-2 Product Component is disconnected. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B)(1), p.18]" ;
+    rdfs:domain :AVC_TC2_ProductComponent ;
+    rdfs:range xsd:boolean .
+
+:isReducedBy a owl:ObjectProperty ;
+    rdfs:label "isReducedBy" ;
+    rdfs:comment "Links a Recurring Charge to the Included Bandwidth that reduces it. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" ;
+    rdfs:domain :RecurringCharge ;
+    rdfs:range :IncludedBandwidth .
+
+:isSuppliedAsPartOf a owl:ObjectProperty ;
+    rdfs:label "isSuppliedAsPartOf" ;
+    rdfs:comment "Links an Enhanced Fault Rectification Service to the Ordered Product it is supplied as part of. [extension: nbn Ethernet Price List, Section 2.2(d), p.10]" ;
+    rdfs:domain :EnhancedFaultRectificationService ;
+    rdfs:range :OrderedProduct .
+
+:knownRequiredConstraintsCovered a owl:DatatypeProperty ;
+    rdfs:label "known_required_constraints_covered" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:boolean .
+
+:label a owl:DatatypeProperty ;
+    rdfs:label "label" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:landedOn a owl:ObjectProperty ;
+    rdfs:domain :Bearer ;
+    rdfs:range :Device .
+
+:leadTimeDays a owl:DatatypeProperty ;
+    rdfs:label "lead_time_days" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:integer .
+
+:mapsTo a owl:ObjectProperty ;
+    rdfs:domain :CVC ;
+    rdfs:range :NNIGroup .
+
+:materialisationCoverage a owl:ObjectProperty ;
+    rdfs:label "materialisation_coverage" ;
+    rdfs:domain :CVC ;
+    rdfs:range :MaterialisationCoverage .
+
+:materialisedAvcCount a owl:DatatypeProperty ;
+    rdfs:label "materialised_avc_count" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:maxSupportedCvc a owl:DatatypeProperty ;
+    rdfs:label "max_supported_cvc" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:integer .
+
+:mayIncur a owl:ObjectProperty ;
+    rdfs:label "may incur" ;
+    rdfs:comment "Links a service management activity to incidentals that may apply. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:domain :Cl_ServiceManagementActivity ;
+    rdfs:range :Cl_Incidentals .
+
+:mode a owl:ObjectProperty ;
+    rdfs:label "mode" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :RedundancyMode .
+
+:monitoringPeriodMinutes a owl:DatatypeProperty ;
+    rdfs:label "monitoringPeriodMinutes" ;
+    rdfs:comment "The monitoring period in minutes for a usage condition. [extension: nbn Ethernet Price List, Note 4, p.5]" ;
+    rdfs:domain :UsageCondition ;
+    rdfs:range xsd:integer .
+
+:monthlyCost a owl:DatatypeProperty ;
+    rdfs:label "monthly_cost" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:domain :TrafficClass ;
+    rdfs:range xsd:string .
+
+:numericValue a owl:DatatypeProperty ;
+    rdfs:label "numericValue" ;
+    rdfs:comment "The numeric value of a quantity (e.g. PIR in Mbps, monetary amount). [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :DownstreamPIR,
+        :MonetaryAmount,
+        :UpstreamPIR ;
+    rdfs:range xsd:decimal .
+
+:occursInAreaType a owl:ObjectProperty ;
+    rdfs:label "occurs in area type" ;
+    rdfs:comment "Links a service management activity to the area type where it occurs. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:domain :Cl_ServiceManagementActivity ;
+    rdfs:range :Cl_AreaType .
+
+:occursInBillingPeriod a owl:ObjectProperty ;
+    rdfs:label "occurs in billing period" ;
+    rdfs:comment "Links an exceedance event to the billing period in which it occurred. [extension: nbn Ethernet Price List, Section 6(e), p.18]" ;
+    rdfs:domain :Cl_ExceedanceEvent ;
+    rdfs:range :BillingPeriod .
+
+:occursWithin a owl:ObjectProperty ;
+    rdfs:label "occursWithin" ;
+    rdfs:comment "Links an eSLA Change Event to the First Month temporal interval within which it occurs. [extension: nbn Ethernet Price List, Section 2.2(b), p.10]" ;
+    rdfs:domain :ESLAChangeEvent ;
+    rdfs:range :FirstMonth .
+
+:peakBandwidthGbps a owl:DatatypeProperty ;
+    rdfs:label "peak_bandwidth_gbps" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:double .
+
+:planningThresholdPct a owl:DatatypeProperty ;
+    rdfs:label "planning_threshold_pct" ;
+    rdfs:domain :TrafficClass ;
+    rdfs:range xsd:double .
+
+:populationBasis a owl:DatatypeProperty ;
+    rdfs:label "population_basis" ;
+    rdfs:comment "CVC_AVC_COUNT_PROXY: the aggregate avcs count is authoritative over materialised AVC records." ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:string .
+
+:premises a owl:DatatypeProperty ;
+    rdfs:label "premises" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:integer .
+
+:projectedToGrow a owl:ObjectProperty ;
+    rdfs:domain :CSA ;
+    rdfs:range :DemandForecast .
+
+:protectedGbps a owl:DatatypeProperty ;
+    rdfs:label "protected_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:providesBandwidthInclusion a owl:ObjectProperty ;
+    rdfs:label "providesBandwidthInclusion" ;
+    rdfs:comment "Links an AVC TC-2 Product Component to the Included Bandwidth it contributes to. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" ;
+    rdfs:domain :AVC_TC2_ProductComponent ;
+    rdfs:range :IncludedBandwidth .
+
+:providesRebateOrCredit a owl:ObjectProperty ;
+    rdfs:label "providesRebateOrCredit" ;
+    rdfs:comment "Links an Ordered Product to the Rebate or Credit that applies. [extension: nbn Ethernet Price List, Section 1.4, p.6]" ;
+    rdfs:domain :OrderedProduct ;
+    rdfs:range :RebateOrCredit .
+
+:rateGbps a owl:DatatypeProperty ;
+    rdfs:label "rate_gbps" ;
+    rdfs:domain :Bearer ;
+    rdfs:range xsd:double .
+
+:resilienceScore a owl:DatatypeProperty ;
+    rdfs:label "resilience_score" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:riskRating a owl:ObjectProperty ;
+    rdfs:label "risk_rating" ;
+    rdfs:domain :CSA ;
+    rdfs:range :RiskRating .
+
+:riskScore a owl:DatatypeProperty ;
+    rdfs:label "risk_score" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:roundedUpToNextFullHour a owl:DatatypeProperty ;
+    rdfs:label "rounded up to next full hour" ;
+    rdfs:comment "Indicates that labour hours are rounded up to the next full hour. [extension: nbn Ethernet Price List, Section 8, p.19]" ;
+    rdfs:range xsd:boolean .
+
+:servedAt a owl:ObjectProperty ;
+    rdfs:domain :CSA ;
+    rdfs:range :POI .
+
+:services a owl:DatatypeProperty ;
+    rdfs:label "services" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:integer .
+
+:singleActionResolvesAllMust a owl:DatatypeProperty ;
+    rdfs:label "single_action_resolves_all_must" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:boolean .
+
+:sourceClause a owl:AnnotationProperty ;
+    rdfs:comment "Document, clause and page a contract fact comes from." .
+
+:state a owl:DatatypeProperty ;
+    rdfs:label "state" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :AVC :Bearer :CSA :POI ) ] ;
+    rdfs:range xsd:string .
+
+:status a owl:DatatypeProperty ;
+    rdfs:label "status" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:subscriberGrowthPct a owl:DatatypeProperty ;
+    rdfs:label "subscriber_growth_pct" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:double .
+
+:suppliedAt a owl:ObjectProperty ;
+    rdfs:label "suppliedAt" ;
+    rdfs:comment "Links an NNI Bearer Product Component to the POI where it is supplied. [extension: nbn Ethernet Price List, Section 1.6(c), p.8]" ;
+    rdfs:domain :NNIBearerProductComponent ;
+    rdfs:range :POI .
+
+:supplies a owl:ObjectProperty ;
+    rdfs:label "supplies" ;
+    rdfs:comment "Links a Supplier to the NNI Bearer Product Component it supplies. [extension: nbn Ethernet Price List, Section 1.6(c), p.8]" ;
+    rdfs:domain :Supplier ;
+    rdfs:range :NNIBearerProductComponent .
+
+:tc1Pct a owl:DatatypeProperty ;
+    rdfs:label "tc1_pct" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:tc2Pct a owl:DatatypeProperty ;
+    rdfs:label "tc2_pct" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:tc4Pct a owl:DatatypeProperty ;
+    rdfs:label "tc4_pct" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:tech a owl:ObjectProperty ;
+    rdfs:label "tech" ;
+    rdfs:domain :CSA ;
+    rdfs:range :AccessTechnology .
+
+:technology a owl:ObjectProperty ;
+    rdfs:label "technology" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :InterfaceTechnology .
+
+:terminatesAtPoi a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :POI .
+
+:terminatesOnPort a owl:ObjectProperty ;
+    rdfs:domain :Bearer ;
+    rdfs:range :PlanningPort .
+
+:triggeredBy a owl:ObjectProperty ;
+    rdfs:label "triggered by",
+        "triggeredBy" ;
+    rdfs:comment "Links a CVC Class adjustment to the excess usage event that triggers it. [extension: nbn Ethernet Price List, Section 6(a), p.17]",
+        "Links a Rebate or Credit to the order event that triggers it. [extension: nbn Ethernet Price List, Section 1.4, p.6]" ;
+    rdfs:domain :Cl_CVCClassAdjustment,
+        :RebateOrCredit ;
+    rdfs:range :Cl_ExcessUsageEvent,
+        :OrderedProduct .
+
+:triggersCharge a owl:ObjectProperty ;
+    rdfs:label "triggers charge" ;
+    rdfs:comment "Links an exceedance event to the charge it triggers. [extension: nbn Ethernet Price List, Section 6(d)-(e), p.18]" ;
+    rdfs:domain :Cl_ExceedanceEvent ;
+    rdfs:range :Cl_EarlyDisconnectionModificationCharge .
+
+:triggersChargeRule a owl:ObjectProperty ;
+    rdfs:label "triggersChargeRule" ;
+    rdfs:comment "Links an eSLA Change Event to the charge rule it triggers (application of recurring charge for a single Billing Period without pro-ration). [extension: nbn Ethernet Price List, Section 2.2(b), p.10]" ;
+    rdfs:domain :ESLAChangeEvent ;
+    rdfs:range :RecurringCharge .
+
+:unevaluatedConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "unevaluated_constraint_ids" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:unitOfMeasure a owl:DatatypeProperty ;
+    rdfs:label "unitOfMeasure" ;
+    rdfs:comment "The unit of measure for a quantity (e.g. 'Mbps'). [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:domain :DownstreamPIR,
+        :UpstreamPIR ;
+    rdfs:range xsd:string .
+
+:unmaterialisedAvcCount a owl:DatatypeProperty ;
+    rdfs:label "unmaterialised_avc_count" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:unresolvedConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "unresolved_constraint_ids" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:usesCvc a owl:ObjectProperty ;
+    rdfs:domain :AVC ;
+    rdfs:range :CVC .
+
+:usesLinecard a owl:ObjectProperty ;
+    rdfs:domain :Bearer ;
+    rdfs:range :PlanningLineCard .
+
+:utilisationPct a owl:DatatypeProperty ;
+    rdfs:label "utilisation_pct" ;
+    rdfs:comment "= 100 * current load / protected" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:utilisationScore a owl:DatatypeProperty ;
+    rdfs:label "utilisation_score" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:wholeOfLifeCost36m a owl:DatatypeProperty ;
+    rdfs:label "whole_of_life_cost_36m" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:AVC_TC1_ProdComp_0_15_AllNetworks a :AVC_TC1_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 0.15 Mbps (All Networks)" ;
+    :hasBandwidthTier :BandwidthTier_0_15 ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC,
+        :AccessTechnology_Wireless ;
+    :hasRecurringCharge :RecurringCharge_AVCTC1_0_15 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:AVC_TC2_ProdComp_Instance a :AVC_TC2_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Product Component (Section 7)" ;
+    :associatedWith :CVC_TC2_ProdComp ;
+    :hasBandwidthProfile :BandwidthProfile_10Mbps,
+        :BandwidthProfile_20Mbps,
+        :BandwidthProfile_5Mbps ;
+    :hasCIRObjective :CIRObjective_Instance ;
+    :hasOrderCompleted :OrderCompleted_AVCTC2 ;
+    :isCancelled false ;
+    :isDisconnected false ;
+    rdfs:comment "An AVC TC-2 Product Component included in an nbn Ethernet Ordered Product, subject to early disconnection/modification charges under section 7. [extension: nbn Ethernet Price List, Section 7(b)(i), p.18]" .
+
+:AVC_TC4_ProdComp_1000_400 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 1000/400" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE ;
+    :hasDownstreamPIR :DownstreamPIR_1000 ;
+    :hasRecurringCharge :RecurringCharge_96_91 ;
+    :hasUpstreamPIR :UpstreamPIR_400 .
+
+:AVC_TC4_ProdComp_100_40 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 100/40" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE,
+        :AccessTechnology_HFC ;
+    :hasDownstreamPIR :DownstreamPIR_100 ;
+    :hasRecurringCharge :RecurringCharge_64_60_c ;
+    :hasUpstreamPIR :UpstreamPIR_40 .
+
+:AVC_TC4_ProdComp_12_1 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 12/1" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC,
+        :AccessTechnology_Wireless ;
+    :hasDownstreamPIR :DownstreamPIR_12 ;
+    :hasRecurringCharge :RecurringCharge_35_59 ;
+    :hasUpstreamPIR :UpstreamPIR_1 .
+
+:AVC_TC4_ProdComp_2000_500 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 2000/500" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE ;
+    :hasDownstreamPIR :DownstreamPIR_2000 ;
+    :hasRecurringCharge :RecurringCharge_154_99 ;
+    :hasUpstreamPIR :UpstreamPIR_500 .
+
+:AVC_TC4_ProdComp_250_100 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 250/100" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE ;
+    :hasDownstreamPIR :DownstreamPIR_250 ;
+    :hasRecurringCharge :RecurringCharge_64_60_d ;
+    :hasUpstreamPIR :UpstreamPIR_100 .
+
+:AVC_TC4_ProdComp_25_10 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 25/10" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_HFC ;
+    :hasDownstreamPIR :DownstreamPIR_25 ;
+    :hasRecurringCharge :RecurringCharge_36_15_c ;
+    :hasUpstreamPIR :UpstreamPIR_10 .
+
+:AVC_TC4_ProdComp_25_100_5_40 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 25-100/5-40" ;
+    :hasAccessTechnology :AccessTechnology_FTTB,
+        :AccessTechnology_FTTN ;
+    :hasDownstreamPIR :DownstreamPIR_25_100 ;
+    :hasRecurringCharge :RecurringCharge_64_60 ;
+    :hasUpstreamPIR :UpstreamPIR_5_40 .
+
+:AVC_TC4_ProdComp_25_5 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 25/5" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC,
+        :AccessTechnology_Wireless ;
+    :hasDownstreamPIR :DownstreamPIR_25 ;
+    :hasRecurringCharge :RecurringCharge_36_15 ;
+    :hasUpstreamPIR :UpstreamPIR_5 .
+
+:AVC_TC4_ProdComp_25_50_5_20 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 25-50/5-20" ;
+    :hasAccessTechnology :AccessTechnology_FTTB,
+        :AccessTechnology_FTTN ;
+    :hasDownstreamPIR :DownstreamPIR_25_50 ;
+    :hasRecurringCharge :RecurringCharge_57_60 ;
+    :hasUpstreamPIR :UpstreamPIR_5_20 .
+
+:AVC_TC4_ProdComp_25_5_10 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 25/5-10" ;
+    :hasAccessTechnology :AccessTechnology_FTTB,
+        :AccessTechnology_FTTN ;
+    :hasDownstreamPIR :DownstreamPIR_25 ;
+    :hasRecurringCharge :RecurringCharge_36_15_b ;
+    :hasUpstreamPIR :UpstreamPIR_5_10 .
+
+:AVC_TC4_ProdComp_500_200 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 500/200" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE ;
+    :hasDownstreamPIR :DownstreamPIR_500 ;
+    :hasRecurringCharge :RecurringCharge_79_00 ;
+    :hasUpstreamPIR :UpstreamPIR_200 .
+
+:AVC_TC4_ProdComp_50_100_20_40 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 50-100/20-40" ;
+    :hasAccessTechnology :AccessTechnology_FTTC ;
+    :hasDownstreamPIR :DownstreamPIR_50_100 ;
+    :hasRecurringCharge :RecurringCharge_64_60_b ;
+    :hasUpstreamPIR :UpstreamPIR_20_40 .
+
+:AVC_TC4_ProdComp_50_20 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 50/20" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_HFC ;
+    :hasDownstreamPIR :DownstreamPIR_50 ;
+    :hasRecurringCharge :RecurringCharge_57_60_b ;
+    :hasUpstreamPIR :UpstreamPIR_20 .
+
+:AVC_TC4_ProdComp_FixedWirelessHomeFast a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Fixed Wireless Home Fast" ;
+    :hasAccessTechnology :AccessTechnology_Wireless ;
+    :hasName :ProductComponentName_FixedWirelessHomeFast ;
+    :hasRecurringCharge :RecurringCharge_60_85_b .
+
+:AVC_TC4_ProdComp_FixedWirelessSuperfast a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Fixed Wireless Superfast" ;
+    :hasAccessTechnology :AccessTechnology_Wireless ;
+    :hasName :ProductComponentName_FixedWirelessSuperfast ;
+    :hasRecurringCharge :RecurringCharge_67_12 .
+
+:AVC_TC4_ProdComp_HFC_250_100 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 HFC 250/100" ;
+    :hasAccessTechnology :AccessTechnology_HFC ;
+    :hasDownstreamPIR :DownstreamPIR_250 ;
+    :hasRecurringCharge :RecurringCharge_64_60_e ;
+    :hasUpstreamPIR :UpstreamPIR_100 .
+
+:AVC_TC4_ProdComp_HomeFast a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Home Fast" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasName :ProductComponentName_HomeFast ;
+    :hasRecurringCharge :RecurringCharge_60_85 .
+
+:AVC_TC4_ProdComp_HomeHyperfast3 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Home Hyperfast3" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE,
+        :AccessTechnology_HFC ;
+    :hasName :ProductComponentName_HomeHyperfast3 ;
+    :hasRecurringCharge :RecurringCharge_119_04 .
+
+:AVC_TC4_ProdComp_HomeSuperfast a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Home Superfast" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE,
+        :AccessTechnology_HFC ;
+    :hasName :ProductComponentName_HomeSuperfast ;
+    :hasRecurringCharge :RecurringCharge_67_12_b .
+
+:AVC_TC4_ProdComp_HomeUltrafast3 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Home Ultrafast3" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE,
+        :AccessTechnology_HFC ;
+    :hasName :ProductComponentName_HomeUltrafast3 ;
+    :hasRecurringCharge :RecurringCharge_75_88 .
+
+:AVC_TC4_ProdComp_Sat_12_1 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Satellite 12/1" ;
+    :hasAccessTechnology :AccessTechnology_Wireless ;
+    :hasDownstreamPIR :DownstreamPIR_Sat_12 ;
+    :hasRecurringCharge :RecurringCharge_24_00 ;
+    :hasUpstreamPIR :UpstreamPIR_Sat_1 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2(a), p.5" .
+
+:AVC_TC4_ProdComp_Sat_25_5 a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Satellite 25/5" ;
+    :hasAccessTechnology :AccessTechnology_Wireless ;
+    :hasDownstreamPIR :DownstreamPIR_Sat_25 ;
+    :hasRecurringCharge :RecurringCharge_27_00 ;
+    :hasUpstreamPIR :UpstreamPIR_Sat_5 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2(a), p.5" .
+
+:AVC_TC4_ProdComp_WirelessPlus a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Wireless Plus" ;
+    :hasAccessTechnology :AccessTechnology_Wireless ;
+    :hasName :ProductComponentName_WirelessPlus ;
+    :hasRecurringCharge :RecurringCharge_57_60_c ;
+    :informationRateType "potential maximum Information Rate" ;
+    :sourceClause "nbn Ethernet Price List, Note 2, p.5" .
+
+:ActionAssessment a owl:Class ;
+    rdfs:label "ActionAssessment" ;
+    rdfs:comment "Scored assessment of one candidate action." .
+
+:ActionType_ADD_AGGREGATION a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "ADD_AGGREGATION" .
+
+:ActionType_ADD_BACKHAUL a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "ADD_BACKHAUL" .
+
+:ActionType_ADD_PORT a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "ADD_PORT" .
+
+:ActionType_CREATE_NEW_BEARER a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_NEW_BEARER" .
+
+:ActionType_CREATE_NEW_CVC a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_NEW_CVC" .
+
+:ActionType_CREATE_NEW_NNI a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_NEW_NNI" .
+
+:ActionType_CREATE_RESILIENCE_PATH a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_RESILIENCE_PATH" .
+
+:ActionType_INCREASE_CVC_BW a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "INCREASE_CVC_BW" .
+
+:ActionType_MOVE_CSA_LOAD a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "MOVE_CSA_LOAD" .
+
+:ActionType_REBALANCE_AVCS a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "REBALANCE_AVCS" .
+
+:ActionType_SPLIT_CAPACITY_POOL a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "SPLIT_CAPACITY_POOL" .
+
+:ActionType_UPGRADE_PORT a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "UPGRADE_PORT" .
+
+:ActivityCharge_LateCanc_Isolated a :Cl_ActivityCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Activity Charge: Late Cancellation (Site Visit Required) in Isolated Area" ;
+    :hasActivity :Activity_LateCanc_Isolated ;
+    :hasAreaType :IsolatedArea ;
+    :hasMonetaryAmount :MonetaryAmount_225_00 .
+
+:ActivityCharge_LateCanc_LimitedAccess a :Cl_ActivityCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Activity Charge: Late Cancellation (Site Visit Required) in Limited Access Area" ;
+    :hasActivity :Activity_LateCanc_LimitedAccess ;
+    :hasAreaType :LimitedAccessArea ;
+    :hasIncidentals :Incidentals ;
+    :hasMonetaryAmount :MonetaryAmount_225_00 .
+
+:ActivityCharge_LateCanc_MinorRuralRemote a :Cl_ActivityCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Activity Charge: Late Cancellation (Site Visit Required) in Minor Rural Area or Remote Area" ;
+    :hasActivity :Activity_LateCanc_MinorRuralRemote ;
+    :hasAreaType :MinorRuralArea,
+        :RemoteArea ;
+    :hasMonetaryAmount :MonetaryAmount_200_00 .
+
+:ActivityCharge_LateCanc_UrbanMajorRural a :Cl_ActivityCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Activity Charge: Late Cancellation (Site Visit Required) in Urban Area or Major Rural Area" ;
+    :hasActivity :Activity_LateCanc_UrbanMajorRural ;
+    :hasAreaType :MajorRuralArea,
+        :UrbanArea ;
+    :hasMonetaryAmount :MonetaryAmount_150_00 .
+
+:ActivityCharge_Missed_Isolated a :Cl_ActivityCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Activity Charge: Missed Appointment (Isolated Area)" ;
+    :hasActivity :Activity_Missed_Isolated ;
+    :hasAreaType :IsolatedArea ;
+    :hasMonetaryAmount :MonetaryAmount_225_00 .
+
+:ActivityCharge_Missed_LimitedAccess a :Cl_ActivityCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Activity Charge: Missed Appointment (Limited Access Area)" ;
+    :hasActivity :Activity_Missed_LimitedAccess ;
+    :hasAreaType :LimitedAccessArea ;
+    :hasIncidentals :Incidentals ;
+    :hasMonetaryAmount :MonetaryAmount_225_00 .
+
+:ActivityCharge_Missed_MinorRuralRemote a :Cl_ActivityCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Activity Charge: Missed Appointment (Minor Rural Area or Remote Area)" ;
+    :hasActivity :Activity_Missed_MinorRuralRemote ;
+    :hasAreaType :MinorRuralArea,
+        :RemoteArea ;
+    :hasMonetaryAmount :MonetaryAmount_200_00 .
+
+:ActivityCharge_Missed_UrbanMajorRural a :Cl_ActivityCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Activity Charge: Missed Appointment (Urban Area or Major Rural Area)" ;
+    :hasActivity :Activity_Missed_UrbanMajorRural ;
+    :hasAreaType :MajorRuralArea,
+        :UrbanArea ;
+    :hasMonetaryAmount :MonetaryAmount_150_00 .
+
+:ActivityCharge_NFF_NoTruck a :Cl_ActivityCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Activity Charge: No Fault Found (No Truck Roll Required)" ;
+    :hasActivity :Activity_NFF_NoTruck ;
+    :hasMonetaryAmount :MonetaryAmount_50_00 .
+
+:ActivityCharge_NFF_Truck a :Cl_ActivityCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Activity Charge: No Fault Found (Truck Roll Required)" ;
+    :hasActivity :Activity_NFF_Truck ;
+    :hasMonetaryAmount :MonetaryAmount_420_00 .
+
+:Activity_LateCanc_Isolated a :Cl_LateCancellationSiteVisit,
+        owl:NamedIndividual ;
+    rdfs:label "Late Cancellation (Site Visit Required) in Isolated Area" ;
+    :hasCharge :ActivityCharge_LateCanc_Isolated ;
+    :occursInAreaType :IsolatedArea .
+
+:Activity_LateCanc_LimitedAccess a :Cl_LateCancellationSiteVisit,
+        owl:NamedIndividual ;
+    rdfs:label "Late Cancellation (Site Visit Required) in Limited Access Area" ;
+    :hasCharge :ActivityCharge_LateCanc_LimitedAccess ;
+    :mayIncur :Incidentals ;
+    :occursInAreaType :LimitedAccessArea .
+
+:Activity_LateCanc_MinorRuralRemote a :Cl_LateCancellationSiteVisit,
+        owl:NamedIndividual ;
+    rdfs:label "Late Cancellation (Site Visit Required) in Minor Rural Area or Remote Area" ;
+    :hasCharge :ActivityCharge_LateCanc_MinorRuralRemote ;
+    :occursInAreaType :MinorRuralArea,
+        :RemoteArea .
+
+:Activity_LateCanc_UrbanMajorRural a :Cl_LateCancellationSiteVisit,
+        owl:NamedIndividual ;
+    rdfs:label "Late Cancellation (Site Visit Required) in Urban Area or Major Rural Area" ;
+    :hasCharge :ActivityCharge_LateCanc_UrbanMajorRural ;
+    :occursInAreaType :MajorRuralArea,
+        :UrbanArea .
+
+:Activity_Missed_Isolated a :Cl_MissedAppointment,
+        owl:NamedIndividual ;
+    rdfs:label "Missed Appointment (Isolated Area)" ;
+    :hasCharge :ActivityCharge_Missed_Isolated ;
+    :occursInAreaType :IsolatedArea .
+
+:Activity_Missed_LimitedAccess a :Cl_MissedAppointment,
+        owl:NamedIndividual ;
+    rdfs:label "Missed Appointment (Limited Access Area)" ;
+    :hasCharge :ActivityCharge_Missed_LimitedAccess ;
+    :mayIncur :Incidentals ;
+    :occursInAreaType :LimitedAccessArea .
+
+:Activity_Missed_MinorRuralRemote a :Cl_MissedAppointment,
+        owl:NamedIndividual ;
+    rdfs:label "Missed Appointment (Minor Rural Area or Remote Area)" ;
+    :hasCharge :ActivityCharge_Missed_MinorRuralRemote ;
+    :occursInAreaType :MinorRuralArea,
+        :RemoteArea .
+
+:Activity_Missed_UrbanMajorRural a :Cl_MissedAppointment,
+        owl:NamedIndividual ;
+    rdfs:label "Missed Appointment (Urban Area or Major Rural Area)" ;
+    :hasCharge :ActivityCharge_Missed_UrbanMajorRural ;
+    :occursInAreaType :MajorRuralArea,
+        :UrbanArea .
+
+:Activity_NFF_NoTruck a :Cl_NoFaultFoundNoTruckRoll,
+        owl:NamedIndividual ;
+    rdfs:label "No Fault Found (No Truck Roll Required)" ;
+    :hasCharge :ActivityCharge_NFF_NoTruck .
+
+:Activity_NFF_Truck a :Cl_NoFaultFoundTruckRoll,
+        owl:NamedIndividual ;
+    rdfs:label "No Fault Found (Truck Roll Required)" ;
+    :hasCharge :ActivityCharge_NFF_Truck .
+
+:Attribute a owl:Class ;
+    rdfs:label "Attribute" ;
+    rdfs:comment "A generic attribute or characteristic. [extension: nbn Ethernet Price List, Section 7, p.19]" .
+
+:BandwidthProfile_10Mbps a :BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 10 Mbps (CIR)" ;
+    :hasBandwidthProfileCIR 10.0 ;
+    :hasCIRObjective :CIRObjective_Instance ;
+    :sourceClause "nbn Ethernet Price List, Section 7, p.19" ;
+    rdfs:comment "AVC TC-2 bandwidth profile with 10 Mbps CIR. [extension: nbn Ethernet Price List, Section 7, p.19]" .
+
+:BandwidthProfile_20Mbps a :BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 20 Mbps (CIR)" ;
+    :hasBandwidthProfileCIR 20.0 ;
+    :hasCIRObjective :CIRObjective_Instance ;
+    :sourceClause "nbn Ethernet Price List, Section 7, p.19" ;
+    rdfs:comment "AVC TC-2 bandwidth profile with 20 Mbps CIR. [extension: nbn Ethernet Price List, Section 7, p.19]" .
+
+:BandwidthProfile_5Mbps a :BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 5 Mbps (CIR)" ;
+    :hasBandwidthProfileCIR 5.0 ;
+    :hasCIRObjective :CIRObjective_Instance ;
+    :sourceClause "nbn Ethernet Price List, Section 7, p.19" ;
+    rdfs:comment "AVC TC-2 bandwidth profile with 5 Mbps CIR. [extension: nbn Ethernet Price List, Section 7, p.19]" .
+
+:BandwidthTier_0_15 a :BandwidthTier,
+        owl:NamedIndividual ;
+    rdfs:label "0.15 Mbps" ;
+    :bandwidthValue 0.15 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:BandwidthTier_0_3 a :BandwidthTier,
+        owl:NamedIndividual ;
+    rdfs:label "0.3 Mbps" ;
+    :bandwidthValue 0.3 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:BandwidthTier_0_5 a :BandwidthTier,
+        owl:NamedIndividual ;
+    rdfs:label "0.5 Mbps" ;
+    :bandwidthValue 0.5 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:BandwidthTier_1_0 a :BandwidthTier,
+        owl:NamedIndividual ;
+    rdfs:label "1.0 Mbps" ;
+    :bandwidthValue 1.0 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:BandwidthTier_2_0 a :BandwidthTier,
+        owl:NamedIndividual ;
+    rdfs:label "2.0 Mbps" ;
+    :bandwidthValue 2.0 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:BandwidthTier_5_0 a :BandwidthTier,
+        owl:NamedIndividual ;
+    rdfs:label "5.0 Mbps" ;
+    :bandwidthValue 5.0 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:CVC_TC2_ProdComp a :CVC_TC2_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-2 Product Component" ;
+    :hasRecurringChargePerMbps :RecurringCharge_CVC_TC2_PerMbps .
+
+:CapacityPool a owl:Class ;
+    rdfs:label "CapacityPool" ;
+    rdfs:comment "Contractual/protected/used capacity of an NNI Group." .
+
+:ChargeFormula_Section7 a :Cl_ChargeFormula,
+        owl:NamedIndividual ;
+    rdfs:label "Charge Formula under Section 7(c)" ;
+    :hasPostDisconnectionModificationCharges :PostDisconnectionModificationCharges_Instance ;
+    :hasPreDisconnectionModificationCharges :PreDisconnectionModificationCharges_Instance ;
+    :hasShortfallPeriod :ShortfallPeriod_Cancellation ;
+    :sourceClause "nbn Ethernet Price List, Section 7(c), p.19" ;
+    rdfs:comment "Charge = (Pre Disconnection Modification Charges - Post Disconnection Modification Charges) x Shortfall Period. [extension: nbn Ethernet Price List, Section 7(c), p.19]" .
+
+:ChargeFormula_Section7_Cancellation a :Cl_ChargeFormula,
+        owl:NamedIndividual ;
+    rdfs:label "Charge Formula under Section 7(c) for Cancellation" ;
+    :hasPostDisconnectionModificationCharges :PostDisconnectionModificationCharges_Nil_Cancellation ;
+    :hasPreDisconnectionModificationCharges :PreDisconnectionModificationCharges_Instance ;
+    :hasShortfallPeriod :ShortfallPeriod_Cancellation ;
+    rdfs:comment "Charge = (Pre Disconnection Modification Charges - Post Disconnection Modification Charges) x Shortfall Period (12 months). [extension: nbn Ethernet Price List, Section 7(c), p.19]" .
+
+:ChargeFormula_Section7_DisconnectionModification a :Cl_ChargeFormula,
+        owl:NamedIndividual ;
+    rdfs:label "Charge Formula under Section 7(c) for Disconnection or Modification" ;
+    :hasPostDisconnectionModificationCharges :PostDisconnectionModificationCharges_Nil_Disconnection ;
+    :hasPreDisconnectionModificationCharges :PreDisconnectionModificationCharges_Instance ;
+    :hasShortfallPeriod :ShortfallPeriod_DisconnectionModification ;
+    rdfs:comment "Charge = (Pre Disconnection Modification Charges - Post Disconnection Modification Charges) x Shortfall Period (pro rata daily basis). [extension: nbn Ethernet Price List, Section 7(c), p.19]" .
+
+:ChargeFormula_Section7_Modification a :Cl_ChargeFormula,
+        owl:NamedIndividual ;
+    rdfs:label "Charge Formula under Section 7(c) for Modification" ;
+    :hasPostDisconnectionModificationCharges :PostDisconnectionModificationCharges_Modification ;
+    :hasPreDisconnectionModificationCharges :PreDisconnectionModificationCharges_Instance ;
+    :hasShortfallPeriod :ShortfallPeriod_DisconnectionModification ;
+    rdfs:comment "Charge = (Pre Disconnection Modification Charges - Post Disconnection Modification Charges) x Shortfall Period (pro rata daily basis). [extension: nbn Ethernet Price List, Section 7(c), p.19]" .
+
+:Cl_LabourRate a owl:Class ;
+    rdfs:label "Labour Rate" ;
+    rdfs:comment "$75.00 for each of the total number of labour hours required to perform the relevant activity (rounded up to the next full hour). [extension: nbn Ethernet Price List, Section 8(a), p.19]" ;
+    rdfs:subClassOf :MonetaryAmount .
+
+:Cl_NoFaultFoundNoTruckRoll a owl:Class ;
+    rdfs:label "No Fault Found (No Truck Roll Required)" ;
+    rdfs:comment "A service management activity where no fault is found and no truck roll is required. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:subClassOf :Cl_ServiceManagementActivity .
+
+:Cl_NoFaultFoundTruckRoll a owl:Class ;
+    rdfs:label "No Fault Found (Truck Roll Required)" ;
+    rdfs:comment "A service management activity where no fault is found but a truck roll is required. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:subClassOf :Cl_ServiceManagementActivity .
+
+:Cl_SatelliteLabourRate a owl:Class ;
+    rdfs:label "Satellite Labour Rate" ;
+    rdfs:comment "$98.00 for each of the total number of labour hours required to perform the relevant activity (rounded up to the next full hour). [extension: nbn Ethernet Price List, Section 8(b), p.19]" ;
+    rdfs:subClassOf :MonetaryAmount .
+
+:Day_Sydney a :Day,
+        owl:NamedIndividual ;
+    rdfs:label "Day (Sydney local time)" ;
+    :conditionDescription "The period from 12:00am to 11:59pm based on the local time in Sydney." ;
+    :sourceClause "nbn Ethernet Price List, Note 4, p.5" .
+
+:Default_Instance a :Cl_Default,
+        owl:NamedIndividual ;
+    rdfs:label "Default" ;
+    rdfs:comment "A failure by a party to comply with the Agreement. [extension: nbn Ethernet Price List, Section 7, p.18]" .
+
+:DemandForecast a owl:Class ;
+    rdfs:label "DemandForecast" ;
+    rdfs:comment "Legacy demand growth forecast for a CSA or CVC under a scenario (the contract's Forecast, kind-qualified)." .
+
+:Device a owl:Class ;
+    rdfs:label "Device" ;
+    rdfs:comment "Active network device with an explicit NetworkRole and NetworkLayer; legacy roles CORE/REGIONAL/LOCAL_AGG/ACCESS." .
+
+:DownstreamPIR_100 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 100 Mbps" ;
+    :numericValue 100.0 ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_1000 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 1000 Mbps" ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_12 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 12 Mbps" ;
+    :numericValue 12.0 ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_12_Basic a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 12 Mbps (Basic Offer)" ;
+    :numericValue 12.0 ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_2000 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 2000 Mbps" ;
+    :numericValue 2000.0 ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_25_100 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 25-100 Mbps" ;
+    :numericValue 25.0 ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_25_50 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 25-50 Mbps" ;
+    :numericValue 25.0 ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_50 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 50 Mbps" ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_500 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 500 Mbps" ;
+    :numericValue 500.0 ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_50_100 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 50-100 Mbps" ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_Sat_12 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 12 Mbps (Satellite)" ;
+    :numericValue 12.0 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2(a), p.5" ;
+    :unitOfMeasure "Mbps" .
+
+:DownstreamPIR_Sat_25 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 25 Mbps (Satellite)" ;
+    :numericValue 25.0 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2(a), p.5" ;
+    :unitOfMeasure "Mbps" .
+
+:ESLAChangeEvent_Instance a :ESLAChangeEvent,
+        owl:NamedIndividual ;
+    rdfs:label "eSLA Change Event (example)" ;
+    :hasExemptionCondition :ExemptionCondition_AVCTC2 ;
+    :isCausedByDisconnection :EnhancedFaultRectification_Enhanced4_24_7 ;
+    :isCausedByModification :EnhancedFaultRectification_Enhanced4_24_7 ;
+    :occursWithin :FirstMonth_Instance ;
+    :triggersChargeRule :RecurringCharge_Enhanced4_24_7_25_00 ;
+    rdfs:comment "An eSLA Change Event occurs when an Enhanced Fault Rectification Service is disconnected or modified to change the selected option. [extension: nbn Ethernet Price List, Section 2.2(e), p.10]" .
+
+:EarlyDisconnectionModificationCharge_Rule a :Cl_ChargeRule,
+        owl:NamedIndividual ;
+    rdfs:label "Early Disconnection or Modification Charge Rule" ;
+    rdfs:comment "Rule: If an AVC TC-2 Product Component is cancelled, or within 12 months after order completion is disconnected or modified, RSP must pay the Charge calculated under section 7(c). [extension: nbn Ethernet Price List, Section 7(b), p.18]" .
+
+:ExcessUsageEvent_Instance a :Cl_ExcessUsageEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Excess CVC TC-4 Usage Event" ;
+    rdfs:comment "Event triggered when RSP uses CVC TC-4 capacity in excess of either the average download limitation or the average upload limitation set out in section 4.5(a) of the nbn Ethernet Fair Use Policy. [extension: nbn Ethernet Price List, Section 6(a), p.17]" .
+
+:ExemptionCondition_AVCTC2 a :BasicOfferCondition,
+        owl:NamedIndividual ;
+    rdfs:label "Exemption Condition: Enhanced Fault Rectification with AVC TC-2" ;
+    :appliesTo :EnhancedFaultRectification_Enhanced4_24_7 ;
+    :conditionDescription "Section 2.2(b) will not apply in respect of any Enhanced Fault Rectification Service which is supplied as part of an Ordered Product that also includes an AVC TC-2 Product Component at the time that the eSLA Change Event occurs." .
+
+:ExemptionCondition_ServiceTransferOrder a :Cl_ExemptionCondition,
+        owl:NamedIndividual ;
+    rdfs:label "Exemption: Service Transfer Order with Qualifying CIR Objective" ;
+    :appliesTo :ServiceTransferOrder_Instance ;
+    :conditionDescription "The Other Gaining RSP has ordered an AVC TC-2 Product Component with a bandwidth profile with a CIR Objective that is the same as, or higher than, the CIR Objective applicable to the Losing RSP's AVC TC-2 Product Component." ;
+    :sourceClause "nbn Ethernet Price List, Section 7(d)(ii), p.19" ;
+    rdfs:comment "The Charge under section 7 will not apply if the nbn Ethernet Ordered Product is disconnected following acceptance by nbn of a Service Transfer Order and the Other Gaining RSP has ordered an AVC TC-2 Product Component with a bandwidth profile with a CIR Objective that is the same as, or higher than, the CIR Objective applicable to the Losing RSP's AVC TC-2 Product Component. [extension: nbn Ethernet Price List, Section 7(d)(ii), p.19]" .
+
+:ExemptionCondition_UnsuccessfulNetworkActivity a :Cl_ExemptionCondition,
+        owl:NamedIndividual ;
+    rdfs:label "Exemption: Unsuccessful Network Activity" ;
+    :appliesTo :NetworkActivity_Instance ;
+    :hasNetworkActivityOutcome true ;
+    :hasNotificationStatus true ;
+    :sourceClause "nbn Ethernet Price List, Section 7(d)(i), p.19" ;
+    rdfs:comment "The Charge under section 7 will not apply if nbn has undertaken Network Activity activities in respect of the relevant nbn Ethernet Ordered Product and has notified RSP that Network Activity to achieve the CIR Objective was unsuccessful. [extension: nbn Ethernet Price List, Section 7(d)(i), p.19]" .
+
+:InterfaceTechnology_100GE a :InterfaceTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "100GE" .
+
+:InterfaceTechnology_10GE a :InterfaceTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "10GE" .
+
+:InterfaceTechnology_1GE a :InterfaceTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "1GE" .
+
+:LosingRSP_Instance a :Party,
+        owl:NamedIndividual ;
+    rdfs:label "Losing RSP" ;
+    rdfs:comment "The RSP that loses the service following a Service Transfer Order. [extension: nbn Ethernet Price List, Section 7(d)(ii), p.19]" .
+
+:MaterialisationCoverage_COMPLETE a :MaterialisationCoverage,
+        owl:NamedIndividual ;
+    rdfs:label "COMPLETE" .
+
+:MaterialisationCoverage_NONE a :MaterialisationCoverage,
+        owl:NamedIndividual ;
+    rdfs:label "NONE" .
+
+:MaterialisationCoverage_PARTIAL a :MaterialisationCoverage,
+        owl:NamedIndividual ;
+    rdfs:label "PARTIAL" .
+
+:MonetaryAmount_0_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$0.00" ;
+    :currency "AUD" ;
+    :numericValue 0.00 .
+
+:MonetaryAmount_0_00_NNILink a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$0.00 (NNI Link)" ;
+    :currency "AUD" ;
+    :numericValue 0.00 .
+
+:MonetaryAmount_100_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$100.00" ;
+    :currency "AUD" ;
+    :numericValue 100.00 .
+
+:MonetaryAmount_10_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$10.00" ;
+    :currency "AUD" ;
+    :numericValue 10.00 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:MonetaryAmount_110_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$110.00" ;
+    :currency "AUD" ;
+    :numericValue 110.00 .
+
+:MonetaryAmount_119_04 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$119.04" ;
+    :currency "AUD" ;
+    :numericValue 119.04 .
+
+:MonetaryAmount_125_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$125.00" ;
+    :currency "AUD" ;
+    :numericValue 125.00 .
+
+:MonetaryAmount_12_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$12.00" ;
+    :currency "AUD" ;
+    :numericValue 12.00 .
+
+:MonetaryAmount_132_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$132.00" ;
+    :currency "AUD" ;
+    :numericValue 132.00 .
+
+:MonetaryAmount_154_99 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$154.99" ;
+    :currency "AUD" ;
+    :numericValue 154.99 .
+
+:MonetaryAmount_15_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$15.00" ;
+    :currency "AUD" ;
+    :numericValue 15.00 .
+
+:MonetaryAmount_15_50 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$15.50" ;
+    :currency "AUD" ;
+    :numericValue 15.50 .
+
+:MonetaryAmount_15_75 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$15.75" ;
+    :currency "AUD" ;
+    :numericValue 15.75 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2, p.6" .
+
+:MonetaryAmount_17_50 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$17.50" ;
+    :currency "AUD" ;
+    :numericValue 17.50 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(b), p.6" .
+
+:MonetaryAmount_17_50_CVC_TC2 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$17.50 (CVC TC-2 per Mbps)" ;
+    :currency "AUD" ;
+    :numericValue 17.50 .
+
+:MonetaryAmount_17_50_SecondUNI a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$17.50 (Second UNI-V and AVC TC-1 bundle)" ;
+    :currency "AUD" ;
+    :numericValue 17.50 .
+
+:MonetaryAmount_18_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$18.00" ;
+    :currency "AUD" ;
+    :numericValue 18.00 .
+
+:MonetaryAmount_195_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$195.00" ;
+    :currency "AUD" ;
+    :numericValue 195.00 .
+
+:MonetaryAmount_22_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$22.00" ;
+    :currency "AUD" ;
+    :numericValue 22.00 .
+
+:MonetaryAmount_2340_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$2,340.00" ;
+    :currency "AUD" ;
+    :numericValue 2340.00 .
+
+:MonetaryAmount_245_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$245.00" ;
+    :currency "AUD" ;
+    :numericValue 245.00 .
+
+:MonetaryAmount_24_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$24.00" ;
+    :currency "AUD" ;
+    :numericValue 24.00 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2(a), p.5" .
+
+:MonetaryAmount_25_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$25.00" ;
+    :currency "AUD" ;
+    :numericValue 25.00 .
+
+:MonetaryAmount_26_50 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$26.50" ;
+    :currency "AUD" ;
+    :numericValue 26.50 .
+
+:MonetaryAmount_27_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$27.00" ;
+    :currency "AUD" ;
+    :numericValue 27.00 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2(a), p.5" .
+
+:MonetaryAmount_2940_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$2,940.00" ;
+    :currency "AUD" ;
+    :numericValue 2940.00 .
+
+:MonetaryAmount_31_50 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$31.50" ;
+    :currency "AUD" ;
+    :numericValue 31.50 .
+
+:MonetaryAmount_34_50 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$34.50" ;
+    :currency "AUD" ;
+    :numericValue 34.50 .
+
+:MonetaryAmount_35_59 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$35.59" ;
+    :currency "AUD" .
+
+:MonetaryAmount_390_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$390.00" ;
+    :currency "AUD" ;
+    :numericValue 390.00 .
+
+:MonetaryAmount_420_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$420.00" ;
+    :currency "AUD" ;
+    :numericValue 420.00 .
+
+:MonetaryAmount_42_40 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$42.40" ;
+    :currency "AUD" ;
+    :numericValue 42.40 .
+
+:MonetaryAmount_490_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$490.00" ;
+    :currency "AUD" ;
+    :numericValue 490.00 .
+
+:MonetaryAmount_50_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$50.00" ;
+    :currency "AUD" ;
+    :numericValue 50.00 .
+
+:MonetaryAmount_58_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$58.00" ;
+    :currency "AUD" ;
+    :numericValue 58.00 .
+
+:MonetaryAmount_63_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$63.00" ;
+    :currency "AUD" ;
+    :numericValue 63.00 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:MonetaryAmount_69_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$69.00" ;
+    :currency "AUD" ;
+    :numericValue 69.00 .
+
+:MonetaryAmount_75_88 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$75.88" ;
+    :currency "AUD" ;
+    :numericValue 75.88 .
+
+:MonetaryAmount_79_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$79.00" ;
+    :currency "AUD" ;
+    :numericValue 79.00 .
+
+:MonetaryAmount_96_91 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$96.91" ;
+    :currency "AUD" ;
+    :numericValue 96.91 .
+
+:NNI a owl:Class ;
+    rdfs:label "NNI" ;
+    rdfs:comment "A single NNI within an NNI Group, realised on one Bearer." .
+
+:NNILink_ProductFeature a :NNILink,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Link Product Feature" ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC,
+        :AccessTechnology_Wireless ;
+    :hasRecurringCharge :RecurringCharge_NNILink_0_00 ;
+    rdfs:comment "The NNI Link Product Feature with a recurring charge of $0.00 per Billing Period for Fibre, FTTB, FTTN, FTTC, HFC, Wireless networks. Not available for nbn Ethernet (Satellite). [extension: nbn Ethernet Price List, Section 2.4, p.10]" .
+
+:NNI_Bearer_1000BaseEX a :NNIBearerProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 1000BaseEX" ;
+    :hasProfile :Profile_1000BaseEX ;
+    :hasRecurringCharge :RecurringCharge_NNI_1000BaseEX .
+
+:NNI_Bearer_1000BaseLX a :NNIBearerProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 1000BaseLX" ;
+    :hasProfile :Profile_1000BaseLX ;
+    :hasRecurringCharge :RecurringCharge_NNI_1000BaseLX .
+
+:NNI_Bearer_100GBaseER4 a :NNIBearerProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 100GBaseER4" ;
+    :hasProfile :Profile_100GBaseER4 ;
+    :hasRecurringCharge :RecurringCharge_NNI_100GBaseER4 .
+
+:NNI_Bearer_100GBaseLR4 a :NNIBearerProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 100GBaseLR4" ;
+    :hasProfile :Profile_100GBaseLR4 ;
+    :hasRecurringCharge :RecurringCharge_NNI_100GBaseLR4 .
+
+:NNI_Bearer_10GBaseER a :NNIBearerProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 10GBaseER" ;
+    :hasProfile :Profile_10GBaseER ;
+    :hasRecurringCharge :RecurringCharge_NNI_10GBaseER .
+
+:NNI_Bearer_10GBaseER_Reduced a :NNIBearerProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 10GBaseER (Reduced Charge)" ;
+    :hasCondition :ReducedChargeCondition_NNI ;
+    :hasProfile :Profile_10GBaseER ;
+    :hasRecurringCharge :RecurringCharge_NNI_10GBaseER_Reduced .
+
+:NNI_Bearer_10GBaseLR a :NNIBearerProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 10GBaseLR" ;
+    :hasProfile :Profile_10GBaseLR ;
+    :hasRecurringCharge :RecurringCharge_NNI_10GBaseLR .
+
+:NNI_Bearer_10GBaseLR_Reduced a :NNIBearerProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 10GBaseLR (Reduced Charge)" ;
+    :hasCondition :ReducedChargeCondition_NNI ;
+    :hasProfile :Profile_10GBaseLR ;
+    :hasRecurringCharge :RecurringCharge_NNI_10GBaseLR_Reduced .
+
+:OrderCompleted_AVCTC2 a :Cl_OrderCompleted,
+        owl:NamedIndividual ;
+    rdfs:label "Order Completed for AVC TC-2 Product Component" ;
+    rdfs:comment "The day on which nbn completes the order for an AVC TC-2 Product Component, marking the start of the 12-month period. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B), p.18]" .
+
+:OrderedProduct_DisconnectedViaSTO a :OrderedProduct,
+        owl:NamedIndividual ;
+    rdfs:label "Ordered Product disconnected following Service Transfer Order acceptance" ;
+    :hasServiceTransferOrder :ServiceTransferOrder_Instance ;
+    rdfs:comment "The nbn Ethernet Ordered Product is disconnected following acceptance by nbn of a Service Transfer Order. [extension: nbn Ethernet Price List, Section 7(d)(ii), p.19]" .
+
+:OtherGainingRSP_Instance a :Party,
+        owl:NamedIndividual ;
+    rdfs:label "Other Gaining RSP" ;
+    rdfs:comment "The RSP that gains the service following a Service Transfer Order. [extension: nbn Ethernet Price List, Section 7(d)(ii), p.19]" .
+
+:PlanningLineCard a owl:Class ;
+    rdfs:label "PlanningLineCard" ;
+    rdfs:comment "Planning line-card on an aggregation device with NPU capacity/budget and committed load." ;
+    rdfs:subClassOf :PlanningResource .
+
+:PlanningPort a owl:Class ;
+    rdfs:label "PlanningPort" ;
+    rdfs:comment "Planning port on a line-card; may be FREE/IN_SERVICE and usable or blocked." ;
+    rdfs:subClassOf :PlanningResource .
+
+:PlanningRegion a owl:Class ;
+    rdfs:label "PlanningRegion" ;
+    rdfs:comment "A planning region (key of REFERENCE_REGION_SPECS, e.g. Region-West-1). Groups CSAs, NNI Groups, CVCs, a POI and transport conditions." .
+
+:PostDisconnectionModificationCharges_Instance a :Cl_PostDisconnectionModificationCharges,
+        owl:NamedIndividual ;
+    rdfs:label "Post Disconnection Modification Charges" ;
+    :currency "AUD" ;
+    :sourceClause "nbn Ethernet Price List, Section 7(c)(ii), p.19" ;
+    rdfs:comment "The recurring Charges for the TC-2 Bundle Components applicable after the trigger event, or nil in case of cancellation or disconnection, as set out in section 1.5. [extension: nbn Ethernet Price List, Section 7(c)(ii), p.19]" .
+
+:PostDisconnectionModificationCharges_Modification a :Cl_PostDisconnectionModificationCharges,
+        owl:NamedIndividual ;
+    rdfs:label "Post Disconnection Modification Charges (Modification)" ;
+    :currency "AUD" ;
+    :hasTriggerEvent :TriggerEvent_Modification ;
+    rdfs:comment "In the case of a modification, the recurring Charges for the TC-2 Bundle Components applicable after the modification of the AVC TC-2 bandwidth profile, as set out in section 1.5. [extension: nbn Ethernet Price List, Section 7(c)(ii)(B), p.19]" .
+
+:PostDisconnectionModificationCharges_Nil_Cancellation a :Cl_PostDisconnectionModificationCharges,
+        owl:NamedIndividual ;
+    rdfs:label "Post Disconnection Modification Charges (Cancellation) - nil" ;
+    :currency "AUD" ;
+    :hasTriggerEvent :TriggerEvent_Cancellation ;
+    :numericValue 0.00 ;
+    :sourceClause "nbn Ethernet Price List, Section 7(c)(ii)(A), p.19" ;
+    rdfs:comment "In the case of a cancellation, Post Disconnection Modification Charges means nil. [extension: nbn Ethernet Price List, Section 7(c)(ii)(A), p.19]" .
+
+:PostDisconnectionModificationCharges_Nil_Disconnection a :Cl_PostDisconnectionModificationCharges,
+        owl:NamedIndividual ;
+    rdfs:label "Post Disconnection Modification Charges (Disconnection) - nil" ;
+    :currency "AUD" ;
+    :hasTriggerEvent :TriggerEvent_Disconnection ;
+    :numericValue 0.00 ;
+    :sourceClause "nbn Ethernet Price List, Section 7(c)(ii)(A), p.19" ;
+    rdfs:comment "In the case of a disconnection, Post Disconnection Modification Charges means nil. [extension: nbn Ethernet Price List, Section 7(c)(ii)(A), p.19]" .
+
+:ProRataRule_12_1 a :ProRataRule,
+        owl:NamedIndividual ;
+    rdfs:label "Pro-Rata Rule for 12/1 Basic Offer" ;
+    :conditionDescription "If an AVC TC-4 satisfies the conditions of the Basic Offer for certain days during a Billing Period but not others, the two different Charges will be calculated and applied on a pro-rata basis." ;
+    :sourceClause "nbn Ethernet Price List, Note 4, p.5" .
+
+:ProductComponentName_FixedWirelessHomeFast a :ProductComponentName,
+        owl:NamedIndividual ;
+    rdfs:label "Fixed Wireless Home Fast" .
+
+:ProductComponentName_FixedWirelessSuperfast a :ProductComponentName,
+        owl:NamedIndividual ;
+    rdfs:label "Fixed Wireless Superfast" .
+
+:ProductComponentName_HomeFast a :ProductComponentName,
+        owl:NamedIndividual ;
+    rdfs:label "Home Fast" .
+
+:ProductComponentName_HomeHyperfast3 a :ProductComponentName,
+        owl:NamedIndividual ;
+    rdfs:label "Home Hyperfast3" .
+
+:ProductComponentName_HomeSuperfast a :ProductComponentName,
+        owl:NamedIndividual ;
+    rdfs:label "Home Superfast" .
+
+:ProductComponentName_HomeUltrafast3 a :ProductComponentName,
+        owl:NamedIndividual ;
+    rdfs:label "Home Ultrafast3" .
+
+:ProductComponentName_WirelessPlus a :ProductComponentName,
+        owl:NamedIndividual ;
+    rdfs:label "Wireless Plus" .
+
+:Profile_1000BaseEX a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "1000BaseEX" ;
+    rdfs:comment "NNI Bearer Profile 1000BaseEX. [extension: nbn Ethernet Price List, Section 1.6(a), p.8]" .
+
+:Profile_1000BaseLX a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "1000BaseLX" ;
+    rdfs:comment "NNI Bearer Profile 1000BaseLX. [extension: nbn Ethernet Price List, Section 1.6(a), p.8]" .
+
+:Profile_100GBaseER4 a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "100GBaseER4" ;
+    rdfs:comment "NNI Bearer Profile 100GBaseER4. [extension: nbn Ethernet Price List, Section 1.6(a), p.8]" .
+
+:Profile_100GBaseLR4 a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "100GBaseLR4" ;
+    rdfs:comment "NNI Bearer Profile 100GBaseLR4. [extension: nbn Ethernet Price List, Section 1.6(a), p.8]" .
+
+:RebateOrCredit_Instance a :RebateOrCredit,
+        owl:NamedIndividual ;
+    rdfs:label "Rebate/Credit for included AVC TC-1 0.15Mbps" ;
+    :amountEquals :RecurringCharge_AVCTC1_0_15 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4, Note, p.6" .
+
+:RecurringCharge_119_04 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $119.04" ;
+    :appliesTo :AVC_TC4_ProdComp_HomeHyperfast3 ;
+    :hasAmount :MonetaryAmount_119_04 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_12_00 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $12.00" ;
+    :appliesTo :AVC_TC4_ProdComp_12_1_Basic ;
+    :hasAmount :MonetaryAmount_12_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_154_99 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $154.99" ;
+    :appliesTo :AVC_TC4_ProdComp_2000_500 ;
+    :hasAmount :MonetaryAmount_154_99 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_24_00 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $24.00 (Satellite)" ;
+    :appliesTo :AVC_TC4_ProdComp_Sat_12_1 ;
+    :hasAmount :MonetaryAmount_24_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2(a), p.5" .
+
+:RecurringCharge_27_00 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $27.00 (Satellite)" ;
+    :appliesTo :AVC_TC4_ProdComp_Sat_25_5 ;
+    :hasAmount :MonetaryAmount_27_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2(a), p.5" .
+
+:RecurringCharge_35_59 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $35.59" ;
+    :appliesTo :AVC_TC4_ProdComp_12_1 ;
+    :hasAmount :MonetaryAmount_35_59 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_36_15 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $36.15" ;
+    :appliesTo :AVC_TC4_ProdComp_25_5 ;
+    :hasAmount :MonetaryAmount_36_15 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_36_15_b a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $36.15 (25/5-10 FTTB/FTTN)" ;
+    :appliesTo :AVC_TC4_ProdComp_25_5_10 ;
+    :hasAmount :MonetaryAmount_36_15 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_36_15_c a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $36.15 (25/10 Fibre/FTTC/HFC)" ;
+    :appliesTo :AVC_TC4_ProdComp_25_10 ;
+    :hasAmount :MonetaryAmount_36_15 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_57_60 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $57.60" ;
+    :appliesTo :AVC_TC4_ProdComp_25_50_5_20 ;
+    :hasAmount :MonetaryAmount_57_60 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_57_60_b a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $57.60 (50/20 Fibre/FTTC/HFC)" ;
+    :appliesTo :AVC_TC4_ProdComp_50_20 ;
+    :hasAmount :MonetaryAmount_57_60 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_57_60_c a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $57.60 (Wireless Plus)" ;
+    :appliesTo :AVC_TC4_ProdComp_WirelessPlus ;
+    :hasAmount :MonetaryAmount_57_60 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_60_85 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $60.85" ;
+    :appliesTo :AVC_TC4_ProdComp_HomeFast ;
+    :hasAmount :MonetaryAmount_60_85 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_60_85_b a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $60.85 (Fixed Wireless Home Fast)" ;
+    :appliesTo :AVC_TC4_ProdComp_FixedWirelessHomeFast ;
+    :hasAmount :MonetaryAmount_60_85 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_64_60 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $64.60" ;
+    :appliesTo :AVC_TC4_ProdComp_25_100_5_40 ;
+    :hasAmount :MonetaryAmount_64_60 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_64_60_b a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $64.60 (50-100/20-40 FTTC)" ;
+    :appliesTo :AVC_TC4_ProdComp_50_100_20_40 ;
+    :hasAmount :MonetaryAmount_64_60 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_64_60_c a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $64.60 (100/40 Fibre/HFC)" ;
+    :appliesTo :AVC_TC4_ProdComp_100_40 ;
+    :hasAmount :MonetaryAmount_64_60 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_64_60_d a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $64.60 (250/100 Fibre)" ;
+    :appliesTo :AVC_TC4_ProdComp_250_100 ;
+    :hasAmount :MonetaryAmount_64_60 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_64_60_e a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $64.60 (HFC 250/100)" ;
+    :appliesTo :AVC_TC4_ProdComp_HFC_250_100 ;
+    :hasAmount :MonetaryAmount_64_60 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_67_12 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $67.12" ;
+    :appliesTo :AVC_TC4_ProdComp_FixedWirelessSuperfast ;
+    :hasAmount :MonetaryAmount_67_12 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_67_12_b a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $67.12 (Home Superfast)" ;
+    :appliesTo :AVC_TC4_ProdComp_HomeSuperfast ;
+    :hasAmount :MonetaryAmount_67_12 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_75_88 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $75.88" ;
+    :appliesTo :AVC_TC4_ProdComp_HomeUltrafast3 ;
+    :hasAmount :MonetaryAmount_75_88 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_79_00 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $79.00" ;
+    :appliesTo :AVC_TC4_ProdComp_500_200 ;
+    :hasAmount :MonetaryAmount_79_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_96_91 a :FlatRateAVCCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Flat-Rate AVC Charge $96.91" ;
+    :appliesTo :AVC_TC4_ProdComp_1000_400 ;
+    :hasAmount :MonetaryAmount_96_91 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_AVCTC1_0_3 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 0.3 Mbps Recurring Charge $19.30" ;
+    :hasAmount :MonetaryAmount_19_30 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:RecurringCharge_AVCTC1_0_5 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 0.5 Mbps Recurring Charge $19.30" ;
+    :hasAmount :MonetaryAmount_19_30 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:RecurringCharge_AVCTC1_1_0 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 1.0 Mbps Recurring Charge $19.30" ;
+    :hasAmount :MonetaryAmount_19_30 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:RecurringCharge_AVCTC1_2_0 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 2.0 Mbps Recurring Charge $19.30" ;
+    :hasAmount :MonetaryAmount_19_30 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:RecurringCharge_AVCTC1_5_0 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 5.0 Mbps Recurring Charge $63.00" ;
+    :hasAmount :MonetaryAmount_63_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:RecurringCharge_CVCClass_0 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 0 Recurring Charge $0.00 per CVC TC-4 per associated AVC TC-4" ;
+    :hasAmount :MonetaryAmount_0_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_CVCClass_1 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 1 Recurring Charge $18.00 per CVC TC-4 per associated AVC TC-4" ;
+    :hasAmount :MonetaryAmount_18_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_CVCClass_2 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 2 Recurring Charge $40.00 per CVC TC-4 per associated AVC TC-4" ;
+    :hasAmount :MonetaryAmount_40_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_CVCTC1_17_50 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC-TC-1 Recurring Charge $17.50 per Mbps" ;
+    :hasAmount :MonetaryAmount_17_50 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(b), p.6" .
+
+:RecurringCharge_CVC_15_75 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Recurring Charge $15.75 per Mbps" ;
+    :hasAmount :MonetaryAmount_15_75 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2, p.6" .
+
+:RecurringCharge_CVC_TC2_PerMbps a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-2 Recurring Charge $17.50 per provisioned symmetrical Mbps (CIR)" ;
+    :hasAmount :MonetaryAmount_17_50_CVC_TC2 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_Enhanced12_15_50 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-12 Recurring Charge $15.50" ;
+    :hasAmount :MonetaryAmount_15_50 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_Enhanced12_24_7_15_00 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-12 (24/7) Recurring Charge $15.00" ;
+    :hasAmount :MonetaryAmount_15_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_Enhanced4_42_40 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-4 Recurring Charge $42.40" ;
+    :hasAmount :MonetaryAmount_42_40 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_Enhanced6_24_7_69_00 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-6 (24/7) Recurring Charge $69.00" ;
+    :hasAmount :MonetaryAmount_69_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_Enhanced6_34_50 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-6 Recurring Charge $34.50" ;
+    :hasAmount :MonetaryAmount_34_50 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_Enhanced8_24_7_58_00 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-8 (24/7) Recurring Charge $58.00" ;
+    :hasAmount :MonetaryAmount_58_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_Enhanced8_26_50 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-8 Recurring Charge $26.50" ;
+    :hasAmount :MonetaryAmount_26_50 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_NNILink_0_00 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Link Recurring Charge $0.00 per Billing Period" ;
+    :hasAmount :MonetaryAmount_0_00_NNILink ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_NNI_1000BaseEX a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 1000BaseEX Recurring Charge $125.00" ;
+    :hasAmount :MonetaryAmount_125_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_NNI_1000BaseLX a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 1000BaseLX Recurring Charge $100.00" ;
+    :hasAmount :MonetaryAmount_100_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_NNI_100GBaseER4 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 100GBaseER4 Recurring Charge $2,940.00" ;
+    :hasAmount :MonetaryAmount_2940_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_NNI_100GBaseLR4 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 100GBaseLR4 Recurring Charge $2,340.00" ;
+    :hasAmount :MonetaryAmount_2340_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_NNI_10GBaseER a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 10GBaseER Recurring Charge $490.00" ;
+    :hasAmount :MonetaryAmount_490_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_NNI_10GBaseER_Reduced a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 10GBaseER Reduced Recurring Charge $245.00" ;
+    :hasAmount :MonetaryAmount_245_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_NNI_10GBaseLR a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 10GBaseLR Recurring Charge $390.00" ;
+    :hasAmount :MonetaryAmount_390_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_NNI_10GBaseLR_Reduced a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Bearer 10GBaseLR Reduced Recurring Charge $195.00" ;
+    :hasAmount :MonetaryAmount_195_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_SecondUNIV_17_50 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Second UNI-V and AVC TC-1 bundle Recurring Charge $17.50" ;
+    :hasAmount :MonetaryAmount_17_50_SecondUNI ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:RecurringCharge_VNNI_31_50 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "V-NNI Recurring Charge $31.50" ;
+    :hasAmount :MonetaryAmount_31_50 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC,
+        :AccessTechnology_Wireless .
+
+:RedundancyMode_DIVERSE_CHASSIS a :RedundancyMode,
+        owl:NamedIndividual ;
+    rdfs:label "DIVERSE_CHASSIS" .
+
+:RedundancyMode_SINGLE a :RedundancyMode,
+        owl:NamedIndividual ;
+    rdfs:label "SINGLE" ;
+    rdfs:comment "Used by Region-Central-1 but not a WBA redundancy mode." .
+
+:RedundancyMode_SINGLE_CHASSIS a :RedundancyMode,
+        owl:NamedIndividual ;
+    rdfs:label "SINGLE_CHASSIS" .
+
+:RiskRating_High a :RiskRating,
+        owl:NamedIndividual ;
+    rdfs:label "High" .
+
+:RiskRating_Low a :RiskRating,
+        owl:NamedIndividual ;
+    rdfs:label "Low" .
+
+:RiskRating_Medium a :RiskRating,
+        owl:NamedIndividual ;
+    rdfs:label "Medium" .
+
+:Rule a owl:Class ;
+    rdfs:label "Rule" ;
+    rdfs:comment "A rule or condition that governs charges or obligations. [extension: nbn Ethernet Price List, Section 7, p.18]" .
+
+:Scenario a owl:Class ;
+    rdfs:label "Scenario" ;
+    rdfs:comment "A scenario within a network (operational scenario or planning scenario)." .
+
+:Section_1_2 a :Cl_ChargeSection,
+        owl:NamedIndividual ;
+    rdfs:label "Section 1.2" ;
+    rdfs:comment "Section 1.2 of the nbn Ethernet Price List (CVC charges). [extension: nbn Ethernet Price List, Section 6, Note, p.17]" .
+
+:Section_2_3 a :Cl_ChargeSection,
+        owl:NamedIndividual ;
+    rdfs:label "Section 2.3" ;
+    rdfs:comment "Section 2.3 of the nbn Ethernet Price List (CVC Class charges). [extension: nbn Ethernet Price List, Section 6, Note, p.17]" .
+
+:Section_6 a :Cl_ChargeSection,
+        owl:NamedIndividual ;
+    rdfs:label "Section 6" ;
+    rdfs:comment "Section 6 of the nbn Ethernet Price List (Excess CVC TC-4 Usage). [extension: nbn Ethernet Price List, Section 6, p.18]" .
+
+:ServiceOption_Enhanced12 a :ServiceOption,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-12" .
+
+:ServiceOption_Enhanced12_24_7 a :ServiceOption,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-12 (24/7)" .
+
+:ServiceOption_Enhanced4 a :ServiceOption,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-4" .
+
+:ServiceOption_Enhanced4_24_7 a :ServiceOption,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-4 (24/7)" ;
+    rdfs:comment "Enhanced-4 (24/7) service option for Enhanced Fault Rectification Service. [extension: nbn Ethernet Price List, Section 2.2(a), p.10]" .
+
+:ServiceOption_Enhanced6 a :ServiceOption,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-6" .
+
+:ServiceOption_Enhanced6_24_7 a :ServiceOption,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-6 (24/7)" .
+
+:ServiceOption_Enhanced8 a :ServiceOption,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-8" ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC .
+
+:ServiceOption_Enhanced8_24_7 a :ServiceOption,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-8 (24/7)" .
+
+:UNI_D a :UNI_Type,
+        owl:NamedIndividual ;
+    rdfs:label "UNI-D" ;
+    rdfs:comment "User Network Interface Type D. [extension: nbn Ethernet Price List, Section 1.3, p.6]" .
+
+:UNI_DSL a :UNI_Type,
+        owl:NamedIndividual ;
+    rdfs:label "UNI-DSL" ;
+    rdfs:comment "User Network Interface Type DSL. [extension: nbn Ethernet Price List, Section 1.3, p.6]" .
+
+:UNI_V a :UNI_Type,
+        owl:NamedIndividual ;
+    rdfs:label "UNI-V" ;
+    rdfs:comment "User Network Interface Type V. [extension: nbn Ethernet Price List, Section 1.3, p.6]" .
+
+:UpstreamPIR_1 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 1 Mbps" ;
+    :numericValue 1.0 ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_10 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 10 Mbps" ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_1_Basic a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 1 Mbps (Basic Offer)" ;
+    :numericValue 1.0 ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_20 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 20 Mbps" ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_200 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 200 Mbps" ;
+    :numericValue 200.0 ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_20_40 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 20-40 Mbps" ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_40 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 40 Mbps" ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_400 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 400 Mbps" ;
+    :numericValue 400.0 ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_5 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 5 Mbps" ;
+    :numericValue 5.0 ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_500 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 500 Mbps" ;
+    :numericValue 500.0 ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_5_10 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 5-10 Mbps" ;
+    :numericValue 5.0 ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_5_20 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 5-20 Mbps" ;
+    :numericValue 5.0 ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_5_40 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 5-40 Mbps" ;
+    :numericValue 5.0 ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_Sat_1 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 1 Mbps (Satellite)" ;
+    :numericValue 1.0 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2(a), p.5" ;
+    :unitOfMeasure "Mbps" .
+
+:UpstreamPIR_Sat_5 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 5 Mbps (Satellite)" ;
+    :numericValue 5.0 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.2(a), p.5" ;
+    :unitOfMeasure "Mbps" .
+
+:UsageCondition_LowUtilisation a :UsageCondition,
+        owl:NamedIndividual ;
+    rdfs:label "Usage Condition: Low Utilisation" ;
+    :averageUtilisationThresholdMbps 0.1 ;
+    :conditionDescription "That AVC does not utilise, on average, more than 0.1 Mbps of capacity during any 60-minute period on that day." ;
+    :monitoringPeriodMinutes 60 ;
+    :sourceClause "nbn Ethernet Price List, Note 4, p.5" .
+
+:UsageCondition_VoiceBroadband a :UsageCondition,
+        owl:NamedIndividual ;
+    rdfs:label "Usage Condition: Voice Broadband" ;
+    :conditionDescription "RSP uses that AVC TC-4 as an input into an RSP Product or Downstream Product which is a broadband service which includes a voice component." ;
+    :sourceClause "nbn Ethernet Price List, Note 4, p.5" .
+
+:UsageRange_Class1ToClass2 a :Cl_UsageRange,
+        owl:NamedIndividual ;
+    rdfs:label "Greater than allocated usage for CVC Class 1 up to allocated usage for CVC Class 2" ;
+    :hasLowerBound "allocated usage for CVC Class 1" ;
+    :hasUpperBound "allocated usage for CVC Class 2" ;
+    rdfs:comment "Usage range greater than allocated usage for CVC Class 1 up to allocated usage for CVC Class 2. [extension: nbn Ethernet Price List, Section 6(a), p.17]" .
+
+:UsageRange_UpToClass1 a :Cl_UsageRange,
+        owl:NamedIndividual ;
+    rdfs:label "Up to allocated usage for CVC Class 1" ;
+    :hasLowerBound "0" ;
+    :hasUpperBound "allocated usage for CVC Class 1" ;
+    rdfs:comment "Usage range from zero up to the allocated usage for CVC Class 1. [extension: nbn Ethernet Price List, Section 6(a), p.17]" .
+
+:UsageRange_UpToClass2 a :Cl_UsageRange,
+        owl:NamedIndividual ;
+    rdfs:label "Up to allocated usage for CVC Class 2" ;
+    :hasLowerBound "0" ;
+    :hasUpperBound "allocated usage for CVC Class 2" ;
+    rdfs:comment "Usage range from zero up to the allocated usage for CVC Class 2. [extension: nbn Ethernet Price List, Section 6(a), p.17]" .
+
+:UsageTierCharge_CVC0_Tier1 a :Cl_UsageTierCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 0 Tier 1: Up to Class 1 usage, $150.00 per AVC TC-4" ;
+    :hasCVCClass :CVCClass_0 ;
+    :hasChargePerAVC :MonetaryAmount_150_00 ;
+    :hasUsageRange :UsageRange_UpToClass1 .
+
+:UsageTierCharge_CVC0_Tier2 a :Cl_UsageTierCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 0 Tier 2: Class 1 to Class 2 usage, $40.00 per AVC TC-4" ;
+    :hasCVCClass :CVCClass_0 ;
+    :hasChargePerAVC :MonetaryAmount_40_00 ;
+    :hasUsageRange :UsageRange_Class1ToClass2 .
+
+:UsageTierCharge_CVC0_Tier3 a :Cl_UsageTierCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 0 Tier 3: Above Class 2 usage, $150.00 per AVC TC-4" ;
+    :hasCVCClass :CVCClass_0 ;
+    :hasChargePerAVC :MonetaryAmount_150_00 ;
+    :hasUsageRange :UsageRange_AboveClass2 .
+
+:UsageTierCharge_CVC1_Tier1 a :Cl_UsageTierCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 1 Tier 1: Up to Class 2 usage, $22.00 per AVC TC-4" ;
+    :hasCVCClass :CVCClass_1 ;
+    :hasChargePerAVC :MonetaryAmount_22_00 ;
+    :hasUsageRange :UsageRange_UpToClass2 .
+
+:UsageTierCharge_CVC1_Tier2 a :Cl_UsageTierCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 1 Tier 2: Above Class 2 usage, $132.00 per AVC TC-4" ;
+    :hasCVCClass :CVCClass_1 ;
+    :hasChargePerAVC :MonetaryAmount_132_00 ;
+    :hasUsageRange :UsageRange_AboveClass2 .
+
+:UsageTierCharge_CVC2_Tier1 a :Cl_UsageTierCharge,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 2 Tier 1: Above Class 2 usage, $110.00 per AVC TC-4" ;
+    :hasCVCClass :CVCClass_2 ;
+    :hasChargePerAVC :MonetaryAmount_110_00 ;
+    :hasUsageRange :UsageRange_AboveClass2 .
+
+:VNNI_ProductComponent a :NNILink,
+        owl:NamedIndividual ;
+    rdfs:label "V-NNI Product Component" ;
+    :hasRecurringCharge :RecurringCharge_VNNI_31_50 .
+
+:nbn a :Supplier,
+        owl:NamedIndividual ;
+    rdfs:label "nbn" ;
+    :supplies :NNI_Bearer_1000BaseEX,
+        :NNI_Bearer_1000BaseLX,
+        :NNI_Bearer_100GBaseER4,
+        :NNI_Bearer_100GBaseLR4,
+        :NNI_Bearer_10GBaseER,
+        :NNI_Bearer_10GBaseER_Reduced,
+        :NNI_Bearer_10GBaseLR,
+        :NNI_Bearer_10GBaseLR_Reduced ;
+    rdfs:comment "nbn co, the supplier of NNI Bearer Product Components. [extension: nbn Ethernet Price List, Section 1.6(c), p.8]" .
+
+:AVC_TC4_ProdComp_12_1_Basic a :AVC_TC4_ProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 12/1 Basic Offer" ;
+    :hasAccessTechnology :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasDownstreamPIR :DownstreamPIR_12_Basic ;
+    :hasRecurringCharge :RecurringCharge_12_00 ;
+    :hasUpstreamPIR :UpstreamPIR_1_Basic .
+
+:CVCClass_2 a :CVCClass,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 2" ;
+    rdfs:comment "CVC Class 2 for CVC TC-4 Product Components of nbn Ethernet (Satellite). [extension: nbn Ethernet Price List, Section 2.3, p.10]" .
+
+:CVC_ProductComponent a owl:Class ;
+    rdfs:label "CVC_ProductComponent" ;
+    rdfs:comment "A Connectivity Virtual Circuit Product Component, made available separately and in different TC-4 capacity increments. [extension: nbn Ethernet Price List, Section 1.2, p.6]" ;
+    rdfs:subClassOf :CVC,
+        :ProductComponent .
+
+:CalendarWeek_Definition a :Cl_CalendarWeek,
+        owl:NamedIndividual ;
+    rdfs:label "Calendar Week Definition (Section 6)" ;
+    :hasDurationUnit "days" ;
+    :hasDurationValue 7 ;
+    :hasEndTime "11:59pm Saturday (AET)" ;
+    :hasStartTime "12:00am Sunday (AET)" ;
+    rdfs:comment "The period from 12:00am Sunday to 11:59pm Saturday (AET), used for section 6 calculations. [extension: nbn Ethernet Price List, Section 6(f), p.18]" .
+
+:Cl_CIRObjective a owl:Class ;
+    rdfs:label "CIR Objective" ;
+    rdfs:comment "The Committed Information Rate objective applicable to an AVC TC-2 bandwidth profile, used in exemption conditions under section 7(d). [extension: nbn Ethernet Price List, Section 7(d), p.19]" ;
+    rdfs:subClassOf :Attribute .
+
+:Cl_ChargeRule a owl:Class ;
+    rdfs:label "Charge Rule" ;
+    rdfs:comment "A rule that defines the conditions under which a charge applies. [extension: nbn Ethernet Price List, Section 7, p.18]" ;
+    rdfs:subClassOf :Rule .
+
+:Cl_Default a owl:Class ;
+    rdfs:label "Default" ;
+    rdfs:comment "A failure by a party to comply with the Agreement. [extension: nbn Ethernet Price List, Section 7, p.18]" ;
+    rdfs:subClassOf :Event .
+
+:Cl_NetworkActivity a owl:Class ;
+    rdfs:label "Network Activity Event" ;
+    rdfs:comment "An event where nbn designates that Network Activity is required in respect of an nbn Ethernet Ordered Product to attempt to achieve the CIR Objective. [extension: nbn Ethernet Price List, Section 7(b)(i), p.18]" ;
+    rdfs:subClassOf :Event .
+
+:Cl_OrderCompleted a owl:Class ;
+    rdfs:label "Order Completed Event" ;
+    rdfs:comment "The event when nbn completes the order for a Product Component, marking the beginning of the 12-month period for early disconnection/modification charges. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B), p.18]" ;
+    rdfs:subClassOf :Event .
+
+:Cl_PreDisconnectionModificationCharges a owl:Class ;
+    rdfs:label "Pre Disconnection Modification Charges" ;
+    rdfs:comment "The recurring Charges for the TC-2 Bundle Components applicable prior to a cancellation, disconnection, or modification event, as set out in section 1.5. [extension: nbn Ethernet Price List, Section 7(c)(i), p.19]" ;
+    rdfs:subClassOf :MonetaryAmount .
+
+:CostItem a owl:Class ;
+    rdfs:label "CostItem" ;
+    rdfs:comment "A cost line of an action (capital, one-off, recurring, lease)." .
+
+:CustomerSegment a owl:Class ;
+    rdfs:label "CustomerSegment" ;
+    rdfs:comment "Customer segment (residential, SME, enterprise) with criticality and default share." .
+
+:DownstreamPIR_250 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 250 Mbps" ;
+    :numericValue 250.0 ;
+    :unitOfMeasure "Mbps" .
+
+:ExceedanceEvent_BothLimitations a :Cl_ExceedanceEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Exceedance Event: Both Download and Upload Limitations" ;
+    :exceedsDownloadLimitation :averageDownloadLimitation ;
+    :exceedsUploadLimitation :averageUploadLimitation ;
+    :hasCalendarWeek :CalendarWeek_Definition ;
+    :triggersCharge :SingleCharge_Section6 ;
+    rdfs:comment "Event where RSP exceeds both the average download limitation and the average upload limitation set out in section 4.5(a) of the nbn Ethernet Fair Use Policy. [extension: nbn Ethernet Price List, Section 6(d), p.18]" .
+
+:ExceedanceEvent_MultipleOccasions a :Cl_ExceedanceEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Exceedance Event: Multiple Occasions in a Billing Period" ;
+    :exceedsDownloadLimitation :averageDownloadLimitation ;
+    :exceedsUploadLimitation :averageUploadLimitation ;
+    :hasCalendarWeek :CalendarWeek_Definition ;
+    :occursInBillingPeriod :BillingPeriod_P1M ;
+    :triggersCharge :SingleCharge_Section6 ;
+    rdfs:comment "Event where RSP exceeds the average download and upload limitations on multiple occasions in a Billing Period. [extension: nbn Ethernet Price List, Section 6(e), p.18]" .
+
+:FirstMonth_Instance a :FirstMonth,
+        owl:NamedIndividual ;
+    rdfs:label "First Month (1 month from supply start)" ;
+    rdfs:comment "The period of 1 month from the date on which nbn starts to supply an Enhanced Fault Rectification Service. [extension: nbn Ethernet Price List, Section 2.2(b), p.10]" .
+
+:MonetaryAmount_200_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$200.00" ;
+    :currency "AUD" ;
+    :numericValue 200.00 .
+
+:MonetaryAmount_40_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$40.00" ;
+    :currency "AUD" ;
+    :numericValue 40.00 .
+
+:MonetaryAmount_60_85 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$60.85" ;
+    :currency "AUD" .
+
+:MonetaryAmount_67_12 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$67.12" ;
+    :currency "AUD" .
+
+:NNILink a owl:Class ;
+    rdfs:label "NNILink" ;
+    rdfs:comment "WBA NNI Link / V-NNI / S-TAG concepts. Not modelled." ;
+    skos:altLabel "NNI Link",
+        "S-TAG",
+        "V-NNI",
+        "over-book" .
+
+:OrderedProduct_WithAVCTC2 a :OrderedProduct,
+        owl:NamedIndividual ;
+    rdfs:label "Ordered Product that includes an AVC TC-2 Product Component" ;
+    :hasNetworkActivity :NetworkActivity_Instance ;
+    :hasServiceTransferOrder :ServiceTransferOrder_Instance ;
+    rdfs:comment "An Ordered Product that also includes an AVC TC-2 Product Component at the time that the eSLA Change Event occurs, which exempts the Enhanced Fault Rectification Service from section 2.2(b). [extension: nbn Ethernet Price List, Section 2.2(d), p.10]" .
+
+:PlanningRule a owl:Class ;
+    rdfs:label "PlanningRule" ;
+    rdfs:comment "Named planning/engineering/governance rule with a limit, unit and compliance level (PR-01 ... GV-03)." .
+
+:Profile_10GBaseER a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "10GBaseER" ;
+    rdfs:comment "NNI Bearer Profile 10GBaseER. [extension: nbn Ethernet Price List, Section 1.6(a), p.8]" .
+
+:Profile_10GBaseLR a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "10GBaseLR" ;
+    rdfs:comment "NNI Bearer Profile 10GBaseLR. [extension: nbn Ethernet Price List, Section 1.6(a), p.8]" .
+
+:RSP a owl:Class ;
+    rdfs:label "RSP" ;
+    rdfs:comment "Retail Service Provider role. [extension: nbn Ethernet Price List, Section 1.4, p.6]" .
+
+:RecurringCharge_AVCTC1_0_15 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 0.15 Mbps Recurring Charge $10.00" ;
+    :hasAmount :MonetaryAmount_10_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:RecurringCharge_Enhanced4_24_7_25_00 a :RecurringCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced-4 (24/7) Recurring Charge $25.00" ;
+    :hasAmount :MonetaryAmount_25_00 ;
+    :hasBillingPeriod :BillingPeriod_P1M .
+
+:ReducedChargeCondition a owl:Class ;
+    rdfs:label "ReducedChargeCondition" ;
+    rdfs:comment "A condition that, when satisfied, triggers reduced NNI Bearer charges. [extension: nbn Ethernet Price List, Section 1.6(c), p.8]" .
+
+:ReducedChargeCondition_NNI a :ReducedChargeCondition,
+        owl:NamedIndividual ;
+    rdfs:label "Reduced NNI Bearer Charge Condition" ;
+    :conditionDescription "nbn supplies only the following at a POI" .
+
+:SecondUNIV_AVCTC1_Bundle a owl:Class ;
+    rdfs:label "SecondUNIV_AVCTC1_Bundle" ;
+    rdfs:comment "A second UNI-V and AVC TC-1 bundle product component for nbn Ethernet (Fibre). [extension: nbn Ethernet Price List, Section 2.1, p.9]" ;
+    rdfs:subClassOf :ProductComponent .
+
+:ShortfallPeriod_Cancellation a :Cl_ShortfallPeriod,
+        owl:NamedIndividual ;
+    rdfs:label "Shortfall Period for Cancellation" ;
+    :hasDurationISO8601 "P12M" ;
+    :hasTriggerEvent :TriggerEvent_Cancellation ;
+    :sourceClause "nbn Ethernet Price List, Section 7(c)(iii)(A), p.19" ;
+    rdfs:comment "12 months, applicable in the case of a cancellation. [extension: nbn Ethernet Price List, Section 7(c)(iii)(A), p.19]" .
+
+:ShortfallPeriod_DisconnectionModification a :Cl_ShortfallPeriod,
+        owl:NamedIndividual ;
+    rdfs:label "Shortfall Period for Disconnection or Modification" ;
+    :hasDurationISO8601 "P12M" ;
+    :hasProRataDailyBasis true ;
+    :hasTriggerEvent :TriggerEvent_Disconnection,
+        :TriggerEvent_Modification ;
+    :sourceClause "nbn Ethernet Price List, Section 7(c)(iii)(B), p.19" ;
+    rdfs:comment "12 months less the period during which the Pre Disconnection Modification Charges applied, calculated on a pro rata daily basis. [extension: nbn Ethernet Price List, Section 7(c)(iii)(B), p.19]" .
+
+:SingleCharge_Section6 a :Cl_EarlyDisconnectionModificationCharge,
+        owl:NamedIndividual ;
+    rdfs:label "Single Charge under Section 6" ;
+    :currency "AUD" ;
+    rdfs:comment "A single Charge that applies under section 6 when RSP exceeds limitations, calculated as the highest applicable amount. [extension: nbn Ethernet Price List, Section 6(d)-(e), p.18]" .
+
+:Supplier a owl:Class ;
+    rdfs:label "Supplier" ;
+    rdfs:comment "A role representing the supplier of a product component. [extension: nbn Ethernet Price List, Section 1.6(c), p.8]" .
+
+:UpstreamPIR_100 a :UpstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream 100 Mbps" ;
+    :numericValue 100.0 ;
+    :unitOfMeasure "Mbps" .
+
+:averageDownloadLimitation a :Threshold,
+        owl:NamedIndividual ;
+    rdfs:label "Average Download Limitation" ;
+    rdfs:comment "The average download limitation set out in section 4.5(a) of the nbn Ethernet Fair Use Policy. [extension: nbn Ethernet Price List, Section 6(d), p.18]" .
+
+:averageUploadLimitation a :Threshold,
+        owl:NamedIndividual ;
+    rdfs:label "Average Upload Limitation" ;
+    rdfs:comment "The average upload limitation set out in section 4.5(a) of the nbn Ethernet Fair Use Policy. [extension: nbn Ethernet Price List, Section 6(d), p.18]" .
+
+:CVCClass_1 a :CVCClass,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 1" ;
+    rdfs:comment "CVC Class 1 for CVC TC-4 Product Components of nbn Ethernet (Satellite). [extension: nbn Ethernet Price List, Section 2.3, p.10]" .
+
+:CVC_TC1_ProductComponent a owl:Class ;
+    rdfs:label "CVC_TC1_ProductComponent" ;
+    rdfs:comment "A Connectivity Virtual Circuit with Traffic Class 1, charged per provisioned symmetrical Mbps (CIR). [extension: nbn Ethernet Price List, Section 1.4(b), p.6]" ;
+    rdfs:subClassOf :CVC,
+        :ProductComponent .
+
+:Cl_ExcessUsageEvent a owl:Class ;
+    rdfs:label "Excess Usage Event" ;
+    rdfs:comment "An event where an RSP uses CVC TC-4 capacity in excess of either the average download limitation or the average upload limitation set out in section 4.5(a) of the nbn Ethernet Fair Use Policy. [extension: nbn Ethernet Price List, Section 6(a), p.17]" .
+
+:Cl_ExemptionCondition a owl:Class ;
+    rdfs:label "Exemption Condition" ;
+    rdfs:comment "A condition under which the Charge under section 7 does not apply, such as unsuccessful Network Activity or Service Transfer Order with qualifying CIR Objective. [extension: nbn Ethernet Price List, Section 7(d), p.19]" .
+
+:Cl_Incidentals a owl:Class ;
+    rdfs:label "Incidentals" ;
+    rdfs:comment "Additional incidental charges that may apply for Limited Access Areas. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:Cl_ShortfallPeriod a owl:Class ;
+    rdfs:label "Shortfall Period" ;
+    rdfs:comment "A time interval used in the Charge calculation: 12 months for cancellation, or 12 months less the period Pre Disconnection Modification Charges applied for disconnection or modification, calculated on a pro rata daily basis. [extension: nbn Ethernet Price List, Section 7(c)(iii), p.19]" ;
+    rdfs:subClassOf :TimeInterval .
+
+:Day a owl:Class ;
+    rdfs:label "Day" ;
+    rdfs:comment "A calendar day defined as the period from 12:00am to 11:59pm based on local time in Sydney. [extension: nbn Ethernet Price List, Note 4, p.5]" .
+
+:DownstreamPIR_25 a :DownstreamPIR,
+        owl:NamedIndividual ;
+    rdfs:label "Downstream 25 Mbps" ;
+    :numericValue 25.0 ;
+    :unitOfMeasure "Mbps" .
+
+:EnhancedFaultRectification_Enhanced4_24_7 a :EnhancedFaultRectificationService,
+        owl:NamedIndividual ;
+    rdfs:label "Enhanced Fault Rectification Service Enhanced-4 (24/7)" ;
+    :hasESLAChangeEvent :ESLAChangeEvent_Instance ;
+    :hasFirstMonth :FirstMonth_Instance ;
+    :hasNetworkType :AccessTechnology_FIBRE,
+        :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN,
+        :AccessTechnology_HFC ;
+    :hasRecurringCharge :RecurringCharge_Enhanced4_24_7_25_00 ;
+    :hasServiceOption :ServiceOption_Enhanced4_24_7 ;
+    :isSuppliedAsPartOf :OrderedProduct_WithAVCTC2 .
+
+:FirstMonth a owl:Class ;
+    rdfs:label "FirstMonth" ;
+    rdfs:comment "The period of 1 month from the date on which nbn starts to supply an Enhanced Fault Rectification Service. [extension: nbn Ethernet Price List, Section 2.2(b), p.10]" .
+
+:MonetaryAmount_36_15 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$36.15" ;
+    :currency "AUD" .
+
+:MonetaryAmount_57_60 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$57.60" ;
+    :currency "AUD" .
+
+:NetworkActivity_Instance a :Cl_NetworkActivity,
+        owl:NamedIndividual ;
+    rdfs:label "Network Activity for CIR Objective" ;
+    :hasNetworkActivityOutcome false ;
+    :hasNotificationStatus false ;
+    rdfs:comment "Network Activity designated by nbn in respect of an nbn Ethernet Ordered Product to attempt to achieve the CIR Objective in accordance with sections 4.5.2.2 and 5.2.8 of the WBA Operations Manual. [extension: nbn Ethernet Price List, Section 7(b)(i), p.18]",
+        "Network Activity designated by nbn in respect of an nbn Ethernet Ordered Product to attempt to achieve the CIR Objective. If unsuccessful, the Charge under section 7 will not apply. [extension: nbn Ethernet Price List, Section 7(d)(i), p.19]" .
+
+:ServiceTransferOrder_Instance a :Cl_ServiceTransferOrder,
+        owl:NamedIndividual ;
+    rdfs:label "Service Transfer Order" ;
+    :hasLosingRSP :LosingRSP_Instance ;
+    :hasOrderedAVCTC2 :AVC_TC2_ProdComp_Instance ;
+    :hasOtherGainingRSP :OtherGainingRSP_Instance ;
+    :sourceClause "nbn Ethernet Price List, Section 7(d)(ii), p.19" ;
+    rdfs:comment "A Service Transfer Order accepted by nbn for transfer of service from a Losing RSP to an Other Gaining RSP. [extension: nbn Ethernet Price List, Section 7(d)(ii), p.19]" .
+
+:UsageRange_AboveClass2 a :Cl_UsageRange,
+        owl:NamedIndividual ;
+    rdfs:label "Greater than allocated usage for CVC Class 2" ;
+    :hasLowerBound "allocated usage for CVC Class 2" ;
+    :hasUpperBound "unlimited" ;
+    rdfs:comment "Usage range greater than allocated usage for CVC Class 2. [extension: nbn Ethernet Price List, Section 6(a), p.17]" .
+
+:BillingPeriod a owl:Class ;
+    rdfs:label "BillingPeriod" ;
+    rdfs:comment "A period of time for which a recurring charge is billed. [extension: nbn Ethernet Price List, Section 1.1]" .
+
+:CIRObjective_Instance a :Cl_CIRObjective,
+        owl:NamedIndividual ;
+    rdfs:label "CIR Objective" ;
+    :sourceClause "nbn Ethernet Price List, Section 7(d), p.19" ;
+    rdfs:comment "The Committed Information Rate objective applicable to an AVC TC-2 bandwidth profile. [extension: nbn Ethernet Price List, Section 7(d), p.19]" .
+
+:CVCClass a owl:Class ;
+    rdfs:label "CVCClass" ;
+    rdfs:comment "An attribute of each CVC TC-4 Product Component of nbn Ethernet (Satellite) with classes 0, 1, and 2, each having a specific recurring charge per CVC TC-4 per associated AVC TC-4. [extension: nbn Ethernet Price List, Section 2.3, p.10]" .
+
+:CVCClass_0 a :CVCClass,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 0" ;
+    rdfs:comment "CVC Class 0 for CVC TC-4 Product Components of nbn Ethernet (Satellite). [extension: nbn Ethernet Price List, Section 2.3, p.10]" .
+
+:Cl_CVCClassAdjustment a owl:Class ;
+    rdfs:label "CVC Class Adjustment" ;
+    rdfs:comment "An adjustment charge triggered when an RSP exceeds CVC TC-4 capacity limits, calculated per Ordered CVC Class and usage range. [extension: nbn Ethernet Price List, Section 6, p.17]" .
+
+:Cl_CalendarWeek a owl:Class ;
+    rdfs:label "Calendar Week" ;
+    rdfs:comment "A fixed 7-day window from 12:00am Sunday to 11:59pm Saturday (AET), used for section 6 calculations. [extension: nbn Ethernet Price List, Section 6(f), p.18]" ;
+    rdfs:subClassOf :TimeInterval .
+
+:Cl_Charge a owl:Class ;
+    rdfs:label "Charge under Section 7" ;
+    rdfs:comment "A monetary amount calculated as (Pre Disconnection Modification Charges - Post Disconnection Modification Charges) x Shortfall Period, applicable under section 7. [extension: nbn Ethernet Price List, Section 7(c), p.19]" ;
+    rdfs:subClassOf :Cl_EarlyDisconnectionModificationCharge .
+
+:Cl_DefaultNotice a owl:Class ;
+    rdfs:label "Default Notice" ;
+    rdfs:comment "A formal notice given by one party to another when a party fails to comply with the Agreement. [extension: nbn Ethernet Price List, Section 7, p.18]" ;
+    rdfs:subClassOf :Event .
+
+:Cl_LateCancellationSiteVisit a owl:Class ;
+    rdfs:label "Late Cancellation (Site Visit Required)" ;
+    rdfs:comment "A service management activity for late cancellation where a site visit was required. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:subClassOf :Cl_ServiceManagementActivity .
+
+:Cl_MissedAppointment a owl:Class ;
+    rdfs:label "Missed Appointment" ;
+    rdfs:comment "A service management activity for a missed appointment. [extension: nbn Ethernet Price List, Section (c), p.17]" ;
+    rdfs:subClassOf :Cl_ServiceManagementActivity .
+
+:Cl_TriggerEvent a owl:Class ;
+    rdfs:label "Trigger Event" ;
+    rdfs:comment "An event (cancellation, disconnection, or modification) that triggers the calculation of the Charge under section 7. [extension: nbn Ethernet Price List, Section 7, p.19]" ;
+    rdfs:subClassOf :Event .
+
+:Incidentals a :Cl_Incidentals,
+        owl:NamedIndividual ;
+    rdfs:label "Incidentals" ;
+    rdfs:comment "Incidental charges that may apply for Limited Access Areas. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:InterfaceTechnology a owl:Class ;
+    rdfs:label "InterfaceTechnology" ;
+    rdfs:comment "NNI interface technology (nni_groups.technology)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :InterfaceTechnology_100GE :InterfaceTechnology_10GE :InterfaceTechnology_1GE ) ] .
+
+:IsolatedArea a :Cl_AreaType,
+        owl:NamedIndividual ;
+    rdfs:label "Isolated Area" ;
+    rdfs:comment "Isolated geographic area classification. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:LimitedAccessArea a :Cl_AreaType,
+        owl:NamedIndividual ;
+    rdfs:label "Limited Access Area" ;
+    rdfs:comment "Limited Access geographic area classification. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:MajorRuralArea a :Cl_AreaType,
+        owl:NamedIndividual ;
+    rdfs:label "Major Rural Area" ;
+    rdfs:comment "Major Rural geographic area classification. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:MaterialisationCoverage a owl:Class ;
+    rdfs:label "MaterialisationCoverage" ;
+    rdfs:comment "How many of a CVC's AVCs exist as explicit records." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :MaterialisationCoverage_COMPLETE :MaterialisationCoverage_PARTIAL :MaterialisationCoverage_NONE ) ] .
+
+:MinorRuralArea a :Cl_AreaType,
+        owl:NamedIndividual ;
+    rdfs:label "Minor Rural Area" ;
+    rdfs:comment "Minor Rural geographic area classification. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:MonetaryAmount_150_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$150.00" ;
+    :currency "AUD" ;
+    :numericValue 150.00 .
+
+:MonetaryAmount_19_30 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$19.30" ;
+    :currency "AUD" ;
+    :numericValue 19.30 ;
+    :sourceClause "nbn Ethernet Price List, Section 1.4(a), p.6" .
+
+:MonetaryAmount_225_00 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$225.00" ;
+    :currency "AUD" ;
+    :numericValue 225.00 .
+
+:OrderedBandwidth a owl:Class ;
+    rdfs:label "OrderedBandwidth" ;
+    rdfs:comment "A reified concept representing the aggregate CVC TC-2 bandwidth capacity (in Mbps) ordered by RSP and provisioned in respect of a CVC TC-2, with changes accounted for on a pro-rata daily basis. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" .
+
+:PreDisconnectionModificationCharges_Instance a :Cl_PreDisconnectionModificationCharges,
+        owl:NamedIndividual ;
+    rdfs:label "Pre Disconnection Modification Charges" ;
+    :currency "AUD" ;
+    :hasTriggerEvent :TriggerEvent_Cancellation,
+        :TriggerEvent_Disconnection,
+        :TriggerEvent_Modification ;
+    :sourceClause "nbn Ethernet Price List, Section 7(c)(i), p.19" ;
+    rdfs:comment "The recurring Charges for the TC-2 Bundle Components applicable prior to the trigger event, as set out in section 1.5. [extension: nbn Ethernet Price List, Section 7(c)(i), p.19]" .
+
+:RedundancyMode a owl:Class ;
+    rdfs:label "RedundancyMode" ;
+    rdfs:comment "NNI Group redundancy mode (nni_groups.mode)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :RedundancyMode_DIVERSE_CHASSIS :RedundancyMode_SINGLE :RedundancyMode_SINGLE_CHASSIS ) ] .
+
+:RemoteArea a :Cl_AreaType,
+        owl:NamedIndividual ;
+    rdfs:label "Remote Area" ;
+    rdfs:comment "Remote geographic area classification. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:RiskRating a owl:Class ;
+    rdfs:label "RiskRating" ;
+    rdfs:comment "CSA risk rating (csas.risk_rating)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :RiskRating_High :RiskRating_Low :RiskRating_Medium ) ] .
+
+:Threshold a owl:Class ;
+    rdfs:label "Threshold" ;
+    rdfs:comment "A limit or threshold value. [extension: nbn Ethernet Price List, Section 6(d), p.18]" .
+
+:TriggerEvent_Cancellation a :Cl_TriggerEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Cancellation Trigger Event" ;
+    :sourceClause "nbn Ethernet Price List, Section 7(c)(i)(A), p.19" ;
+    rdfs:comment "A cancellation of an order for an AVC TC-2 Product Component that triggers the Charge under section 7. [extension: nbn Ethernet Price List, Section 7(c)(i)(A), p.19]" .
+
+:TriggerEvent_Disconnection a :Cl_TriggerEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Disconnection Trigger Event" ;
+    :sourceClause "nbn Ethernet Price List, Section 7(c)(i)(B)(1), p.19" ;
+    rdfs:comment "A disconnection of an nbn Ethernet Ordered Product that triggers the Charge under section 7. [extension: nbn Ethernet Price List, Section 7(c)(i)(B)(1), p.19]" .
+
+:TriggerEvent_Modification a :Cl_TriggerEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Modification Trigger Event" ;
+    :sourceClause "nbn Ethernet Price List, Section 7(c)(i)(B)(2), p.19" ;
+    rdfs:comment "A modification of the AVC TC-2 bandwidth profile that triggers the Charge under section 7. [extension: nbn Ethernet Price List, Section 7(c)(i)(B)(2), p.19]" .
+
+:UNI_Type a owl:Class ;
+    rdfs:label "UNI_Type" ;
+    rdfs:comment "A type of User Network Interface (UNI-D, UNI-DSL, or UNI-V). [extension: nbn Ethernet Price List, Section 1.3, p.6]" .
+
+:UrbanArea a :Cl_AreaType,
+        owl:NamedIndividual ;
+    rdfs:label "Urban Area" ;
+    rdfs:comment "Urban geographic area classification. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:BandwidthProfile a owl:Class ;
+    rdfs:label "Bandwidth Profile" ;
+    rdfs:comment "A bandwidth profile for an AVC TC-2, defined by CIR values. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B)(2), p.18]" .
+
+:Cl_ChargeSection a owl:Class ;
+    rdfs:label "Charge Section" ;
+    rdfs:comment "A section of the nbn Ethernet Price List that defines charges. [extension: nbn Ethernet Price List, Section 6, p.17]" .
+
+:Cl_PostDisconnectionModificationCharges a owl:Class ;
+    rdfs:label "Post Disconnection Modification Charges" ;
+    rdfs:comment "The recurring Charges for the TC-2 Bundle Components applicable after a modification event, or nil in the case of cancellation or disconnection, as set out in section 1.5. [extension: nbn Ethernet Price List, Section 7(c)(ii), p.19]" ;
+    rdfs:subClassOf :MonetaryAmount .
+
+:Cl_ServiceTransferOrder a owl:Class ;
+    rdfs:label "Service Transfer Order" ;
+    rdfs:comment "An order accepted by nbn for transfer of service from a Losing RSP to an Other Gaining RSP, which may exempt the Charge under section 7(d)(ii). [extension: nbn Ethernet Price List, Section 7(d)(ii), p.19]" ;
+    rdfs:subClassOf :Event .
+
+:IncludedBandwidth a owl:Class ;
+    rdfs:label "IncludedBandwidth" ;
+    rdfs:comment "A reified concept representing the aggregate CVC TC-2 bandwidth inclusions (in Mbps) that apply to all AVC TC-2 Product Components associated with a CVC TC-2, with changes accounted for on a pro-rata daily basis. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" .
+
+:MonetaryAmount_64_60 a :MonetaryAmount,
+        owl:NamedIndividual ;
+    rdfs:label "$64.60" ;
+    :currency "AUD" ;
+    :numericValue 64.60 .
+
+:POI a owl:Class ;
+    rdfs:label "POI" ;
+    rdfs:comment "Point of Interconnect: where CSAs and NNI Groups meet the wholesale network. One per region, hosted on aggregation devices." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "Local POI",
+        "POI",
+        "Point of Interconnect",
+        "State Aggregation POI" .
+
+:Party a owl:Class ;
+    rdfs:label "Party" ;
+    rdfs:comment "A party to the Agreement (e.g. nbn, RSP). [extension: nbn Ethernet Price List, Section 7, p.18]" .
+
+:ProRataRule a owl:Class ;
+    rdfs:label "ProRataRule" ;
+    rdfs:comment "A rule that calculates charges on a pro-rata basis when conditions are met for some days of a Billing Period but not others. [extension: nbn Ethernet Price List, Note 4, p.5]" .
+
+:ProductFeatures a owl:Class ;
+    rdfs:label "ProductFeatures" ;
+    rdfs:comment "The set of features selected by an RSP for a Product Component (e.g. bandwidth profile, access technology). [extension: nbn Ethernet Price List, Section 1]" .
+
+:RebateOrCredit a owl:Class ;
+    rdfs:label "RebateOrCredit" ;
+    rdfs:comment "A rebate or credit equal to the recurring charge of one symmetrical AVC TC-1 of 0.15Mbps, applied when an RSP orders any symmetrical AVC TC-1 of 0.15Mbps or above. [extension: nbn Ethernet Price List, Section 1.4, p.6]" .
+
+:TimeInterval a owl:Class ;
+    rdfs:label "Time Interval" ;
+    rdfs:comment "A temporal interval with a start and end time. [extension: nbn Ethernet Price List, Section 6(f), p.18]" .
+
+:UNI_Inclusion a owl:Class ;
+    rdfs:label "UNI_Inclusion" ;
+    rdfs:comment "A reified relationship representing that a UNI type is included in the recurring charge for the AVC TC-4 and UNI bundle, conditional on network type. [extension: nbn Ethernet Price List, Section 1.3, p.6]" .
+
+:Cl_ModifyOrder a owl:Class ;
+    rdfs:label "Modify Order Event" ;
+    rdfs:comment "An event where RSP submits a Modify Order to modify the AVC TC-2 bandwidth profile. [extension: nbn Ethernet Price List, Section 7(b)(ii)(B)(2), p.18]" ;
+    rdfs:subClassOf :Event .
+
+:PlanningResource a owl:Class ;
+    rdfs:label "PlanningResource" ;
+    rdfs:comment "Run-scoped planning inventory object (not a new physical asset). Superclass of POI, CSA, NNIGroup, CVC, PlanningLineCard, PlanningPort." .
+
+:TrafficClass a owl:Class ;
+    rdfs:label "TrafficClass" ;
+    rdfs:comment "Traffic class (TC-1, TC-2, TC-4) with a planning utilisation threshold." ;
+    skos:altLabel "TC-1",
+        "TC-2",
+        "TC-4",
+        "bandwidth profile",
+        "traffic class" .
+
+:UsageCondition a owl:Class ;
+    rdfs:label "UsageCondition" ;
+    rdfs:comment "A condition related to the usage or capacity utilisation of an AVC. [extension: nbn Ethernet Price List, Note 4, p.5]" .
+
+:CVC_TC2_ProductComponent a owl:Class ;
+    rdfs:label "CVC_TC2_ProductComponent" ;
+    rdfs:comment "A Connectivity Virtual Circuit Product Component for Traffic Class 2, with a recurring charge per provisioned symmetrical Mbps (CIR). [extension: nbn Ethernet Price List, Section 1.5, p.8]" ;
+    rdfs:subClassOf :CVC,
+        :ProductComponent .
+
+:Cl_EarlyDisconnectionModificationCharge a owl:Class ;
+    rdfs:label "Early Disconnection or Modification Charge" ;
+    rdfs:comment "A monetary charge triggered when an AVC TC-2 Product Component is cancelled, disconnected, or modified within 12 months of order completion. [extension: nbn Ethernet Price List, Section 7, p.18]" ;
+    rdfs:subClassOf :MonetaryAmount .
+
+:Cl_ExceedanceEvent a owl:Class ;
+    rdfs:label "Exceedance Event" ;
+    rdfs:comment "An event where an RSP exceeds the average download and/or upload limitation set out in section 4.5(a) of the nbn Ethernet Fair Use Policy. [extension: nbn Ethernet Price List, Section 6(d)-(e), p.18]" ;
+    rdfs:subClassOf :Event .
+
+:Cl_UsageRange a owl:Class ;
+    rdfs:label "Usage Range" ;
+    rdfs:comment "A threshold or range of CVC TC-4 usage that defines a charge tier. [extension: nbn Ethernet Price List, Section 6(a), p.17]" .
+
+:ESLAChangeEvent a owl:Class ;
+    rdfs:label "ESLAChangeEvent" ;
+    rdfs:comment "An event where an Enhanced Fault Rectification Service is disconnected or modified to change the selected Enhanced Fault Rectification Service option, triggering special charge rules under section 2.2. [extension: nbn Ethernet Price List, Section 2.2(e), p.10]" .
+
+:NNIBearerProfile a owl:Class ;
+    rdfs:label "NNIBearerProfile" ;
+    rdfs:comment "An enumeration of NNI Bearer profile types (e.g. 1000BaseLX, 10GBaseLR). [extension: nbn Ethernet Price List, Section 1.6, p.8]" .
+
+:AVC a owl:Class ;
+    rdfs:label "AVC" ;
+    rdfs:comment "Access Virtual Circuit: per-service circuit that uses a CVC." ;
+    skos:altLabel "AVC",
+        "Access Virtual Circuit",
+        "OVC",
+        "Unicast 1:1 AVC" .
+
+:BandwidthTier a owl:Class ;
+    rdfs:label "BandwidthTier" ;
+    rdfs:comment "A symmetrical bandwidth tier in Mbps (CIR) for an AVC TC-1 Product Component. [extension: nbn Ethernet Price List, Section 1.4, p.6]" .
+
+:Bearer a owl:Class ;
+    rdfs:label "Bearer" ;
+    rdfs:comment "NNI Bearer: one physical interface of an NNI Group, landed on a line-card/port in a failure domain." ;
+    skos:altLabel "Diverse Chassis",
+        "NNI Bearer",
+        "Redundancy Mode",
+        "Single Chassis",
+        "interface rate" .
+
+:Cl_AreaType a owl:Class ;
+    rdfs:label "Area Type" ;
+    rdfs:comment "A classification of geographic area that determines the charge for certain service management activities. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:Cl_ChargeFormula a owl:Class ;
+    rdfs:label "Charge Formula" ;
+    rdfs:comment "A reified representation of the formula: Charge = (Pre Disconnection Modification Charges - Post Disconnection Modification Charges) x Shortfall Period. [extension: nbn Ethernet Price List, Section 7(c), p.19]" .
+
+:Cl_ServiceManagementActivity a owl:Class ;
+    rdfs:label "Service Management Activity" ;
+    rdfs:comment "An event (fault report, cancellation, missed visit) related to nbn Ethernet (Satellite) that incurs a one-off charge per activity. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:Event a owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:comment "An event that occurs at a point in time or over a duration. [extension: nbn Ethernet Price List, Section 6, p.18]" .
+
+:ProductComponentName a owl:Class ;
+    rdfs:label "ProductComponentName" ;
+    rdfs:comment "A named variant of a Product Component (e.g. 'Wireless Plus', 'Home Fast'). [extension: nbn Ethernet Price List, Section 1.1]" .
+
+:AVC_TC1_ProductComponent a owl:Class ;
+    rdfs:label "AVC_TC1_ProductComponent" ;
+    rdfs:comment "An Access Virtual Circuit with Traffic Class 1, charged per Billing Period based on symmetrical Mbps (CIR) and network type. [extension: nbn Ethernet Price List, Section 1.4, p.6]" ;
+    rdfs:subClassOf :AVC,
+        :ProductComponent .
+
+:AVC_TC2_ProductComponent a owl:Class ;
+    rdfs:label "AVC_TC2_ProductComponent" ;
+    rdfs:comment "An Access Virtual Circuit with Traffic Class 2, associated with a CVC TC-2 Product Component. [extension: nbn Ethernet Price List, Section 1.5(c), p.8]" ;
+    rdfs:subClassOf :AVC,
+        :ProductComponent .
+
+:ServiceOption a owl:Class ;
+    rdfs:label "ServiceOption" ;
+    rdfs:comment "An enumeration of Enhanced Fault Rectification Service options. [extension: nbn Ethernet Price List, Section 2.2, p.9]" .
+
+:BasicOfferCondition a owl:Class ;
+    rdfs:label "BasicOfferCondition" ;
+    rdfs:comment "A condition that, when satisfied, triggers the Basic Offer charge for a 12/1 Mbps AVC TC-4 on a given day. [extension: nbn Ethernet Price List, Note 4, p.5]" .
+
+:OrderedProduct a owl:Class ;
+    rdfs:label "OrderedProduct" ;
+    rdfs:comment "A product ordered by an RSP. [extension: nbn Ethernet Price List, Section 1.4, p.6]" .
+
+:AccessTechnology a owl:Class ;
+    rdfs:label "AccessTechnology" ;
+    rdfs:comment "Access technology of a CSA (csas.tech; a CSA may have several, separated by '|')." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :AccessTechnology_FIBRE :AccessTechnology_FTTC :AccessTechnology_HFC :AccessTechnology_FTTB :AccessTechnology_FTTN :AccessTechnology_Wireless ) ] .
+
+:Cl_UsageTierCharge a owl:Class ;
+    rdfs:label "Usage Tier Charge" ;
+    rdfs:comment "A reified relationship linking an Ordered CVC Class, a usage range, and a charge per each associated AVC TC-4. [extension: nbn Ethernet Price List, Section 6(a), p.17]" .
+
+:ProductComponent a owl:Class ;
+    rdfs:label "ProductComponent" ;
+    rdfs:comment "WBA Product Component; counts toward an NNI Group's Bearer Limit. Not modelled in the simulator." ;
+    skos:altLabel "Bearer Limit",
+        "Product Component" .
+
+:ActionType a owl:Class ;
+    rdfs:label "ActionType" ;
+    rdfs:comment "Planning action types (legacy fixture action generation)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :ActionType_INCREASE_CVC_BW :ActionType_ADD_PORT :ActionType_MOVE_CSA_LOAD :ActionType_REBALANCE_AVCS :ActionType_SPLIT_CAPACITY_POOL :ActionType_CREATE_NEW_NNI :ActionType_CREATE_NEW_CVC :ActionType_UPGRADE_PORT :ActionType_ADD_BACKHAUL :ActionType_ADD_AGGREGATION :ActionType_CREATE_RESILIENCE_PATH :ActionType_CREATE_NEW_BEARER ) ] .
+
+:CSA a owl:Class ;
+    rdfs:label "CSA" ;
+    rdfs:comment "Connectivity Serving Area: a served area with services, premises and demand growth." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "CSA",
+        "Connectivity Serving Area" .
+
+:NNIBearerProductComponent a owl:Class ;
+    rdfs:label "NNIBearerProductComponent" ;
+    rdfs:comment "A physical interface of an NNI Group, with a profile and a recurring charge per Billing Period. [extension: nbn Ethernet Price List, Section 1.6, p.8]" ;
+    rdfs:subClassOf :ProductComponent .
+
+:EnhancedFaultRectificationService a owl:Class ;
+    rdfs:label "EnhancedFaultRectificationService" ;
+    rdfs:comment "An optional service with multiple options (Enhanced-12, Enhanced-8, etc.) that has a recurring charge per Billing Period, dependent on the option and nbn Network type. [extension: nbn Ethernet Price List, Section 2.2, p.9]" ;
+    rdfs:subClassOf :ProductComponent .
+
+:AccessTechnology_Wireless a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "Wireless" ;
+    rdfs:comment "Fixed Wireless access technology. [extension: nbn Ethernet Price List, Section 1.1]" .
+
+:Cl_ActivityCharge a owl:Class ;
+    rdfs:label "Activity Charge" ;
+    rdfs:comment "A reified relationship linking a service management activity, area type, monetary amount, and optional incidentals. [extension: nbn Ethernet Price List, Section (c), p.17]" .
+
+:CVC a owl:Class ;
+    rdfs:label "CVC" ;
+    rdfs:comment "Connectivity Virtual Circuit: carries a CSA's traffic over an NNI Group, with a traffic-class mix." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "CVC",
+        "CVC TC-1",
+        "CVC TC-2",
+        "CVC TC-4",
+        "Connectivity Virtual Circuit",
+        "Unicast N:1 CVC" .
+
+:DownstreamPIR a owl:Class ;
+    rdfs:label "DownstreamPIR" ;
+    rdfs:comment "The downstream Peak Information Rate (Mbps) for an AVC TC-4 Product Component. [extension: nbn Ethernet Price List, Section 1.1]" .
+
+:NNIGroup a owl:Class ;
+    rdfs:label "NNIGroup" ;
+    rdfs:comment "Group of NNI Bearers/NNIs at a POI sharing a redundancy mode, interface rate and protected capacity." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "NNI",
+        "NNI Group",
+        "NNI Product Component",
+        "Network-Network Interface" .
+
+:UpstreamPIR a owl:Class ;
+    rdfs:label "UpstreamPIR" ;
+    rdfs:comment "The upstream Peak Information Rate (Mbps) for an AVC TC-4 Product Component. [extension: nbn Ethernet Price List, Section 1.1]" .
+
+:CandidateAction a owl:Class ;
+    rdfs:label "CandidateAction" ;
+    rdfs:comment "Candidate planning action with lead time, cost, feasibility, blocking reasons and scores." ;
+    skos:altLabel "Modify",
+        "NNI Diversity Upgrade",
+        "NNI Upsize Migration",
+        "charge",
+        "lead time",
+        "order",
+        "price" .
+
+:FlatRateAVCCharge a owl:Class ;
+    rdfs:label "FlatRateAVCCharge" ;
+    :conditionDescription "No additional recurring CVC TC-4 charges apply in connection with any Flat Rate AVC TC-4 Product Components." ;
+    :sourceClause "nbn Ethernet Price List, Note 1, p.5" ;
+    rdfs:comment "A specific type of Recurring Charge that applies per Billing Period for AVC TC-4 Product Components and associated CVC TC-4 capacity. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:subClassOf :RecurringCharge .
+
+:AccessTechnology_FTTB a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "FTTB" ;
+    rdfs:comment "Fibre to the Building access technology. [extension: nbn Ethernet Price List, Section 1.1]" .
+
+:AccessTechnology_FTTC a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "FTTC" .
+
+:AccessTechnology_FTTN a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "FTTN" ;
+    rdfs:comment "Fibre to the Node access technology. [extension: nbn Ethernet Price List, Section 1.1]" .
+
+:AccessTechnology_HFC a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "HFC" .
+
+:AVC_TC4_ProductComponent a owl:Class ;
+    rdfs:label "AVC_TC4_ProductComponent" ;
+    rdfs:comment "A specific type of Product Component that is an AVC with Traffic Class 4, which can be ordered and charged separately. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:subClassOf :AVC,
+        :ProductComponent .
+
+:AccessTechnology_FIBRE a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "FIBRE" .
+
+:RecurringCharge a owl:Class ;
+    rdfs:label "RecurringCharge" ;
+    rdfs:comment "A monetary amount that recurs per Billing Period for a Product Component. [extension: nbn Ethernet Price List, Section 1.1]" ;
+    rdfs:subClassOf :CostItem .
+
+:BillingPeriod_P1M a :BillingPeriod,
+        owl:NamedIndividual ;
+    rdfs:label "BillingPeriod_P1M" ;
+    :duration "P1M"^^xsd:string ;
+    rdfs:comment "Monthly billing period (1 month). [extension: nbn Ethernet Price List, Section 1.1]" .
+
+:MonetaryAmount a owl:Class ;
+    rdfs:label "MonetaryAmount" ;
+    rdfs:comment "A monetary value with a currency and numeric amount. [extension: nbn Ethernet Price List, Section 1.1]" .
+
+
+# ===== EXTENSIONS FROM DOCUMENTS: append new classes / properties / facts BELOW this line =====

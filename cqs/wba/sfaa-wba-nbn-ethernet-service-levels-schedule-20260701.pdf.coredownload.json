@@ -1,0 +1,394 @@
+{
+    "sfaa-wba-nbn-ethernet-service-levels-schedule-20260701.pdf.coredownload": {
+        "12": [
+            {
+                "competency_question": "What is the name of the rebate provided when nbn fails to attend a Co-ordinated Appointment?",
+                "expected_answer": "Co-ordinated Appointment Rebate"
+            },
+            {
+                "competency_question": "What event triggers the Co-ordinated Appointment Rebate?",
+                "expected_answer": "nbn does not attend the Co-ordinated Appointment within the Service Level for attending the Co-ordinated Appointment"
+            },
+            {
+                "competency_question": "Who is the agent participant in a Co-ordinated Appointment Rebate event?",
+                "expected_answer": "nbn"
+            },
+            {
+                "competency_question": "Who is the object participant in a Co-ordinated Appointment Rebate event?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the amount of the Co-ordinated Appointment Rebate?",
+                "expected_answer": "equal to the Charge for the relevant Co-ordinated Appointment"
+            },
+            {
+                "competency_question": "How is the Co-ordinated Appointment Rebate paid?",
+                "expected_answer": "by applying it to RSP\u2019s invoice in accordance with section 8.5 of the WBA Operations Manual"
+            },
+            {
+                "competency_question": "What is the Service Level for CVC Activation in Business Days?",
+                "expected_answer": "3"
+            },
+            {
+                "competency_question": "What is the unit of the Service Level for CVC Activation?",
+                "expected_answer": "Business Days"
+            },
+            {
+                "competency_question": "What is the Service Level for NNI Group Activation in Business Days?",
+                "expected_answer": "15"
+            },
+            {
+                "competency_question": "What is the unit of the Service Level for NNI Group Activation?",
+                "expected_answer": "Business Days"
+            },
+            {
+                "competency_question": "What is the Service Level for NNI Link Activation in Business Days?",
+                "expected_answer": "15"
+            },
+            {
+                "competency_question": "What is the unit of the Service Level for NNI Link Activation?",
+                "expected_answer": "Business Days"
+            },
+            {
+                "competency_question": "What is the Service Level for V-NNI Activation in Business Days?",
+                "expected_answer": "15"
+            },
+            {
+                "competency_question": "What is the unit of the Service Level for V-NNI Activation?",
+                "expected_answer": "Business Days"
+            },
+            {
+                "competency_question": "What is the Performance Objective for CVC Activation?",
+                "expected_answer": "95% or more"
+            },
+            {
+                "competency_question": "What is the Performance Objective for NNI Group Activation?",
+                "expected_answer": "95% or more"
+            },
+            {
+                "competency_question": "What is the Performance Objective for NNI Link Activation?",
+                "expected_answer": "95% or more"
+            },
+            {
+                "competency_question": "What is the Performance Objective for V-NNI Activation?",
+                "expected_answer": "95% or more"
+            },
+            {
+                "competency_question": "How is each Performance Objective in section 3.2 measured?",
+                "expected_answer": "based on the total number of all Activations (in the relevant category) completed in accordance with the relevant Service Level for all of nbn\u2019s retail service providers each month"
+            },
+            {
+                "competency_question": "What is the time interval for measuring each Performance Objective in section 3.2?",
+                "expected_answer": "each month"
+            },
+            {
+                "competency_question": "What event marks the beginning of the Service Level period for Activations?",
+                "expected_answer": "the time of Order Acknowledgement"
+            }
+        ],
+        "14": [
+            {
+                "competency_question": "What is the name of the performance objective that provides a rebate for AVC TC-4 Ordered Product Components not capable of achieving their PIR Objective?",
+                "expected_answer": "PIR Objective Rebate"
+            },
+            {
+                "competency_question": "What is the agent participant in a 'PIR Objective Rebate' event?",
+                "expected_answer": "nbn"
+            },
+            {
+                "competency_question": "What is the object participant in a 'PIR Objective Rebate' event?",
+                "expected_answer": "AVC TC-4 Ordered Product Component"
+            },
+            {
+                "competency_question": "What is the numeric value of the Performance Objective for providing an Initial Network Activity Update within 20 Business Days after the Network Activity Designation Date?",
+                "expected_answer": "90% or more"
+            },
+            {
+                "competency_question": "What is the numeric value of the Performance Objective for providing an Estimated Network Activity Date within 30 Business Days after the Network Activity Designation Date?",
+                "expected_answer": "90% or more"
+            },
+            {
+                "competency_question": "What is the numeric value of the PIR Objective Rebate amount for each of the first three consecutive PIR Affected Billing Periods?",
+                "expected_answer": "$10.61"
+            },
+            {
+                "competency_question": "What is the duration within which nbn must provide an Initial Network Activity Update after the Network Activity Designation Date?",
+                "expected_answer": "20 Business Days"
+            },
+            {
+                "competency_question": "What is the duration within which nbn must provide an Estimated Network Activity Date after the Network Activity Designation Date?",
+                "expected_answer": "30 Business Days"
+            },
+            {
+                "competency_question": "What event marks the beginning of the interval for providing an Initial Network Activity Update?",
+                "expected_answer": "the Network Activity Designation Date"
+            },
+            {
+                "competency_question": "What event marks the beginning of the interval for providing an Estimated Network Activity Date?",
+                "expected_answer": "the Network Activity Designation Date"
+            },
+            {
+                "competency_question": "What is the name of the billing period that triggers the PIR Objective Rebate?",
+                "expected_answer": "PIR Affected Billing Period"
+            },
+            {
+                "competency_question": "What event causes a transition to the 'PIR Affected Billing Period' state?",
+                "expected_answer": "designation of a Network Activity by nbn because the AVC TC-4 Ordered Product Component is not capable of achieving its PIR Objective"
+            },
+            {
+                "competency_question": "What is the maximum number of consecutive PIR Affected Billing Periods for which the $10.61 rebate applies?",
+                "expected_answer": "first three consecutive PIR Affected Billing Periods"
+            }
+        ],
+        "32": [
+            {
+                "competency_question": "What is the name of the event that occurs when a matter, thing, event or circumstance happens outside the nbn\u00ae Network Boundaries?",
+                "expected_answer": "a matter, thing, event or circumstance that occurs outside the nbn\u00ae Network Boundaries"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when a Power Outage happens at an MDU Site or affecting any nbn\u00ae Equipment located at that MDU Site?",
+                "expected_answer": "any Power Outage at an MDU Site or affecting any nbn\u00ae Equipment located at that MDU Site"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when a Power Outage affects an nbn\u00ae Node or any other active equipment that forms part of the FTTB Network or the FTTN Network and is not located within a Type 1 Facility or a Type 2 Facility?",
+                "expected_answer": "affecting an nbn\u00ae Node or any other active equipment that forms part of the FTTB Network or the FTTN Network and is not located within a Type 1 Facility or a Type 2 Facility"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when a Power Outage affects an HFC Optical Node or any other active equipment that forms part of the HFC Network and is not located within a Type 1 Facility or a Type 2 Facility?",
+                "expected_answer": "affecting an HFC Optical Node or any other active equipment that forms part of the HFC Network and is not located within a Type 1 Facility or a Type 2 Facility"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when a Power Outage affects an nbn\u00ae DPU, FTTC-NCD or any other active equipment that forms part of the FTTC Network and is not located within a Type 1 Facility or a Type 2 Facility?",
+                "expected_answer": "affecting an nbn\u00ae DPU, FTTC-NCD or any other active equipment that forms part of the FTTC Network and is not located within a Type 1 Facility or a Type 2 Facility"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when there is a breach of the nbn\u00ae Ethernet Fair Use Policy under this Agreement or under any Other Wholesale Broadband Agreement?",
+                "expected_answer": "breach of the nbn\u00ae Ethernet Fair Use Policy under this Agreement or under any Other Wholesale Broadband Agreement"
+            },
+            {
+                "competency_question": "What is the name of the performance objective that is based on modelling using a set of assumptions regarding future network performance?",
+                "expected_answer": "The Performance Objective for Network Availability"
+            },
+            {
+                "competency_question": "What is the name of the shared network resource that is nbn\u2019s transit backhaul network between the POI and the OLT for the Fibre Network and FTTC Network?",
+                "expected_answer": "Shared Network Resource"
+            },
+            {
+                "competency_question": "What is the name of the shared network resource that is nbn\u2019s transit backhaul network between the POI and the access aggregation switch for the FTTB Network and the FTTN Network?",
+                "expected_answer": "Shared Network Resource"
+            },
+            {
+                "competency_question": "What is the name of the shared network resource that is nbn\u2019s transit backhaul network between the POI and the cable modem termination system for the HFC Network?",
+                "expected_answer": "Shared Network Resource"
+            },
+            {
+                "competency_question": "What is the name of the shared network resource that is nbn\u2019s transit backhaul network between the POI and the combined packet gateway for the Wireless Network?",
+                "expected_answer": "Shared Network Resource"
+            },
+            {
+                "competency_question": "What is the numeric value of the minimum average busy hour throughput per AVC TC-4 (PIR) for the bandwidth profiles 12/1 Mbps, 25/5 Mbps, 25/10 Mbps, 50/20 Mbps, 100/40 Mbps and Home Fast on the Fibre Network and HFC Network?",
+                "expected_answer": "350"
+            },
+            {
+                "competency_question": "What is the unit of the minimum average busy hour throughput per AVC TC-4 (PIR) for the bandwidth profiles 12/1 Mbps, 25/5 Mbps, 25/10 Mbps, 50/20 Mbps, 100/40 Mbps and Home Fast on the Fibre Network and HFC Network?",
+                "expected_answer": "kbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the minimum average busy hour throughput per AVC TC-4 (PIR) for the bandwidth profiles 12/1 Mbps, 25/5 Mbps, 25/5-10 Mbps, 25-50/5-20 Mbps, 25-100/5-40 Mbps and Home Fast on the FTTB Network and FTTN Network?",
+                "expected_answer": "350"
+            },
+            {
+                "competency_question": "What is the unit of the minimum average busy hour throughput per AVC TC-4 (PIR) for the bandwidth profiles 12/1 Mbps, 25/5 Mbps, 25/5-10 Mbps, 25-50/5-20 Mbps, 25-100/5-40 Mbps and Home Fast on the FTTB Network and FTTN Network?",
+                "expected_answer": "kbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the minimum average busy hour throughput per AVC TC-4 (PIR) for the bandwidth profiles 12/1 Mbps, 25/5 Mbps, 25/10 Mbps, 50/20 Mbps, 50-100/20-40 Mbps and Home Fast on the FTTC Network?",
+                "expected_answer": "350"
+            },
+            {
+                "competency_question": "What is the unit of the minimum average busy hour throughput per AVC TC-4 (PIR) for the bandwidth profiles 12/1 Mbps, 25/5 Mbps, 25/10 Mbps, 50/20 Mbps, 50-100/20-40 Mbps and Home Fast on the FTTC Network?",
+                "expected_answer": "kbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the minimum average busy hour throughput per AVC TC-4 for the bandwidth profiles 250/100 Mbps, 500/200 Mbps, 1000/400 Mbps, Home Superfast and Home Ultrafast on the Fibre Network?",
+                "expected_answer": "2"
+            },
+            {
+                "competency_question": "What is the unit of the minimum average busy hour throughput per AVC TC-4 for the bandwidth profiles 250/100 Mbps, 500/200 Mbps, 1000/400 Mbps, Home Superfast and Home Ultrafast on the Fibre Network?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the minimum average busy hour throughput per AVC TC-4 for the bandwidth profiles Home Superfast and Home Ultrafast on the HFC Network?",
+                "expected_answer": "2"
+            },
+            {
+                "competency_question": "What is the unit of the minimum average busy hour throughput per AVC TC-4 for the bandwidth profiles Home Superfast and Home Ultrafast on the HFC Network?",
+                "expected_answer": "Mbps"
+            }
+        ],
+        "33": [
+            {
+                "competency_question": "What is the name of the threshold that triggers utilisation management when more than 90% of a Shared Network Resource has been utilised for a continuous period of 30 minutes or more on at least 3 separate days within any rolling 30-day period?",
+                "expected_answer": "Utilisation Threshold"
+            },
+            {
+                "competency_question": "What is the numeric value of the utilisation percentage that defines the Utilisation Threshold?",
+                "expected_answer": "90%"
+            },
+            {
+                "competency_question": "What is the duration of the continuous period of utilisation that must be exceeded to trigger the Utilisation Threshold?",
+                "expected_answer": "30 minutes"
+            },
+            {
+                "competency_question": "What is the minimum number of separate days within any rolling 30-day period on which the utilisation must exceed the Utilisation Threshold?",
+                "expected_answer": "3"
+            },
+            {
+                "competency_question": "What is the duration of the rolling period used to count the separate days for the Utilisation Threshold?",
+                "expected_answer": "30-day period"
+            },
+            {
+                "competency_question": "What is the name of the performance objective that nbn must meet to return utilisation of a Shared Network Resource to below the Utilisation Threshold?",
+                "expected_answer": "Utilisation Management Performance Objective"
+            },
+            {
+                "competency_question": "What is the numeric value of the time within which nbn must return utilisation of a Shared Network Resource to below the Utilisation Threshold?",
+                "expected_answer": "15"
+            },
+            {
+                "competency_question": "What is the unit of the time within which nbn must return utilisation of a Shared Network Resource to below the Utilisation Threshold?",
+                "expected_answer": "Business Days"
+            },
+            {
+                "competency_question": "What is the name of the rebate that nbn offers in respect of the performance of nbn\u00ae Ethernet (FTTB), nbn\u00ae Ethernet (FTTN) and nbn\u00ae Ethernet (FTTC) TC-4 Ordered Products upon connection?",
+                "expected_answer": "FTTB/N/C Connection Performance Rebate"
+            },
+            {
+                "competency_question": "What is the numeric value of the FTTB/N/C Connection Performance Rebate amount per Ordered Product?",
+                "expected_answer": "$21.22"
+            },
+            {
+                "competency_question": "What is the unit of the FTTB/N/C Connection Performance Rebate amount per Ordered Product?",
+                "expected_answer": "per nbn\u00ae Ethernet (FTTB), nbn\u00ae Ethernet (FTTN), or nbn\u00ae Ethernet (FTTC) TC-4 Ordered Product"
+            },
+            {
+                "competency_question": "What event triggers the increase of the FTTB/N/C Connection Performance Rebate amounts?",
+                "expected_answer": "the start of each financial year from and including 1 July 2025"
+            },
+            {
+                "competency_question": "What is the numeric value of the minimum increase applied to the FTTB/N/C Connection Performance Rebate amounts?",
+                "expected_answer": "0%"
+            },
+            {
+                "competency_question": "What is the name of the rate that is compared to the Measured Connection Rate to determine if a rebate is payable?",
+                "expected_answer": "Connection Assured Rate"
+            },
+            {
+                "competency_question": "What is the name of the threshold that the Measured Connection Rate must be lower than for a rebate to be payable?",
+                "expected_answer": "Downstream Performance Threshold"
+            },
+            {
+                "competency_question": "What is the numeric value of the Downstream Performance Threshold for an AVC TC-4 Ordered Product Component with downstream PIR of 25-50 Mbps and upstream PIR of 5-20 Mbps on FTTB and FTTN?",
+                "expected_answer": "25"
+            },
+            {
+                "competency_question": "What is the unit of the Downstream Performance Threshold for an AVC TC-4 Ordered Product Component?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the Downstream Performance Threshold for an AVC TC-4 Ordered Product Component with downstream PIR of 50 Mbps and upstream PIR of 20 Mbps on FTTC?",
+                "expected_answer": "50"
+            },
+            {
+                "competency_question": "What is the numeric value of the Downstream Performance Threshold for an AVC TC-4 Ordered Product Component with downstream PIR of Home Fast (25-100) and upstream PIR of (5-20) on FTTB and FTTN?",
+                "expected_answer": "50"
+            },
+            {
+                "competency_question": "What is the numeric value of the Downstream Performance Threshold for an AVC TC-4 Ordered Product Component with downstream PIR of Home Fast (50-100) and upstream PIR of (20) on FTTC?",
+                "expected_answer": "50"
+            }
+        ],
+        "34": [
+            {
+                "competency_question": "What is the numeric value of the downstream performance threshold for FTTB and FTTN with AVC TC-4 downstream 25-100 Mbps and upstream 5-40 Mbps?",
+                "expected_answer": "50"
+            },
+            {
+                "competency_question": "What is the unit of the downstream performance threshold for FTTB and FTTN?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the downstream performance threshold for FTTC with AVC TC-4 downstream 50-100 Mbps and upstream 20-40 Mbps?",
+                "expected_answer": "50"
+            },
+            {
+                "competency_question": "What is the unit of the downstream performance threshold for FTTC?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the name of the rebate that applies to Connect Orders for nbn\u00ae Ethernet (FTTB), nbn\u00ae Ethernet (FTTN), or nbn\u00ae Ethernet (FTTC) AVC TC-4 Product Components with bandwidth profiles having a Downstream Performance Threshold?",
+                "expected_answer": "FTTB/N/C Connection Performance Rebate"
+            },
+            {
+                "competency_question": "What event triggers the applicability of the FTTB/N/C Connection Performance Rebate?",
+                "expected_answer": "Connect Orders for nbn\u00ae Ethernet (FTTB), nbn\u00ae Ethernet (FTTN), or nbn\u00ae Ethernet (FTTC) AVC TC-4 Product Components with bandwidth profiles for which there is a Downstream Performance Threshold set out in section 15(c)"
+            },
+            {
+                "competency_question": "What is the condition under which nbn is not required to pay an FTTB/N/C Connection Performance Rebate because nbn has been unable to obtain at least 7 point-in-time measurements?",
+                "expected_answer": "nbn has been unable to obtain at least 7 point-in-time measurements of the performance of the relevant AVC TC-4 Ordered Product Component by the Connection Performance Measurement Date"
+            },
+            {
+                "competency_question": "What is the condition under which nbn is not required to pay an FTTB/N/C Connection Performance Rebate because the Information Rate has been reduced, throttled or otherwise constrained?",
+                "expected_answer": "nbn considers, acting reasonably, that the Information Rate for the relevant AVC TC-4 Ordered Product Component has been reduced, throttled or otherwise constrained other than by nbn"
+            },
+            {
+                "competency_question": "What is the condition under which nbn is not required to pay an FTTB/N/C Connection Performance Rebate because the TC-4 Ordered Product is disconnected by the Connection Performance Measurement Date?",
+                "expected_answer": "the TC-4 Ordered Product is disconnected by the Connection Performance Measurement Date"
+            },
+            {
+                "competency_question": "What is the condition under which nbn is not required to pay an FTTB/N/C Connection Performance Rebate because the Connect Order is a Service Transfer Order and the RSP is a Related Body Corporate of the Other Losing RSP?",
+                "expected_answer": "the Connect Order is a Service Transfer Order and the RSP is a Related Body Corporate of the Other Losing RSP"
+            },
+            {
+                "competency_question": "What is the condition under which nbn is not required to pay an FTTB/N/C Connection Performance Rebate because the Originally Connected AVC TC-4 has a Downstream Performance Threshold greater than the Connection Assured Rate for the relevant nbn\u00ae Copper Pair?",
+                "expected_answer": "the Originally Connected AVC TC-4 has a Downstream Performance Threshold that is greater than the Connection Assured Rate for the relevant nbn\u00ae Copper Pair"
+            },
+            {
+                "competency_question": "What type of Connect Orders do FTTB/N/C Connection Performance Rebates not apply to?",
+                "expected_answer": "Connect Orders which are Transfer Reversals"
+            },
+            {
+                "competency_question": "What event must occur before nbn is required to pay an FTTB/N/C Connection Performance Rebate?",
+                "expected_answer": "nbn has estimated the Measured Connection Rate"
+            },
+            {
+                "competency_question": "How does nbn pay the FTTB/N/C Connection Performance Rebate to the RSP?",
+                "expected_answer": "by applying it to the RSP Billing Account in accordance with section 8.5.1.5 of the WBA Operations Manual"
+            },
+            {
+                "competency_question": "What is the name of the rebate offered in respect of nbn\u00ae Ethernet (Wireless) Ordered Products supplied using Wireless Network cells that are Persistently Congested?",
+                "expected_answer": "Wireless Speed Performance Rebate"
+            },
+            {
+                "competency_question": "What is the numeric value of the Wireless Speed Performance Rebate per month per AVC TC-4 Product Component?",
+                "expected_answer": "$21.22"
+            },
+            {
+                "competency_question": "What is the unit of the Wireless Speed Performance Rebate?",
+                "expected_answer": "dollars"
+            },
+            {
+                "competency_question": "What condition must be met for a Wireless Network cell to be considered Persistently Congested during a month?",
+                "expected_answer": "a Wireless Network cell is Persistently Congested during a month if: (the text continues but is cut off; based on available text, the condition is not fully provided)"
+            },
+            {
+                "competency_question": "What is the frequency with which the Wireless Speed Performance Rebate amounts will be increased?",
+                "expected_answer": "at the start of each financial year from and including 1 July 2025"
+            },
+            {
+                "competency_question": "What is the formula for increasing the Wireless Speed Performance Rebate amounts?",
+                "expected_answer": "the higher of the Weighted Average Price Change and 0%"
+            }
+        ]
+    }
+}

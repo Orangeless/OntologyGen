@@ -1,0 +1,1819 @@
+@prefix : <http://www.example.org/test#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ===== REFERENCE SEED: reference ontology schema (reuse these terms; do not delete) =====
+:Cl_BusinessDay a owl:Class ;
+    rdfs:label "Business Day" ;
+    rdfs:comment "A standard business day used for measuring performance objective durations. [extension: WBA Ethernet Service Levels Schedule, s5.2, p.14]" .
+
+:Cl_EstimatedNetworkActivityDate a owl:Class ;
+    rdfs:label "Estimated Network Activity Date" ;
+    rdfs:comment "An estimated completion date provided by nbn within 30 Business Days after the Network Activity Designation Date. [extension: WBA Ethernet Service Levels Schedule, s5.2, p.14]" .
+
+:Cl_InitialNetworkActivityUpdate a owl:Class ;
+    rdfs:label "Initial Network Activity Update" ;
+    rdfs:comment "An update provided by nbn within 20 Business Days after the Network Activity Designation Date. [extension: WBA Ethernet Service Levels Schedule, s5.2, p.14]" .
+
+:CoordinatedAppointmentEvent a :Cl_CoOrdinatedAppointment,
+        owl:NamedIndividual ;
+    rdfs:label "Co-ordinated Appointment Event" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s2.5(a), p.13" ;
+    :triggersRebate :CoordinatedAppointmentRebate .
+
+:CoordinatedAppointmentServiceLevel a :ServiceLevel,
+        owl:NamedIndividual ;
+    rdfs:label "Co-ordinated Appointment Service Level" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s2.5(a), p.13" .
+
+:CvcActivationPerformanceObjective a :Cl_PerformanceObjective,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Activation Performance Objective" ;
+    :appliesToActivation :Cl_CvcActivation ;
+    :hasTargetPercentage 95 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s3.2, p.13" .
+
+:CvcActivationServiceLevel a :ServiceLevel,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Activation Service Level" ;
+    :appliesToActivation :Cl_CvcActivation ;
+    :hasDuration 3 ;
+    :hasUnit "Business Days" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s3.1, p.13" ;
+    :startsAt :OrderAcknowledgementEvent .
+
+:EstimatedNetworkActivityDatePerformanceObjective a :Cl_PerformanceObjective,
+        owl:NamedIndividual ;
+    rdfs:label "Estimated Network Activity Date Performance Objective" ;
+    :hasMeasurementBasis "total number of Estimated Network Activity Dates provided by nbn for all RSPs each month" ;
+    :hasTargetPercentage 90 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.2, p.14" .
+
+:EstimatedNetworkActivityDateServiceLevel a :ServiceLevel,
+        owl:NamedIndividual ;
+    rdfs:label "Estimated Network Activity Date Service Level" ;
+    :hasDuration 30 ;
+    :hasUnit "Business Days" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.2, p.14" ;
+    :startsAt :NetworkActivityDesignationDateEvent .
+
+:InitialNetworkActivityUpdatePerformanceObjective a :Cl_PerformanceObjective,
+        owl:NamedIndividual ;
+    rdfs:label "Initial Network Activity Update Performance Objective" ;
+    :hasMeasurementBasis "total number of Initial Network Activity Updates provided by nbn for all RSPs each month" ;
+    :hasTargetPercentage 90 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.2, p.14" .
+
+:InitialNetworkActivityUpdateServiceLevel a :ServiceLevel,
+        owl:NamedIndividual ;
+    rdfs:label "Initial Network Activity Update Service Level" ;
+    :hasDuration 20 ;
+    :hasUnit "Business Days" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.2, p.14" ;
+    :startsAt :NetworkActivityDesignationDateEvent .
+
+:NNILink a owl:Class ;
+    rdfs:label "NNILink" ;
+    rdfs:comment "WBA NNI Link / V-NNI / S-TAG concepts. Not modelled." ;
+    skos:altLabel "NNI Link",
+        "S-TAG",
+        "V-NNI",
+        "over-book" .
+
+:NetworkActivityCompletionEvent a :Cl_NetworkActivityCompletion,
+        owl:NamedIndividual ;
+    rdfs:label "Network Activity Completion Event" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.3, p.15" .
+
+:NetworkActivityPerformanceObjective a :Cl_PerformanceObjective,
+        owl:NamedIndividual ;
+    rdfs:label "Network Activity Performance Objective" ;
+    :hasMeasurementBasis "total number of relevant Network Activities completed by nbn for all RSPs each month" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.1, p.14" .
+
+:NniGroupActivationPerformanceObjective a :Cl_PerformanceObjective,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Group Activation Performance Objective" ;
+    :appliesToActivation :Cl_NniGroupActivation ;
+    :hasTargetPercentage 95 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s3.2, p.13" .
+
+:NniGroupActivationServiceLevel a :ServiceLevel,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Group Activation Service Level" ;
+    :appliesToActivation :Cl_NniGroupActivation ;
+    :hasDuration 15 ;
+    :hasUnit "Business Days" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s3.1, p.13" ;
+    :startsAt :OrderAcknowledgementEvent .
+
+:NniLinkActivationPerformanceObjective a :Cl_PerformanceObjective,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Link Activation Performance Objective" ;
+    :appliesToActivation :Cl_NniLinkActivation ;
+    :hasTargetPercentage 95 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s3.2, p.13" .
+
+:NniLinkActivationServiceLevel a :ServiceLevel,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Link Activation Service Level" ;
+    :appliesToActivation :Cl_NniLinkActivation ;
+    :hasDuration 15 ;
+    :hasUnit "Business Days" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s3.1, p.13" ;
+    :startsAt :OrderAcknowledgementEvent .
+
+:ProductComponent a owl:Class ;
+    rdfs:label "ProductComponent" ;
+    rdfs:comment "WBA Product Component; counts toward an NNI Group's Bearer Limit. Not modelled in the simulator." ;
+    skos:altLabel "Bearer Limit",
+        "Product Component" .
+
+:StartDateEvent a :Cl_StartDate,
+        owl:NamedIndividual ;
+    rdfs:label "Start Date Event" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.3, p.15" .
+
+:TC_1 a :TrafficClass,
+        owl:NamedIndividual ;
+    rdfs:label "TC-1" ;
+    :name "Priority / realtime" ;
+    :planningThresholdPct 70.0 .
+
+:TC_2 a :TrafficClass,
+        owl:NamedIndividual ;
+    rdfs:label "TC-2" ;
+    :name "Interactive" ;
+    :planningThresholdPct 75.0 .
+
+:TroubleTicketAcknowledgmentEvent a :Cl_TroubleTicket,
+        owl:NamedIndividual ;
+    rdfs:label "Trouble Ticket Acknowledgment Event" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.3, p.15" .
+
+:VNniActivationPerformanceObjective a :Cl_PerformanceObjective,
+        owl:NamedIndividual ;
+    rdfs:label "V-NNI Activation Performance Objective" ;
+    :appliesToActivation :Cl_VNniActivation ;
+    :hasTargetPercentage 95 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s3.2, p.13" .
+
+:VNniActivationServiceLevel a :ServiceLevel,
+        owl:NamedIndividual ;
+    rdfs:label "V-NNI Activation Service Level" ;
+    :appliesToActivation :Cl_VNniActivation ;
+    :hasDuration 15 ;
+    :hasUnit "Business Days" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s3.1, p.13" ;
+    :startsAt :OrderAcknowledgementEvent .
+
+:actionType a owl:ObjectProperty ;
+    rdfs:label "action_type" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :ActionType .
+
+:addressesConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "addresses_constraint_ids" ;
+    rdfs:comment "'|'-separated constraint ids covered, scoped to a resource." ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:addressesRule a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :PlanningRule .
+
+:appliesTo a owl:ObjectProperty ;
+    rdfs:label "applies to" ;
+    rdfs:comment "Links a PIR Objective Rebate or PIR Affected Billing Period to the AVC TC-4 Ordered Product Component it applies to. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Cl_PirObjectiveRebate :Cl_PirAffectedBillingPeriod ) ] ;
+    rdfs:range :Cl_AvcTc4OrderedProductComponent .
+:appliesToActivation a owl:ObjectProperty ;
+    rdfs:label "applies to activation" ;
+    rdfs:comment "Links a Service Level or Performance Objective to the Activation type it applies to. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:assessedAs a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :ActionAssessment .
+
+:availableGbps a owl:DatatypeProperty ;
+    rdfs:label "available_gbps" ;
+    rdfs:comment "= protected - current load" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:avcs a owl:DatatypeProperty ;
+    rdfs:label "avcs" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:bandwidthTierMbps a owl:DatatypeProperty ;
+    rdfs:label "bandwidth_tier_mbps" ;
+    rdfs:domain :AVC ;
+    rdfs:range xsd:integer .
+
+:bearerRateGbps a owl:DatatypeProperty ;
+    rdfs:label "bearer_rate_gbps" ;
+    rdfs:comment "Interface rate of every bearer in the group." ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:bearers a owl:DatatypeProperty ;
+    rdfs:label "bearers" ;
+    rdfs:comment "Number of bearers. Config product_rules: max_bearers_per_nni=8, by rate (Gbps) {'1': 2, '10': 4, '100': 8}." ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:integer .
+
+:belongsToSegment a owl:ObjectProperty ;
+    rdfs:domain :AVC ;
+    rdfs:range :CustomerSegment .
+
+:blockedBy a owl:DatatypeProperty ;
+    rdfs:label "blocked_by" ;
+    rdfs:comment "Blocking rule ids; BEARER_CEILING when the per-rate bearer limit blocks it.",
+        "Rule id blocking use, e.g. EP-02." ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:blockedByRule a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :PlanningRule .
+
+:busyHourFactor a owl:DatatypeProperty ;
+    rdfs:label "busy_hour_factor" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:double .
+
+:capacityGbps a owl:DatatypeProperty ;
+    rdfs:label "capacity_gbps" ;
+    rdfs:comment "= protected_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:carries a owl:ObjectProperty ;
+    rdfs:domain :CVC ;
+    rdfs:range :CSA .
+
+:commitmentPct a owl:DatatypeProperty ;
+    rdfs:label "commitment_pct" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:completedOn a owl:ObjectProperty ;
+    rdfs:label "completed on" ;
+    rdfs:comment "Links a Network Activity to its Completion event. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" ;
+    rdfs:domain :Cl_NetworkActivity ;
+    rdfs:range :Cl_NetworkActivityCompletion .
+
+:consumes a owl:ObjectProperty ;
+    rdfs:domain :CVC ;
+    rdfs:range :TrafficClass .
+
+:contractualGbps a owl:DatatypeProperty ;
+    rdfs:label "contractual_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:currentBandwidthGbps a owl:DatatypeProperty ;
+    rdfs:label "current_bandwidth_gbps" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:double .
+
+:currentLoadGbps a owl:DatatypeProperty ;
+    rdfs:label "current_load_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:designatedOn a owl:ObjectProperty ;
+    rdfs:label "designated on" ;
+    rdfs:comment "Links a Network Activity to its Designation Date. [extension: WBA Ethernet Service Levels Schedule, s5.2, p.14]" ;
+    rdfs:domain :Cl_NetworkActivity ;
+    rdfs:range :Cl_NetworkActivityDesignationDate .
+
+:designatesForNetworkActivity a owl:ObjectProperty ;
+    rdfs:label "designates for network activity" ;
+    rdfs:comment "Links an AVC TC-4 Ordered Product Component to the Network Activity it is designated for. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" ;
+    rdfs:domain :Cl_AvcTc4OrderedProductComponent ;
+    rdfs:range :Cl_NetworkActivity .
+
+:endsAt a owl:ObjectProperty ;
+    rdfs:label "ends at" ;
+    rdfs:comment "Links a PIR Affected Billing Period to the Network Activity Completion event that ends it. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" ;
+    rdfs:domain :Cl_PirAffectedBillingPeriod ;
+    rdfs:range :Cl_NetworkActivityCompletion .
+
+:evidence a owl:DatatypeProperty ;
+    rdfs:label "evidence" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:failureDomain a owl:DatatypeProperty ;
+    rdfs:label "failure_domain" ;
+    rdfs:comment "Cluster A/B the bearer lands in." ;
+    rdfs:domain :Bearer ;
+    rdfs:range xsd:string .
+
+:feasible a owl:DatatypeProperty ;
+    rdfs:label "feasible" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:boolean .
+
+:forBillingPeriod a owl:ObjectProperty ;
+    rdfs:label "for billing period" ;
+    rdfs:comment "Links a PIR Objective Rebate to the PIR Affected Billing Period it applies to. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" ;
+    rdfs:domain :Cl_PirObjectiveRebate ;
+    rdfs:range :Cl_PirAffectedBillingPeriod .
+
+:forScenario a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :Scenario .
+
+:forecastGrowthPct a owl:DatatypeProperty ;
+    rdfs:label "forecast_growth_pct" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:double .
+
+:hasAccessTechnology a owl:ObjectProperty ;
+    rdfs:label "has access technology" ;
+    rdfs:domain :Cl_AvcTc4OrderedProductComponent ;
+    rdfs:range :AccessTechnology .
+
+:hasAmount a owl:ObjectProperty ;
+    rdfs:label "has amount" ;
+    rdfs:comment "Links a rebate to the Charge that determines its amount. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:hasBandwidthProfileDownstreamMbps a owl:DatatypeProperty ;
+    rdfs:label "has bandwidth profile downstream Mbps" ;
+    rdfs:comment "The downstream PIR bandwidth profile in Mbps for an AVC TC-4 Ordered Product Component. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" ;
+    rdfs:domain :Cl_AvcTc4OrderedProductComponent ;
+    rdfs:range xsd:integer .
+
+:hasBandwidthProfileUpstreamMbps a owl:DatatypeProperty ;
+    rdfs:label "has bandwidth profile upstream Mbps" ;
+    rdfs:comment "The upstream PIR bandwidth profile in Mbps for an AVC TC-4 Ordered Product Component. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" ;
+    rdfs:domain :Cl_AvcTc4OrderedProductComponent ;
+    rdfs:range xsd:integer .
+
+:hasBearer a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :Bearer .
+
+:hasCapacityPool a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :CapacityPool .
+
+:hasCost a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :CostItem .
+
+:hasCurrency a owl:DatatypeProperty ;
+    rdfs:label "has currency" ;
+    rdfs:comment "The currency of a monetary amount. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" ;
+    rdfs:range xsd:string .
+
+:hasDuration a owl:DatatypeProperty ;
+    rdfs:label "has duration" ;
+    rdfs:comment "The numeric duration of a Service Level in Business Days. [extension: WBA Ethernet Service Levels Schedule, p.13]" ;
+    rdfs:range xsd:integer .
+
+:hasDurationIso a owl:DatatypeProperty ;
+    rdfs:label "has duration ISO" ;
+    rdfs:comment "The duration of a PIR Affected Billing Period in ISO-8601 format. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" ;
+    rdfs:range xsd:string .
+
+:hasLineRateDownstreamMbps a owl:DatatypeProperty ;
+    rdfs:label "has line rate downstream Mbps" ;
+    rdfs:comment "The line rate at the nbn Downstream Network Boundary in Mbps. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" ;
+    rdfs:domain :Cl_AvcTc4OrderedProductComponent ;
+    rdfs:range xsd:integer .
+
+:hasLineRateUpstreamMbps a owl:DatatypeProperty ;
+    rdfs:label "has line rate upstream Mbps" ;
+    rdfs:comment "The line rate at the nbn Upstream Network Boundary in Mbps. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" ;
+    rdfs:domain :Cl_AvcTc4OrderedProductComponent ;
+    rdfs:range xsd:integer .
+
+:hasMaxConsecutiveBillingPeriods a owl:DatatypeProperty ;
+    rdfs:label "has max consecutive billing periods" ;
+    rdfs:comment "The maximum number of consecutive PIR Affected Billing Periods for which the rebate applies. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" ;
+    rdfs:domain :Cl_PirObjectiveRebate ;
+    rdfs:range xsd:integer .
+
+:hasMeasurementBasis a owl:DatatypeProperty ;
+    rdfs:label "has measurement basis" ;
+    rdfs:comment "The basis on which a Performance Objective is measured. [extension: WBA Ethernet Service Levels Schedule, s5.1-5.2, p.14]" ;
+    rdfs:domain :Cl_PerformanceObjective ;
+    rdfs:range xsd:string .
+
+:hasNni a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :NNI .
+
+:hasPerformanceObjective a owl:ObjectProperty ;
+    rdfs:label "has performance objective" ;
+    rdfs:comment "Links an Activation to its Performance Objective. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:hasPirObjective a owl:ObjectProperty ;
+    rdfs:label "has PIR objective" ;
+    rdfs:comment "Links an AVC TC-4 Ordered Product Component to its PIR Objective. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" ;
+    rdfs:domain :Cl_AvcTc4OrderedProductComponent ;
+    rdfs:range :Cl_PirObjective .
+
+:hasRebateAmount a owl:DatatypeProperty ;
+    rdfs:label "has rebate amount" ;
+    rdfs:comment "The monetary amount of a rebate. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" ;
+    rdfs:range xsd:decimal .
+
+:hasSegmentMix a owl:ObjectProperty ;
+    rdfs:domain :CSA ;
+    rdfs:range :CustomerSegment .
+
+:hasServiceLevel a owl:ObjectProperty ;
+    rdfs:label "has service level" ;
+    rdfs:comment "Links an Activation to its Service Level. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:hasTargetPercentage a owl:DatatypeProperty ;
+    rdfs:label "has target percentage" ;
+    rdfs:comment "The target percentage of a Performance Objective. [extension: WBA Ethernet Service Levels Schedule, p.13]" ;
+    rdfs:domain :Cl_PerformanceObjective ;
+    rdfs:range xsd:integer .
+
+:hasTrafficClass a owl:ObjectProperty ;
+    rdfs:label "has traffic class" ;
+    rdfs:comment "Links an AVC TC-4 Ordered Product Component to its traffic class (TC-4). [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" ;
+    rdfs:domain :Cl_AvcTc4OrderedProductComponent ;
+    rdfs:range :TrafficClass .
+
+:hasUnit a owl:DatatypeProperty ;
+    rdfs:label "has unit" ;
+    rdfs:comment "The unit of a Service Level duration (e.g. 'Business Days'). [extension: WBA Ethernet Service Levels Schedule, p.13]" ;
+    rdfs:range xsd:string .
+
+:inRegion a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Bearer :CSA :CVC :NNIGroup :POI ) ] ;
+    rdfs:range :PlanningRegion .
+
+:isFollowedBy a owl:ObjectProperty ;
+    rdfs:label "is followed by" ;
+    rdfs:comment "Links consecutive PIR Affected Billing Periods. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" ;
+    rdfs:domain :Cl_PirAffectedBillingPeriod ;
+    rdfs:range :Cl_PirAffectedBillingPeriod .
+
+:isNotCapableOfAchievingPirObjective a owl:ObjectProperty ;
+    rdfs:label "is not capable of achieving PIR objective" ;
+    rdfs:comment "Links an AVC TC-4 Ordered Product Component to the PIR Objective it cannot achieve. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" ;
+    rdfs:domain :Cl_AvcTc4OrderedProductComponent ;
+    rdfs:range :Cl_PirObjective .
+
+:isPaidBy a owl:ObjectProperty ;
+    rdfs:label "is paid by" ;
+    rdfs:comment "Links a rebate to the agent that pays it (nbn). [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:isPaidByApplyingToInvoice a owl:ObjectProperty ;
+    rdfs:label "is paid by applying to invoice" ;
+    rdfs:comment "Links a rebate to the Invoice it is applied to. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:isPaidTo a owl:ObjectProperty ;
+    rdfs:label "is paid to" ;
+    rdfs:comment "Links a rebate to the agent that receives it (RSP). [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:knownRequiredConstraintsCovered a owl:DatatypeProperty ;
+    rdfs:label "known_required_constraints_covered" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:boolean .
+
+:label a owl:DatatypeProperty ;
+    rdfs:label "label" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:landedOn a owl:ObjectProperty ;
+    rdfs:domain :Bearer ;
+    rdfs:range :Device .
+
+:leadTimeDays a owl:DatatypeProperty ;
+    rdfs:label "lead_time_days" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:integer .
+
+:mapsTo a owl:ObjectProperty ;
+    rdfs:domain :CVC ;
+    rdfs:range :NNIGroup .
+
+:materialisationCoverage a owl:ObjectProperty ;
+    rdfs:label "materialisation_coverage" ;
+    rdfs:domain :CVC ;
+    rdfs:range :MaterialisationCoverage .
+
+:materialisedAvcCount a owl:DatatypeProperty ;
+    rdfs:label "materialised_avc_count" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:maxSupportedCvc a owl:DatatypeProperty ;
+    rdfs:label "max_supported_cvc" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:integer .
+
+:measuredOver a owl:DatatypeProperty ;
+    rdfs:label "measured over" ;
+    rdfs:comment "The time interval over which a Performance Objective is measured (e.g. 'P1M' for monthly). [extension: WBA Ethernet Service Levels Schedule, p.13]" ;
+    rdfs:domain :Cl_PerformanceObjective ;
+    rdfs:range xsd:string .
+
+:mode a owl:ObjectProperty ;
+    rdfs:label "mode" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :RedundancyMode .
+
+:monthlyCost a owl:DatatypeProperty ;
+    rdfs:label "monthly_cost" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:domain :TrafficClass ;
+    rdfs:range xsd:string .
+
+:orderedBy a owl:ObjectProperty ;
+    rdfs:label "ordered by" ;
+    rdfs:comment "Links an AVC TC-4 Ordered Product Component to the RSP that ordered it. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" ;
+    rdfs:domain :Cl_AvcTc4OrderedProductComponent ;
+    rdfs:range :Cl_RSP .
+
+:peakBandwidthGbps a owl:DatatypeProperty ;
+    rdfs:label "peak_bandwidth_gbps" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:double .
+
+:performedBy a owl:ObjectProperty ;
+    rdfs:label "performed by" ;
+    rdfs:comment "Links a Network Activity to the nbn agent that performs it. [extension: WBA Ethernet Service Levels Schedule, s5.1, p.14]" ;
+    rdfs:domain :Cl_NetworkActivity ;
+    rdfs:range :Cl_nbn .
+
+:performs a owl:ObjectProperty ;
+    rdfs:label "performs" ;
+    rdfs:comment "Links an nbn agent to the Network Activity it performs. [extension: WBA Ethernet Service Levels Schedule, s5.1, p.14]" ;
+    rdfs:domain :Cl_nbn ;
+    rdfs:range :Cl_NetworkActivity .
+
+:planningThresholdPct a owl:DatatypeProperty ;
+    rdfs:label "planning_threshold_pct" ;
+    rdfs:domain :TrafficClass ;
+    rdfs:range xsd:double .
+
+:populationBasis a owl:DatatypeProperty ;
+    rdfs:label "population_basis" ;
+    rdfs:comment "CVC_AVC_COUNT_PROXY: the aggregate avcs count is authoritative over materialised AVC records." ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:string .
+
+:premises a owl:DatatypeProperty ;
+    rdfs:label "premises" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:integer .
+
+:projectedToGrow a owl:ObjectProperty ;
+    rdfs:domain :CSA ;
+    rdfs:range :DemandForecast .
+
+:protectedGbps a owl:DatatypeProperty ;
+    rdfs:label "protected_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:rateGbps a owl:DatatypeProperty ;
+    rdfs:label "rate_gbps" ;
+    rdfs:domain :Bearer ;
+    rdfs:range xsd:double .
+
+:resilienceScore a owl:DatatypeProperty ;
+    rdfs:label "resilience_score" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:riskRating a owl:ObjectProperty ;
+    rdfs:label "risk_rating" ;
+    rdfs:domain :CSA ;
+    rdfs:range :RiskRating .
+
+:riskScore a owl:DatatypeProperty ;
+    rdfs:label "risk_score" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:servedAt a owl:ObjectProperty ;
+    rdfs:domain :CSA ;
+    rdfs:range :POI .
+
+:services a owl:DatatypeProperty ;
+    rdfs:label "services" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:integer .
+
+:singleActionResolvesAllMust a owl:DatatypeProperty ;
+    rdfs:label "single_action_resolves_all_must" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:boolean .
+
+:sourceClause a owl:AnnotationProperty ;
+    rdfs:comment "Document, clause and page a contract fact comes from." .
+
+:startsAt a owl:ObjectProperty ;
+    rdfs:label "starts at" ;
+    rdfs:comment "Links a PIR Affected Billing Period to the event that starts it (Start Date or Trouble Ticket acknowledgment). [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]",
+        "Links an Activation's Service Level to the Order Acknowledgement event that starts the clock. [extension: WBA Ethernet Service Levels Schedule, p.13]" ;
+    rdfs:domain :Cl_PirAffectedBillingPeriod ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( :Cl_StartDate :Cl_TroubleTicket ) ] .
+
+:state a owl:DatatypeProperty ;
+    rdfs:label "state" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :AVC :Bearer :CSA :POI ) ] ;
+    rdfs:range xsd:string .
+
+:status a owl:DatatypeProperty ;
+    rdfs:label "status" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:subscriberGrowthPct a owl:DatatypeProperty ;
+    rdfs:label "subscriber_growth_pct" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:double .
+
+:tc1Pct a owl:DatatypeProperty ;
+    rdfs:label "tc1_pct" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:tc2Pct a owl:DatatypeProperty ;
+    rdfs:label "tc2_pct" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:tc4Pct a owl:DatatypeProperty ;
+    rdfs:label "tc4_pct" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:tech a owl:ObjectProperty ;
+    rdfs:label "tech" ;
+    rdfs:domain :CSA ;
+    rdfs:range :AccessTechnology .
+
+:technology a owl:ObjectProperty ;
+    rdfs:label "technology" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :InterfaceTechnology .
+
+:terminatesAtPoi a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :POI .
+
+:terminatesOnPort a owl:ObjectProperty ;
+    rdfs:domain :Bearer ;
+    rdfs:range :PlanningPort .
+
+:triggersRebate a owl:ObjectProperty ;
+    rdfs:label "triggers rebate" ;
+    rdfs:comment "Links a Co-ordinated Appointment (failure event) to the rebate it triggers. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:unevaluatedConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "unevaluated_constraint_ids" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:unmaterialisedAvcCount a owl:DatatypeProperty ;
+    rdfs:label "unmaterialised_avc_count" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:unresolvedConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "unresolved_constraint_ids" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:usesCvc a owl:ObjectProperty ;
+    rdfs:domain :AVC ;
+    rdfs:range :CVC .
+
+:usesLinecard a owl:ObjectProperty ;
+    rdfs:domain :Bearer ;
+    rdfs:range :PlanningLineCard .
+
+:utilisationPct a owl:DatatypeProperty ;
+    rdfs:label "utilisation_pct" ;
+    rdfs:comment "= 100 * current load / protected" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:utilisationScore a owl:DatatypeProperty ;
+    rdfs:label "utilisation_score" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:wholeOfLifeCost36m a owl:DatatypeProperty ;
+    rdfs:label "whole_of_life_cost_36m" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:AccessTechnology_FTTB a :AccessTechnology ;
+    rdfs:label "FTTB Access Technology" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.3, p.14" .
+
+:AccessTechnology_FTTN a :AccessTechnology ;
+    rdfs:label "FTTN Access Technology" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.3, p.14" .
+
+:AccessTechnology_HFC a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "HFC" .
+
+:ActionAssessment a owl:Class ;
+    rdfs:label "ActionAssessment" ;
+    rdfs:comment "Scored assessment of one candidate action." .
+
+:ActionType_ADD_AGGREGATION a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "ADD_AGGREGATION" .
+
+:ActionType_ADD_BACKHAUL a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "ADD_BACKHAUL" .
+
+:ActionType_ADD_PORT a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "ADD_PORT" .
+
+:ActionType_CREATE_NEW_BEARER a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_NEW_BEARER" .
+
+:ActionType_CREATE_NEW_CVC a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_NEW_CVC" .
+
+:ActionType_CREATE_NEW_NNI a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_NEW_NNI" .
+
+:ActionType_CREATE_RESILIENCE_PATH a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_RESILIENCE_PATH" .
+
+:ActionType_INCREASE_CVC_BW a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "INCREASE_CVC_BW" .
+
+:ActionType_MOVE_CSA_LOAD a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "MOVE_CSA_LOAD" .
+
+:ActionType_REBALANCE_AVCS a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "REBALANCE_AVCS" .
+
+:ActionType_SPLIT_CAPACITY_POOL a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "SPLIT_CAPACITY_POOL" .
+
+:ActionType_UPGRADE_PORT a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "UPGRADE_PORT" .
+
+:CapacityPool a owl:Class ;
+    rdfs:label "CapacityPool" ;
+    rdfs:comment "Contractual/protected/used capacity of an NNI Group." .
+
+:Cl_CoOrdinatedAppointment a owl:Class ;
+    rdfs:label "Co-ordinated Appointment" ;
+    rdfs:comment "A scheduled appointment for nbn to attend a Premises for a Standard Connection or Professional Wiring Service. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:Cl_CoOrdinatedAppointmentRebate a owl:Class ;
+    rdfs:label "Co-ordinated Appointment Rebate" ;
+    rdfs:comment "A rebate provided when nbn fails to attend a Co-ordinated Appointment within the Service Level. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:Cl_Invoice a owl:Class ;
+    rdfs:label "Invoice" ;
+    rdfs:comment "An invoice issued to an RSP to which a rebate may be applied. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:Cl_OrderAcknowledgement a owl:Class ;
+    rdfs:label "Order Acknowledgement" ;
+    rdfs:comment "The event marking the beginning of the Service Level period for Activations. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:CoordinatedAppointmentCharge a :Cl_Charge,
+        owl:NamedIndividual ;
+    rdfs:label "Co-ordinated Appointment Charge" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s2.5(a), p.13" .
+
+:CoordinatedAppointmentRebate a :Cl_CoOrdinatedAppointmentRebate,
+        owl:NamedIndividual ;
+    rdfs:label "Co-ordinated Appointment Rebate" ;
+    :hasAmount :CoordinatedAppointmentCharge ;
+    :isPaidBy :NbnAgent ;
+    :isPaidByApplyingToInvoice :RspInvoice ;
+    :isPaidTo :RspAgent ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s2.5(a), p.13" .
+
+:CostItem a owl:Class ;
+    rdfs:label "CostItem" ;
+    rdfs:comment "A cost line of an action (capital, one-off, recurring, lease)." .
+
+:DemandForecast a owl:Class ;
+    rdfs:label "DemandForecast" ;
+    rdfs:comment "Legacy demand growth forecast for a CSA or CVC under a scenario (the contract's Forecast, kind-qualified)." .
+
+:Device a owl:Class ;
+    rdfs:label "Device" ;
+    rdfs:comment "Active network device with an explicit NetworkRole and NetworkLayer; legacy roles CORE/REGIONAL/LOCAL_AGG/ACCESS." .
+
+:InterfaceTechnology_100GE a :InterfaceTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "100GE" .
+
+:InterfaceTechnology_10GE a :InterfaceTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "10GE" .
+
+:InterfaceTechnology_1GE a :InterfaceTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "1GE" .
+
+:MaterialisationCoverage_COMPLETE a :MaterialisationCoverage,
+        owl:NamedIndividual ;
+    rdfs:label "COMPLETE" .
+
+:MaterialisationCoverage_NONE a :MaterialisationCoverage,
+        owl:NamedIndividual ;
+    rdfs:label "NONE" .
+
+:MaterialisationCoverage_PARTIAL a :MaterialisationCoverage,
+        owl:NamedIndividual ;
+    rdfs:label "PARTIAL" .
+
+:NNI a owl:Class ;
+    rdfs:label "NNI" ;
+    rdfs:comment "A single NNI within an NNI Group, realised on one Bearer." .
+
+:PirAffectedBillingPeriodInstance a :Cl_PirAffectedBillingPeriod,
+        owl:NamedIndividual ;
+    rdfs:label "PIR Affected Billing Period" ;
+    :appliesTo :AvcTc4OrderedProductComponentInstance ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.3, p.15" .
+
+:PirObjectiveInstance a :Cl_PirObjective,
+        owl:NamedIndividual ;
+    rdfs:label "PIR Objective" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.3, p.14" .
+
+:PirObjectiveRebate a :Cl_PirObjectiveRebate,
+        owl:NamedIndividual ;
+    rdfs:label "PIR Objective Rebate" ;
+    :appliesTo :AvcTc4OrderedProductComponentInstance ;
+    :forBillingPeriod :PirAffectedBillingPeriodInstance ;
+    :hasAmount :PirObjectiveRebateCharge ;
+    :hasMaxConsecutiveBillingPeriods 3 ;
+    :isPaidBy :NbnAgent ;
+    :isPaidTo :RspAgent ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.3, p.14-15" .
+
+:PirObjectiveRebateCharge a :Cl_Charge,
+        owl:NamedIndividual ;
+    rdfs:label "PIR Objective Rebate Charge" ;
+    :hasCurrency "AUD" ;
+    :hasRebateAmount 10.61 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.3, p.15" .
+
+:PlanningLineCard a owl:Class ;
+    rdfs:label "PlanningLineCard" ;
+    rdfs:comment "Planning line-card on an aggregation device with NPU capacity/budget and committed load." ;
+    rdfs:subClassOf :PlanningResource .
+
+:PlanningPort a owl:Class ;
+    rdfs:label "PlanningPort" ;
+    rdfs:comment "Planning port on a line-card; may be FREE/IN_SERVICE and usable or blocked." ;
+    rdfs:subClassOf :PlanningResource .
+
+:PlanningRegion a owl:Class ;
+    rdfs:label "PlanningRegion" ;
+    rdfs:comment "A planning region (key of REFERENCE_REGION_SPECS, e.g. Region-West-1). Groups CSAs, NNI Groups, CVCs, a POI and transport conditions." .
+
+:RedundancyMode_DIVERSE_CHASSIS a :RedundancyMode,
+        owl:NamedIndividual ;
+    rdfs:label "DIVERSE_CHASSIS" .
+
+:RedundancyMode_SINGLE a :RedundancyMode,
+        owl:NamedIndividual ;
+    rdfs:label "SINGLE" ;
+    rdfs:comment "Used by Region-Central-1 but not a WBA redundancy mode." .
+
+:RedundancyMode_SINGLE_CHASSIS a :RedundancyMode,
+        owl:NamedIndividual ;
+    rdfs:label "SINGLE_CHASSIS" .
+
+:RiskRating_High a :RiskRating,
+        owl:NamedIndividual ;
+    rdfs:label "High" .
+
+:RiskRating_Low a :RiskRating,
+        owl:NamedIndividual ;
+    rdfs:label "Low" .
+
+:RiskRating_Medium a :RiskRating,
+        owl:NamedIndividual ;
+    rdfs:label "Medium" .
+
+:RspInvoice a :Cl_Invoice,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Invoice" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s2.5(a), p.13" .
+
+:Scenario a owl:Class ;
+    rdfs:label "Scenario" ;
+    rdfs:comment "A scenario within a network (operational scenario or planning scenario)." .
+
+:TC_4 a :TrafficClass,
+        owl:NamedIndividual ;
+    rdfs:label "TC-4" ;
+    :name "Best effort / bulk" ;
+    :planningThresholdPct 80.0 .
+
+:AccessTechnology_FIBRE a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "FIBRE" .
+
+:AccessTechnology_FTTC a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "FTTC" .
+
+:AvcTc4OrderedProductComponentInstance a :Cl_AvcTc4OrderedProductComponent,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Ordered Product Component" ;
+    :hasPirObjective :PirObjectiveInstance ;
+    :hasTrafficClass :TC_4 ;
+    :orderedBy :RspAgent ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.3, p.14" .
+
+:Cl_Charge a owl:Class ;
+    rdfs:label "Charge" ;
+    rdfs:comment "A charge for a Co-ordinated Appointment. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:Cl_CvcActivation a owl:Class ;
+    rdfs:label "CVC Activation" ;
+    rdfs:comment "Activation of a CVC. [extension: WBA Ethernet Service Levels Schedule, p.13]" ;
+    rdfs:subClassOf :Cl_Activation .
+
+:Cl_NetworkActivityDesignationDate a owl:Class ;
+    rdfs:label "Network Activity Designation Date" ;
+    rdfs:comment "The date on which nbn designates a Network Activity. [extension: WBA Ethernet Service Levels Schedule, s5.2, p.14]" .
+
+:Cl_NniGroupActivation a owl:Class ;
+    rdfs:label "NNI Group Activation" ;
+    rdfs:comment "Activation of an NNI Group. [extension: WBA Ethernet Service Levels Schedule, p.13]" ;
+    rdfs:subClassOf :Cl_Activation .
+
+:Cl_NniLinkActivation a owl:Class ;
+    rdfs:label "NNI Link Activation" ;
+    rdfs:comment "Activation of an NNI Link. [extension: WBA Ethernet Service Levels Schedule, p.13]" ;
+    rdfs:subClassOf :Cl_Activation .
+
+:Cl_RSP a owl:Class ;
+    rdfs:label "RSP" ;
+    rdfs:comment "Retail Service Provider, who receives the Co-ordinated Appointment Rebate. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:Cl_StartDate a owl:Class ;
+    rdfs:label "Start Date" ;
+    rdfs:comment "The date on which a Network Activity was designated under a Prior WBA, marking the start of a PIR Affected Billing Period. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" .
+
+:Cl_TroubleTicket a owl:Class ;
+    rdfs:label "Trouble Ticket" ;
+    rdfs:comment "A trouble ticket acknowledged by nbn that gives rise to a designated Network Activity under this Agreement, marking the start of a PIR Affected Billing Period. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" .
+
+:Cl_VNniActivation a owl:Class ;
+    rdfs:label "V-NNI Activation" ;
+    rdfs:comment "Activation of a V-NNI. [extension: WBA Ethernet Service Levels Schedule, p.13]" ;
+    rdfs:subClassOf :Cl_Activation .
+
+:CustomerSegment a owl:Class ;
+    rdfs:label "CustomerSegment" ;
+    rdfs:comment "Customer segment (residential, SME, enterprise) with criticality and default share." .
+
+:NbnAgent a :Cl_nbn,
+        owl:NamedIndividual ;
+    rdfs:label "nbn" ;
+    :performs :NetworkActivityDesignationDateEvent ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.13" .
+
+:PlanningRule a owl:Class ;
+    rdfs:label "PlanningRule" ;
+    rdfs:comment "Named planning/engineering/governance rule with a limit, unit and compliance level (PR-01 ... GV-03)." .
+
+:Cl_NetworkActivityCompletion a owl:Class ;
+    rdfs:label "Network Activity Completion" ;
+    rdfs:comment "The event marking the completion of a designated Network Activity, ending the PIR Affected Billing Period. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" .
+
+:Cl_PirObjective a owl:Class ;
+    rdfs:label "PIR Objective" ;
+    rdfs:comment "Peak Information Rate objective for an AVC TC-4 Ordered Product Component. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" .
+
+:Cl_nbn a owl:Class ;
+    rdfs:label "nbn" ;
+    rdfs:comment "The agent nbn, who pays the Co-ordinated Appointment Rebate. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:NetworkActivityDesignationDateEvent a :Cl_NetworkActivityDesignationDate,
+        owl:NamedIndividual ;
+    rdfs:label "Network Activity Designation Date Event" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s5.2, p.14" ;
+    :triggersRebate :PirObjectiveRebate .
+
+:RspAgent a :Cl_RSP,
+        owl:NamedIndividual ;
+    rdfs:label "RSP" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.13" .
+
+:AVC a owl:Class ;
+    rdfs:label "AVC" ;
+    rdfs:comment "Access Virtual Circuit: per-service circuit that uses a CVC." ;
+    skos:altLabel "AVC",
+        "Access Virtual Circuit",
+        "OVC",
+        "Unicast 1:1 AVC" .
+
+:Cl_Activation a owl:Class ;
+    rdfs:label "Activation" ;
+    rdfs:comment "The completion of a CVC, NNI Group, NNI Link, or V-NNI activation. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:Cl_PirObjectiveRebate a owl:Class ;
+    rdfs:label "PIR Objective Rebate" ;
+    rdfs:comment "A rebate of $10.61 AUD provided by nbn to an RSP for each PIR Affected Billing Period when an AVC TC-4 Ordered Product Component cannot achieve its PIR Objective and is designated for a Network Activity. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14-15]" .
+
+:InterfaceTechnology a owl:Class ;
+    rdfs:label "InterfaceTechnology" ;
+    rdfs:comment "NNI interface technology (nni_groups.technology)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :InterfaceTechnology_100GE :InterfaceTechnology_10GE :InterfaceTechnology_1GE ) ] .
+
+:MaterialisationCoverage a owl:Class ;
+    rdfs:label "MaterialisationCoverage" ;
+    rdfs:comment "How many of a CVC's AVCs exist as explicit records." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :MaterialisationCoverage_COMPLETE :MaterialisationCoverage_PARTIAL :MaterialisationCoverage_NONE ) ] .
+
+:OrderAcknowledgementEvent a :Cl_OrderAcknowledgement,
+        owl:NamedIndividual ;
+    rdfs:label "Order Acknowledgement Event" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s3.1, p.13" .
+
+:POI a owl:Class ;
+    rdfs:label "POI" ;
+    rdfs:comment "Point of Interconnect: where CSAs and NNI Groups meet the wholesale network. One per region, hosted on aggregation devices." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "Local POI",
+        "POI",
+        "Point of Interconnect",
+        "State Aggregation POI" .
+
+:RedundancyMode a owl:Class ;
+    rdfs:label "RedundancyMode" ;
+    rdfs:comment "NNI Group redundancy mode (nni_groups.mode)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :RedundancyMode_DIVERSE_CHASSIS :RedundancyMode_SINGLE :RedundancyMode_SINGLE_CHASSIS ) ] .
+
+:RiskRating a owl:Class ;
+    rdfs:label "RiskRating" ;
+    rdfs:comment "CSA risk rating (csas.risk_rating)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :RiskRating_High :RiskRating_Low :RiskRating_Medium ) ] .
+
+:Cl_NetworkActivity a owl:Class ;
+    rdfs:label "Network Activity" ;
+    rdfs:comment "An activity performed by nbn on the network, designated by a Network Activity Designation Date, and subject to performance objectives for update timeliness. [extension: WBA Ethernet Service Levels Schedule, s5.1-5.2, p.14]" .
+
+:Cl_PirAffectedBillingPeriod a owl:Class ;
+    rdfs:label "PIR Affected Billing Period" ;
+    rdfs:comment "A monthly billing period during which an AVC TC-4 Ordered Product Component is designated for a Network Activity because it cannot achieve its PIR Objective, starting from the Start Date (Prior WBA) or Trouble Ticket acknowledgment (this Agreement), and ending when the Network Activity is completed. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.15]" .
+
+:PlanningResource a owl:Class ;
+    rdfs:label "PlanningResource" ;
+    rdfs:comment "Run-scoped planning inventory object (not a new physical asset). Superclass of POI, CSA, NNIGroup, CVC, PlanningLineCard, PlanningPort." .
+
+:AccessTechnology a owl:Class ;
+    rdfs:label "AccessTechnology" ;
+    rdfs:comment "Access technology of a CSA (csas.tech; a CSA may have several, separated by '|')." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :AccessTechnology_FIBRE :AccessTechnology_FTTC :AccessTechnology_HFC ) ],
+        [ a owl:Class ;
+            owl:oneOf ( :AccessTechnology_FIBRE :AccessTechnology_FTTC :AccessTechnology_FTTB :AccessTechnology_FTTN ) ] .
+
+:ServiceLevel a owl:Class ;
+    rdfs:label "ServiceLevel" ;
+    rdfs:comment "WBA availability and service levels (Network Availability, frame delay, frame loss). Not modelled." ;
+    skos:altLabel "Network Availability",
+        "Service Level",
+        "frame delay",
+        "frame loss" .
+
+:TrafficClass a owl:Class ;
+    rdfs:label "TrafficClass" ;
+    rdfs:comment "Traffic class (TC-1, TC-2, TC-4) with a planning utilisation threshold." ;
+    skos:altLabel "TC-1",
+        "TC-2",
+        "TC-4",
+        "bandwidth profile",
+        "traffic class" .
+
+:Bearer a owl:Class ;
+    rdfs:label "Bearer" ;
+    rdfs:comment "NNI Bearer: one physical interface of an NNI Group, landed on a line-card/port in a failure domain." ;
+    skos:altLabel "Diverse Chassis",
+        "NNI Bearer",
+        "Redundancy Mode",
+        "Single Chassis",
+        "interface rate" .
+
+:Cl_PerformanceObjective a owl:Class ;
+    rdfs:label "Performance Objective" ;
+    rdfs:comment "A target percentage of activations completed within the relevant Service Level, measured monthly. [extension: WBA Ethernet Service Levels Schedule, p.13]" .
+
+:Cl_AvcTc4OrderedProductComponent a owl:Class ;
+    rdfs:label "AVC TC-4 Ordered Product Component" ;
+    rdfs:comment "An AVC product component with TC-4 traffic class that has been ordered by an RSP, subject to PIR Objective rebate provisions. Includes nbn Ethernet (FTTB), nbn Ethernet (FTTN) or nbn Ethernet (FTTC) AVC TC-4 Ordered Product Components. [extension: WBA Ethernet Service Levels Schedule, s5.3, p.14]" .
+
+:ActionType a owl:Class ;
+    rdfs:label "ActionType" ;
+    rdfs:comment "Planning action types (legacy fixture action generation)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :ActionType_INCREASE_CVC_BW :ActionType_ADD_PORT :ActionType_MOVE_CSA_LOAD :ActionType_REBALANCE_AVCS :ActionType_SPLIT_CAPACITY_POOL :ActionType_CREATE_NEW_NNI :ActionType_CREATE_NEW_CVC :ActionType_UPGRADE_PORT :ActionType_ADD_BACKHAUL :ActionType_ADD_AGGREGATION :ActionType_CREATE_RESILIENCE_PATH :ActionType_CREATE_NEW_BEARER ) ] .
+
+:CSA a owl:Class ;
+    rdfs:label "CSA" ;
+    rdfs:comment "Connectivity Serving Area: a served area with services, premises and demand growth." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "CSA",
+        "Connectivity Serving Area" .
+
+:CVC a owl:Class ;
+    rdfs:label "CVC" ;
+    rdfs:comment "Connectivity Virtual Circuit: carries a CSA's traffic over an NNI Group, with a traffic-class mix." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "CVC",
+        "CVC TC-1",
+        "CVC TC-2",
+        "CVC TC-4",
+        "Connectivity Virtual Circuit",
+        "Unicast N:1 CVC" .
+
+:NNIGroup a owl:Class ;
+    rdfs:label "NNIGroup" ;
+    rdfs:comment "Group of NNI Bearers/NNIs at a POI sharing a redundancy mode, interface rate and protected capacity." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "NNI",
+        "NNI Group",
+        "NNI Product Component",
+        "Network-Network Interface" .
+
+:CandidateAction a owl:Class ;
+    rdfs:label "CandidateAction" ;
+    rdfs:comment "Candidate planning action with lead time, cost, feasibility, blocking reasons and scores." ;
+    skos:altLabel "Modify",
+        "NNI Diversity Upgrade",
+        "NNI Upsize Migration",
+        "charge",
+        "lead time",
+        "order",
+        "price" .
+
+
+# ===== EXTENSIONS FROM DOCUMENTS: append new classes / properties / facts BELOW this line =====
+# ===== EXTENSIONS FROM PAGE 32: Network Availability, Shared Network Resources, Throughput Dimensioning, Exclusion Events =====
+# ===== EXTENSIONS FROM PAGE 32: Network Availability, Shared Network Resources, Throughput Dimensioning, Exclusion Events =====
+
+# --- New Classes ---
+
+:Cl_NetworkAvailability a owl:Class ;
+    rdfs:label "Network Availability" ;
+    rdfs:comment "The state of the nbn network being available as measured against a performance objective, with specific exclusions defined by contract. [extension: WBA Ethernet Service Levels Schedule, p.32-33]" ;
+    rdfs:subClassOf :ServiceLevel .
+
+:Cl_NetworkAvailabilityPerformanceObjective a owl:Class ;
+    rdfs:label "Network Availability Performance Objective" ;
+    rdfs:comment "The Performance Objective for Network Availability, based on modelling using a set of assumptions regarding future network performance and may be modified by nbn following analysis of empirical Network Availability performance data gathered over time. [extension: WBA Ethernet Service Levels Schedule, p.33]" ;
+    rdfs:subClassOf :Cl_PerformanceObjective .
+
+:Cl_SharedNetworkResource a owl:Class ;
+    rdfs:label "Shared Network Resource" ;
+    rdfs:comment "nbn's transit backhaul network between the POI and a specified network endpoint, defined differently per access technology. [extension: WBA Ethernet Service Levels Schedule, p.33]" .
+
+:Cl_AvcTc4 a owl:Class ;
+    rdfs:label "AVC TC-4" ;
+    rdfs:comment "An AVC with TC-4 traffic class, used in throughput dimensioning obligations. [extension: WBA Ethernet Service Levels Schedule, p.33]" ;
+    rdfs:subClassOf :AVC .
+
+:Cl_ThroughputDimensioning a owl:Class ;
+    rdfs:label "Throughput Dimensioning" ;
+    rdfs:comment "The contractual obligation for nbn to dimension average busy hour throughput of Shared Network Resources at specified minimums per AVC TC-4. [extension: WBA Ethernet Service Levels Schedule, p.33]" .
+
+:Cl_ExclusionEvent a owl:Class ;
+    rdfs:label "Exclusion Event" ;
+    rdfs:comment "An event that is excluded from Network Availability measurement. [extension: WBA Ethernet Service Levels Schedule, p.32-33]" .
+
+:Cl_PowerOutage a owl:Class ;
+    rdfs:label "Power Outage" ;
+    rdfs:comment "A power outage event excluded from Network Availability measurement. [extension: WBA Ethernet Service Levels Schedule, p.32-33]" ;
+    rdfs:subClassOf :Cl_ExclusionEvent .
+
+:Cl_BoundaryExclusion a owl:Class ;
+    rdfs:label "Boundary Exclusion" ;
+    rdfs:comment "A matter, thing, event or circumstance that occurs outside the nbn Network Boundaries, excluded from Network Availability measurement. [extension: WBA Ethernet Service Levels Schedule, p.32-33]" ;
+    rdfs:subClassOf :Cl_ExclusionEvent .
+
+:Cl_FairUsePolicyBreach a owl:Class ;
+    rdfs:label "Fair Use Policy Breach" ;
+    rdfs:comment "A breach of the nbn Ethernet Fair Use Policy under this Agreement or under any Other Wholesale Broadband Agreement, excluded from Network Availability measurement. [extension: WBA Ethernet Service Levels Schedule, p.33]" ;
+    rdfs:subClassOf :Cl_ExclusionEvent .
+
+:Cl_BandwidthProfile a owl:Class ;
+    rdfs:label "Bandwidth Profile" ;
+    rdfs:comment "A bandwidth profile definition for AVC TC-4, specifying downstream/upstream PIR values. [extension: WBA Ethernet Service Levels Schedule, p.33]" .
+
+# --- New Data Properties ---
+
+:hasMinimumThroughputKbps a owl:DatatypeProperty ;
+    rdfs:label "has minimum throughput kbps" ;
+    rdfs:comment "The minimum average busy hour throughput per AVC TC-4 in kbps. [extension: WBA Ethernet Service Levels Schedule, p.33]" ;
+    rdfs:range xsd:integer .
+
+:hasMinimumThroughputMbps a owl:DatatypeProperty ;
+    rdfs:label "has minimum throughput Mbps" ;
+    rdfs:comment "The minimum average busy hour throughput per AVC TC-4 in Mbps. [extension: WBA Ethernet Service Levels Schedule, p.33]" ;
+    rdfs:range xsd:integer .
+
+:affectsEquipmentType a owl:DatatypeProperty ;
+    rdfs:label "affects equipment type" ;
+    rdfs:comment "The type of network equipment affected by a Power Outage exclusion event. [extension: WBA Ethernet Service Levels Schedule, p.32-33]" ;
+    rdfs:range xsd:string .
+
+:occursAtSiteType a owl:DatatypeProperty ;
+    rdfs:label "occurs at site type" ;
+    rdfs:comment "The type of site where a Power Outage exclusion event occurs. [extension: WBA Ethernet Service Levels Schedule, p.32-33]" ;
+    rdfs:range xsd:string .
+
+:isNotLocatedIn a owl:DatatypeProperty ;
+    rdfs:label "is not located in" ;
+    rdfs:comment "The facility type that the affected equipment is not located within. [extension: WBA Ethernet Service Levels Schedule, p.32-33]" ;
+    rdfs:range xsd:string .
+
+# --- New Object Properties ---
+
+:isExcludedFrom a owl:ObjectProperty ;
+    rdfs:label "is excluded from" ;
+    rdfs:comment "Links an Exclusion Event to the Network Availability measurement it is excluded from. [extension: WBA Ethernet Service Levels Schedule, p.32-33]" ;
+    rdfs:domain :Cl_ExclusionEvent ;
+    rdfs:range :Cl_NetworkAvailability .
+
+:isDimensionedOn a owl:ObjectProperty ;
+    rdfs:label "is dimensioned on" ;
+    rdfs:comment "Links Throughput Dimensioning to the Shared Network Resource it applies to. [extension: WBA Ethernet Service Levels Schedule, p.33]" ;
+    rdfs:domain :Cl_ThroughputDimensioning ;
+    rdfs:range :Cl_SharedNetworkResource .
+
+:appliesToNetwork a owl:ObjectProperty ;
+    rdfs:label "applies to network" ;
+    rdfs:comment "Links a Throughput Dimensioning or Shared Network Resource definition to the Access Technology it applies to. [extension: WBA Ethernet Service Levels Schedule, p.33]" ;
+    rdfs:range :AccessTechnology .
+
+:hasBandwidthProfile a owl:ObjectProperty ;
+    rdfs:label "has bandwidth profile" ;
+    rdfs:comment "Links Throughput Dimensioning to the Bandwidth Profile it applies to. [extension: WBA Ethernet Service Levels Schedule, p.33]" ;
+    rdfs:domain :Cl_ThroughputDimensioning ;
+    rdfs:range :Cl_BandwidthProfile .
+
+:hasAvcTc4 a owl:ObjectProperty ;
+    rdfs:label "has AVC TC-4" ;
+    rdfs:comment "Links Throughput Dimensioning to the AVC TC-4 it applies to. [extension: WBA Ethernet Service Levels Schedule, p.33]" ;
+    rdfs:domain :Cl_ThroughputDimensioning ;
+    rdfs:range :Cl_AvcTc4 .
+
+# --- Individuals / Facts ---
+
+# Network Availability Performance Objective
+:NetworkAvailabilityPerformanceObjective a :Cl_NetworkAvailabilityPerformanceObjective, owl:NamedIndividual ;
+    rdfs:label "Network Availability Performance Objective" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+# Network Availability
+:NetworkAvailability a :Cl_NetworkAvailability, owl:NamedIndividual ;
+    rdfs:label "Network Availability" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.32-33" .
+
+# Exclusion Events
+:BoundaryExclusionEvent a :Cl_BoundaryExclusion, owl:NamedIndividual ;
+    rdfs:label "Boundary Exclusion Event" ;
+    rdfs:comment "A matter, thing, event or circumstance that occurs outside the nbn Network Boundaries." ;
+    :isExcludedFrom :NetworkAvailability ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.32-33" .
+
+:PowerOutageMduSite a :Cl_PowerOutage, owl:NamedIndividual ;
+    rdfs:label "Power Outage at MDU Site" ;
+    rdfs:comment "Any Power Outage at an MDU Site or affecting any nbn Equipment located at that MDU Site." ;
+    :isExcludedFrom :NetworkAvailability ;
+    :occursAtSiteType "MDU Site" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.32-33" .
+
+:PowerOutageFttbFttnNode a :Cl_PowerOutage, owl:NamedIndividual ;
+    rdfs:label "Power Outage affecting FTTB/FTTN Node" ;
+    rdfs:comment "Power Outage affecting an nbn Node or any other active equipment that forms part of the FTTB Network or the FTTN Network and is not located within a Type 1 Facility or a Type 2 Facility." ;
+    :isExcludedFrom :NetworkAvailability ;
+    :affectsEquipmentType "nbn Node, active equipment forming part of FTTB Network or FTTN Network" ;
+    :isNotLocatedIn "Type 1 Facility, Type 2 Facility" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.32-33" .
+
+:PowerOutageHfcOpticalNode a :Cl_PowerOutage, owl:NamedIndividual ;
+    rdfs:label "Power Outage affecting HFC Optical Node" ;
+    rdfs:comment "Power Outage affecting an HFC Optical Node or any other active equipment that forms part of the HFC Network and is not located within a Type 1 Facility or a Type 2 Facility." ;
+    :isExcludedFrom :NetworkAvailability ;
+    :affectsEquipmentType "HFC Optical Node, active equipment forming part of HFC Network" ;
+    :isNotLocatedIn "Type 1 Facility, Type 2 Facility" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.32-33" .
+
+:PowerOutageFttcDpu a :Cl_PowerOutage, owl:NamedIndividual ;
+    rdfs:label "Power Outage affecting FTTC DPU" ;
+    rdfs:comment "Power Outage affecting an nbn DPU, FTTC-NCD or any other active equipment that forms part of the FTTC Network and is not located within a Type 1 Facility or a Type 2 Facility." ;
+    :isExcludedFrom :NetworkAvailability ;
+    :affectsEquipmentType "nbn DPU, FTTC-NCD, active equipment forming part of FTTC Network" ;
+    :isNotLocatedIn "Type 1 Facility, Type 2 Facility" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.32-33" .
+
+:FairUsePolicyBreachEvent a :Cl_FairUsePolicyBreach, owl:NamedIndividual ;
+    rdfs:label "Fair Use Policy Breach Event" ;
+    rdfs:comment "Breach of the nbn Ethernet Fair Use Policy under this Agreement or under any Other Wholesale Broadband Agreement." ;
+    :isExcludedFrom :NetworkAvailability ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+# Shared Network Resources by network type
+:SharedNetworkResourceFibreFttc a :Cl_SharedNetworkResource, owl:NamedIndividual ;
+    rdfs:label "Shared Network Resource - Fibre and FTTC" ;
+    rdfs:comment "nbn's transit backhaul network between the POI and the OLT for the Fibre Network and FTTC Network." ;
+    :appliesToNetwork :AccessTechnology_FIBRE ;
+    :appliesToNetwork :AccessTechnology_FTTC ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:SharedNetworkResourceFttbFttn a :Cl_SharedNetworkResource, owl:NamedIndividual ;
+    rdfs:label "Shared Network Resource - FTTB and FTTN" ;
+    rdfs:comment "nbn's transit backhaul network between the POI and the access aggregation switch for the FTTB Network and the FTTN Network." ;
+    :appliesToNetwork :AccessTechnology_FTTB ;
+    :appliesToNetwork :AccessTechnology_FTTN ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:SharedNetworkResourceHfc a :Cl_SharedNetworkResource, owl:NamedIndividual ;
+    rdfs:label "Shared Network Resource - HFC" ;
+    rdfs:comment "nbn's transit backhaul network between the POI and the cable modem termination system for the HFC Network." ;
+    :appliesToNetwork :AccessTechnology_HFC ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:SharedNetworkResourceWireless a :Cl_SharedNetworkResource, owl:NamedIndividual ;
+    rdfs:label "Shared Network Resource - Wireless" ;
+    rdfs:comment "nbn's transit backhaul network between the POI and the combined packet gateway for the Wireless Network." ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+# Bandwidth Profiles
+:BandwidthProfile_12_1 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 12/1 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_25_5 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 25/5 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_25_10 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 25/10 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_50_20 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 50/20 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_100_40 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 100/40 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_HomeFast a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile Home Fast" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_25_5_10 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 25/5-10 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_25_50_5_20 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 25-50/5-20 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_25_100_5_40 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 25-100/5-40 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_50_100_20_40 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 50-100/20-40 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_250_100 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 250/100 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_500_200 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 500/200 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_1000_400 a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile 1000/400 Mbps" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_HomeSuperfast a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile Home Superfast" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:BandwidthProfile_HomeUltrafast a :Cl_BandwidthProfile, owl:NamedIndividual ;
+    rdfs:label "Bandwidth Profile Home Ultrafast" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+# Throughput Dimensioning - 350kbps group
+:ThroughputDimensioning_350kbps_FibreHfc a :Cl_ThroughputDimensioning, owl:NamedIndividual ;
+    rdfs:label "Throughput Dimensioning 350kbps - Fibre and HFC" ;
+    :isDimensionedOn :SharedNetworkResourceFibreFttc ;
+    :isDimensionedOn :SharedNetworkResourceHfc ;
+    :hasMinimumThroughputKbps 350 ;
+    :hasBandwidthProfile :BandwidthProfile_12_1 ;
+    :hasBandwidthProfile :BandwidthProfile_25_5 ;
+    :hasBandwidthProfile :BandwidthProfile_25_10 ;
+    :hasBandwidthProfile :BandwidthProfile_50_20 ;
+    :hasBandwidthProfile :BandwidthProfile_100_40 ;
+    :hasBandwidthProfile :BandwidthProfile_HomeFast ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:ThroughputDimensioning_350kbps_FttbFttn a :Cl_ThroughputDimensioning, owl:NamedIndividual ;
+    rdfs:label "Throughput Dimensioning 350kbps - FTTB and FTTN" ;
+    :isDimensionedOn :SharedNetworkResourceFttbFttn ;
+    :hasMinimumThroughputKbps 350 ;
+    :hasBandwidthProfile :BandwidthProfile_12_1 ;
+    :hasBandwidthProfile :BandwidthProfile_25_5 ;
+    :hasBandwidthProfile :BandwidthProfile_25_5_10 ;
+    :hasBandwidthProfile :BandwidthProfile_25_50_5_20 ;
+    :hasBandwidthProfile :BandwidthProfile_25_100_5_40 ;
+    :hasBandwidthProfile :BandwidthProfile_HomeFast ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:ThroughputDimensioning_350kbps_Fttc a :Cl_ThroughputDimensioning, owl:NamedIndividual ;
+    rdfs:label "Throughput Dimensioning 350kbps - FTTC" ;
+    :isDimensionedOn :SharedNetworkResourceFibreFttc ;
+    :hasMinimumThroughputKbps 350 ;
+    :hasBandwidthProfile :BandwidthProfile_12_1 ;
+    :hasBandwidthProfile :BandwidthProfile_25_5 ;
+    :hasBandwidthProfile :BandwidthProfile_25_10 ;
+    :hasBandwidthProfile :BandwidthProfile_50_20 ;
+    :hasBandwidthProfile :BandwidthProfile_50_100_20_40 ;
+    :hasBandwidthProfile :BandwidthProfile_HomeFast ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+# Throughput Dimensioning - 2Mbps group
+:ThroughputDimensioning_2Mbps_Fibre a :Cl_ThroughputDimensioning, owl:NamedIndividual ;
+    rdfs:label "Throughput Dimensioning 2Mbps - Fibre" ;
+    :isDimensionedOn :SharedNetworkResourceFibreFttc ;
+    :hasMinimumThroughputMbps 2 ;
+    :hasBandwidthProfile :BandwidthProfile_250_100 ;
+    :hasBandwidthProfile :BandwidthProfile_500_200 ;
+    :hasBandwidthProfile :BandwidthProfile_1000_400 ;
+    :hasBandwidthProfile :BandwidthProfile_HomeSuperfast ;
+    :hasBandwidthProfile :BandwidthProfile_HomeUltrafast ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+
+:ThroughputDimensioning_2Mbps_Hfc a :Cl_ThroughputDimensioning, owl:NamedIndividual ;
+    rdfs:label "Throughput Dimensioning 2Mbps - HFC" ;
+    :isDimensionedOn :SharedNetworkResourceHfc ;
+    :hasMinimumThroughputMbps 2 ;
+    :hasBandwidthProfile :BandwidthProfile_HomeSuperfast ;
+    :hasBandwidthProfile :BandwidthProfile_HomeUltrafast ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, p.33" .
+# ===== EXTENSIONS FROM PAGE 34: Utilisation Threshold, Utilisation Management Performance Objective, FTTB/N/C Connection Performance Rebate, Downstream Performance Threshold =====
+# ===== EXTENSIONS FROM PAGE 34: Utilisation Threshold, Utilisation Management Performance Objective, FTTB/N/C Connection Performance Rebate, Downstream Performance Threshold =====
+
+# --- New Classes ---
+
+:Cl_UtilisationThreshold a owl:Class ;
+    rdfs:label "Utilisation Threshold" ;
+    rdfs:comment "The condition (90% utilisation, 30 continuous minutes, at least 3 separate days within any rolling 30-day period) that triggers nbn's utilisation management obligation. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:Cl_UtilisationManagementPerformanceObjective a owl:Class ;
+    rdfs:label "Utilisation Management Performance Objective" ;
+    rdfs:comment "nbn's obligation to return utilisation of a Shared Network Resource to below the Utilisation Threshold within 15 Business Days. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:subClassOf :Cl_PerformanceObjective .
+
+:Cl_FTTBNCConnectionPerformanceRebate a owl:Class ;
+    rdfs:label "FTTB/N/C Connection Performance Rebate" ;
+    rdfs:comment "A rebate of $21.22 AUD per Ordered Product, payable when Measured Connection Rate is below thresholds, with annual CPI-like increases from 1 July 2025. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:Cl_DownstreamPerformanceThreshold a owl:Class ;
+    rdfs:label "Downstream Performance Threshold" ;
+    rdfs:comment "A Mbps threshold per AVC TC-4 bandwidth profile and technology, used to determine rebate eligibility. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:Cl_ConnectionAssuredRate a owl:Class ;
+    rdfs:label "Connection Assured Rate" ;
+    rdfs:comment "The rate for an nbn Copper Pair that was available via the Site Qualification System at the SQ Enquiry Time. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:Cl_MeasuredConnectionRate a owl:Class ;
+    rdfs:label "Measured Connection Rate" ;
+    rdfs:comment "The rate measured as at the Connection Performance Measurement Date for an nbn Copper Pair. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:Cl_SQEnquiryTime a owl:Class ;
+    rdfs:label "SQ Enquiry Time" ;
+    rdfs:comment "The time at which the Site Qualification System is queried to determine the Connection Assured Rate. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:Cl_ConnectionPerformanceMeasurementDate a owl:Class ;
+    rdfs:label "Connection Performance Measurement Date" ;
+    rdfs:comment "The date as at which the Measured Connection Rate is determined. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:Cl_OriginallyConnectedAVCTC4 a owl:Class ;
+    rdfs:label "Originally Connected AVC TC-4" ;
+    rdfs:comment "The AVC TC-4 Ordered Product Component that was originally connected, used to determine the Downstream Performance Threshold for rebate eligibility. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:Cl_nbnCopperPair a owl:Class ;
+    rdfs:label "nbn Copper Pair" ;
+    rdfs:comment "An nbn Copper Pair used to supply an nbn Ethernet (FTTB), nbn Ethernet (FTTN), or nbn Ethernet (FTTC) TC-4 Ordered Product. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:Cl_WeightedAveragePriceChange a owl:Class ;
+    rdfs:label "Weighted Average Price Change" ;
+    rdfs:comment "The weighted average price change used to increase the FTTB/N/C Connection Performance Rebate amounts from 1 July 2025. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:Cl_ConnectOrder a owl:Class ;
+    rdfs:label "Connect Order" ;
+    rdfs:comment "An order for connection of an nbn Ethernet (FTTB), nbn Ethernet (FTTN), or nbn Ethernet (FTTC) TC-4 Ordered Product. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+# --- New Data Properties ---
+
+:hasUtilisationPercentage a owl:DatatypeProperty ;
+    rdfs:label "has utilisation percentage" ;
+    rdfs:comment "The utilisation percentage threshold that triggers utilisation management. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:domain :Cl_UtilisationThreshold ;
+    rdfs:range xsd:decimal .
+
+:hasContinuousPeriodDuration a owl:DatatypeProperty ;
+    rdfs:label "has continuous period duration" ;
+    rdfs:comment "The duration of the continuous period of utilisation that must be exceeded to trigger the Utilisation Threshold, in ISO-8601 format. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:string .
+
+:hasMinimumDays a owl:DatatypeProperty ;
+    rdfs:label "has minimum days" ;
+    rdfs:comment "The minimum number of separate days within the rolling period on which utilisation must exceed the threshold. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:integer .
+
+:hasRollingPeriodDuration a owl:DatatypeProperty ;
+    rdfs:label "has rolling period duration" ;
+    rdfs:comment "The duration of the rolling period used to count separate days for the Utilisation Threshold, in ISO-8601 format. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:string .
+
+:hasResponseTimeBusinessDays a owl:DatatypeProperty ;
+    rdfs:label "has response time business days" ;
+    rdfs:comment "The number of Business Days within which nbn must respond to a Utilisation Threshold breach. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:integer .
+
+:hasDownstreamPerformanceThresholdMbps a owl:DatatypeProperty ;
+    rdfs:label "has downstream performance threshold Mbps" ;
+    rdfs:comment "The downstream performance threshold value in Mbps. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:integer .
+
+:hasConnectionAssuredRateMbps a owl:DatatypeProperty ;
+    rdfs:label "has connection assured rate Mbps" ;
+    rdfs:comment "The Connection Assured Rate in Mbps. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:integer .
+
+:hasMeasuredConnectionRateMbps a owl:DatatypeProperty ;
+    rdfs:label "has measured connection rate Mbps" ;
+    rdfs:comment "The Measured Connection Rate in Mbps. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:integer .
+
+:hasWeightedAveragePriceChangePct a owl:DatatypeProperty ;
+    rdfs:label "has weighted average price change pct" ;
+    rdfs:comment "The Weighted Average Price Change percentage. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:decimal .
+
+:hasAnnualIncreaseStartDate a owl:DatatypeProperty ;
+    rdfs:label "has annual increase start date" ;
+    rdfs:comment "The date from which annual increases to rebate amounts apply. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:dateTime .
+
+:hasMinimumIncreasePct a owl:DatatypeProperty ;
+    rdfs:label "has minimum increase pct" ;
+    rdfs:comment "The minimum percentage increase applied to rebate amounts. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:decimal .
+
+:hasBandwidthProfileDownstreamPir a owl:DatatypeProperty ;
+    rdfs:label "has bandwidth profile downstream PIR" ;
+    rdfs:comment "The downstream PIR bandwidth profile value as a string (e.g. '25-50', 'Home Fast (25-100)'). [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:string .
+
+:hasBandwidthProfileUpstreamPir a owl:DatatypeProperty ;
+    rdfs:label "has bandwidth profile upstream PIR" ;
+    rdfs:comment "The upstream PIR bandwidth profile value as a string (e.g. '5-20', '(5-20)'). [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range xsd:string .
+
+# --- New Object Properties ---
+
+:appliesToTechnology a owl:ObjectProperty ;
+    rdfs:label "applies to technology" ;
+    rdfs:comment "Links a Downstream Performance Threshold to the Access Technology it applies to. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :AccessTechnology .
+
+:isPayableFor a owl:ObjectProperty ;
+    rdfs:label "is payable for" ;
+    rdfs:comment "Links a rebate to the Connect Order it is payable for. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_ConnectOrder .
+
+:increasedBy a owl:ObjectProperty ;
+    rdfs:label "increased by" ;
+    rdfs:comment "Links a rebate to the Weighted Average Price Change that increases its amount. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_WeightedAveragePriceChange .
+
+:triggers a owl:ObjectProperty ;
+    rdfs:label "triggers" ;
+    rdfs:comment "Links a Utilisation Threshold to the Utilisation Management Performance Objective it triggers. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" .
+
+:isObligationOf a owl:ObjectProperty ;
+    rdfs:label "is obligation of" ;
+    rdfs:comment "Links a Utilisation Management Performance Objective to nbn as the obligated agent. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_nbn .
+
+:appliesToSharedNetworkResource a owl:ObjectProperty ;
+    rdfs:label "applies to shared network resource" ;
+    rdfs:comment "Links a Utilisation Threshold to the Shared Network Resource it applies to. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_SharedNetworkResource .
+
+:hasConnectionAssuredRate a owl:ObjectProperty ;
+    rdfs:label "has connection assured rate" ;
+    rdfs:comment "Links an nbn Copper Pair to its Connection Assured Rate. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_ConnectionAssuredRate .
+
+:hasMeasuredConnectionRate a owl:ObjectProperty ;
+    rdfs:label "has measured connection rate" ;
+    rdfs:comment "Links an nbn Copper Pair to its Measured Connection Rate. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_MeasuredConnectionRate .
+
+:hasOriginallyConnectedAvcTc4 a owl:ObjectProperty ;
+    rdfs:label "has originally connected AVC TC-4" ;
+    rdfs:comment "Links a Connect Order to the Originally Connected AVC TC-4. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_OriginallyConnectedAVCTC4 .
+
+:hasDownstreamPerformanceThreshold a owl:ObjectProperty ;
+    rdfs:label "has downstream performance threshold" ;
+    rdfs:comment "Links an Originally Connected AVC TC-4 to its Downstream Performance Threshold. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_DownstreamPerformanceThreshold .
+
+:isSuppliedUsing a owl:ObjectProperty ;
+    rdfs:label "is supplied using" ;
+    rdfs:comment "Links a Connect Order to the nbn Copper Pair used to supply the Ordered Product. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_nbnCopperPair .
+
+:hasSqEnquiryTime a owl:ObjectProperty ;
+    rdfs:label "has SQ enquiry time" ;
+    rdfs:comment "Links a Connect Order to the SQ Enquiry Time. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_SQEnquiryTime .
+
+:hasConnectionPerformanceMeasurementDate a owl:ObjectProperty ;
+    rdfs:label "has connection performance measurement date" ;
+    rdfs:comment "Links a Connect Order to the Connection Performance Measurement Date. [extension: WBA Ethernet Service Levels Schedule, s15, p.34]" ;
+    rdfs:range :Cl_ConnectionPerformanceMeasurementDate .
+:UtilisationThreshold a :Cl_UtilisationThreshold, owl:NamedIndividual ;
+    rdfs:label "Utilisation Threshold" ;
+    :hasUtilisationPercentage 90.0 ;
+    :hasContinuousPeriodDuration "PT30M" ;
+    :hasMinimumDays 3 ;
+    :hasRollingPeriodDuration "P30D" ;
+    :appliesToSharedNetworkResource :SharedNetworkResourceFttbFttn ;
+    :appliesToSharedNetworkResource :SharedNetworkResourceFibreFttc ;
+    :appliesToSharedNetworkResource :SharedNetworkResourceHfc ;
+    :appliesToSharedNetworkResource :SharedNetworkResourceWireless ;
+    :triggers :UtilisationManagementPerformanceObjective ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# Utilisation Management Performance Objective
+:UtilisationManagementPerformanceObjective a :Cl_UtilisationManagementPerformanceObjective, owl:NamedIndividual ;
+    rdfs:label "Utilisation Management Performance Objective" ;
+    :hasResponseTimeBusinessDays 15 ;
+    :isObligationOf :NbnAgent ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# FTTB/N/C Connection Performance Rebate Charge
+:FttbncConnectionPerformanceRebateCharge a :Cl_Charge, owl:NamedIndividual ;
+    rdfs:label "FTTB/N/C Connection Performance Rebate Charge" ;
+    :hasCurrency "AUD" ;
+    :hasRebateAmount 21.22 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# Weighted Average Price Change
+:WeightedAveragePriceChange a :Cl_WeightedAveragePriceChange, owl:NamedIndividual ;
+    rdfs:label "Weighted Average Price Change" ;
+    :hasWeightedAveragePriceChangePct 0.0 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# FTTB/N/C Connection Performance Rebate
+:FttbncConnectionPerformanceRebate a :Cl_FTTBNCConnectionPerformanceRebate, owl:NamedIndividual ;
+    rdfs:label "FTTB/N/C Connection Performance Rebate" ;
+    :hasAmount :FttbncConnectionPerformanceRebateCharge ;
+    :isPaidBy :NbnAgent ;
+    :isPaidTo :RspAgent ;
+    :increasedBy :WeightedAveragePriceChange ;
+    :hasAnnualIncreaseStartDate "2025-07-01T00:00:00Z"^^xsd:dateTime ;
+    :hasMinimumIncreasePct 0.0 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# Downstream Performance Thresholds
+# Threshold 1: 25-100 / 5-40 on FTTB and FTTN -> 50 Mbps
+:DownstreamPerformanceThreshold_25_100_5_40_FTTB_FTTN a :Cl_DownstreamPerformanceThreshold, owl:NamedIndividual ;
+    rdfs:label "Downstream Performance Threshold 50 Mbps (25-100/5-40, FTTB/FTTN)" ;
+    :hasDownstreamPerformanceThresholdMbps 50 ;
+    :hasBandwidthProfileDownstreamPir "25-100" ;
+    :hasBandwidthProfileUpstreamPir "5-40" ;
+    :appliesToTechnology :AccessTechnology_FTTB ;
+    :appliesToTechnology :AccessTechnology_FTTN ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15(c), p.34" .
+
+# Threshold 2: 50-100 / 20-40 on FTTC -> 50 Mbps
+:DownstreamPerformanceThreshold_50_100_20_40_FTTC a :Cl_DownstreamPerformanceThreshold, owl:NamedIndividual ;
+    rdfs:label "Downstream Performance Threshold 50 Mbps (50-100/20-40, FTTC)" ;
+    :hasDownstreamPerformanceThresholdMbps 50 ;
+    :hasBandwidthProfileDownstreamPir "50-100" ;
+    :hasBandwidthProfileUpstreamPir "20-40" ;
+    :appliesToTechnology :AccessTechnology_FTTC ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15(c), p.34" .
+
+# Wireless Speed Performance Rebate
+:WirelessSpeedPerformanceRebateCharge a :Cl_Charge, owl:NamedIndividual ;
+    rdfs:label "Wireless Speed Performance Rebate Charge" ;
+    :hasCurrency "AUD" ;
+    :hasRebateAmount 21.22 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s16, p.34" .
+
+:WirelessSpeedPerformanceRebate a :Cl_FTTBNCConnectionPerformanceRebate, owl:NamedIndividual ;
+    rdfs:label "Wireless Speed Performance Rebate" ;
+    rdfs:comment "A rebate of $21.22 per month per nbn Ethernet (Wireless) AVC TC-4 Product Component supplied using a Wireless Network cell that is Persistently Congested during that month. [extension: WBA Ethernet Service Levels Schedule, s16, p.34]" ;
+    :hasAmount :WirelessSpeedPerformanceRebateCharge ;
+    :isPaidBy :NbnAgent ;
+    :isPaidTo :RspAgent ;
+    :increasedBy :WeightedAveragePriceChange ;
+    :hasAnnualIncreaseStartDate "2025-07-01T00:00:00Z"^^xsd:dateTime ;
+    :hasMinimumIncreasePct 0.0 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s16, p.34" .
+
+# Connect Order instance for FTTB/N/C Connection Performance Rebate
+:FttbncConnectOrder a :Cl_ConnectOrder, owl:NamedIndividual ;
+    rdfs:label "FTTB/N/C Connect Order" ;
+    :isSuppliedUsing :NbnCopperPairInstance ;
+    :hasSqEnquiryTime :SqEnquiryTimeInstance ;
+    :hasConnectionPerformanceMeasurementDate :ConnectionPerformanceMeasurementDateInstance ;
+    :hasOriginallyConnectedAvcTc4 :OriginallyConnectedAvcTc4Instance ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# nbn Copper Pair instance
+:NbnCopperPairInstance a :Cl_nbnCopperPair, owl:NamedIndividual ;
+    rdfs:label "nbn Copper Pair" ;
+    :hasConnectionAssuredRate :ConnectionAssuredRateInstance ;
+    :hasMeasuredConnectionRate :MeasuredConnectionRateInstance ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# Connection Assured Rate instance
+:ConnectionAssuredRateInstance a :Cl_ConnectionAssuredRate, owl:NamedIndividual ;
+    rdfs:label "Connection Assured Rate" ;
+    :hasConnectionAssuredRateMbps 0 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# Measured Connection Rate instance
+:MeasuredConnectionRateInstance a :Cl_MeasuredConnectionRate, owl:NamedIndividual ;
+    rdfs:label "Measured Connection Rate" ;
+    :hasMeasuredConnectionRateMbps 0 ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# SQ Enquiry Time instance
+:SqEnquiryTimeInstance a :Cl_SQEnquiryTime, owl:NamedIndividual ;
+    rdfs:label "SQ Enquiry Time" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# Connection Performance Measurement Date instance
+:ConnectionPerformanceMeasurementDateInstance a :Cl_ConnectionPerformanceMeasurementDate, owl:NamedIndividual ;
+    rdfs:label "Connection Performance Measurement Date" ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# Originally Connected AVC TC-4 instance
+:OriginallyConnectedAvcTc4Instance a :Cl_OriginallyConnectedAVCTC4, owl:NamedIndividual ;
+    rdfs:label "Originally Connected AVC TC-4" ;
+    :hasDownstreamPerformanceThreshold :DownstreamPerformanceThreshold_25_100_5_40_FTTB_FTTN ;
+    :sourceClause "WBA Ethernet Service Levels Schedule, s15, p.34" .
+
+# Link the FTTB/N/C Connection Performance Rebate to the Connect Order
+:FttbncConnectionPerformanceRebate :isPayableFor :FttbncConnectOrder .

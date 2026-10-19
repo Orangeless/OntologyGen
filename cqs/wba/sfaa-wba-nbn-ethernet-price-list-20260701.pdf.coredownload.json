@@ -1,0 +1,712 @@
+{
+    "sfaa-wba-nbn-ethernet-price-list-20260701.pdf.coredownload": {
+        "4": [
+            {
+                "competency_question": "What is the name of the charge that applies per Billing Period for AVC TC-4 Product Components?",
+                "expected_answer": "Flat-Rate AVC Charges"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 12 Mbps (Basic Offer) and upstream 1 Mbps (Basic Offer) on Fibre, FTTB, FTTN, FTTC and HFC?",
+                "expected_answer": "$12.00"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 12 Mbps and upstream 1 Mbps on Fibre, FTTB, FTTN, FTTC, HFC and Wireless?",
+                "expected_answer": "$35.59"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 25 Mbps and upstream 5 Mbps on Fibre, FTTB, FTTN, FTTC, HFC and Wireless?",
+                "expected_answer": "$36.15"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 25 Mbps and upstream 5-10 Mbps on FTTB and FTTN?",
+                "expected_answer": "$36.15"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 25 Mbps and upstream 10 Mbps on Fibre, FTTC and HFC?",
+                "expected_answer": "$36.15"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 25-50 Mbps and upstream 5-20 Mbps on FTTB and FTTN?",
+                "expected_answer": "$57.60"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 50 Mbps and upstream 20 Mbps on Fibre, FTTC and HFC?",
+                "expected_answer": "$57.60"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component named Wireless Plus on Wireless?",
+                "expected_answer": "$57.60"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component named Home Fast on Fibre, FTTB, FTTN, FTTC and HFC?",
+                "expected_answer": "$60.85"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component named Fixed Wireless Home Fast on Wireless?",
+                "expected_answer": "$60.85"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 25-100 Mbps and upstream 5-40 Mbps on FTTB and FTTN?",
+                "expected_answer": "$64.60"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 50-100 Mbps and upstream 20-40 Mbps on FTTC?",
+                "expected_answer": "$64.60"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 100 Mbps and upstream 40 Mbps on Fibre and HFC?",
+                "expected_answer": "$64.60"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component named Fixed Wireless Superfast on Wireless?",
+                "expected_answer": "$67.12"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component named Home Superfast on Fibre and HFC?",
+                "expected_answer": "$67.12"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the AVC TC-4 Product Component with downstream 250 Mbps and upstream 100 Mbps on Fibre?",
+                "expected_answer": "$64.60"
+            },
+            {
+                "competency_question": "What is the unit of the recurring charges listed in the table?",
+                "expected_answer": "$"
+            },
+            {
+                "competency_question": "What is the downstream speed (PIR) for the AVC TC-4 Product Component with recurring charge $12.00?",
+                "expected_answer": "12 (Basic Offer)"
+            },
+            {
+                "competency_question": "What is the upstream speed (PIR) for the AVC TC-4 Product Component with recurring charge $12.00?",
+                "expected_answer": "1 (Basic Offer)"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component having downstream 12 Mbps (Basic Offer) and upstream 1 Mbps (Basic Offer)?",
+                "expected_answer": "Fibre, FTTB, FTTN, FTTC and HFC"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component having downstream 12 Mbps and upstream 1 Mbps?",
+                "expected_answer": "Fibre, FTTB, FTTN, FTTC, HFC and Wireless"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component having downstream 25 Mbps and upstream 5 Mbps?",
+                "expected_answer": "Fibre, FTTB, FTTN, FTTC, HFC and Wireless"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component having downstream 25 Mbps and upstream 5-10 Mbps?",
+                "expected_answer": "FTTB and FTTN"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component having downstream 25 Mbps and upstream 10 Mbps?",
+                "expected_answer": "Fibre, FTTC and HFC"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component having downstream 25-50 Mbps and upstream 5-20 Mbps?",
+                "expected_answer": "FTTB and FTTN"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component having downstream 50 Mbps and upstream 20 Mbps?",
+                "expected_answer": "Fibre, FTTC and HFC"
+            },
+            {
+                "competency_question": "What access technology is associated with the AVC TC-4 Product Component named Wireless Plus?",
+                "expected_answer": "Wireless"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component named Home Fast?",
+                "expected_answer": "Fibre, FTTB, FTTN, FTTC and HFC"
+            },
+            {
+                "competency_question": "What access technology is associated with the AVC TC-4 Product Component named Fixed Wireless Home Fast?",
+                "expected_answer": "Wireless"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component having downstream 25-100 Mbps and upstream 5-40 Mbps?",
+                "expected_answer": "FTTB and FTTN"
+            },
+            {
+                "competency_question": "What access technology is associated with the AVC TC-4 Product Component having downstream 50-100 Mbps and upstream 20-40 Mbps?",
+                "expected_answer": "FTTC"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component having downstream 100 Mbps and upstream 40 Mbps?",
+                "expected_answer": "Fibre and HFC"
+            },
+            {
+                "competency_question": "What access technology is associated with the AVC TC-4 Product Component named Fixed Wireless Superfast?",
+                "expected_answer": "Wireless"
+            },
+            {
+                "competency_question": "What access technologies are associated with the AVC TC-4 Product Component named Home Superfast?",
+                "expected_answer": "Fibre and HFC"
+            },
+            {
+                "competency_question": "What access technology is associated with the AVC TC-4 Product Component having downstream 250 Mbps and upstream 100 Mbps?",
+                "expected_answer": "Fibre"
+            }
+        ],
+        "5": [
+            {
+                "competency_question": "What is the recurring charge for the HFC AVC TC-4 with 250 Mbps downstream and 100 Mbps upstream?",
+                "expected_answer": "$64.60"
+            },
+            {
+                "competency_question": "What is the recurring charge for the Fibre AVC TC-4 with 500 Mbps downstream and 200 Mbps upstream?",
+                "expected_answer": "$79.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the Home Ultrafast3 AVC TC-4?",
+                "expected_answer": "$75.88"
+            },
+            {
+                "competency_question": "What is the recurring charge for the Fibre AVC TC-4 with 1000 Mbps downstream and 400 Mbps upstream?",
+                "expected_answer": "$96.91"
+            },
+            {
+                "competency_question": "What is the recurring charge for the Home Hyperfast3 AVC TC-4?",
+                "expected_answer": "$119.04"
+            },
+            {
+                "competency_question": "What is the recurring charge for the Fibre AVC TC-4 with 2000 Mbps downstream and 500 Mbps upstream?",
+                "expected_answer": "$154.99"
+            },
+            {
+                "competency_question": "What is the recurring charge for the Satellite AVC TC-4 with 12 Mbps downstream and 1 Mbps upstream?",
+                "expected_answer": "$24.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the Satellite AVC TC-4 with 25 Mbps downstream and 5 Mbps upstream?",
+                "expected_answer": "$27.00"
+            },
+            {
+                "competency_question": "What is the Information Rate type for the Wireless Plus AVC TC-4?",
+                "expected_answer": "potential maximum Information Rate"
+            },
+            {
+                "competency_question": "What is the condition for the Basic Offer to apply to an AVC TC-4 with a bandwidth profile of 12/1 Mbps?",
+                "expected_answer": "RSP uses that AVC TC-4 as an input into an RSP Product or Downstream Product which is a broadband service which includes a voice component; and that AVC does not utilise, on average, more than 0.1 Mbps of capacity during any 60-minute period on that day."
+            },
+            {
+                "competency_question": "What is the definition of a 'day' for the purpose of the Basic Offer rule?",
+                "expected_answer": "the period from 12:00am to 11:59pm based on the local time in Sydney"
+            },
+            {
+                "competency_question": "What happens if an AVC TC-4 satisfies the conditions of the Basic Offer for certain days during a Billing Period but not others?",
+                "expected_answer": "The two different Charges will be calculated and applied on a pro-rata basis"
+            }
+        ],
+        "6": [
+            {
+                "competency_question": "What is the recurring charge per provisioned symmetrical Mbps (CIR) for the CVC Product Component?",
+                "expected_answer": "$15.75"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the AVC TC-1 Product Component at 0.15 symmetrical Mbps (CIR) on the Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite networks?",
+                "expected_answer": "$10.00"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the AVC TC-1 Product Component at 0.3 symmetrical Mbps (CIR) on the Fibre, FTTB, FTTN, FTTC, HFC and Wireless networks?",
+                "expected_answer": "$19.30"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the AVC TC-1 Product Component at 0.5 symmetrical Mbps (CIR) on the Fibre, FTTB, FTTN, FTTC and HFC networks?",
+                "expected_answer": "$19.30"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the AVC TC-1 Product Component at 1.0 symmetrical Mbps (CIR) on the Fibre, FTTB, FTTN, FTTC and HFC networks?",
+                "expected_answer": "$19.30"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the AVC TC-1 Product Component at 2.0 symmetrical Mbps (CIR) on the Fibre, FTTB, FTTN, FTTC and HFC networks?",
+                "expected_answer": "$19.30"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the AVC TC-1 Product Component at 5.0 symmetrical Mbps (CIR) on the Fibre, FTTB, FTTN, FTTC and HFC networks?",
+                "expected_answer": "$63.00"
+            },
+            {
+                "competency_question": "What is the recurring charge per provisioned symmetrical Mbps (CIR) for the CVC-TC-1 Product Component on the Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite networks?",
+                "expected_answer": "$17.50"
+            },
+            {
+                "competency_question": "What product components are included in the recurring Charges specified in sections 1.1 and 1.2(a) according to section 1.3?",
+                "expected_answer": "one symmetrical AVC TC-1 of 0.15Mbps; one UNI-D in connection with the supply of the AVC to a Premises served by the Fibre Network, FTTC Network, HFC Network, Wireless Network or Satellite Network or one UNI-DSL in connection with the supply of the AVC to a Premises served by the FTTB Network or FTTN Network; and one UNI-V (where available) in connection with the supply of the AVC TC-1 to a Premises served by the Fibre Network."
+            },
+            {
+                "competency_question": "What is the amount of the symmetrical AVC TC-1 that is included in the recurring Charge for the AVC TC-4 and UNI bundle?",
+                "expected_answer": "0.15Mbps"
+            },
+            {
+                "competency_question": "What does nbn do regarding the recurring Charge of one symmetrical AVC TC-1 of 0.15Mbps when supplying any symmetrical AVC TC-1 of 0.15Mbps and above for an Ordered Product?",
+                "expected_answer": "nbn will not charge RSP, or will provide RSP with a rebate or credit, for an amount equal to the recurring Charge of one symmetrical AVC TC-1 of 0.15Mbps specified in the table above."
+            }
+        ],
+        "7": [
+            {
+                "competency_question": "What is the name of the recurring charge for a bundle of AVC TC-2, CVC TC-2 inclusion, and Enhanced Fault Rectification Service?",
+                "expected_answer": "$53.20"
+            },
+            {
+                "competency_question": "What is the numeric value of the AVC TC-2 symmetrical Mbps (CIR) for the first row in the table?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-2 inclusion symmetrical Mbps (CIR) for the first row in the table?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the name of the Enhanced Fault Rectification Service associated with the first row in the table?",
+                "expected_answer": "Enhanced-12 (24/7)"
+            },
+            {
+                "competency_question": "What is the recurring charge for the TC-2 Bundle Components with AVC TC-2 symmetrical Mbps (CIR) of 10?",
+                "expected_answer": "$139.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the TC-2 Bundle Components with AVC TC-2 symmetrical Mbps (CIR) of 20?",
+                "expected_answer": "$175.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the TC-2 Bundle Components with AVC TC-2 symmetrical Mbps (CIR) of 30?",
+                "expected_answer": "$175.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the TC-2 Bundle Components with AVC TC-2 symmetrical Mbps (CIR) of 40?",
+                "expected_answer": "$175.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the TC-2 Bundle Components with AVC TC-2 symmetrical Mbps (CIR) of 50?",
+                "expected_answer": "$175.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the TC-2 Bundle Components with AVC TC-2 symmetrical Mbps (CIR) of 60?",
+                "expected_answer": "$175.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the TC-2 Bundle Components with AVC TC-2 symmetrical Mbps (CIR) of 70?",
+                "expected_answer": "$175.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the TC-2 Bundle Components with AVC TC-2 symmetrical Mbps (CIR) of 80?",
+                "expected_answer": "$175.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the TC-2 Bundle Components with AVC TC-2 symmetrical Mbps (CIR) of 90?",
+                "expected_answer": "$175.00"
+            },
+            {
+                "competency_question": "What is the recurring charge for the TC-2 Bundle Components with AVC TC-2 symmetrical Mbps (CIR) of 100?",
+                "expected_answer": "$175.00"
+            },
+            {
+                "competency_question": "What access technologies are listed in the table for AVC TC-2?",
+                "expected_answer": "Fibre, FTTB, FTTN, FTTC and HFC"
+            },
+            {
+                "competency_question": "What access technologies are listed for AVC TC-2 with symmetrical Mbps (CIR) of 20?",
+                "expected_answer": "Fibre, FTTB, FTTN and FTTC"
+            },
+            {
+                "competency_question": "What access technology is listed for AVC TC-2 with symmetrical Mbps (CIR) of 30 and above?",
+                "expected_answer": "Fibre"
+            },
+            {
+                "competency_question": "What is the event that triggers additional CVC TC-2 Charges according to section 1.5(b) and 1.5(c)?",
+                "expected_answer": "any CVC TC-2 Ordered Product Components supplied to RSP in excess of the total CVC TC-2 inclusions associated with all AVC TC-2 Product Components supplied to RSP"
+            },
+            {
+                "competency_question": "Are the TC-2 Bundle Components automatically provisioned?",
+                "expected_answer": "None of the TC-2 Bundle Components are automatically provisioned."
+            },
+            {
+                "competency_question": "What must RSP do to order a CVC TC-2 bandwidth profile?",
+                "expected_answer": "RSP may order any CVC TC-2 bandwidth profile available under the nbn\u00ae Ethernet Product Description."
+            },
+            {
+                "competency_question": "What must RSP do after ordering a CVC TC-2 bandwidth profile?",
+                "expected_answer": "RSP must then order the relevant AVC TC-2 Product Component with the relevant Enhanced Fault Rectification Service Product Feature, and associate the AVC TC-2 Product Component with the CVC-2 Product Component."
+            },
+            {
+                "competency_question": "What happens if RSP orders an Enhanced Fault Rectification Service other than Enhanced-12 (24/7)?",
+                "expected_answer": "nbn will charge RSP for that Alternative ESLA in accordance with the relevant Charge set out in section 2.2 or 9 (as applicable), in addition to the recurring Charge that applies to the TC-2 Bundle Components set out in the above table."
+            },
+            {
+                "competency_question": "What is the name of the Enhanced Fault Rectification Service that is not the default?",
+                "expected_answer": "Alternative ESLA"
+            },
+            {
+                "competency_question": "What is the unit of the AVC TC-2 symmetrical bandwidth?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the unit of the CVC TC-2 inclusion symmetrical bandwidth?",
+                "expected_answer": "Mbps"
+            }
+        ],
+        "8": [
+            {
+                "competency_question": "What is the recurring charge per provisioned symmetrical Mbps (CIR) for the CVC TC-2 Product Component?",
+                "expected_answer": "$17.50"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge per provisioned symmetrical Mbps (CIR) for the CVC TC-2 Product Component?",
+                "expected_answer": "17.50"
+            },
+            {
+                "competency_question": "What is the currency unit of the recurring charge per provisioned symmetrical Mbps (CIR) for the CVC TC-2 Product Component?",
+                "expected_answer": "$"
+            },
+            {
+                "competency_question": "What is the unit of measure for the bandwidth in the CVC TC-2 recurring charge formula?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the formula for calculating the recurring Charge for each CVC TC-2 in each Billing Period?",
+                "expected_answer": "(Ordered Bandwidth x $17.50) - (Included Bandwidth x $17.50)"
+            },
+            {
+                "competency_question": "What is the minimum value of the recurring Charge for each CVC TC-2?",
+                "expected_answer": "$0"
+            },
+            {
+                "competency_question": "What is the definition of 'Ordered Bandwidth' in the context of a CVC TC-2?",
+                "expected_answer": "across a Billing Period in respect of a CVC TC-2, the aggregate CVC TC-2 bandwidth capacity (in Mbps) ordered by RSP and provisioned in respect of that CVC TC-2 (with changes in capacity across that Billing Period accounted for on a pro-rata daily basis)"
+            },
+            {
+                "competency_question": "What is the definition of 'Included Bandwidth' in the context of a CVC TC-2?",
+                "expected_answer": "across a Billing Period in respect of a CVC TC-2, the aggregate CVC TC-2 bandwidth inclusions (in Mbps) that apply to all AVC TC-2 Product Components associated with that CVC TC-2 (with changes in the aggregate of the inclusions across that Billing Period accounted for on a pro-rata daily basis)"
+            },
+            {
+                "competency_question": "What is the recurring Charge per Billing Period for the NNI Bearer Profile 1000BaseLX?",
+                "expected_answer": "$100.00"
+            },
+            {
+                "competency_question": "What is the recurring Charge per Billing Period for the NNI Bearer Profile 10GBaseLR?",
+                "expected_answer": "$390.00"
+            },
+            {
+                "competency_question": "What is the recurring Charge per Billing Period for the NNI Bearer Profile 100GBaseLR4?",
+                "expected_answer": "$2,340.00"
+            },
+            {
+                "competency_question": "What is the recurring Charge per Billing Period for the NNI Bearer Profile 1000BaseEX?",
+                "expected_answer": "$125.00"
+            },
+            {
+                "competency_question": "What is the recurring Charge per Billing Period for the NNI Bearer Profile 10GBaseER?",
+                "expected_answer": "$490.00"
+            },
+            {
+                "competency_question": "What is the recurring Charge per Billing Period for the NNI Bearer Profile 100GBaseER4?",
+                "expected_answer": "$2,940.00"
+            },
+            {
+                "competency_question": "What is the reduced recurring Charge per Billing Period for the NNI Bearer Profile 10GBaseLR under certain conditions?",
+                "expected_answer": "$195.00"
+            },
+            {
+                "competency_question": "What is the reduced recurring Charge per Billing Period for the NNI Bearer Profile 10GBaseER under certain conditions?",
+                "expected_answer": "$245.00"
+            },
+            {
+                "competency_question": "What condition must be satisfied for the reduced NNI Bearer charges to apply?",
+                "expected_answer": "nbn supplies only the following at a POI"
+            }
+        ],
+        "9": [
+            {
+                "competency_question": "What is the name of the product component that can be optionally included in an NNI Group?",
+                "expected_answer": "V-NNI"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the V-NNI Product Component for nbn\u00ae Network Fibre?",
+                "expected_answer": "$31.50"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the V-NNI Product Component for nbn\u00ae Network FTTB?",
+                "expected_answer": "$31.50"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the V-NNI Product Component for nbn\u00ae Network FTTN?",
+                "expected_answer": "$31.50"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the V-NNI Product Component for nbn\u00ae Network FTTC?",
+                "expected_answer": "$31.50"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the V-NNI Product Component for nbn\u00ae Network HFC?",
+                "expected_answer": "$31.50"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the V-NNI Product Component for nbn\u00ae Network Wireless?",
+                "expected_answer": "$31.50"
+            },
+            {
+                "competency_question": "For which nbn\u00ae Network is the V-NNI Product Component not available?",
+                "expected_answer": "nbn\u00ae Ethernet (Satellite)"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for a second UNI-V and AVC TC-1 bundle for nbn\u00ae Ethernet (Fibre) with AVC TC-1 symmetrical Mbps (CIR) of 0.15?",
+                "expected_answer": "$17.50"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the Enhanced Fault Rectification Service option Enhanced-12 for nbn\u00ae Network Fibre?",
+                "expected_answer": "$15.50"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the Enhanced Fault Rectification Service option Enhanced-12 (24/7) for nbn\u00ae Network Fibre?",
+                "expected_answer": "$15.00"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the Enhanced Fault Rectification Service option Enhanced-8 for nbn\u00ae Network Fibre?",
+                "expected_answer": "$26.50"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the Enhanced Fault Rectification Service option Enhanced-8 (24/7) for nbn\u00ae Network Fibre?",
+                "expected_answer": "$58.00"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the Enhanced Fault Rectification Service option Enhanced-6 for nbn\u00ae Network Fibre?",
+                "expected_answer": "$34.50"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the Enhanced Fault Rectification Service option Enhanced-6 (24/7) for nbn\u00ae Network Fibre?",
+                "expected_answer": "$69.00"
+            },
+            {
+                "competency_question": "What is the recurring charge per Billing Period for the Enhanced Fault Rectification Service option Enhanced-4 for nbn\u00ae Network Fibre?",
+                "expected_answer": "$42.40"
+            }
+        ],
+        "10": [
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the Enhanced-4 (24/7) option on Fibre, FTTB, FTTN, FTTC and HFC networks?",
+                "expected_answer": "$25.00"
+            },
+            {
+                "competency_question": "What is the unit of the recurring charge for the Enhanced-4 (24/7) option?",
+                "expected_answer": "$"
+            },
+            {
+                "competency_question": "What event triggers the application of the recurring charge for a single Billing Period without pro-ration under section 2.2(b)?",
+                "expected_answer": "an eSLA Change Event occurs within 1 month of the date on which nbn starts to supply an Enhanced Fault Rectification Service"
+            },
+            {
+                "competency_question": "What is the name of the event that causes the charge calculation to change under section 2.2?",
+                "expected_answer": "eSLA Change Event"
+            },
+            {
+                "competency_question": "What are the possible actions that constitute an eSLA Change Event for an Enhanced Fault Rectification Service?",
+                "expected_answer": "disconnected; or modified to change the selected Enhanced Fault Rectification Service option"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for CVC Class 0 per CVC TC-4 per associated AVC TC-4?",
+                "expected_answer": "$0.00"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for CVC Class 1 per CVC TC-4 per associated AVC TC-4?",
+                "expected_answer": "$18.00"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for CVC Class 2 per CVC TC-4 per associated AVC TC-4?",
+                "expected_answer": "$40.00"
+            },
+            {
+                "competency_question": "What is the numeric value of the recurring charge for the NNI Link Product Feature on Fibre, FTTB, FTTN, FTTC, HFC, Wireless networks?",
+                "expected_answer": "$0.00"
+            },
+            {
+                "competency_question": "What is the unit of the recurring charge for the NNI Link Product Feature?",
+                "expected_answer": "$"
+            },
+            {
+                "competency_question": "What is the condition under which section 2.2(b) does not apply to an Enhanced Fault Rectification Service?",
+                "expected_answer": "any Enhanced Fault Rectification Service which is supplied as part of an Ordered Product that also includes an AVC TC-2 Product Component at the time that the eSLA Change Event occurs"
+            },
+            {
+                "competency_question": "What is the time interval within which an eSLA Change Event must occur for the special charge rule in section 2.2(b) to apply?",
+                "expected_answer": "within 1 month of the date on which nbn starts to supply an Enhanced Fault Rectification Service"
+            },
+            {
+                "competency_question": "What is the name of the period that is the first month for the purposes of section 2.2?",
+                "expected_answer": "the first month"
+            }
+        ],
+        "17": [
+            {
+                "competency_question": "What is the charge for a 'No Fault Found (No Truck Roll Required)' activity?",
+                "expected_answer": "$50.00"
+            },
+            {
+                "competency_question": "What is the charge for a 'No Fault Found (Truck Roll Required)' activity?",
+                "expected_answer": "$420.00"
+            },
+            {
+                "competency_question": "What is the charge for a 'Late Cancellation (Site Visit Required) in Urban Area or Major Rural Area' activity?",
+                "expected_answer": "$150.00"
+            },
+            {
+                "competency_question": "What is the charge for a 'Late Cancellation (Site Visit Required) in Minor Rural Area or Remote Area' activity?",
+                "expected_answer": "$200.00"
+            },
+            {
+                "competency_question": "What is the charge for a 'Late Cancellation (Site Visit Required) in Isolated Area' activity?",
+                "expected_answer": "$225.00"
+            },
+            {
+                "competency_question": "What is the charge for a 'Late Cancellation (Site Visit Required) in Limited Access Area' activity?",
+                "expected_answer": "$225.00 + Incidentals"
+            },
+            {
+                "competency_question": "What is the charge for a 'Missed Appointment (Urban Area or Major Rural Area)' activity?",
+                "expected_answer": "$150.00"
+            },
+            {
+                "competency_question": "What is the charge for a 'Missed Appointment (Minor Rural Area or Remote Area)' activity?",
+                "expected_answer": "$200.00"
+            },
+            {
+                "competency_question": "What is the charge for a 'Missed Appointment (Isolated Area)' activity?",
+                "expected_answer": "$225.00"
+            },
+            {
+                "competency_question": "What is the charge for a 'Missed Appointment (Limited Access Area)' activity?",
+                "expected_answer": "$225.00 + Incidentals"
+            },
+            {
+                "competency_question": "What event triggers a CVC Class adjustment charge for nbn Ethernet (Satellite)?",
+                "expected_answer": "if RSP uses CVC TC-4 capacity in excess of either the average download limitation or the average upload limitation set out in section 4.5(a) of the nbn\u00ae Ethernet Fair Use Policy"
+            },
+            {
+                "competency_question": "For Ordered CVC Class 0, what is the usage range for which the charge per each associated AVC TC-4 is $18.00?",
+                "expected_answer": "Up to the allocated usage for CVC Class 1"
+            },
+            {
+                "competency_question": "For Ordered CVC Class 0, what is the usage range for which the charge per each associated AVC TC-4 is $40.00?",
+                "expected_answer": "Greater than the allocated usage for CVC Class 1 up to the allocated usage for CVC Class 2"
+            },
+            {
+                "competency_question": "For Ordered CVC Class 0, what is the usage range for which the charge per each associated AVC TC-4 is $150.00?",
+                "expected_answer": "Greater than allocated usage for CVC Class 2"
+            },
+            {
+                "competency_question": "For Ordered CVC Class 1, what is the usage range for which the charge per each associated AVC TC-4 is $22.00?",
+                "expected_answer": "Up to the allocated usage for CVC Class 2"
+            },
+            {
+                "competency_question": "For Ordered CVC Class 1, what is the usage range for which the charge per each associated AVC TC-4 is $132.00?",
+                "expected_answer": "Greater than allocated usage for CVC Class 2"
+            },
+            {
+                "competency_question": "For Ordered CVC Class 2, what is the usage range for which the charge per each associated AVC TC-4 is $110.00?",
+                "expected_answer": "Greater than allocated usage for CVC Class 2"
+            },
+            {
+                "competency_question": "Are the charges under section 6 in addition to other charges?",
+                "expected_answer": "Any Charges applicable under this section 6 are in addition to Charges that apply under sections 1.2 and 2.3."
+            },
+            {
+                "competency_question": "How is any charge under section 6 calculated?",
+                "expected_answer": "by reference to the greater of"
+            }
+        ],
+        "18": [
+            {
+                "competency_question": "What is the total number of AVCs associated with a CVC TC-4 during a calendar week calculated by including?",
+                "expected_answer": "each AVC which has been associated with the CVC TC-4 at any time during the calendar week, regardless of whether RSP dissociated any such AVC from that CVC TC-4 at any time during the calendar week"
+            },
+            {
+                "competency_question": "What is the numeric value of the period within which an AVC TC-2 Product Component may be disconnected or modified after order completion to trigger a charge?",
+                "expected_answer": "12"
+            },
+            {
+                "competency_question": "What is the unit of the period within which an AVC TC-2 Product Component may be disconnected or modified after order completion to trigger a charge?",
+                "expected_answer": "months"
+            },
+            {
+                "competency_question": "What event marks the beginning of the 12-month period after which disconnection or modification of an AVC TC-2 Product Component may trigger a charge?",
+                "expected_answer": "the day on which nbn completes the order for that Product Component"
+            },
+            {
+                "competency_question": "What is the definition of a 'calendar week' for the purposes of section 6?",
+                "expected_answer": "the period from 12:00am Sunday to 11:59pm Saturday (AET)"
+            },
+            {
+                "competency_question": "What event triggers the application of a single Charge under section 6 when both download and upload limitations are exceeded?",
+                "expected_answer": "RSP exceeds both the average download limitation and the average upload limitation set out in section 4.5(a) of the nbn\u00ae Ethernet Fair Use Policy"
+            },
+            {
+                "competency_question": "What event triggers the application of a single Charge under section 6 when multiple exceedances occur in a Billing Period?",
+                "expected_answer": "RSP exceeds the average download and upload limitations set out in section 4.5(a) of the nbn\u00ae Ethernet Fair Use Policy on multiple occasions in a Billing Period"
+            },
+            {
+                "competency_question": "What is the agent participant in a 'Default Notice' event?",
+                "expected_answer": "the notifying party"
+            },
+            {
+                "competency_question": "What is the object participant in a 'Default Notice' event?",
+                "expected_answer": "the Default"
+            },
+            {
+                "competency_question": "What is the name of the notice given when a party must be told that it has failed to comply with the Agreement?",
+                "expected_answer": "Default Notice"
+            }
+        ],
+        "19": [
+            {
+                "competency_question": "What is the formula for calculating a Charge under section 7?",
+                "expected_answer": "Charge = (Pre Disconnection Modification Charges - Post Disconnection Modification Charges) x Shortfall Period"
+            },
+            {
+                "competency_question": "What are the Pre Disconnection Modification Charges in the case of a cancellation?",
+                "expected_answer": "the recurring Charges for the TC-2 Bundle Components that would have been applicable had that order completed"
+            },
+            {
+                "competency_question": "What are the Pre Disconnection Modification Charges in the case of a disconnection?",
+                "expected_answer": "the recurring Charges for the TC-2 Bundle Components applicable prior to the disconnection of the nbn\u00ae Ethernet Ordered Product"
+            },
+            {
+                "competency_question": "What are the Pre Disconnection Modification Charges in the case of a modification?",
+                "expected_answer": "the recurring Charges for the TC-2 Bundle Components applicable prior to the modification of the AVC TC-2 bandwidth profile"
+            },
+            {
+                "competency_question": "What are the Post Disconnection Modification Charges in the case of a cancellation?",
+                "expected_answer": "nil"
+            },
+            {
+                "competency_question": "What are the Post Disconnection Modification Charges in the case of a disconnection?",
+                "expected_answer": "nil"
+            },
+            {
+                "competency_question": "What are the Post Disconnection Modification Charges in the case of a modification?",
+                "expected_answer": "the recurring Charges for the TC-2 Bundle Components applicable after the modification of the AVC TC-2 bandwidth profile"
+            },
+            {
+                "competency_question": "What is the Shortfall Period in the case of a cancellation?",
+                "expected_answer": "12 months"
+            },
+            {
+                "competency_question": "What is the Shortfall Period in the case of a disconnection or modification?",
+                "expected_answer": "12 months less the period during which the Pre Disconnection Modification Charges applied, calculated on a pro rata daily basis"
+            },
+            {
+                "competency_question": "What event causes the Charge under section 7 not to apply?",
+                "expected_answer": "nbn has undertaken Network Activity activities in respect of the relevant nbn\u00ae Ethernet Ordered Product and has notified RSP, in accordance with the WBA Operations Manual, that Network Activity to achieve the CIR Objective was unsuccessful"
+            },
+            {
+                "competency_question": "What other event causes the Charge under section 7 not to apply?",
+                "expected_answer": "the nbn\u00ae Ethernet Ordered Product is disconnected following acceptance by nbn of a Service Transfer Order and the Other Gaining RSP has ordered an AVC TC-2 Product Component with a bandwidth profile with a CIR Objective that is the same as, or higher than, the CIR Objective applicable to the Losing RSP\u2019s AVC TC-2 Product Component"
+            },
+            {
+                "competency_question": "What is the Labour Rate?",
+                "expected_answer": "$75.00 for each of the total number of labour hours required to perform the relevant activity (rounded up to the next full hour)"
+            },
+            {
+                "competency_question": "What is the Satellite Labour Rate?",
+                "expected_answer": "$98.00 for each of the total number of labour hours required to perform the relevant activity (rounded up to the next full hour)"
+            }
+        ]
+    }
+}

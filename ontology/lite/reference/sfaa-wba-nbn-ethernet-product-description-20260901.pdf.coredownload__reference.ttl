@@ -1,0 +1,3819 @@
+@prefix : <http://www.example.org/test#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ===== REFERENCE SEED: reference ontology schema (reuse these terms; do not delete) =====
+:AVCTC1_AdditionalInstance a :AVC_TC_1,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Additional Instance (UNI-V)" ;
+    :isConfiguredInTrafficClass :TC_1 ;
+    :mappedToUNI :UNI_V_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(c), p.13" ;
+    rdfs:comment "An additional AVC TC-1 instance mapped to UNI-V. [extension: nbn Ethernet Product Module, Section 3.3(c), p.13]" .
+
+:BandwidthProfile_AVCTC4_100 a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 100 Mbps downstream" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite" ;
+    :hasDownstreamPirMbps "100" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_120 a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 120 Mbps downstream" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite" ;
+    :hasDownstreamPirMbps "120" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_12_1 a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 12/1 Mbps" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite" ;
+    :hasDownstreamPirMbps "12" ;
+    :hasUpstreamPirMbps "1" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_150 a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 150 Mbps downstream" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite" ;
+    :hasDownstreamPirMbps "150" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_200 a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 200 Mbps downstream" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite" ;
+    :hasDownstreamPirMbps "200" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_250 a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 250 Mbps downstream" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite" ;
+    :hasDownstreamPirMbps "250" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_25_10_FibreFTTCHFC a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 25/10 Mbps (Fibre, FTTC, HFC)" ;
+    :appliesToNetworkType "Fibre, FTTC and HFC" ;
+    :hasDownstreamPirMbps "25" ;
+    :hasUpstreamPirMbps "10" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_25_5 a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 25/5 Mbps" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite" ;
+    :hasDownstreamPirMbps "25" ;
+    :hasUpstreamPirMbps "5" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_25_5to10_FTTBFTTN a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 25/5-10 Mbps (FTTB, FTTN)" ;
+    :appliesToNetworkType "FTTB and FTTN" ;
+    :hasDownstreamPirMbps "25" ;
+    :hasUpstreamPirMbps "5 - 10" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_300to1000 a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 300-1000 Mbps downstream" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite" ;
+    :hasDownstreamPirMbps "300-1000 (in increments of 100 Mbps)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_60 a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 60 Mbps downstream" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite" ;
+    :hasDownstreamPirMbps "60" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_AVCTC4_80 a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Bandwidth Profile: 80 Mbps downstream" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite" ;
+    :hasDownstreamPirMbps "80" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2(a), p.10" .
+
+:BandwidthProfile_CVCTC4_CIR_Satellite a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-4 symmetrical Mbps (CIR) - Satellite" ;
+    :hasCirIncrementRule :CirIncrement_Class0,
+        :CirIncrement_Class1,
+        :CirIncrement_Class2 ;
+    :hasCirRangeRule :CirRange_Class0,
+        :CirRange_Class1,
+        :CirRange_Class2 ;
+    :hasTrafficClass :TC_4 ;
+    :isCvcMax false ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:BandwidthProfile_CVCTC4_CVCMax a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-4 CVC Max" ;
+    :hasTrafficClass :TC_4 ;
+    :isCvcMax true ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(d), p.8" ;
+    rdfs:comment "A CVC TC-4 with the CVC Max bandwidth profile has a symmetrical PIR that is automatically configured to equal the bandwidth of the associated NNI as modified from time to time. [extension: nbn Ethernet Product Module, Section 2.2(d), p.8]" .
+
+:BandwidthProfile_CVCTC4_PIR_Satellite a :Cl_BandwidthProfile,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-4 symmetrical Mbps (PIR) - Satellite" ;
+    :hasPirIncrementRule :PirIncrement_Range0,
+        :PirIncrement_Range100_300,
+        :PirIncrement_Range300_10000 ;
+    :hasTrafficClass :TC_4 ;
+    :isCvcMax false ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:DataTransferRate_AVCTC1_0_15 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Data Transfer Rate: 0.15 symmetrical Mbps" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC and HFC" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 0.15 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a), p.13" .
+
+:DataTransferRate_AVCTC1_0_3 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Data Transfer Rate: 0.3 symmetrical Mbps" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC and HFC" ;
+    :hasRateUnit "Mbps" ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a), p.13" .
+
+:DataTransferRate_AVCTC1_0_5 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Data Transfer Rate: 0.5 symmetrical Mbps" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC and HFC" ;
+    :hasRateUnit "Mbps" ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a), p.13" .
+
+:DataTransferRate_AVCTC1_1 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Data Transfer Rate: 1 symmetrical Mbps" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC and HFC" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 1.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a), p.13" .
+
+:DataTransferRate_AVCTC1_10_Fibre a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Data Transfer Rate: 10 symmetrical Mbps (Fibre)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 10.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a), p.13" .
+
+:DataTransferRate_AVCTC1_2 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Data Transfer Rate: 2 symmetrical Mbps" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC and HFC" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 2.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a), p.13" .
+
+:DataTransferRate_AVCTC1_20_Fibre a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Data Transfer Rate: 20 symmetrical Mbps (Fibre)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 20.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a), p.13" .
+
+:DataTransferRate_AVCTC1_4 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Data Transfer Rate: 4 symmetrical Mbps" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC and HFC" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 4.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a), p.13" .
+
+:DataTransferRate_AVCTC1_50_Fibre a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Data Transfer Rate: 50 symmetrical Mbps (Fibre)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 50.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a), p.13" .
+
+:DataTransferRate_AVCTC1_5_Fibre a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Data Transfer Rate: 5 symmetrical Mbps (Fibre)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 5.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a), p.13" .
+
+:DataTransferRate_AVCTC1_Max_HomeProfiles a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Max Data Transfer Rate: 0.15 symmetrical Mbps (Home Fast etc.)" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 0.15 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(e), p.13" .
+
+:DataTransferRate_AVCTC1_Max_Wireless a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Max Data Transfer Rate: 0.6 symmetrical Mbps (Wireless)" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 0.6 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(d), p.13" .
+
+:DataTransferRate_AVCTC2_10 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 10 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC and HFC" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 10.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:DataTransferRate_AVCTC2_100 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 100 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 100.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:DataTransferRate_AVCTC2_20 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 20 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN and FTTC" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 20.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:DataTransferRate_AVCTC2_30 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 30 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 30.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:DataTransferRate_AVCTC2_40 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 40 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 40.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:DataTransferRate_AVCTC2_5 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 5 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre, FTTB, FTTN, FTTC and HFC" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 5.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:DataTransferRate_AVCTC2_50 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 50 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 50.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:DataTransferRate_AVCTC2_60 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 60 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 60.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:DataTransferRate_AVCTC2_70 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 70 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 70.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:DataTransferRate_AVCTC2_80 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 80 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 80.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:DataTransferRate_AVCTC2_90 a :DataTransferRate,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Bandwidth Profile: 90 symmetrical Mbps (CIR)" ;
+    :appliesToNetworkType "Fibre" ;
+    :hasRateUnit "Mbps" ;
+    :hasRateValue 90.0 ;
+    :isSymmetrical true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(a), p.13" .
+
+:Event_AssociateCVCsWithVNNI a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Associate CVCs and AVC/UNIs with V-NNI" ;
+    :eventType "associate CVCs and AVC/UNIs with a V-NNI" ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :VNNI_ObjectRole ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.4(c), p.7" .
+
+:Event_CIRNotAchievingObjective a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "CIR Not Achieving Objective Event" ;
+    :eventType "CIR at the nbn Downstream Network Boundary in respect of a Premises is not capable of achieving an applicable CIR Objective" ;
+    :governedBy :Rule_CIRNotAchieving_ServiceFault ;
+    :hasObject :CIR_Objective_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(c)(i), p.13" .
+
+:Event_ConfigureVNNI a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Configure V-NNI with Upstream NNI Link" ;
+    :eventType "configured with an Upstream NNI Link" ;
+    :hasObject :VNNI_ObjectRole ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.4(a), p.7" .
+
+:Event_InterferenceMitigationCompleted a :InterferenceMitigation,
+        owl:NamedIndividual ;
+    rdfs:label "Interference Mitigation Completed" ;
+    :eventType "Interference Mitigation is completed" ;
+    :hasAgent :nbn ;
+    :isCompleted true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(c)(ii), p.13" .
+
+:Event_MakeCVCAvailable a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Make CVC Available in Traffic Classes" ;
+    :eventType "make the CVC available in traffic class 1 (CVC TC-1), traffic class 2 (CVC TC-2) and traffic class 4 (CVC TC-4)" ;
+    :hasAgent :nbn ;
+    :hasObject :CVC_ObjectRole ;
+    :hasTrafficClass :TC_1,
+        :TC_2,
+        :TC_4 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.1(b), p.7" .
+
+:Event_NNIGroupActivated a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Group Activated" ;
+    :eventType "NNI Group is activated" ;
+    :hasObject :NNIGroup_ObjectRole_1 ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.3(f), p.7" .
+
+:Event_NbnConfiguresAVCTC4 a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Configures AVC in TC-4" ;
+    :eventType "configure the AVC to carry data in traffic class 4 (AVC TC-4)" ;
+    :governedBy :Rule_NbnConfiguresAVCTC4 ;
+    :hasAgent :nbn ;
+    :hasObject :AVC_ObjectRole ;
+    :hasTrafficClass :TC_4 ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(c), p.10" .
+
+:Event_NbnDesignatesInterferenceMitigation a :InterferenceMitigation,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Designates Interference Mitigation" ;
+    :eventType "nbn designates that an Interference Mitigation is required in accordance with the WBA Operations Manual" ;
+    :governedBy :Rule_NetworkActivityDesignated_NotServiceFault ;
+    :hasAgent :nbn ;
+    :isCompleted false ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(c)(ii), p.13" .
+
+:Event_NbnDesignatesNetworkActivity a :NetworkActivity,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Designates Network Activity" ;
+    :eventType "nbn designates that a Network Activity is required in accordance with the WBA Operations Manual" ;
+    :governedBy :Rule_NetworkActivityDesignated_NotServiceFault ;
+    :hasAgent :nbn ;
+    :isCompleted false ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(c)(ii), p.13" .
+
+:Event_NbnMapsOneAVCTC4ToUNI a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Maps One AVC TC-4 to UNI" ;
+    :eventType "map one AVC TC-4 to any UNI used to serve the relevant Premises" ;
+    :governedBy :Rule_NbnMapsOneAVCTC4ToUNI ;
+    :hasAgent :nbn ;
+    :hasObject :UNI_ObjectRole ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(f), p.10" .
+
+:Event_NbnModifyBwProfile a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Modifies Bandwidth Profile" ;
+    :eventType "modify the bandwidth profile of that CVC TC-4 by following the process set out in the WBA Operations Manual" ;
+    :governedBy :Rule_NbnModifyBwOnNonCompliance ;
+    :hasAgent :nbn ;
+    :hasObject :CVC_ObjectRole ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(f), p.8" .
+
+:Event_NetworkActivityCompleted a :NetworkActivity,
+        owl:NamedIndividual ;
+    rdfs:label "Network Activity Completed" ;
+    :eventType "Network Activity is completed" ;
+    :hasAgent :nbn ;
+    :isCompleted true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(c)(ii), p.13" .
+
+:Event_OrderCVCForCSA a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Order CVC for CSA" ;
+    :eventType "order a CVC for each CSA" ;
+    :hasAgent :RSP_AgentRole ;
+    :hasCSA :CSA_ObjectRole ;
+    :hasObject :CVC_ObjectRole ;
+    :sourceClause "nbn Ethernet Product Module, Section 2, p.7" .
+
+:Event_OrderCVCTrafficClass a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Order CVC by Traffic Class" ;
+    :eventType "order a CVC TC-4, CVC TC-1 or CVC TC-2, or any combination of the three" ;
+    :governedBy :Rule_CVCBandwidthNotZero ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :CVC_ObjectRole ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.1(c), p.7" .
+
+:Event_RSPAcquiresAVCTC1_UNID a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Acquires AVC TC-1 mapped to UNI-D" ;
+    :eventType "acquire an AVC TC-1 mapped to the UNI-D" ;
+    :governedBy :Rule_RSPMayAcquireBothUNIDandUNIV ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :AVCTC1_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(c), p.13" .
+
+:Event_RSPAcquiresAVCTC1_UNIV a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Acquires Additional AVC TC-1 mapped to UNI-V" ;
+    :eventType "acquire an additional AVC TC-1 mapped to the UNI-V" ;
+    :governedBy :Rule_RSPMayAcquireBothUNIDandUNIV ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :AVCTC1_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(c), p.13" .
+
+:Event_RSPElectsPartitionTC1 a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Elects to Partition AVC to TC-1" ;
+    :eventType "elect to partition the AVC to additionally carry data in traffic class 1 (AVC TC-1)" ;
+    :governedBy :Rule_RSPMayPartitionAVC ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :AVC_ObjectRole ;
+    :hasTrafficClass :TC_1 ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(c), p.10" .
+
+:Event_RSPElectsPartitionTC2 a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Elects to Partition AVC to TC-2" ;
+    :eventType "elect to partition the AVC to additionally carry data in traffic class 2 (AVC TC-2)" ;
+    :governedBy :Rule_RSPMayPartitionAVC ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :AVC_ObjectRole ;
+    :hasTrafficClass :TC_2 ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(c), p.10" .
+
+:Event_RSPOrdersAVC a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Orders AVC for Premises" ;
+    :eventType "order an AVC for each Premises to which nbn Ethernet will be supplied" ;
+    :governedBy :Rule_RSPMustOrderAVC ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :AVC_ObjectRole ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(b), p.10" .
+
+:Event_RSPOrdersAVCTC1 a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Orders AVC TC-1" ;
+    :eventType "elect to order one AVC TC-1" ;
+    :governedBy :Rule_RSPMustOrderAVCTC4 ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :AVC_ObjectRole ;
+    :hasTrafficClass :TC_1 ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(d), p.10" .
+
+:Event_RSPOrdersAVCTC2 a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Orders AVC TC-2" ;
+    :eventType "elect to order one AVC TC-2" ;
+    :governedBy :Rule_RSPMustOrderAVCTC4 ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :AVC_ObjectRole ;
+    :hasTrafficClass :TC_2 ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(d), p.10" .
+
+:Event_RSPOrdersAVCTC4 a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Orders AVC TC-4" ;
+    :eventType "order an AVC TC-4" ;
+    :governedBy :Rule_RSPMustOrderAVCTC4 ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :AVC_ObjectRole ;
+    :hasTrafficClass :TC_4 ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(d), p.10" .
+
+:Event_RSPOrdersCVCForAVCTC a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Orders CVC for AVC Traffic Class" ;
+    :eventType "order a CVC in the same traffic class in respect of that CSA" ;
+    :governedBy :Rule_RSPMustOrderCVCForAVCTC ;
+    :hasAgent :RSP_AgentRole ;
+    :hasCSA :CSA_ObjectRole ;
+    :hasObject :CVC_ObjectRole ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(e), p.10" .
+
+:Event_ReconfigureRedundancyMode a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Reconfigure Redundancy Mode" ;
+    :eventType "reconfigured" ;
+    :governedBy :Rule_ReconfigureRedundancy ;
+    :hasObject :NNIGroup_ObjectRole_1 ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.3(f), p.7" .
+
+:Event_SelectBandwidthProfile a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Select Bandwidth Profile for CVC TC-4" ;
+    :eventType "select a bandwidth profile for the CVC TC-4" ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :CVC_ObjectRole ;
+    :hasTrafficClass :TC_4 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(b), p.7" .
+
+:Event_SelectSingleChassis a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Select Single Chassis Redundancy Mode" ;
+    :eventType "selects single chassis as the redundancy mode for an NNI Group" ;
+    :governedBy :Rule_SingleChassis ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :NNIGroup_ObjectRole_1 ;
+    :hasRedundancyMode :RedundancyMode_SINGLE_CHASSIS ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.3(d), p.7" .
+
+:Event_SpecifyCvcClass a :Cl_ContractualEvent,
+        owl:NamedIndividual ;
+    rdfs:label "Specify CVC Class for CVC TC-4" ;
+    :eventType "specify a CVC Class for each CVC TC-4" ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :CVC_ObjectRole ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(i), p.8" .
+
+:Inclusion_AVCTC1_in_AVCTC4 a :InclusionCondition,
+        owl:NamedIndividual ;
+    rdfs:label "Inclusion of AVC TC-1 Data Transfer Rate in AVC TC-4" ;
+    :hasConditionQualifier "except where the AVC TC-1 is mapped to the UNI-V in the case of nbn Ethernet (Fibre) under section 6" ;
+    :includedIn :AVCTC4_Instance ;
+    :includesRateOf :AVCTC1_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(b), p.13" .
+
+:Inclusion_AVCTC2_in_AVCTC4 a :InclusionCondition,
+        owl:NamedIndividual ;
+    rdfs:label "Inclusion of AVC TC-2 Data Transfer Rate in AVC TC-4" ;
+    :includedIn :AVCTC4_Instance ;
+    :includesRateOf :AVCTC2_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(b), p.13" .
+
+:NTD_Wireless_Instance a :NTD,
+        owl:NamedIndividual ;
+    rdfs:label "NTD for Wireless" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(d), p.13" ;
+    :usedByNbnToSupply :nbnEthernet_Wireless ;
+    rdfs:comment "An NTD used by nbn to supply nbn Ethernet (Wireless). [extension: nbn Ethernet Product Module, Section 3.3(d), p.13]" .
+
+:PerformanceIncident a owl:Class ;
+    rdfs:label "PerformanceIncident" ;
+    rdfs:comment "A performance incident as defined in the WBA agreement. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" .
+
+:ProductComponent a owl:Class ;
+    rdfs:label "ProductComponent" ;
+    rdfs:comment "WBA Product Component; counts toward an NNI Group's Bearer Limit. Not modelled in the simulator." ;
+    skos:altLabel "Bearer Limit",
+        "Product Component" .
+
+:Profile_1000BaseEX a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "1000BaseEX" ;
+    :hasInterfaceRate 1.0 ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    rdfs:comment "NNI Bearer profile 1000BaseEX (1GE). [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:Profile_1000BaseLX a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "1000BaseLX" ;
+    :hasInterfaceRate 1.0 ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    rdfs:comment "NNI Bearer profile 1000BaseLX (1GE). [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:Profile_100GBaseER4 a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "100GBaseER4" ;
+    :hasInterfaceRate 100.0 ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    rdfs:comment "NNI Bearer profile 100GBaseER4 (100GE). [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:Profile_100GBaseLR4 a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "100GBaseLR4" ;
+    :hasInterfaceRate 100.0 ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    rdfs:comment "NNI Bearer profile 100GBaseLR4 (100GE). [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:Profile_10GBaseER a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "10GBaseER" ;
+    :hasInterfaceRate 10.0 ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    rdfs:comment "NNI Bearer profile 10GBaseER (10GE). [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:Profile_10GBaseLR a :NNIBearerProfile,
+        owl:NamedIndividual ;
+    rdfs:label "10GBaseLR" ;
+    :hasInterfaceRate 10.0 ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    rdfs:comment "NNI Bearer profile 10GBaseLR (10GE). [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:Rule_AVCTC1_HFC_CM820B_Limit a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 HFC CM820B Limit Rule" ;
+    :hasCondition "AVC TC-1 bandwidth profile above 2 Mbps is ordered on nbn Ethernet (HFC) using the CM820B variant of the HFC-NTD" ;
+    :hasConsequence "the AVC TC-1 bandwidth profile above 2 Mbps is not available" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(a) Note, p.13" .
+
+:Rule_AssociateLikeNNI a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Associate Like NNI Rule" ;
+    :hasCondition "RSP associates CVCs and AVC/UNIs with a V-NNI" ;
+    :hasConsequence "RSP must do so in the same way as an NNI" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.4(c), p.7" .
+
+:Rule_CVCNotCrossTech_NonSat a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Non-Satellite Not Cross-Available Rule" ;
+    :hasCondition "a CVC is supplied in respect of nbn Ethernet supplied by means of any access technology other than the Satellite Network" ;
+    :hasConsequence "it will not be made available in respect of nbn Ethernet (Satellite)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.1(d)(ii), p.7" .
+
+:Rule_CVCNotCrossTech_Sat a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Satellite Not Cross-Available Rule" ;
+    :hasCondition "a CVC is supplied in respect of nbn Ethernet (Satellite)" ;
+    :hasConsequence "it will not be made available in respect of nbn Ethernet supplied by means of any other access technology" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.1(d)(i), p.7" .
+
+:Rule_CVCSizeDiscretion a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Size at RSP Discretion Rule" ;
+    :hasCondition "RSP orders a CVC for a CSA where nbn supplies nbn Ethernet to RSP" ;
+    :hasConsequence "the size of the CVC that RSP requires is at the discretion of RSP (subject to section 2 and the nbn Ethernet Fair Use Policy)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2, p.7" .
+
+:Rule_CVCTC1_Available a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-1 Availability Rule" ;
+    :hasCondition "RSP orders a CVC TC-1" ;
+    :hasConsequence "CVC TC-1 is available in respect of nbn Ethernet (Fibre), nbn Ethernet (FTTB), nbn Ethernet (FTTN), nbn Ethernet (FTTC), nbn Ethernet (HFC), nbn Ethernet (Wireless) and nbn Ethernet (Satellite)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.3(a), p.8" .
+
+:Rule_CVCTC4_Available a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-4 Availability Rule" ;
+    :hasCondition "RSP orders a CVC TC-4" ;
+    :hasConsequence "CVC TC-4 is available in respect of nbn Ethernet (Fibre), nbn Ethernet (FTTB), nbn Ethernet (FTTN), nbn Ethernet (FTTC), nbn Ethernet (HFC), nbn Ethernet (Wireless) and nbn Ethernet (Satellite)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(a), p.7" .
+
+:Rule_CVCTC4_BWProfiles_Fibre a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-4 Bandwidth Profiles for Fibre etc." ;
+    :hasCondition "RSP orders a CVC TC-4 in respect of nbn Ethernet (Fibre), nbn Ethernet (FTTB), nbn Ethernet (FTTN), nbn Ethernet (FTTC), nbn Ethernet (HFC) or nbn Ethernet (Wireless)" ;
+    :hasConsequence "the CVC TC-4 bandwidth profiles available are as set out in the relevant sections" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(i), p.7" .
+
+:Rule_CVCTC4_BWProfiles_Sat a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "CVC TC-4 Bandwidth Profiles for Satellite" ;
+    :hasCondition "RSP orders a CVC TC-4 in respect of nbn Ethernet (Satellite)" ;
+    :hasConsequence "the CVC TC-4 bandwidth profiles available are as set out in the relevant sections" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.7" .
+
+:Rule_DiverseChassis a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Diverse Chassis Rule" ;
+    :hasCondition "RSP selects diverse chassis as the redundancy mode for an NNI Group" ;
+    :hasConsequence "each NNI Bearer in that NNI Group will be connected across a pair of chassis" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.3(e), p.7" .
+
+:Rule_MaxAVCTC1_HomeProfiles a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Maximum AVC TC-1 Capacity for Home Fast etc. Rule" ;
+    :hasCondition "RSP orders an AVC TC-1 in respect of any Home Fast, Home Superfast, Home Ultrafast, Home Hyperfast or 2000/500 Mbps (PIR) AVC TC-4 bandwidth profile" ;
+    :hasConsequence "the maximum AVC TC-1 capacity is 0.15 symmetrical Mbps" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(e), p.13" .
+
+:Rule_MaxAVCTC1_Wireless a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Maximum AVC TC-1 Capacity for Wireless Rule" ;
+    :hasCondition "RSP orders an AVC TC-1 in respect of each NTD used by nbn to supply nbn Ethernet (Wireless)" ;
+    :hasConsequence "the maximum AVC TC-1 capacity is 0.6 symmetrical Mbps" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(d), p.13" .
+
+:Rule_Min1600AvcsBeforeMoreCvc a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Minimum 1,600 AVCs Before Further CVC TC-4 Rule" ;
+    :hasCondition "RSP orders any further CVC TC-4 in the same CVC Class" ;
+    :hasConsequence "RSP must have associated at least 1,600 AVCs with each CVC TC-4" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(ii), p.8" .
+
+:Rule_MinAvcsAtAllTimes a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Minimum AVCs at All Times Rule" ;
+    :hasCondition "RSP has a CVC TC-4 in respect of nbn Ethernet (Satellite)" ;
+    :hasConsequence "RSP must at all times associate at least the minimum number of AVCs with each CVC TC-4 as specified in the table per CVC Class and bandwidth profile tier" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" .
+
+:Rule_MultipleCvcSameClass a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Multiple CVCs in Same Class Rule" ;
+    :hasCondition "RSP orders more than one CVC in a CVC Class" ;
+    :hasConsequence "each limitation in section 2.2(e) applies to each such CVC" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e) Note, p.8" .
+
+:Rule_MustSelectBandwidthProfile a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Must Select Bandwidth Profile Rule" ;
+    :hasCondition "RSP orders a CVC TC-4" ;
+    :hasConsequence "RSP must select a bandwidth profile for the CVC TC-4" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(b), p.7" .
+
+:Rule_MustSelectBwProfile_TC1 a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Must Select Bandwidth Profile for CVC TC-1 Rule" ;
+    :hasCondition "RSP orders a CVC TC-1" ;
+    :hasConsequence "RSP must select a bandwidth profile for the CVC TC-1" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.3(b), p.8" .
+
+:Rule_RSPMustOrderCVC a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Must Order CVC Rule" ;
+    :hasCondition "nbn supplies nbn Ethernet to RSP in a CSA" ;
+    :hasConsequence "RSP must order a CVC for that CSA" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2, p.7" .
+
+:Rule_RSPMustSpecifyCvcClass a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Must Specify CVC Class Rule" ;
+    :hasCondition "RSP orders a CVC TC-4 in respect of nbn Ethernet (Satellite)" ;
+    :hasConsequence "RSP must specify a CVC Class for each CVC TC-4" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(i), p.8" .
+
+:Rule_UpstreamNNILinkParams a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Upstream NNI Link Parameters Rule" ;
+    :hasCondition "a V-NNI is configured with an Upstream NNI Link" ;
+    :hasConsequence "the Upstream NNI Link Parameters will be applied to the V-NNI" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.4(b), p.7" .
+
+:ServiceFault a owl:Class ;
+    rdfs:label "ServiceFault" ;
+    rdfs:comment "A service fault as defined in the WBA agreement. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" .
+
+:ServiceLevel a owl:Class ;
+    rdfs:label "ServiceLevel" ;
+    rdfs:comment "WBA availability and service levels (Network Availability, frame delay, frame loss). Not modelled." ;
+    skos:altLabel "Network Availability",
+        "Service Level",
+        "frame delay",
+        "frame loss" .
+
+:actionType a owl:ObjectProperty ;
+    rdfs:label "action_type" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :ActionType .
+
+:addressesConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "addresses_constraint_ids" ;
+    rdfs:comment "'|'-separated constraint ids covered, scoped to a resource." ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:addressesRule a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :PlanningRule .
+
+:appliesToBandwidthTier a owl:DatatypeProperty ;
+    rdfs:label "appliesToBandwidthTier" ;
+    rdfs:comment "The bandwidth profile tier to which the minimum AVC requirement applies (e.g. 'initial_100', 'initial_25', 'additional_25'). [extension: nbn Ethernet Product Module, Section 2.2(e)(iii), p.8]" ;
+    rdfs:domain :Cl_MinimumAvcRequirement ;
+    rdfs:range xsd:string .
+
+:appliesToCvcClass a owl:ObjectProperty ;
+    rdfs:label "appliesToCvcClass" ;
+    rdfs:comment "Links a minimum AVC requirement to the CVC Class it applies to. [extension: nbn Ethernet Product Module, Section 2.2(e)(iii), p.8]" ;
+    rdfs:domain :Cl_MinimumAvcRequirement ;
+    rdfs:range :Cl_CvcClass .
+
+:appliesToNetworkType a owl:DatatypeProperty ;
+    rdfs:label "appliesToNetworkType" ;
+    rdfs:comment "The nbn network type(s) to which a bandwidth profile applies (e.g. 'Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite'). [extension: nbn Ethernet Product Module, Section 3.2, p.10]" ;
+    rdfs:domain :Cl_BandwidthProfile ;
+    rdfs:range xsd:string .
+
+:appliesToPremises a owl:ObjectProperty ;
+    rdfs:label "appliesToPremises" ;
+    rdfs:comment "Links a CIR Objective to the Premises it applies to. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" ;
+    rdfs:domain :CIR_Objective ;
+    rdfs:range :Premises .
+
+:assessedAs a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :ActionAssessment .
+
+:atDownstreamNetworkBoundary a owl:DatatypeProperty ;
+    rdfs:label "atDownstreamNetworkBoundary" ;
+    rdfs:comment "Indicates if the CIR Objective is measured at the nbn Downstream Network Boundary. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" ;
+    rdfs:domain :CIR_Objective ;
+    rdfs:range xsd:boolean .
+
+:availableGbps a owl:DatatypeProperty ;
+    rdfs:label "available_gbps" ;
+    rdfs:comment "= protected - current load" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:avcs a owl:DatatypeProperty ;
+    rdfs:label "avcs" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:bandwidthTierMbps a owl:DatatypeProperty ;
+    rdfs:label "bandwidth_tier_mbps" ;
+    rdfs:domain :AVC ;
+    rdfs:range xsd:integer .
+
+:bearerRateGbps a owl:DatatypeProperty ;
+    rdfs:label "bearer_rate_gbps" ;
+    rdfs:comment "Interface rate of every bearer in the group." ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:bearers a owl:DatatypeProperty ;
+    rdfs:label "bearers" ;
+    rdfs:comment "Number of bearers. Config product_rules: max_bearers_per_nni=8, by rate (Gbps) {'1': 2, '10': 4, '100': 8}." ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:integer .
+
+:belongsToSegment a owl:ObjectProperty ;
+    rdfs:domain :AVC ;
+    rdfs:range :CustomerSegment .
+
+:blockedBy a owl:DatatypeProperty ;
+    rdfs:label "blocked_by" ;
+    rdfs:comment "Blocking rule ids; BEARER_CEILING when the per-rate bearer limit blocks it.",
+        "Rule id blocking use, e.g. EP-02." ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:blockedByRule a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :PlanningRule .
+
+:busyHourFactor a owl:DatatypeProperty ;
+    rdfs:label "busy_hour_factor" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:double .
+
+:capacityGbps a owl:DatatypeProperty ;
+    rdfs:label "capacity_gbps" ;
+    rdfs:comment "= protected_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:carries a owl:ObjectProperty ;
+    rdfs:domain :CVC ;
+    rdfs:range :CSA .
+
+:commitmentPct a owl:DatatypeProperty ;
+    rdfs:label "commitment_pct" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:comprises a owl:ObjectProperty ;
+    rdfs:label "comprises" ;
+    rdfs:comment "An NNI Group comprises one or more NNI Bearers. [extension: nbn Ethernet Product Module, Section 1.1(d), p.6]" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :Bearer .
+
+:consumes a owl:ObjectProperty ;
+    rdfs:domain :CVC ;
+    rdfs:range :TrafficClass .
+
+:contractualGbps a owl:DatatypeProperty ;
+    rdfs:label "contractual_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:currentBandwidthGbps a owl:DatatypeProperty ;
+    rdfs:label "current_bandwidth_gbps" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:double .
+
+:currentLoadGbps a owl:DatatypeProperty ;
+    rdfs:label "current_load_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:designates a owl:ObjectProperty ;
+    rdfs:label "designates" ;
+    rdfs:comment "Links an agent (nbn) to a contractual event they designate (e.g. Network Activity or Interference Mitigation). [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" ;
+    rdfs:domain :Cl_Agent ;
+    rdfs:range :Cl_ContractualEvent .
+
+:eventType a owl:DatatypeProperty ;
+    rdfs:label "eventType" ;
+    rdfs:comment "The name/type of a contractual event. [extension: nbn Ethernet Product Module, Section 1-2, p.7]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range xsd:string .
+
+:evidence a owl:DatatypeProperty ;
+    rdfs:label "evidence" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:failureDomain a owl:DatatypeProperty ;
+    rdfs:label "failure_domain" ;
+    rdfs:comment "Cluster A/B the bearer lands in." ;
+    rdfs:domain :Bearer ;
+    rdfs:range xsd:string .
+
+:feasible a owl:DatatypeProperty ;
+    rdfs:label "feasible" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:boolean .
+
+:forScenario a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :Scenario .
+
+:forecastGrowthPct a owl:DatatypeProperty ;
+    rdfs:label "forecast_growth_pct" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:double .
+
+:governedBy a owl:ObjectProperty ;
+    rdfs:label "governedBy" ;
+    rdfs:comment "Links a contractual event to the business rule that governs it. [extension: nbn Ethernet Product Module, Section 1-2, p.7]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range :Cl_BusinessRule .
+
+:handoverFor a owl:ObjectProperty ;
+    rdfs:label "handoverFor" ;
+    rdfs:comment "The NNI is the point of handover for all CVCs associated with that NNI. [extension: nbn Ethernet Product Module, Section 1.1(b), p.6]" ;
+    rdfs:domain :NNI ;
+    rdfs:range :CVC .
+
+:hasAVC a owl:ObjectProperty ;
+    rdfs:label "hasAVC" ;
+    rdfs:comment "Links a contractual event to an AVC involved. [extension: nbn Ethernet Product Module, Section 1.4, p.7]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range :AVC .
+
+:hasAgent a owl:ObjectProperty ;
+    rdfs:label "hasAgent" ;
+    rdfs:comment "Links a contractual event to the agent that performs it. [extension: nbn Ethernet Product Module, Section 1-2, p.7]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range :Cl_Agent .
+
+:hasBandwidthProfile a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "hasBandwidthProfile" ;
+    rdfs:comment "Links an AVC to its reified bandwidth profile. [extension: nbn Ethernet Product Module, Section 3.2, p.10]",
+        "The selected bandwidth profile for a CVC TC-4. [extension: nbn Ethernet Product Module, Section 2.2(b), p.7]" ;
+    rdfs:domain :AVC,
+        :CVC ;
+    rdfs:range :Cl_BandwidthProfile,
+        xsd:string .
+
+:hasBearer a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :Bearer .
+
+:hasCSA a owl:ObjectProperty ;
+    rdfs:label "hasCSA" ;
+    rdfs:comment "Links a contractual event to a CSA involved. [extension: nbn Ethernet Product Module, Section 2, p.7]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range :CSA .
+
+:hasCVC a owl:ObjectProperty ;
+    rdfs:label "hasCVC" ;
+    rdfs:comment "Links a contractual event to a CVC involved. [extension: nbn Ethernet Product Module, Section 2, p.7]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range :CVC .
+
+:hasCapacityPool a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :CapacityPool .
+
+:hasCirIncrement a owl:DatatypeProperty ;
+    rdfs:label "hasCirIncrement" ;
+    rdfs:comment "The CIR increment value in Mbps for a given CVC Class. [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" ;
+    rdfs:domain :Cl_CirIncrementRule ;
+    rdfs:range xsd:integer .
+
+:hasCirIncrementRule a owl:ObjectProperty ;
+    rdfs:label "hasCirIncrementRule" ;
+    rdfs:comment "Links a bandwidth profile to its CIR increment rules. [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" ;
+    rdfs:domain :Cl_BandwidthProfile ;
+    rdfs:range :Cl_CirIncrementRule .
+
+:hasCirRange a owl:DatatypeProperty ;
+    rdfs:label "hasCirRange" ;
+    rdfs:comment "The CIR range string (e.g. '0', '100-1,000') for a given CVC Class. [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" ;
+    rdfs:domain :Cl_CirRangeRule ;
+    rdfs:range xsd:string .
+
+:hasCirRangeRule a owl:ObjectProperty ;
+    rdfs:label "hasCirRangeRule" ;
+    rdfs:comment "Links a bandwidth profile to its CIR range rules. [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" ;
+    rdfs:domain :Cl_BandwidthProfile ;
+    rdfs:range :Cl_CirRangeRule .
+
+:hasCondition a owl:DatatypeProperty ;
+    rdfs:label "hasCondition" ;
+    rdfs:comment "The condition part of a business rule (if-clause). [extension: nbn Ethernet Product Module, Section 1-2, p.7]" ;
+    rdfs:domain :Cl_BusinessRule ;
+    rdfs:range xsd:string .
+
+:hasConditionQualifier a owl:DatatypeProperty ;
+    rdfs:label "hasConditionQualifier" ;
+    rdfs:comment "A qualifier describing the condition under which inclusion applies (e.g. 'except where mapped to UNI-V on Fibre'). [extension: nbn Ethernet Product Module, Section 3.3(b), p.13]" ;
+    rdfs:domain :InclusionCondition ;
+    rdfs:range xsd:string .
+
+:hasConsequence a owl:DatatypeProperty ;
+    rdfs:label "hasConsequence" ;
+    rdfs:comment "The consequence part of a business rule (then-clause). [extension: nbn Ethernet Product Module, Section 1-2, p.7]" ;
+    rdfs:domain :Cl_BusinessRule ;
+    rdfs:range xsd:string .
+
+:hasCost a owl:ObjectProperty ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :CostItem .
+
+:hasCvcClass a owl:ObjectProperty ;
+    rdfs:label "hasCvcClass" ;
+    rdfs:comment "Links a CVC to its CVC Class (0, 1, or 2) for nbn Ethernet (Satellite). [extension: nbn Ethernet Product Module, Section 2.2(e)(i), p.8]" ;
+    rdfs:domain :CVC ;
+    rdfs:range :Cl_CvcClass .
+
+:hasDataTransferRate a owl:ObjectProperty ;
+    rdfs:label "hasDataTransferRate" ;
+    rdfs:comment "Links an AVC to its reified data transfer rate. [extension: nbn Ethernet Product Module, Section 3.3(b), p.13]" ;
+    rdfs:domain :AVC ;
+    rdfs:range :DataTransferRate .
+
+:hasDownstreamPirMbps a owl:DatatypeProperty ;
+    rdfs:label "hasDownstreamPirMbps" ;
+    rdfs:comment "The downstream PIR value in Mbps for an AVC TC-4 bandwidth profile (may be a range like '300-1000'). [extension: nbn Ethernet Product Module, Section 3.2, p.10]" ;
+    rdfs:domain :Cl_BandwidthProfile ;
+    rdfs:range xsd:string .
+
+:hasInterfaceRate a owl:DatatypeProperty ;
+    rdfs:label "hasInterfaceRate" ;
+    rdfs:comment "Interface rate in Gbps of a Bearer or NNI Group. [extension: nbn Ethernet Product Module, Section 1.3(a), p.6]" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Bearer :NNIGroup ) ],
+        [ a owl:Class ;
+            owl:unionOf ( :Bearer :NNIGroup ) ],
+        [ a owl:Class ;
+            owl:unionOf ( :Bearer :NNIGroup ) ] ;
+    rdfs:range xsd:double .
+
+:hasMinimumAvcCount a owl:DatatypeProperty ;
+    rdfs:label "hasMinimumAvcCount" ;
+    rdfs:comment "The minimum number of AVCs that must be associated with each CVC TC-4. [extension: nbn Ethernet Product Module, Section 2.2(e)(iii), p.8]" ;
+    rdfs:domain :Cl_MinimumAvcRequirement ;
+    rdfs:range xsd:integer .
+
+:hasMinimumAvcRequirement a owl:ObjectProperty ;
+    rdfs:label "hasMinimumAvcRequirement" ;
+    rdfs:comment "Links a CVC Class to its minimum AVC requirements. [extension: nbn Ethernet Product Module, Section 2.2(e)(iii), p.8]" ;
+    rdfs:domain :Cl_CvcClass ;
+    rdfs:range :Cl_MinimumAvcRequirement .
+
+:hasNNIGroup a owl:ObjectProperty ;
+    rdfs:label "hasNNIGroup" ;
+    rdfs:comment "Links a contractual event to an NNI Group involved. [extension: nbn Ethernet Product Module, Section 1.3, p.7]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range :NNIGroup .
+
+:hasNNILink a owl:ObjectProperty ;
+    rdfs:label "hasNNILink" ;
+    rdfs:comment "Links a contractual event to a V-NNI/NNI Link involved. [extension: nbn Ethernet Product Module, Section 1.4, p.7]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range :NNILink .
+
+:hasNni a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :NNI .
+
+:hasObject a owl:ObjectProperty ;
+    rdfs:label "hasObject" ;
+    rdfs:comment "Links a contractual event to the object participant. [extension: nbn Ethernet Product Module, Section 1-2, p.7]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range owl:Thing .
+
+:hasPirIncrement a owl:DatatypeProperty ;
+    rdfs:label "hasPirIncrement" ;
+    rdfs:comment "The PIR increment value in Mbps for a given PIR range. [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" ;
+    rdfs:domain :Cl_PirIncrementRule ;
+    rdfs:range xsd:integer .
+
+:hasPirIncrementRule a owl:ObjectProperty ;
+    rdfs:label "hasPirIncrementRule" ;
+    rdfs:comment "Links a bandwidth profile to its PIR increment rules. [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" ;
+    rdfs:domain :Cl_BandwidthProfile ;
+    rdfs:range :Cl_PirIncrementRule .
+
+:hasPirRange a owl:DatatypeProperty ;
+    rdfs:label "hasPirRange" ;
+    rdfs:comment "The PIR range string (e.g. '0', '100-300', '300-10,000') for which the increment applies. [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" ;
+    rdfs:domain :Cl_PirIncrementRule ;
+    rdfs:range xsd:string .
+
+:hasProfile a owl:ObjectProperty ;
+    rdfs:label "hasProfile" ;
+    rdfs:comment "Links a CVC to its reified bandwidth profile. [extension: nbn Ethernet Product Module, Section 2.2, p.8]",
+        "The NNI Bearer profile of a Bearer. [extension: nbn Ethernet Product Module, Section 1.2, p.6]" ;
+    rdfs:domain :Bearer,
+        :CVC ;
+    rdfs:range :Cl_BandwidthProfile,
+        :NNIBearerProfile .
+
+:hasRateUnit a owl:DatatypeProperty ;
+    rdfs:label "hasRateUnit" ;
+    rdfs:comment "The unit of a data transfer rate (e.g. 'Mbps'). [extension: nbn Ethernet Product Module, Section 3.3(b), p.13]" ;
+    rdfs:domain :DataTransferRate ;
+    rdfs:range xsd:string .
+
+:hasRateValue a owl:DatatypeProperty ;
+    rdfs:label "hasRateValue" ;
+    rdfs:comment "The numeric value of a data transfer rate in Mbps. [extension: nbn Ethernet Product Module, Section 3.3(b), p.13]" ;
+    rdfs:domain :DataTransferRate ;
+    rdfs:range xsd:double .
+
+:hasRedundancyMode a owl:ObjectProperty ;
+    rdfs:label "hasRedundancyMode" ;
+    rdfs:comment "Links a contractual event to the redundancy mode involved. [extension: nbn Ethernet Product Module, Section 1.3(d)-(e), p.7]",
+        "The redundancy mode configured on an NNI Bearer. [extension: nbn Ethernet Product Module, Section 1.3(b), p.6]" ;
+    rdfs:domain :Bearer,
+        :Cl_ContractualEvent ;
+    rdfs:range :RedundancyMode .
+
+:hasSegmentMix a owl:ObjectProperty ;
+    rdfs:domain :CSA ;
+    rdfs:range :CustomerSegment .
+
+:hasState a owl:DatatypeProperty ;
+    rdfs:label "hasState" ;
+    rdfs:comment "The activation state of an NNI Group (activated / not activated). [extension: nbn Ethernet Product Module, Section 1.3(f), p.7]" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:string .
+
+:hasTrafficClass a owl:ObjectProperty ;
+    rdfs:label "hasTrafficClass" ;
+    rdfs:comment "Links a bandwidth profile to its traffic class (TC-4). [extension: nbn Ethernet Product Module, Section 2.2, p.8]",
+        "Links a contractual event to a traffic class involved. [extension: nbn Ethernet Product Module, Section 2.1, p.7]" ;
+    rdfs:domain :Cl_BandwidthProfile,
+        :Cl_ContractualEvent ;
+    rdfs:range :TrafficClass .
+
+:hasUpstreamNNILink a owl:DatatypeProperty ;
+    rdfs:label "hasUpstreamNNILink" ;
+    rdfs:comment "Indicates if a V-NNI has an Upstream NNI Link configured. [extension: nbn Ethernet Product Module, Section 1.1(e), p.6]" ;
+    rdfs:domain :NNILink ;
+    rdfs:range xsd:boolean .
+
+:hasUpstreamPirMbps a owl:DatatypeProperty ;
+    rdfs:label "hasUpstreamPirMbps" ;
+    rdfs:comment "The upstream PIR value in Mbps for an AVC TC-4 bandwidth profile (may be a range like '5-10'). [extension: nbn Ethernet Product Module, Section 3.2, p.10]" ;
+    rdfs:domain :Cl_BandwidthProfile ;
+    rdfs:range xsd:string .
+
+:inRegion a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Bearer :CSA :CVC :NNIGroup :POI ) ] ;
+    rdfs:range :PlanningRegion .
+
+:includedIn a owl:ObjectProperty ;
+    rdfs:label "includedIn" ;
+    rdfs:comment "Links an inclusion condition to the AVC whose data transfer rate is included. [extension: nbn Ethernet Product Module, Section 3.3(b), p.13]" ;
+    rdfs:domain :InclusionCondition ;
+    rdfs:range :AVC .
+
+:includes a owl:ObjectProperty ;
+    rdfs:label "includes" ;
+    rdfs:comment "An NNI includes a V-NNI when RSP has configured a V-NNI with an Upstream NNI Link. [extension: nbn Ethernet Product Module, Section 1.1(e), p.6]" ;
+    rdfs:domain :NNI ;
+    rdfs:range :NNILink .
+
+:includesRateOf a owl:ObjectProperty ;
+    rdfs:label "includesRateOf" ;
+    rdfs:comment "Links an inclusion condition to the AVC that includes the data transfer rate. [extension: nbn Ethernet Product Module, Section 3.3(b), p.13]" ;
+    rdfs:domain :InclusionCondition ;
+    rdfs:range :AVC .
+
+:isCompleted a owl:DatatypeProperty ;
+    rdfs:label "isCompleted" ;
+    rdfs:comment "Indicates if a contractual event (e.g. Network Activity or Interference Mitigation) has been completed. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range xsd:boolean .
+
+:isConfiguredInTrafficClass a owl:ObjectProperty ;
+    rdfs:label "isConfiguredInTrafficClass" ;
+    rdfs:comment "Links an AVC to the traffic class in which it is configured. [extension: nbn Ethernet Product Module, Section 3.1(c), p.10]" ;
+    rdfs:domain :AVC ;
+    rdfs:range :TrafficClass .
+
+:isCvcMax a owl:DatatypeProperty ;
+    rdfs:label "isCvcMax" ;
+    rdfs:comment "Indicates if the bandwidth profile is a CVC Max profile. [extension: nbn Ethernet Product Module, Section 2.2(d), p.8]" ;
+    rdfs:domain :Cl_BandwidthProfile ;
+    rdfs:range xsd:boolean .
+
+:isInCSA a owl:ObjectProperty ;
+    rdfs:label "isInCSA" ;
+    rdfs:comment "Links a Premises to the CSA it belongs to. [extension: nbn Ethernet Product Module, Section 3.1(e), p.10]" ;
+    rdfs:domain :Premises ;
+    rdfs:range :CSA .
+
+:isNotCapableOfAchieving a owl:ObjectProperty ;
+    rdfs:label "isNotCapableOfAchieving" ;
+    rdfs:comment "Indicates that a CIR at the nbn Downstream Network Boundary is not capable of achieving an applicable CIR Objective. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" ;
+    rdfs:domain :CIR_Objective ;
+    rdfs:range :CIR_Objective .
+
+:isOrderedForPremises a owl:ObjectProperty ;
+    rdfs:label "isOrderedForPremises" ;
+    rdfs:comment "Links an AVC to the Premises for which it is ordered. [extension: nbn Ethernet Product Module, Section 3.1(b), p.10]" ;
+    rdfs:domain :AVC ;
+    rdfs:range :Premises .
+
+:isPhysicalInterfaceOf a owl:ObjectProperty ;
+    rdfs:label "isPhysicalInterfaceOf" ;
+    rdfs:comment "The NNI Bearer is the physical interface of an NNI. [extension: nbn Ethernet Product Module, Section 1.1(c), p.6]" ;
+    rdfs:domain :Bearer ;
+    rdfs:range :NNI .
+
+:isProfileOf a owl:ObjectProperty ;
+    rdfs:label "isProfileOf" ;
+    rdfs:comment "Links a bandwidth profile to the AVC it configures. [extension: nbn Ethernet Product Module, Section 3.2, p.10]",
+        "Links a bandwidth profile to the CVC it configures. [extension: nbn Ethernet Product Module, Section 2.2, p.8]" ;
+    rdfs:domain :Cl_BandwidthProfile ;
+    rdfs:range :AVC,
+        :CVC .
+
+:isSymmetrical a owl:DatatypeProperty ;
+    rdfs:label "isSymmetrical" ;
+    rdfs:comment "Indicates if the data transfer rate is symmetrical (same downstream and upstream). [extension: nbn Ethernet Product Module, Section 3.3, p.13]" ;
+    rdfs:domain :DataTransferRate ;
+    rdfs:range xsd:boolean .
+
+:knownRequiredConstraintsCovered a owl:DatatypeProperty ;
+    rdfs:label "known_required_constraints_covered" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:boolean .
+
+:label a owl:DatatypeProperty ;
+    rdfs:label "label" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:landedOn a owl:ObjectProperty ;
+    rdfs:domain :Bearer ;
+    rdfs:range :Device .
+
+:leadTimeDays a owl:DatatypeProperty ;
+    rdfs:label "lead_time_days" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:integer .
+
+:locatedAt a owl:ObjectProperty ;
+    rdfs:label "locatedAt" ;
+    rdfs:comment "The POI where an NNI is located. [extension: nbn Ethernet Product Module, Section 1.1(a), p.6]" ;
+    rdfs:domain :NNI ;
+    rdfs:range :POI .
+
+:mappedToUNI a owl:ObjectProperty ;
+    rdfs:label "mappedToUNI" ;
+    rdfs:comment "Links an AVC to the UNI it is mapped to. [extension: nbn Ethernet Product Module, Section 3.3(c), p.13]" ;
+    rdfs:domain :AVC ;
+    rdfs:range :UNI .
+
+:mapsOneAVCTC4ToUNI a owl:ObjectProperty ;
+    rdfs:label "mapsOneAVCTC4ToUNI" ;
+    rdfs:comment "Links nbn to a UNI to indicate that nbn maps one AVC TC-4 to that UNI. [extension: nbn Ethernet Product Module, Section 3.1(f), p.10]" ;
+    rdfs:domain :Cl_Agent ;
+    rdfs:range :UNI .
+
+:mapsTo a owl:ObjectProperty ;
+    rdfs:domain :CVC ;
+    rdfs:range :NNIGroup .
+
+:materialisationCoverage a owl:ObjectProperty ;
+    rdfs:label "materialisation_coverage" ;
+    rdfs:domain :CVC ;
+    rdfs:range :MaterialisationCoverage .
+
+:materialisedAvcCount a owl:DatatypeProperty ;
+    rdfs:label "materialised_avc_count" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:maxSupportedCvc a owl:DatatypeProperty ;
+    rdfs:label "max_supported_cvc" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:integer .
+
+:memberOf a owl:ObjectProperty ;
+    rdfs:label "memberOf" ;
+    rdfs:comment "An NNI Bearer is configured as a member of an NNI Group. [extension: nbn Ethernet Product Module, Section 1.1(d), p.6]" ;
+    rdfs:domain :Bearer ;
+    rdfs:range :NNIGroup .
+
+:mode a owl:ObjectProperty ;
+    rdfs:label "mode" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :RedundancyMode .
+
+:monthlyCost a owl:DatatypeProperty ;
+    rdfs:label "monthly_cost" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:mustOrder a owl:ObjectProperty ;
+    rdfs:label "mustOrder" ;
+    rdfs:comment "RSP must order an NNI for each CSA where nbn supplies nbn Ethernet to RSP. [extension: nbn Ethernet Product Module, Section 1, p.6]" ;
+    rdfs:domain :RSP ;
+    rdfs:range :NNI .
+
+:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:domain :TrafficClass ;
+    rdfs:range xsd:string .
+
+:nbnEthernet_FTTB a :nbnEthernetProduct,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet (FTTB)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    :suppliedByAccessTechnology :AccessTechnology_FTTB,
+        :AccessTechnology_FTTC ;
+    rdfs:comment "nbn Ethernet product supplied via FTTB access technology. [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:nbnEthernet_FTTC a :nbnEthernetProduct,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet (FTTC)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    :suppliedByAccessTechnology :AccessTechnology_FTTC ;
+    rdfs:comment "nbn Ethernet product supplied via FTTC access technology. [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:nbnEthernet_FTTN a :nbnEthernetProduct,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet (FTTN)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    :suppliedByAccessTechnology :AccessTechnology_FTTC,
+        :AccessTechnology_FTTN ;
+    rdfs:comment "nbn Ethernet product supplied via FTTN access technology. [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:nbnEthernet_Fibre a :nbnEthernetProduct,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet (Fibre)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    :suppliedByAccessTechnology :AccessTechnology_FIBRE ;
+    rdfs:comment "nbn Ethernet product supplied via Fibre access technology. [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:nbnEthernet_HFC a :nbnEthernetProduct,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet (HFC)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    :suppliedByAccessTechnology :AccessTechnology_HFC ;
+    rdfs:comment "nbn Ethernet product supplied via HFC access technology. [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:nbnEthernet_Satellite a :nbnEthernetProduct,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet (Satellite)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.1(f), p.6" ;
+    :suppliedByAccessTechnology :AccessTechnology_SATELLITE ;
+    rdfs:comment "nbn Ethernet product supplied via Satellite access technology. [extension: nbn Ethernet Product Module, Section 1.1(f), p.6]" .
+
+:notMadeAvailableFor a owl:ObjectProperty ;
+    rdfs:label "notMadeAvailableFor" ;
+    rdfs:comment "An NNI supplied in respect of one nbn Ethernet product will not be made available in respect of another. [extension: nbn Ethernet Product Module, Section 1.1(f), p.6]" ;
+    rdfs:domain :NNI ;
+    rdfs:range :nbnEthernetProduct .
+
+:peakBandwidthGbps a owl:DatatypeProperty ;
+    rdfs:label "peak_bandwidth_gbps" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:double .
+
+:planningThresholdPct a owl:DatatypeProperty ;
+    rdfs:label "planning_threshold_pct" ;
+    rdfs:domain :TrafficClass ;
+    rdfs:range xsd:double .
+
+:populationBasis a owl:DatatypeProperty ;
+    rdfs:label "population_basis" ;
+    rdfs:comment "CVC_AVC_COUNT_PROXY: the aggregate avcs count is authoritative over materialised AVC records." ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:string .
+
+:premises a owl:DatatypeProperty ;
+    rdfs:label "premises" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:integer .
+
+:projectedToGrow a owl:ObjectProperty ;
+    rdfs:domain :CSA ;
+    rdfs:range :DemandForecast .
+
+:protectedGbps a owl:DatatypeProperty ;
+    rdfs:label "protected_gbps" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:rateGbps a owl:DatatypeProperty ;
+    rdfs:label "rate_gbps" ;
+    rdfs:domain :Bearer ;
+    rdfs:range xsd:double .
+
+:resilienceScore a owl:DatatypeProperty ;
+    rdfs:label "resilience_score" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:riskRating a owl:ObjectProperty ;
+    rdfs:label "risk_rating" ;
+    rdfs:domain :CSA ;
+    rdfs:range :RiskRating .
+
+:riskScore a owl:DatatypeProperty ;
+    rdfs:label "risk_score" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:servedAt a owl:ObjectProperty ;
+    rdfs:domain :CSA ;
+    rdfs:range :POI .
+
+:servesPremises a owl:ObjectProperty ;
+    rdfs:label "servesPremises" ;
+    rdfs:comment "Links a UNI to the Premises it serves. [extension: nbn Ethernet Product Module, Section 3.1(a), p.10]" ;
+    rdfs:domain :UNI ;
+    rdfs:range :Premises .
+
+:services a owl:DatatypeProperty ;
+    rdfs:label "services" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:integer .
+
+:singleActionResolvesAllMust a owl:DatatypeProperty ;
+    rdfs:label "single_action_resolves_all_must" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:boolean .
+
+:sourceClause a owl:AnnotationProperty ;
+    rdfs:comment "Document, clause and page a contract fact comes from." .
+
+:specifiedFor a owl:ObjectProperty ;
+    rdfs:label "specifiedFor" ;
+    rdfs:comment "Links a CVC Class to the CVC it is specified for. [extension: nbn Ethernet Product Module, Section 2.2(e)(i), p.8]" ;
+    rdfs:domain :Cl_CvcClass ;
+    rdfs:range :CVC .
+
+:state a owl:DatatypeProperty ;
+    rdfs:label "state" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :AVC :Bearer :CSA :POI ) ] ;
+    rdfs:range xsd:string .
+
+:status a owl:DatatypeProperty ;
+    rdfs:label "status" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:subscriberGrowthPct a owl:DatatypeProperty ;
+    rdfs:label "subscriber_growth_pct" ;
+    rdfs:domain :CSA ;
+    rdfs:range xsd:double .
+
+:suppliedByAccessTechnology a owl:ObjectProperty ;
+    rdfs:label "suppliedByAccessTechnology" ;
+    rdfs:comment "The access technology by which an nbn Ethernet product is supplied. [extension: nbn Ethernet Product Module, Section 1.1(f), p.6]" ;
+    rdfs:domain :nbnEthernetProduct ;
+    rdfs:range :AccessTechnology .
+
+:tc1Pct a owl:DatatypeProperty ;
+    rdfs:label "tc1_pct" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:tc2Pct a owl:DatatypeProperty ;
+    rdfs:label "tc2_pct" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:tc4Pct a owl:DatatypeProperty ;
+    rdfs:label "tc4_pct" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:tech a owl:ObjectProperty ;
+    rdfs:label "tech" ;
+    rdfs:domain :CSA ;
+    rdfs:range :AccessTechnology .
+
+:technology a owl:ObjectProperty ;
+    rdfs:label "technology" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :InterfaceTechnology .
+
+:terminatesAtPoi a owl:ObjectProperty ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :POI .
+
+:terminatesOnPort a owl:ObjectProperty ;
+    rdfs:domain :Bearer ;
+    rdfs:range :PlanningPort .
+
+:unevaluatedConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "unevaluated_constraint_ids" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:unmaterialisedAvcCount a owl:DatatypeProperty ;
+    rdfs:label "unmaterialised_avc_count" ;
+    rdfs:domain :CVC ;
+    rdfs:range xsd:integer .
+
+:unresolvedConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "unresolved_constraint_ids" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:string .
+
+:usedByNbnToSupply a owl:ObjectProperty ;
+    rdfs:label "usedByNbnToSupply" ;
+    rdfs:comment "Links an NTD to the nbn Ethernet product it is used to supply. [extension: nbn Ethernet Product Module, Section 3.3(d), p.13]" ;
+    rdfs:domain :NTD ;
+    rdfs:range :nbnEthernetProduct .
+
+:usesCvc a owl:ObjectProperty ;
+    rdfs:domain :AVC ;
+    rdfs:range :CVC .
+
+:usesLinecard a owl:ObjectProperty ;
+    rdfs:domain :Bearer ;
+    rdfs:range :PlanningLineCard .
+
+:utilisationPct a owl:DatatypeProperty ;
+    rdfs:label "utilisation_pct" ;
+    rdfs:comment "= 100 * current load / protected" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range xsd:double .
+
+:utilisationScore a owl:DatatypeProperty ;
+    rdfs:label "utilisation_score" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:wholeOfLifeCost36m a owl:DatatypeProperty ;
+    rdfs:label "whole_of_life_cost_36m" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range xsd:double .
+
+:AVCTC2_Instance a :AVC_TC_2,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 Instance" ;
+    :isConfiguredInTrafficClass :TC_2 ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4, p.13" ;
+    rdfs:comment "An instance of an AVC configured in traffic class 2. [extension: nbn Ethernet Product Module, Section 3.4(b), p.13]" .
+
+:AVC_TC_2 a owl:Class ;
+    rdfs:label "AVC_TC_2" ;
+    rdfs:comment "An AVC configured in traffic class 2 (optional). [extension: nbn Ethernet Product Module, Section 3.1(c), p.10]" ;
+    rdfs:subClassOf :AVC .
+
+:AVC_TC_4 a owl:Class ;
+    rdfs:label "AVC_TC_4" ;
+    rdfs:comment "An AVC configured in traffic class 4 (default traffic class). [extension: nbn Ethernet Product Module, Section 3.1(c), p.10]",
+        "The default traffic class for an AVC. nbn will configure the AVC to carry data in traffic class 4 (AVC TC-4). [extension: nbn Ethernet Product Module, Section 3.1(c), p.10]" ;
+    rdfs:subClassOf :AVC .
+
+:ActionAssessment a owl:Class ;
+    rdfs:label "ActionAssessment" ;
+    rdfs:comment "Scored assessment of one candidate action." .
+
+:ActionType_ADD_AGGREGATION a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "ADD_AGGREGATION" .
+
+:ActionType_ADD_BACKHAUL a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "ADD_BACKHAUL" .
+
+:ActionType_ADD_PORT a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "ADD_PORT" .
+
+:ActionType_CREATE_NEW_BEARER a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_NEW_BEARER" .
+
+:ActionType_CREATE_NEW_CVC a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_NEW_CVC" .
+
+:ActionType_CREATE_NEW_NNI a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_NEW_NNI" .
+
+:ActionType_CREATE_RESILIENCE_PATH a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "CREATE_RESILIENCE_PATH" .
+
+:ActionType_INCREASE_CVC_BW a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "INCREASE_CVC_BW" .
+
+:ActionType_MOVE_CSA_LOAD a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "MOVE_CSA_LOAD" .
+
+:ActionType_REBALANCE_AVCS a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "REBALANCE_AVCS" .
+
+:ActionType_SPLIT_CAPACITY_POOL a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "SPLIT_CAPACITY_POOL" .
+
+:ActionType_UPGRADE_PORT a :ActionType,
+        owl:NamedIndividual ;
+    rdfs:label "UPGRADE_PORT" .
+
+:CIR_Objective_Instance a :CIR_Objective,
+        owl:NamedIndividual ;
+    rdfs:label "CIR Objective Instance" ;
+    :appliesToPremises :Premises_Instance ;
+    :atDownstreamNetworkBoundary true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(c), p.13" ;
+    rdfs:comment "A CIR Objective applicable at the nbn Downstream Network Boundary for a Premises. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" .
+
+:CapacityPool a owl:Class ;
+    rdfs:label "CapacityPool" ;
+    rdfs:comment "Contractual/protected/used capacity of an NNI Group." .
+
+:CostItem a owl:Class ;
+    rdfs:label "CostItem" ;
+    rdfs:comment "A cost line of an action (capital, one-off, recurring, lease)." .
+
+:DemandForecast a owl:Class ;
+    rdfs:label "DemandForecast" ;
+    rdfs:comment "Legacy demand growth forecast for a CSA or CVC under a scenario (the contract's Forecast, kind-qualified)." .
+
+:Device a owl:Class ;
+    rdfs:label "Device" ;
+    rdfs:comment "Active network device with an explicit NetworkRole and NetworkLayer; legacy roles CORE/REGIONAL/LOCAL_AGG/ACCESS." .
+
+:InterfaceTechnology_100GE a :InterfaceTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "100GE" .
+
+:InterfaceTechnology_10GE a :InterfaceTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "10GE" .
+
+:InterfaceTechnology_1GE a :InterfaceTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "1GE" .
+
+:MaterialisationCoverage_COMPLETE a :MaterialisationCoverage,
+        owl:NamedIndividual ;
+    rdfs:label "COMPLETE" .
+
+:MaterialisationCoverage_NONE a :MaterialisationCoverage,
+        owl:NamedIndividual ;
+    rdfs:label "NONE" .
+
+:MaterialisationCoverage_PARTIAL a :MaterialisationCoverage,
+        owl:NamedIndividual ;
+    rdfs:label "PARTIAL" .
+
+:MinAvcReq_C0_Additional25 a :Cl_MinimumAvcRequirement,
+        owl:NamedIndividual ;
+    rdfs:label "Min AVC Req: CVC Class 0, Each Additional 25 Mbps" ;
+    :appliesToBandwidthTier "additional_25" ;
+    :appliesToCvcClass :CvcClass_0 ;
+    :hasMinimumAvcCount 71 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" .
+
+:MinAvcReq_C0_Initial100 a :Cl_MinimumAvcRequirement,
+        owl:NamedIndividual ;
+    rdfs:label "Min AVC Req: CVC Class 0, Initial 100 Mbps" ;
+    :appliesToBandwidthTier "initial_100" ;
+    :appliesToCvcClass :CvcClass_0 ;
+    :hasMinimumAvcCount 0 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" .
+
+:MinAvcReq_C0_Initial25 a :Cl_MinimumAvcRequirement,
+        owl:NamedIndividual ;
+    rdfs:label "Min AVC Req: CVC Class 0, Initial 25 Mbps" ;
+    :appliesToBandwidthTier "initial_25" ;
+    :appliesToCvcClass :CvcClass_0 ;
+    :hasMinimumAvcCount 202 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" .
+
+:MinAvcReq_C1_Additional25 a :Cl_MinimumAvcRequirement,
+        owl:NamedIndividual ;
+    rdfs:label "Min AVC Req: CVC Class 1, Each Additional 25 Mbps" ;
+    :appliesToBandwidthTier "additional_25" ;
+    :appliesToCvcClass :CvcClass_1 ;
+    :hasMinimumAvcCount 65 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" .
+
+:MinAvcReq_C1_Initial100 a :Cl_MinimumAvcRequirement,
+        owl:NamedIndividual ;
+    rdfs:label "Min AVC Req: CVC Class 1, Initial 100 Mbps" ;
+    :appliesToBandwidthTier "initial_100" ;
+    :appliesToCvcClass :CvcClass_1 ;
+    :hasMinimumAvcCount 0 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" .
+
+:MinAvcReq_C1_Initial25 a :Cl_MinimumAvcRequirement,
+        owl:NamedIndividual ;
+    rdfs:label "Min AVC Req: CVC Class 1, Initial 25 Mbps" ;
+    :appliesToBandwidthTier "initial_25" ;
+    :appliesToCvcClass :CvcClass_1 ;
+    :hasMinimumAvcCount 166 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" .
+
+:MinAvcReq_C2_Additional25 a :Cl_MinimumAvcRequirement,
+        owl:NamedIndividual ;
+    rdfs:label "Min AVC Req: CVC Class 2, Each Additional 25 Mbps" ;
+    :appliesToBandwidthTier "additional_25" ;
+    :appliesToCvcClass :CvcClass_2 ;
+    :hasMinimumAvcCount 58 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" .
+
+:MinAvcReq_C2_Initial100 a :Cl_MinimumAvcRequirement,
+        owl:NamedIndividual ;
+    rdfs:label "Min AVC Req: CVC Class 2, Initial 100 Mbps" ;
+    :appliesToBandwidthTier "initial_100" ;
+    :appliesToCvcClass :CvcClass_2 ;
+    :hasMinimumAvcCount 0 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" .
+
+:MinAvcReq_C2_Initial25 a :Cl_MinimumAvcRequirement,
+        owl:NamedIndividual ;
+    rdfs:label "Min AVC Req: CVC Class 2, Initial 25 Mbps" ;
+    :appliesToBandwidthTier "initial_25" ;
+    :appliesToCvcClass :CvcClass_2 ;
+    :hasMinimumAvcCount 151 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" .
+
+:PirIncrement_Range0 a :Cl_PirIncrementRule,
+        owl:NamedIndividual ;
+    rdfs:label "PIR Increment Rule: Range 0" ;
+    :hasPirIncrement 0 ;
+    :hasPirRange "0" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:PirIncrement_Range100_300 a :Cl_PirIncrementRule,
+        owl:NamedIndividual ;
+    rdfs:label "PIR Increment Rule: Range 100-300" ;
+    :hasPirIncrement 50 ;
+    :hasPirRange "100-300" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:PirIncrement_Range300_10000 a :Cl_PirIncrementRule,
+        owl:NamedIndividual ;
+    rdfs:label "PIR Increment Rule: Range 300-10,000" ;
+    :hasPirIncrement 100 ;
+    :hasPirRange "300-10,000" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:PlanningLineCard a owl:Class ;
+    rdfs:label "PlanningLineCard" ;
+    rdfs:comment "Planning line-card on an aggregation device with NPU capacity/budget and committed load." ;
+    rdfs:subClassOf :PlanningResource .
+
+:PlanningPort a owl:Class ;
+    rdfs:label "PlanningPort" ;
+    rdfs:comment "Planning port on a line-card; may be FREE/IN_SERVICE and usable or blocked." ;
+    rdfs:subClassOf :PlanningResource .
+
+:PlanningRegion a owl:Class ;
+    rdfs:label "PlanningRegion" ;
+    rdfs:comment "A planning region (key of REFERENCE_REGION_SPECS, e.g. Region-West-1). Groups CSAs, NNI Groups, CVCs, a POI and transport conditions." .
+
+:Premises_Instance a :Premises,
+        owl:NamedIndividual ;
+    rdfs:label "Premises Instance" ;
+    rdfs:comment "A Premises to which a CIR Objective applies. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" .
+
+:RSP a owl:Class ;
+    rdfs:label "RSP" ;
+    rdfs:comment "Retail Service Provider that orders and connects to the nbn Network via NNI. [extension: nbn Ethernet Product Module, Section 1, p.6]" ;
+    rdfs:subClassOf :Cl_Agent .
+
+:RedundancyMode_DIVERSE_CHASSIS a :RedundancyMode,
+        owl:NamedIndividual ;
+    rdfs:label "DIVERSE_CHASSIS" ;
+    rdfs:comment "Diverse chassis redundancy mode: each NNI Bearer in the NNI Group will be connected across a pair of chassis. [extension: nbn Ethernet Product Module, Section 1.3(e), p.7]" .
+
+:RedundancyMode_SINGLE a :RedundancyMode,
+        owl:NamedIndividual ;
+    rdfs:label "SINGLE" ;
+    rdfs:comment "Used by Region-Central-1 but not a WBA redundancy mode." .
+
+:RiskRating_High a :RiskRating,
+        owl:NamedIndividual ;
+    rdfs:label "High" .
+
+:RiskRating_Low a :RiskRating,
+        owl:NamedIndividual ;
+    rdfs:label "Low" .
+
+:RiskRating_Medium a :RiskRating,
+        owl:NamedIndividual ;
+    rdfs:label "Medium" .
+
+:Rule_CIRNotAchieving_ServiceFault a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "CIR Not Achieving - Service Fault Rule" ;
+    :hasCondition "the CIR at the nbn Downstream Network Boundary in respect of a Premises is not capable of achieving an applicable CIR Objective" ;
+    :hasConsequence "sections 3.2(b) to 3.2(d) and 3.5 will not prevent that failure from being a Service Fault or Performance Incident until nbn designates that a Network Activity or Interference Mitigation is required in accordance with the WBA Operations Manual" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(c)(i), p.13" .
+
+:Rule_CVCBandwidthNotZero a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Bandwidth Not Zero Rule" ;
+    :hasCondition "RSP orders a combination of CVC TC-4, CVC TC-1 or CVC TC-2" ;
+    :hasConsequence "the total combination of CVC bandwidth profiles is not zero" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.1(c), p.7" .
+
+:Rule_NbnConfiguresAVCTC4 a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Configures AVC in TC-4 Rule" ;
+    :hasCondition "RSP orders an AVC" ;
+    :hasConsequence "nbn will configure the AVC to carry data in traffic class 4 (AVC TC-4)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(c), p.10" .
+
+:Rule_NbnMapsOneAVCTC4ToUNI a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Maps One AVC TC-4 to UNI Rule" ;
+    :hasCondition "a UNI is used to serve a Premises" ;
+    :hasConsequence "nbn will map one AVC TC-4 to that UNI and will not map more than one AVC TC-4 to the same UNI" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(f), p.10" .
+
+:Rule_NbnModifyBwOnNonCompliance a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "nbn May Modify Bandwidth Profile on Non-Compliance Rule" ;
+    :hasCondition "RSP fails to comply with section 2.2(e)(iii) in connection with a CVC TC-4" ;
+    :hasConsequence "nbn may modify the bandwidth profile of that CVC TC-4 by following the process set out in the WBA Operations Manual" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(f), p.8" .
+
+:Rule_RSPMustOrderAVC a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Must Order AVC Rule" ;
+    :hasCondition "nbn supplies nbn Ethernet to RSP" ;
+    :hasConsequence "RSP must order an AVC for each Premises to which nbn Ethernet will be supplied" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(b), p.10" .
+
+:Rule_RSPMustOrderCVCForAVCTC a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Must Order CVC for AVC Traffic Class Rule" ;
+    :hasCondition "RSP orders an AVC traffic class in respect of a Premises in a CSA" ;
+    :hasConsequence "RSP must order a CVC in the same traffic class in respect of that CSA" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(e), p.10" .
+
+:Rule_ReconfigureRedundancy a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Reconfigure Redundancy Mode Rule" ;
+    :hasCondition "the redundancy mode of an NNI Group is reconfigured after activation" ;
+    :hasConsequence "it satisfies the criteria for an NNI Diversity Upgrade in the WBA Operations Manual (including that the NNI Group is located at an Upgraded POI)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.3(f), p.7" .
+
+:Rule_SingleChassis a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Single Chassis Rule" ;
+    :hasCondition "RSP selects single chassis as the redundancy mode for an NNI Group" ;
+    :hasConsequence "each NNI Bearer in that NNI Group will be connected to the same chassis; and the NNI will operate as a single, unprotected interface" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.3(d)(i)-(ii), p.7" .
+
+:Scenario a owl:Class ;
+    rdfs:label "Scenario" ;
+    rdfs:comment "A scenario within a network (operational scenario or planning scenario)." .
+
+:UNI_D a owl:Class ;
+    rdfs:label "UNI_D" ;
+    rdfs:comment "User Network Interface - D (dedicated). [extension: nbn Ethernet Product Module, Section 3.3(c), p.13]" ;
+    rdfs:subClassOf :UNI .
+
+:UNI_D_Instance a :UNI_D,
+        owl:NamedIndividual ;
+    rdfs:label "UNI-D Instance" ;
+    rdfs:comment "An instance of a UNI-D. [extension: nbn Ethernet Product Module, Section 3.3(c), p.13]" .
+
+:UNI_ObjectRole a :UNI,
+        owl:NamedIndividual ;
+    rdfs:label "UNI (object role)" ;
+    rdfs:comment "A UNI that is the object of contractual events. [extension: nbn Ethernet Product Module, Section 3.1(f), p.10]" .
+
+:UNI_V a owl:Class ;
+    rdfs:label "UNI_V" ;
+    rdfs:comment "User Network Interface - V (virtual). [extension: nbn Ethernet Product Module, Section 3.3(c), p.13]" ;
+    rdfs:subClassOf :UNI .
+
+:UNI_V_Instance a :UNI_V,
+        owl:NamedIndividual ;
+    rdfs:label "UNI-V Instance" ;
+    rdfs:comment "An instance of a UNI-V. [extension: nbn Ethernet Product Module, Section 3.3(c), p.13]" .
+
+:nbnEthernet_Wireless a :nbnEthernetProduct,
+        owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet (Wireless)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.2, p.6" ;
+    :suppliedByAccessTechnology :AccessTechnology_FTTC,
+        :AccessTechnology_Wireless ;
+    rdfs:comment "nbn Ethernet product supplied via Wireless access technology. [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:AVCTC4_Instance a :AVC_TC_4,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Instance" ;
+    :isConfiguredInTrafficClass :TC_4 ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.2, p.13" ;
+    rdfs:comment "An instance of an AVC configured in traffic class 4. [extension: nbn Ethernet Product Module, Section 3.3(b), p.13]" .
+
+:AVC_TC_1 a owl:Class ;
+    rdfs:label "AVC_TC_1" ;
+    rdfs:comment "An AVC configured in traffic class 1 (optional). [extension: nbn Ethernet Product Module, Section 3.1(c), p.10]" ;
+    rdfs:subClassOf :AVC .
+
+:AccessTechnology_FTTB a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "FTTB" ;
+    rdfs:comment "Fibre to the Building access technology. [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:AccessTechnology_FTTN a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "FTTN" ;
+    rdfs:comment "Fibre to the Node access technology. [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:AccessTechnology_SATELLITE a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "SATELLITE" ;
+    rdfs:comment "Satellite access technology. [extension: nbn Ethernet Product Module, Section 1.1(f), p.6]" .
+
+:AccessTechnology_Wireless a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "Wireless" ;
+    rdfs:comment "Wireless access technology. [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:CSA_ObjectRole a :CSA,
+        owl:NamedIndividual ;
+    rdfs:label "CSA (object role)" ;
+    rdfs:comment "A CSA that is the object of contractual events. [extension: nbn Ethernet Product Module, Section 2, p.7]" .
+
+:CirIncrement_Class0 a :Cl_CirIncrementRule,
+        owl:NamedIndividual ;
+    rdfs:label "CIR Increment Rule: CVC Class 0" ;
+    :hasCirIncrement 0 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:CirIncrement_Class1 a :Cl_CirIncrementRule,
+        owl:NamedIndividual ;
+    rdfs:label "CIR Increment Rule: CVC Class 1" ;
+    :hasCirIncrement 25 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:CirIncrement_Class2 a :Cl_CirIncrementRule,
+        owl:NamedIndividual ;
+    rdfs:label "CIR Increment Rule: CVC Class 2" ;
+    :hasCirIncrement 25 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:CirRange_Class0 a :Cl_CirRangeRule,
+        owl:NamedIndividual ;
+    rdfs:label "CIR Range Rule: CVC Class 0" ;
+    :hasCirRange "0" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:CirRange_Class1 a :Cl_CirRangeRule,
+        owl:NamedIndividual ;
+    rdfs:label "CIR Range Rule: CVC Class 1" ;
+    :hasCirRange "100-1,000" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:CirRange_Class2 a :Cl_CirRangeRule,
+        owl:NamedIndividual ;
+    rdfs:label "CIR Range Rule: CVC Class 2" ;
+    :hasCirRange "100-1,000" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8" .
+
+:CustomerSegment a owl:Class ;
+    rdfs:label "CustomerSegment" ;
+    rdfs:comment "Customer segment (residential, SME, enterprise) with criticality and default share." .
+
+:InterferenceMitigation a owl:Class ;
+    rdfs:label "InterferenceMitigation" ;
+    rdfs:comment "An interference mitigation activity designated by nbn that may be required to address a CIR Objective not being achieved. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" ;
+    rdfs:subClassOf :Cl_ContractualEvent .
+
+:NTD a owl:Class ;
+    rdfs:label "NTD" ;
+    rdfs:comment "Network Termination Device used by nbn to supply nbn Ethernet. [extension: nbn Ethernet Product Module, Section 3.3(d), p.13]" .
+
+:NetworkActivity a owl:Class ;
+    rdfs:label "NetworkActivity" ;
+    rdfs:comment "A network activity designated by nbn that may be required to address a CIR Objective not being achieved. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" ;
+    rdfs:subClassOf :Cl_ContractualEvent .
+
+:PlanningRule a owl:Class ;
+    rdfs:label "PlanningRule" ;
+    rdfs:comment "Named planning/engineering/governance rule with a limit, unit and compliance level (PR-01 ... GV-03)." .
+
+:RedundancyMode_SINGLE_CHASSIS a :RedundancyMode,
+        owl:NamedIndividual ;
+    rdfs:label "SINGLE_CHASSIS" ;
+    rdfs:comment "Single chassis redundancy mode: each NNI Bearer in the NNI Group will be connected to the same chassis; the NNI will operate as a single, unprotected interface. [extension: nbn Ethernet Product Module, Section 1.3(d), p.7]" .
+
+:Rule_NetworkActivityDesignated_NotServiceFault a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "Network Activity Designated - Not Service Fault Rule" ;
+    :hasCondition "nbn designates that a Network Activity or Interference Mitigation is required" ;
+    :hasConsequence "until that Network Activity or Interference Mitigation is completed, the downstream CIR and upstream CIR at the nbn Downstream Network Boundary in respect of that Premises will not be considered a Service Fault or Performance Incident" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.4(c)(ii), p.13" .
+
+:Rule_RSPMayAcquireBothUNIDandUNIV a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "RSP May Acquire Both UNI-D and UNI-V AVC TC-1 Rule" ;
+    :hasCondition "nbn Ethernet (Fibre) is supplied under section 6 and is available" ;
+    :hasConsequence "RSP may acquire both an AVC TC-1 mapped to the UNI-D and an additional AVC TC-1 mapped to the UNI-V" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(c), p.13" .
+
+:Rule_RSPMayPartitionAVC a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "RSP May Partition AVC Rule" ;
+    :hasCondition "RSP orders an AVC" ;
+    :hasConsequence "RSP may elect to partition the AVC to additionally carry data in traffic class 1 (AVC TC-1), traffic class 2 (AVC TC-2), or both" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(c), p.10" .
+
+:VNNI_ObjectRole a :NNILink,
+        owl:NamedIndividual ;
+    rdfs:label "V-NNI (object role)" ;
+    rdfs:comment "A V-NNI that is configured with an Upstream NNI Link. [extension: nbn Ethernet Product Module, Section 1.4(a), p.7]" .
+
+:AVCTC1_Instance a :AVC_TC_1,
+        owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 Instance" ;
+    :isConfiguredInTrafficClass :TC_1 ;
+    :mappedToUNI :UNI_D_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.3(c), p.13",
+        "nbn Ethernet Product Module, Section 3.3, p.13" ;
+    rdfs:comment "An instance of an AVC configured in traffic class 1. [extension: nbn Ethernet Product Module, Section 3.3(b), p.13]" .
+
+:AccessTechnology_FIBRE a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "FIBRE" .
+
+:AccessTechnology_HFC a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "HFC" .
+
+:CvcClass_0 a :Cl_CvcClass,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 0" ;
+    :hasCirIncrementRule :CirIncrement_Class0 ;
+    :hasCirRangeRule :CirRange_Class0 ;
+    :hasMinimumAvcRequirement :MinAvcReq_C0_Additional25,
+        :MinAvcReq_C0_Initial100,
+        :MinAvcReq_C0_Initial25 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8",
+        "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" ;
+    rdfs:comment "CVC Class 0 for nbn Ethernet (Satellite). CIR increment: 0 Mbps. CIR range: 0. [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" .
+
+:CvcClass_1 a :Cl_CvcClass,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 1" ;
+    :hasCirIncrementRule :CirIncrement_Class1 ;
+    :hasCirRangeRule :CirRange_Class1 ;
+    :hasMinimumAvcRequirement :MinAvcReq_C1_Additional25,
+        :MinAvcReq_C1_Initial100,
+        :MinAvcReq_C1_Initial25 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8",
+        "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" ;
+    rdfs:comment "CVC Class 1 for nbn Ethernet (Satellite). CIR increment: 25 Mbps. CIR range: 100-1,000. [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" .
+
+:CvcClass_2 a :Cl_CvcClass,
+        owl:NamedIndividual ;
+    rdfs:label "CVC Class 2" ;
+    :hasCirIncrementRule :CirIncrement_Class2 ;
+    :hasCirRangeRule :CirRange_Class2 ;
+    :hasMinimumAvcRequirement :MinAvcReq_C2_Additional25,
+        :MinAvcReq_C2_Initial100,
+        :MinAvcReq_C2_Initial25 ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(c)(ii), p.8",
+        "nbn Ethernet Product Module, Section 2.2(e)(iii), p.8" ;
+    rdfs:comment "CVC Class 2 for nbn Ethernet (Satellite). CIR increment: 25 Mbps. CIR range: 100-1,000. [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" .
+
+:NNIGroup_ObjectRole_1 a :NNIGroup,
+        owl:NamedIndividual ;
+    rdfs:label "NNI Group (object role)" ;
+    :hasState "activated" ;
+    :sourceClause "nbn Ethernet Product Module, Section 1.3(f), p.7" ;
+    rdfs:comment "An NNI Group that is the object of contractual events. [extension: nbn Ethernet Product Module, Section 1.3(d), p.7]" .
+
+:Rule_RSPMustOrderAVCTC4 a :Cl_BusinessRule,
+        owl:NamedIndividual ;
+    rdfs:label "RSP Must Order AVC TC-4 Rule" ;
+    :hasCondition "RSP orders an AVC" ;
+    :hasConsequence "RSP must order an AVC TC-4, and may additionally elect to order one AVC TC-1, one AVC TC-2, or both, in any of the bandwidth profiles set out in sections 3.2, 3.3 and 3.4 subject to section 4.1.3 of, and Appendix B to, the nbn Ethernet Product Technical Specification" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.1(d), p.10" .
+
+:InterfaceTechnology a owl:Class ;
+    rdfs:label "InterfaceTechnology" ;
+    rdfs:comment "NNI interface technology (nni_groups.technology)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :InterfaceTechnology_100GE :InterfaceTechnology_10GE :InterfaceTechnology_1GE ) ] .
+
+:MaterialisationCoverage a owl:Class ;
+    rdfs:label "MaterialisationCoverage" ;
+    rdfs:comment "How many of a CVC's AVCs exist as explicit records." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :MaterialisationCoverage_COMPLETE :MaterialisationCoverage_PARTIAL :MaterialisationCoverage_NONE ) ] .
+
+:NNILink a owl:Class ;
+    rdfs:label "NNILink" ;
+    rdfs:comment "WBA NNI Link / V-NNI / S-TAG concepts. Not modelled." ;
+    skos:altLabel "NNI Link",
+        "S-TAG",
+        "V-NNI",
+        "over-book" .
+
+:RiskRating a owl:Class ;
+    rdfs:label "RiskRating" ;
+    rdfs:comment "CSA risk rating (csas.risk_rating)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :RiskRating_High :RiskRating_Low :RiskRating_Medium ) ] .
+
+:TC_2 a :TrafficClass,
+        owl:NamedIndividual ;
+    rdfs:label "TC-2" ;
+    :name "Interactive" ;
+    :planningThresholdPct 75.0 .
+
+:CIR_Objective a owl:Class ;
+    rdfs:label "CIR_Objective" ;
+    rdfs:comment "The committed information rate objective applicable at the nbn Downstream Network Boundary for a Premises, which may not be achievable. [extension: nbn Ethernet Product Module, Section 3.4(c), p.13]" .
+
+:Cl_CirIncrementRule a owl:Class ;
+    rdfs:label "Cl_CirIncrementRule" ;
+    rdfs:comment "A reified rule specifying the CIR increment for a given CVC Class for CVC TC-4 symmetrical Mbps (CIR). [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" .
+
+:Cl_CirRangeRule a owl:Class ;
+    rdfs:label "Cl_CirRangeRule" ;
+    rdfs:comment "A reified rule specifying the CIR range for a given CVC Class for CVC TC-4 symmetrical Mbps (CIR). [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" .
+
+:InclusionCondition a owl:Class ;
+    rdfs:label "InclusionCondition" ;
+    rdfs:comment "A reified relationship representing the conditional or unconditional inclusion of one AVC traffic class's data transfer rate in another's. [extension: nbn Ethernet Product Module, Section 3.3(b), p.13]" .
+
+:POI a owl:Class ;
+    rdfs:label "POI" ;
+    rdfs:comment "Point of Interconnect: where CSAs and NNI Groups meet the wholesale network. One per region, hosted on aggregation devices." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "Local POI",
+        "POI",
+        "Point of Interconnect",
+        "State Aggregation POI" .
+
+:Premises a owl:Class ;
+    rdfs:label "Premises" ;
+    rdfs:comment "A location to which nbn Ethernet is supplied and served by a UNI. [extension: nbn Ethernet Product Module, Section 3.1(a), p.10]" .
+
+:RedundancyMode a owl:Class ;
+    rdfs:label "RedundancyMode" ;
+    rdfs:comment "NNI Group redundancy mode (nni_groups.mode)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :RedundancyMode_DIVERSE_CHASSIS :RedundancyMode_SINGLE :RedundancyMode_SINGLE_CHASSIS ) ] .
+
+:TC_1 a :TrafficClass,
+        owl:NamedIndividual ;
+    rdfs:label "TC-1" ;
+    :name "Priority / realtime" ;
+    :planningThresholdPct 70.0 .
+
+:AccessTechnology_FTTC a :AccessTechnology,
+        owl:NamedIndividual ;
+    rdfs:label "FTTC" .
+
+:Cl_Agent a owl:Class ;
+    rdfs:label "Cl_Agent" ;
+    rdfs:comment "A party that performs actions under the agreement. Superclass for RSP and nbn. [extension: nbn Ethernet Product Module, Section 1-2, p.7]" .
+
+:Cl_PirIncrementRule a owl:Class ;
+    rdfs:label "Cl_PirIncrementRule" ;
+    rdfs:comment "A reified rule specifying the PIR increment for a given PIR range for CVC TC-4 symmetrical Mbps (PIR). [extension: nbn Ethernet Product Module, Section 2.2(c)(ii), p.8]" .
+
+:PlanningResource a owl:Class ;
+    rdfs:label "PlanningResource" ;
+    rdfs:comment "Run-scoped planning inventory object (not a new physical asset). Superclass of POI, CSA, NNIGroup, CVC, PlanningLineCard, PlanningPort." .
+
+:UNI a owl:Class ;
+    rdfs:label "UNI" ;
+    rdfs:comment "User Network Interface: the physical or logical interface at a Premises that an AVC connects to. [extension: nbn Ethernet Product Module, Section 3.1(a), p.10]" .
+
+:AVC_ObjectRole a :AVC,
+        owl:NamedIndividual ;
+    rdfs:label "AVC (object role)" ;
+    rdfs:comment "An AVC that is the object of contractual events. [extension: nbn Ethernet Product Module, Section 3.1, p.10]" .
+
+:CVC_ObjectRole a :CVC,
+        owl:NamedIndividual ;
+    rdfs:label "CVC (object role)" ;
+    :hasBandwidthProfile "to be selected by RSP" ;
+    :sourceClause "nbn Ethernet Product Module, Section 2.2(b), p.7" ;
+    rdfs:comment "A CVC that is the object of contractual events. [extension: nbn Ethernet Product Module, Section 2, p.7]",
+        "Ethernet-based Layer 2 virtual capacity on the nbn Network used to carry RSP traffic between multiple AVCs in a CSA on an aggregated basis and the NNI at the POI serving that CSA. [extension: nbn Ethernet Product Module, Section 2.1(a), p.7]" .
+
+:Cl_CvcClass a owl:Class ;
+    rdfs:label "Cl_CvcClass" ;
+    rdfs:comment "A classification (0, 1, 2) for CVC TC-4 on nbn Ethernet (Satellite) that determines CIR increments and minimum AVC association rules. [extension: nbn Ethernet Product Module, Section 2.2(e), p.8]" .
+
+:NNI a owl:Class ;
+    rdfs:label "NNI" ;
+    rdfs:comment "A single NNI within an NNI Group, realised on one Bearer." .
+
+:NNIBearerProfile a owl:Class ;
+    rdfs:label "NNIBearerProfile" ;
+    rdfs:comment "Physical interface profile for an NNI Bearer (e.g. 1000BaseLX, 10GBaseLR). [extension: nbn Ethernet Product Module, Section 1.2, p.6]" .
+
+:TC_4 a :TrafficClass,
+        owl:NamedIndividual ;
+    rdfs:label "TC-4" ;
+    :name "Best effort / bulk" ;
+    :planningThresholdPct 80.0 .
+
+:TrafficClass a owl:Class ;
+    rdfs:label "TrafficClass" ;
+    rdfs:comment "Traffic class (TC-1, TC-2, TC-4) with a planning utilisation threshold." ;
+    skos:altLabel "TC-1",
+        "TC-2",
+        "TC-4",
+        "bandwidth profile",
+        "traffic class" .
+
+:nbn a :Cl_Agent,
+        owl:NamedIndividual ;
+    rdfs:label "nbn" ;
+    rdfs:comment "The wholesale network provider (nbn co). [extension: nbn Ethernet Product Module, Section 1-2, p.7]" .
+
+:AccessTechnology a owl:Class ;
+    rdfs:label "AccessTechnology" ;
+    rdfs:comment "Access technology of a CSA (csas.tech; a CSA may have several, separated by '|')." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :AccessTechnology_FIBRE :AccessTechnology_FTTC :AccessTechnology_HFC ) ],
+        [ a owl:Class ;
+            owl:oneOf ( :AccessTechnology_FIBRE :AccessTechnology_FTTC :AccessTechnology_HFC :AccessTechnology_SATELLITE :AccessTechnology_FTTB :AccessTechnology_FTTN :AccessTechnology_Wireless ) ] .
+
+:nbnEthernetProduct a owl:Class ;
+    rdfs:label "nbnEthernetProduct" ;
+    rdfs:comment "An nbn Ethernet product variant distinguished by access technology (Satellite, Fibre, FTTB, etc.). [extension: nbn Ethernet Product Module, Section 1.1(f), p.6]" .
+
+:ActionType a owl:Class ;
+    rdfs:label "ActionType" ;
+    rdfs:comment "Planning action types (legacy fixture action generation)." ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:oneOf ( :ActionType_INCREASE_CVC_BW :ActionType_ADD_PORT :ActionType_MOVE_CSA_LOAD :ActionType_REBALANCE_AVCS :ActionType_SPLIT_CAPACITY_POOL :ActionType_CREATE_NEW_NNI :ActionType_CREATE_NEW_CVC :ActionType_UPGRADE_PORT :ActionType_ADD_BACKHAUL :ActionType_ADD_AGGREGATION :ActionType_CREATE_RESILIENCE_PATH :ActionType_CREATE_NEW_BEARER ) ] .
+
+:Cl_MinimumAvcRequirement a owl:Class ;
+    rdfs:label "Cl_MinimumAvcRequirement" ;
+    rdfs:comment "A reified rule specifying the minimum number of AVCs that must be associated with a CVC TC-4, conditional on CVC Class and bandwidth profile tier. [extension: nbn Ethernet Product Module, Section 2.2(e), p.8]" .
+
+:RSP_AgentRole a :Cl_Agent,
+        owl:NamedIndividual ;
+    rdfs:label "RSP (agent role)" ;
+    rdfs:comment "RSP acting as agent in contractual events. [extension: nbn Ethernet Product Module, Section 1.3(d), p.7]" .
+
+:Bearer a owl:Class ;
+    rdfs:label "Bearer" ;
+    rdfs:comment "NNI Bearer: one physical interface of an NNI Group, landed on a line-card/port in a failure domain." ;
+    skos:altLabel "Diverse Chassis",
+        "NNI Bearer",
+        "Redundancy Mode",
+        "Single Chassis",
+        "interface rate" .
+
+:CSA a owl:Class ;
+    rdfs:label "CSA" ;
+    rdfs:comment "Connectivity Serving Area: a served area with services, premises and demand growth." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "CSA",
+        "Connectivity Serving Area" .
+
+:AVC a owl:Class ;
+    rdfs:label "AVC" ;
+    rdfs:comment "Access Virtual Circuit: per-service circuit that uses a CVC.",
+        "An Access Virtual Circuit or AVC is an Ethernet-based Layer 2 virtual connection on the Fibre Network, FTTB Network, FTTN Network, FTTC Network, HFC Network, Wireless Network or Satellite Network that carries RSP traffic to and from a UNI used to serve a Premises. [extension: nbn Ethernet Product Module, Section 3.1(a), p.10]" ;
+    skos:altLabel "AVC",
+        "Access Virtual Circuit",
+        "OVC",
+        "Unicast 1:1 AVC" .
+
+:CandidateAction a owl:Class ;
+    rdfs:label "CandidateAction" ;
+    rdfs:comment "Candidate planning action with lead time, cost, feasibility, blocking reasons and scores." ;
+    skos:altLabel "Modify",
+        "NNI Diversity Upgrade",
+        "NNI Upsize Migration",
+        "charge",
+        "lead time",
+        "order",
+        "price" .
+
+:CVC a owl:Class ;
+    rdfs:label "CVC" ;
+    rdfs:comment "Connectivity Virtual Circuit: carries a CSA's traffic over an NNI Group, with a traffic-class mix." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "CVC",
+        "CVC TC-1",
+        "CVC TC-2",
+        "CVC TC-4",
+        "Connectivity Virtual Circuit",
+        "Unicast N:1 CVC" .
+
+:Cl_BandwidthProfile a owl:Class ;
+    rdfs:label "Cl_BandwidthProfile" ;
+    rdfs:comment "A reified bandwidth profile configuration for a CVC TC-4, specifying PIR/CIR parameters, increments, ranges, and CVC Max flag. [extension: nbn Ethernet Product Module, Section 2.2, p.8]",
+        "A reified bandwidth profile for an AVC TC-4, specifying downstream PIR, upstream PIR, and applicable network type. [extension: nbn Ethernet Product Module, Section 3.2, p.10]" .
+
+:DataTransferRate a owl:Class ;
+    rdfs:label "DataTransferRate" ;
+    rdfs:comment "A reified data transfer rate value with unit (Mbps) for an AVC traffic class. [extension: nbn Ethernet Product Module, Section 3.3(b), p.13]" .
+
+:NNIGroup a owl:Class ;
+    rdfs:label "NNIGroup" ;
+    rdfs:comment "Group of NNI Bearers/NNIs at a POI sharing a redundancy mode, interface rate and protected capacity." ;
+    rdfs:subClassOf :PlanningResource ;
+    skos:altLabel "NNI",
+        "NNI Group",
+        "NNI Product Component",
+        "Network-Network Interface" .
+
+:Cl_BusinessRule a owl:Class ;
+    rdfs:label "Cl_BusinessRule" ;
+    rdfs:comment "A conditional statement (if-then) that governs the validity or outcome of a contractual event or state. [extension: nbn Ethernet Product Module, Section 1-2, p.7]" .
+
+:Cl_ContractualEvent a owl:Class ;
+    rdfs:label "Cl_ContractualEvent" ;
+    rdfs:comment "A reified event that captures an action or state change prescribed by the contract (e.g., selecting a redundancy mode, activating an NNI Group, ordering a CVC). [extension: nbn Ethernet Product Module, Section 1-2, p.7]" .
+
+
+# ===== EXTENSIONS FROM DOCUMENTS: append new classes / properties / facts BELOW this line =====
+# ===== EXTENSIONS FOR SECTIONS 3.5-3.8 (Page 14-15) =====
+
+# --- New Classes ---
+
+:Cl_InterferenceEvent a owl:Class ;
+    rdfs:label "Cl_InterferenceEvent" ;
+    rdfs:comment "An event caused by a third party's equipment or network that prejudices the integrity or causes deterioration of an nbn Ethernet (FTTB/FTTN/FTTC) Ordered Product. [extension: nbn Ethernet Product Module, Section 3.6(a), p.15]" ;
+    rdfs:subClassOf :Cl_ContractualEvent .
+
+:Cl_OrderedProduct a owl:Class ;
+    rdfs:label "Cl_OrderedProduct" ;
+    rdfs:comment "An nbn Ethernet Ordered Product (FTTB, FTTN, FTTC) that can be affected by interference events. [extension: nbn Ethernet Product Module, Section 3.6(a), p.15]" ;
+    rdfs:subClassOf :AVC .
+
+:Cl_ThirdPartyEquipmentOrNetwork a owl:Class ;
+    rdfs:label "Cl_ThirdPartyEquipmentOrNetwork" ;
+    rdfs:comment "Equipment or network of a third party that may cause an Interference Event. [extension: nbn Ethernet Product Module, Section 3.6(a), p.15]" .
+
+:Cl_Beam a owl:Class ;
+    rdfs:label "Cl_Beam" ;
+    rdfs:comment "Satellite capacity resource (beam) that may be at or near maximum capacity. [extension: nbn Ethernet Product Module, Section 3.7(c), p.15]" .
+
+:Cl_WirelessPlus a owl:Class ;
+    rdfs:label "Cl_WirelessPlus" ;
+    rdfs:comment "Wireless Plus product variant for which no PIR or CIR applies. [extension: nbn Ethernet Product Module, Section 3.8(a), p.15]" ;
+    rdfs:subClassOf :nbnEthernetProduct .
+
+:Cl_AVCOrder a owl:Class ;
+    rdfs:label "Cl_AVCOrder" ;
+    rdfs:comment "An event representing an AVC order placed by RSP. [extension: nbn Ethernet Product Module, Section 3.7(a), p.15]" ;
+    rdfs:subClassOf :Cl_ContractualEvent .
+
+:Cl_AVCModification a owl:Class ;
+    rdfs:label "Cl_AVCModification" ;
+    rdfs:comment "An event representing a modification to an AVC. [extension: nbn Ethernet Product Module, Section 3.7(c), p.15]" ;
+    rdfs:subClassOf :Cl_ContractualEvent .
+
+:Cl_PublicInterestPremises a owl:Class ;
+    rdfs:label "Cl_PublicInterestPremises" ;
+    rdfs:comment "A Premises designated as a Public Interest Premises for which nbn may waive RSP obligations under section 39 of the nbn Ethernet Product Terms. [extension: nbn Ethernet Product Module, Section 3.7 Note, p.15]" ;
+    rdfs:subClassOf :Premises .
+
+# --- New Object Properties ---
+
+:causedBy a owl:ObjectProperty ;
+    rdfs:label "causedBy" ;
+    rdfs:comment "Links an Interference Event to the third party equipment or network that caused it. [extension: nbn Ethernet Product Module, Section 3.6(a), p.15]" ;
+    rdfs:domain :Cl_InterferenceEvent ;
+    rdfs:range :Cl_ThirdPartyEquipmentOrNetwork .
+
+:affectsProduct a owl:ObjectProperty ;
+    rdfs:label "affectsProduct" ;
+    rdfs:comment "Links an Interference Event to the Ordered Product it affects. [extension: nbn Ethernet Product Module, Section 3.6(a), p.15]" ;
+    rdfs:domain :Cl_InterferenceEvent ;
+    rdfs:range :Cl_OrderedProduct .
+
+:triggers a owl:ObjectProperty ;
+    rdfs:label "triggers" ;
+    rdfs:comment "Links an Interference Event to the Interference Mitigation it triggers. [extension: nbn Ethernet Product Module, Section 3.6(b), p.15]" ;
+    rdfs:domain :Cl_InterferenceEvent ;
+    rdfs:range :InterferenceMitigation .
+
+:isResponseTo a owl:ObjectProperty ;
+    rdfs:label "isResponseTo" ;
+    rdfs:comment "Links an Interference Mitigation to the Interference Event it responds to. [extension: nbn Ethernet Product Module, Section 3.6(b), p.15]" ;
+    rdfs:domain :InterferenceMitigation ;
+    rdfs:range :Cl_InterferenceEvent .
+
+:isPerformedBy a owl:ObjectProperty ;
+    rdfs:label "isPerformedBy" ;
+    rdfs:comment "Links an Interference Mitigation to the agent that performs it. [extension: nbn Ethernet Product Module, Section 3.6(b), p.15]" ;
+    rdfs:domain :InterferenceMitigation ;
+    rdfs:range :Cl_Agent .
+
+:resultsInState a owl:DatatypeProperty ;
+    rdfs:label "resultsInState" ;
+    rdfs:comment "The resulting state of an Ordered Product after an event. [extension: nbn Ethernet Product Module, Section 3.6(c), p.15]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range xsd:string .
+
+:hasProductState a owl:DatatypeProperty ;
+    rdfs:label "hasProductState" ;
+    rdfs:comment "The operational state of an Ordered Product. [extension: nbn Ethernet Product Module, Section 3.6(c), p.15]" ;
+    rdfs:domain :Cl_OrderedProduct ;
+    rdfs:range xsd:string .
+
+:isAffectedBy a owl:ObjectProperty ;
+    rdfs:label "isAffectedBy" ;
+    rdfs:comment "Links an Ordered Product to the Interference Event that affects it. [extension: nbn Ethernet Product Module, Section 3.6(a), p.15]" ;
+    rdfs:domain :Cl_OrderedProduct ;
+    rdfs:range :Cl_InterferenceEvent .
+
+:requiresAdditionalBeamCapacity a owl:DatatypeProperty ;
+    rdfs:label "requiresAdditionalBeamCapacity" ;
+    rdfs:comment "Indicates if an AVC order or modification would require additional Beam capacity. [extension: nbn Ethernet Product Module, Section 3.7(c), p.15]" ;
+rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range xsd:boolean .
+
+:isAtOrNearMaxCapacity a owl:DatatypeProperty ;
+    rdfs:label "isAtOrNearMaxCapacity" ;
+    rdfs:comment "Indicates if a Beam is at or near maximum capacity. [extension: nbn Ethernet Product Module, Section 3.7(c), p.15]" ;
+    rdfs:domain :Cl_Beam ;
+    rdfs:range xsd:boolean .
+
+:hasBeam a owl:ObjectProperty ;
+    rdfs:label "hasBeam" ;
+    rdfs:comment "Links an AVC order or modification to the Beam it would require capacity from. [extension: nbn Ethernet Product Module, Section 3.7(c), p.15]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range :Cl_Beam .
+
+:deprioritisesDataTransfers a owl:DatatypeProperty ;
+    rdfs:label "deprioritisesDataTransfers" ;
+    rdfs:comment "Indicates if nbn may deprioritise data transfers for an AVC contributing disproportionately to Beam capacity utilisation. [extension: nbn Ethernet Product Module, Section 3.7(d), p.15]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range xsd:boolean .
+
+:reducesMaxDataTransferRate a owl:DatatypeProperty ;
+    rdfs:label "reducesMaxDataTransferRate" ;
+    rdfs:comment "Indicates if nbn may reduce the maximum data transfer rate of an AVC contributing disproportionately to Beam capacity utilisation. [extension: nbn Ethernet Product Module, Section 3.7(d), p.15]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+    rdfs:range xsd:boolean .
+
+:contributesDisproportionately a owl:DatatypeProperty ;
+    rdfs:label "contributesDisproportionately" ;
+    rdfs:comment "Indicates if an AVC contributes disproportionately to Beam capacity utilisation. [extension: nbn Ethernet Product Module, Section 3.7(d), p.15]" ;
+    rdfs:domain :AVC ;
+    rdfs:range xsd:boolean .
+
+:hasPIR a owl:DatatypeProperty ;
+    rdfs:label "hasPIR" ;
+    rdfs:comment "Indicates if a Peak Information Rate applies. [extension: nbn Ethernet Product Module, Section 3.8(a), p.15]" ;
+    rdfs:domain :Cl_WirelessPlus ;
+    rdfs:range xsd:boolean .
+
+:hasCIR a owl:DatatypeProperty ;
+    rdfs:label "hasCIR" ;
+    rdfs:comment "Indicates if a Committed Information Rate applies. [extension: nbn Ethernet Product Module, Section 3.8(a), p.15]" ;
+    rdfs:domain :Cl_WirelessPlus ;
+    rdfs:range xsd:boolean .
+
+:mayDecline a owl:ObjectProperty ;
+    rdfs:label "mayDecline" ;
+    rdfs:comment "Links nbn to an AVC order or modification that nbn may decline. [extension: nbn Ethernet Product Module, Section 3.7(a), p.15]" ;
+    rdfs:domain :Cl_Agent ;
+    rdfs:range :Cl_ContractualEvent .
+
+:resultsInMoreThanOneAVCTC4AndOneAVCTC1 a owl:DatatypeProperty ;
+    rdfs:label "resultsInMoreThanOneAVCTC4AndOneAVCTC1" ;
+    rdfs:comment "Indicates if an AVC order would result in nbn supplying more than one AVC TC-4 and one associated AVC TC-1 to all retail service providers in respect of a Premises. [extension: nbn Ethernet Product Module, Section 3.7(a), p.15]" ;
+    rdfs:domain :Cl_AVCOrder ;
+    rdfs:range xsd:boolean .
+
+:isUsedForBonding a owl:DatatypeProperty ;
+    rdfs:label "isUsedForBonding" ;
+    rdfs:comment "Indicates if an RSP Product is being used in connection with the bonding of two or more UNIs. [extension: nbn Ethernet Product Module, Section 3.7(b), p.15]" ;
+    rdfs:domain :AVC ;
+    rdfs:range xsd:boolean .
+
+:mustSuspendOrTerminate a owl:ObjectProperty ;
+    rdfs:label "mustSuspendOrTerminate" ;
+    rdfs:comment "Links RSP to an RSP Product that RSP must suspend or terminate. [extension: nbn Ethernet Product Module, Section 3.7(b), p.15]" ;
+    rdfs:domain :RSP ;
+    rdfs:range :AVC .
+
+:waivedByNbn a owl:DatatypeProperty ;
+    rdfs:label "waivedByNbn" ;
+    rdfs:comment "Indicates if nbn has waived RSP's obligations in respect of a Public Interest Premises under section 39. [extension: nbn Ethernet Product Module, Section 3.7 Note, p.15]" ;
+    rdfs:domain :Cl_PublicInterestPremises ;
+    rdfs:range xsd:boolean .
+
+# --- New Data Properties ---
+
+:mitigationTimeframe a owl:DatatypeProperty ;
+    rdfs:label "mitigationTimeframe" ;
+    rdfs:comment "The timeframe within which nbn must undertake Interference Mitigation. [extension: nbn Ethernet Product Module, Section 3.6(b), p.15]" ;
+    rdfs:domain :InterferenceMitigation ;
+    rdfs:range xsd:string .
+
+:lineRateNotCapable a owl:DatatypeProperty ;
+    rdfs:label "lineRateNotCapable" ;
+    rdfs:comment "Indicates if the Line Rate of an nbn Ethernet Ordered Product is not capable of supporting the provision of all AVC TC-1 and AVC TC-2 bandwidth profiles ordered by RSP. [extension: nbn Ethernet Product Module, Section 3.5, p.15]" ;
+    rdfs:domain :Cl_OrderedProduct ;
+    rdfs:range xsd:boolean .
+
+# --- Individuals / Facts ---
+
+# Section 3.5 - CIR limitation when Line Rate insufficient
+:Rule_CIRLineRateInsufficient a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "CIR Line Rate Insufficient Rule" ;
+    :hasCondition "the Line Rate of an nbn Ethernet Ordered Product is not capable of supporting the provision of all AVC TC-1 and AVC TC-2 bandwidth profiles ordered by RSP in respect of that Ordered Product (including as set out in sections 3.2.2 and 3.3.2 of the nbn Ethernet Product Technical Specification)" ;
+    :hasConsequence "for both AVC TC-1 and AVC TC-2: (a) the Information Rate experienced by RSP, Downstream Service Provider and End Users may each be significantly less than the downstream CIR and upstream CIR of the bandwidth profile ordered by RSP; and (b) the Frame Delay, Frame Delay Variation and Frame Loss of the relevant Ordered Product may each be significantly worse than the Traffic Class performance specified in section 7.1 of the nbn Ethernet Product Technical Specification" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.5, p.15" .
+
+# Section 3.6(a) - Interference Event concept
+:Event_InterferenceEvent_FTTB a :Cl_InterferenceEvent, owl:NamedIndividual ;
+    rdfs:label "Interference Event - FTTB" ;
+    :eventType "Interference Event caused by the equipment or network of a third party prejudicing the integrity or causing deterioration of an nbn Ethernet (FTTB) Ordered Product" ;
+    :causedBy :ThirdPartyEquipmentOrNetwork_Generic ;
+    :affectsProduct :OrderedProduct_FTTB_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.6(a), p.15" .
+
+:Event_InterferenceEvent_FTTN a :Cl_InterferenceEvent, owl:NamedIndividual ;
+    rdfs:label "Interference Event - FTTN" ;
+    :eventType "Interference Event caused by the equipment or network of a third party prejudicing the integrity or causing deterioration of an nbn Ethernet (FTTN) Ordered Product" ;
+    :causedBy :ThirdPartyEquipmentOrNetwork_Generic ;
+    :affectsProduct :OrderedProduct_FTTN_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.6(a), p.15" .
+
+:Event_InterferenceEvent_FTTC a :Cl_InterferenceEvent, owl:NamedIndividual ;
+    rdfs:label "Interference Event - FTTC" ;
+    :eventType "Interference Event caused by the equipment or network of a third party prejudicing the integrity or causing deterioration of an nbn Ethernet (FTTC) Ordered Product" ;
+    :causedBy :ThirdPartyEquipmentOrNetwork_Generic ;
+    :affectsProduct :OrderedProduct_FTTC_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.6(a), p.15" .
+
+:ThirdPartyEquipmentOrNetwork_Generic a :Cl_ThirdPartyEquipmentOrNetwork, owl:NamedIndividual ;
+    rdfs:label "Third Party Equipment or Network" ;
+    rdfs:comment "Generic representation of equipment or network of a third party that may cause an Interference Event. [extension: nbn Ethernet Product Module, Section 3.6(a), p.15]" .
+
+:OrderedProduct_FTTB_Instance a :Cl_OrderedProduct, owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet (FTTB) Ordered Product" ;
+    :hasProductState "operating normally" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.6(a), p.15" .
+
+:OrderedProduct_FTTN_Instance a :Cl_OrderedProduct, owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet (FTTN) Ordered Product" ;
+    :hasProductState "operating normally" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.6(a), p.15" .
+
+:OrderedProduct_FTTC_Instance a :Cl_OrderedProduct, owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet (FTTC) Ordered Product" ;
+    :hasProductState "operating normally" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.6(a), p.15" .
+
+# Section 3.6(b) - Interference Mitigation obligation
+:Event_InterferenceMitigation_Response a :InterferenceMitigation, owl:NamedIndividual ;
+    rdfs:label "Interference Mitigation in response to Third Party Interference" ;
+    :eventType "Interference Mitigation undertaken by nbn as soon as reasonably practicable in the circumstances" ;
+    :isResponseTo :Event_InterferenceEvent_FTTB ;
+    :isPerformedBy :nbn ;
+    :mitigationTimeframe "as soon as reasonably practicable in the circumstances" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.6(b), p.15" .
+
+# Section 3.6(c) - Affected Ordered Product state
+:Event_InterferenceEvent_AffectsState a :Cl_InterferenceEvent, owl:NamedIndividual ;
+    rdfs:label "Interference Event - Affected State" ;
+    :eventType "Interference Event causing affected Ordered Product to not operate in accordance with the nbn Ethernet Product Description or the nbn Ethernet Product Technical Specification" ;
+    :resultsInState "may not operate in accordance with this nbn Ethernet Product Description or the nbn Ethernet Product Technical Specification" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.6(c), p.15" .
+
+# Section 3.7(a) - Satellite AVC order limit
+:Rule_SatelliteAVCOrderLimit a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Satellite AVC Order Limit Rule" ;
+    :hasCondition "RSP places an AVC order in respect of a Premises for nbn Ethernet (Satellite)" ;
+    :hasConsequence "RSP must not place, and nbn may decline, an AVC order if the supply of the ordered AVC would result in nbn supplying more than one AVC TC-4 and one associated AVC TC-1 to all nbn's retail service providers in respect of that Premises" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.7(a), p.15" .
+
+:Event_AVCOrder_Satellite_Declined a :Cl_AVCOrder, owl:NamedIndividual ;
+    rdfs:label "AVC Order Declined - Satellite" ;
+    :eventType "AVC order that would result in more than one AVC TC-4 and one associated AVC TC-1 per Premises" ;
+    :resultsInMoreThanOneAVCTC4AndOneAVCTC1 true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.7(a), p.15" .
+
+# Section 3.7(b) - UNI bonding prohibition
+:Rule_UNIBondingProhibition a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "UNI Bonding Prohibition Rule" ;
+    :hasCondition "RSP becomes aware that an RSP Product is being used by a Downstream Service Provider or End User in connection with the bonding of two or more UNIs (even if nbn is only supplying one of the UNIs to RSP and the other UNI(s) to an Other RSP)" ;
+    :hasConsequence "RSP must suspend or terminate that RSP Product" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.7(b), p.15" .
+
+# Section 3.7(c) - Beam capacity decline
+:Rule_BeamCapacityDecline a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Beam Capacity Decline Rule" ;
+    :hasCondition "an AVC order or AVC modification would require additional Beam capacity to be supplied during any period in which a Beam is at or near maximum capacity" ;
+    :hasConsequence "nbn may decline that AVC order or AVC modification" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.7(c), p.15" .
+
+:Beam_GenericInstance a :Cl_Beam, owl:NamedIndividual ;
+    rdfs:label "Generic Beam" ;
+    :isAtOrNearMaxCapacity true ;
+    rdfs:comment "A beam that may be at or near maximum capacity. [extension: nbn Ethernet Product Module, Section 3.7(c), p.15]" .
+
+:Event_AVCOrder_RequiringBeamCapacity a :Cl_AVCOrder, owl:NamedIndividual ;
+    rdfs:label "AVC Order Requiring Additional Beam Capacity" ;
+    :eventType "AVC order which would require additional Beam capacity to be supplied" ;
+    :requiresAdditionalBeamCapacity true ;
+    :hasBeam :Beam_GenericInstance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.7(c), p.15" .
+
+:Event_AVCModification_RequiringBeamCapacity a :Cl_AVCModification, owl:NamedIndividual ;
+    rdfs:label "AVC Modification Requiring Additional Beam Capacity" ;
+    :eventType "AVC modification which would require additional Beam capacity to be supplied" ;
+    :requiresAdditionalBeamCapacity true ;
+    :hasBeam :Beam_GenericInstance ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.7(c), p.15" .
+
+# Section 3.7(d) - Beam capacity deprioritisation
+:Rule_BeamDeprioritisation a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Beam Deprioritisation Rule" ;
+    :hasCondition "an AVC contributes disproportionately to Beam capacity utilisation" ;
+    :hasConsequence "nbn may deprioritise data transfers or reduce the maximum data transfer rate of that AVC" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.7(d), p.15" .
+
+:Event_BeamDeprioritisation a :Cl_ContractualEvent, owl:NamedIndividual ;
+    rdfs:label "Beam Deprioritisation Event" ;
+    :eventType "nbn deprioritises data transfers or reduces the maximum data transfer rate of an AVC contributing disproportionately to Beam capacity utilisation" ;
+    :hasAgent :nbn ;
+    :deprioritisesDataTransfers true ;
+    :reducesMaxDataTransferRate true ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.7(d), p.15" .
+
+# Section 3.7 Note - Public Interest Premises waiver
+:PublicInterestPremises_Instance a :Cl_PublicInterestPremises, owl:NamedIndividual ;
+    rdfs:label "Public Interest Premises Instance" ;
+    :waivedByNbn true ;
+    rdfs:comment "A Public Interest Premises for which nbn may waive RSP's obligations under section 39 of the nbn Ethernet Product Terms. [extension: nbn Ethernet Product Module, Section 3.7 Note, p.15]" .
+
+# Section 3.8 - Wireless Plus Information Rate
+:WirelessPlus_Instance a :Cl_WirelessPlus, owl:NamedIndividual ;
+    rdfs:label "Wireless Plus" ;
+    :hasPIR false ;
+    :hasCIR false ;
+    rdfs:comment "Wireless Plus product for which no PIR or CIR applies. [extension: nbn Ethernet Product Module, Section 3.8(a), p.15]" .
+
+:Rule_WirelessPlusNoPIRorCIR a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Wireless Plus No PIR or CIR Rule" ;
+    :hasCondition "Wireless Plus is supplied" ;
+    :hasConsequence "no PIR or CIR applies in respect of Wireless Plus" ;
+    :sourceClause "nbn Ethernet Product Module, Section 3.8(a), p.15" .
+# ===== EXTENSIONS FOR SECTIONS 4.2-4.5 (Page 17-18) - UNI Types, AVC TC-4 Product Component, UNI-V Withdrawal =====""
+:Cl_InterfaceType a owl:Class ;
+    rdfs:label "Cl_InterfaceType" ;
+    rdfs:comment "A reified class representing the type of interface (e.g. electrical, optical) for a UNI. [extension: nbn Ethernet Product Module, Section 4.2(b), p.17]" .
+
+:Cl_ProductFeature a owl:Class ;
+    rdfs:label "Cl_ProductFeature" ;
+    rdfs:comment "An optional product feature that can be added to an nbn Ethernet product. [extension: nbn Ethernet Product Module, Section 4.3(b), p.17]" .
+
+:Cl_ProductFeatureState a owl:Class ;
+    rdfs:label "Cl_ProductFeatureState" ;
+    rdfs:comment "An enumeration of states in the lifecycle of a product feature: Orderable, Transition-out Only, Withdrawn. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" .
+
+:Cl_StateTransition a owl:Class ;
+    rdfs:label "Cl_StateTransition" ;
+    rdfs:comment "A reified state transition with a trigger and guard condition for a product feature lifecycle. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" .
+
+:Cl_AnalogueTelephoneAdaptor a owl:Class ;
+    rdfs:label "Cl_AnalogueTelephoneAdaptor" ;
+    rdfs:comment "An analogue telephone adaptor incorporated in the UNI-V product feature for the supply of telephony services to a Premises. [extension: nbn Ethernet Product Module, Section 4.3(b), p.17]" .
+
+:Cl_OrderType a owl:Class ;
+    rdfs:label "Cl_OrderType" ;
+    rdfs:comment "An enumeration of order types: Standard, Transition-out Modify, Disconnect. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" .
+
+:Cl_AVCTC4_ProductComponent a owl:Class ;
+    rdfs:label "Cl_AVCTC4_ProductComponent" ;
+    rdfs:comment "A specific product component (AVC TC-4) that is a required component for certain nbn Ethernet products, with conditional UNI requirements. [extension: nbn Ethernet Product Module, Section 4.2(c), p.17]" .
+
+:UNI_DSL a owl:Class ;
+    rdfs:label "UNI_DSL" ;
+    rdfs:comment "User Network Interface - DSL, used for FTTB and FTTN networks. [extension: nbn Ethernet Product Module, Section 4.4, p.17]" ;
+    rdfs:subClassOf :UNI .
+
+# --- New Object Properties ---
+
+:hasInterfaceType a owl:ObjectProperty ;
+    rdfs:label "hasInterfaceType" ;
+    rdfs:comment "Links a UNI to its reified interface type (e.g. electrical, optical). [extension: nbn Ethernet Product Module, Section 4.2(b), p.17]" ;
+    rdfs:domain :UNI ;
+    rdfs:range :Cl_InterfaceType .
+
+:isOptionalProductFeatureOf a owl:ObjectProperty ;
+    rdfs:label "isOptionalProductFeatureOf" ;
+    rdfs:comment "Links a product feature to the nbn Ethernet product it is an optional feature of. [extension: nbn Ethernet Product Module, Section 4.3(b), p.17]" ;
+    rdfs:domain :Cl_ProductFeature ;
+    rdfs:range :nbnEthernetProduct .
+
+:incorporates a owl:ObjectProperty ;
+    rdfs:label "incorporates" ;
+    rdfs:comment "Links a product feature to a component it incorporates. [extension: nbn Ethernet Product Module, Section 4.3(b), p.17]" ;
+    rdfs:domain :Cl_ProductFeature ;
+    rdfs:range :Cl_AnalogueTelephoneAdaptor .
+
+:hasState a owl:ObjectProperty ;
+    rdfs:label "hasState" ;
+    rdfs:comment "Links a product feature to its current state in the lifecycle. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" ;
+    rdfs:domain :Cl_ProductFeature ;
+    rdfs:range :Cl_ProductFeatureState .
+
+:hasTrigger a owl:DatatypeProperty ;
+    rdfs:label "hasTrigger" ;
+    rdfs:comment "The trigger event for a state transition. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" ;
+    rdfs:domain :Cl_StateTransition ;
+    rdfs:range xsd:string .
+
+:hasGuard a owl:DatatypeProperty ;
+    rdfs:label "hasGuard" ;
+    rdfs:comment "The guard condition for a state transition. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" ;
+    rdfs:domain :Cl_StateTransition ;
+    rdfs:range xsd:string .
+
+:hasEffectiveDate a owl:DatatypeProperty ;
+    rdfs:label "hasEffectiveDate" ;
+    rdfs:comment "The effective date for a temporal constraint or event. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" ;
+    rdfs:domain owl:Thing ;
+rdfs:range xsd:dateTime .
+
+:withdrawnOn a owl:DatatypeProperty ;
+    rdfs:label "withdrawnOn" ;
+    rdfs:comment "The date on which a product feature is withdrawn. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" ;
+    rdfs:domain :Cl_ProductFeature ;
+rdfs:range xsd:dateTime .
+
+:issuedNoticeOn a owl:DatatypeProperty ;
+    rdfs:label "issuedNoticeOn" ;
+    rdfs:comment "The date on which a notice was issued. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" ;
+    rdfs:domain :Cl_ContractualEvent ;
+rdfs:range xsd:dateTime .
+
+:expiresOn a owl:DatatypeProperty ;
+    rdfs:label "expiresOn" ;
+    rdfs:comment "The date on which a period expires. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" ;
+    rdfs:domain owl:Thing ;
+rdfs:range xsd:dateTime .
+
+:mustNotSubmitOrderFor a owl:ObjectProperty ;
+    rdfs:label "mustNotSubmitOrderFor" ;
+    rdfs:comment "Links an RSP to the order types that must not be submitted for a product feature after a certain date. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" ;
+    rdfs:domain :RSP ;
+    rdfs:range :Cl_OrderType .
+
+:requires a owl:ObjectProperty ;
+    rdfs:label "requires" ;
+    rdfs:comment "Links an AVC TC-4 Product Component to the UNI type it requires as a condition of supply. [extension: nbn Ethernet Product Module, Section 4.2(c), p.17]" ;
+    rdfs:domain :Cl_AVCTC4_ProductComponent ;
+    rdfs:range :UNI .
+
+:isConditionOfSupplyFor a owl:ObjectProperty ;
+    rdfs:label "isConditionOfSupplyFor" ;
+    rdfs:comment "Links an AVC TC-4 Product Component to the nbn Ethernet product variants for which it is a condition of supply. [extension: nbn Ethernet Product Module, Section 4.2(c), p.17]" ;
+    rdfs:domain :Cl_AVCTC4_ProductComponent ;
+    rdfs:range :nbnEthernetProduct .
+
+:isAcquiredBy a owl:ObjectProperty ;
+    rdfs:label "isAcquiredBy" ;
+    rdfs:comment "Links an AVC TC-4 Product Component to the RSP that acquires it. [extension: nbn Ethernet Product Module, Section 4.2(c), p.17]" ;
+    rdfs:domain :Cl_AVCTC4_ProductComponent ;
+    rdfs:range :RSP .
+
+:forEachPremises a owl:ObjectProperty ;
+    rdfs:label "forEachPremises" ;
+    rdfs:comment "Links an AVC TC-4 Product Component acquisition to the Premises at which it is supplied. [extension: nbn Ethernet Product Module, Section 4.2(c), p.17]" ;
+    rdfs:domain :Cl_AVCTC4_ProductComponent ;
+    rdfs:range :Premises .
+
+:dependsOnNumberOfNTDs a owl:DatatypeProperty ;
+    rdfs:label "dependsOnNumberOfNTDs" ;
+    rdfs:comment "Indicates that the number of UNI-Ds available depends on the number and type of NTDs or FTTC-NCDs installed. [extension: nbn Ethernet Product Module, Section 4.2(a)(ii), p.17]" ;
+    rdfs:domain :UNI_D ;
+    rdfs:range xsd:boolean .
+
+:dependsOnFootprint a owl:DatatypeProperty ;
+    rdfs:label "dependsOnFootprint" ;
+    rdfs:comment "Indicates that the number of UNI-Ds available depends on whether a Premises is located in the footprint of a network type. [extension: nbn Ethernet Product Module, Section 4.2(a)(i), p.17]" ;
+    rdfs:domain :UNI_D ;
+    rdfs:range xsd:boolean .
+
+:dependsOnCopperPairs a owl:DatatypeProperty ;
+    rdfs:label "dependsOnCopperPairs" ;
+    rdfs:comment "Indicates that the number of UNI-DSLs available depends on the number of distinct nbn Copper Pairs installed. [extension: nbn Ethernet Product Module, Section 4.4(a)(i), p.17]" ;
+    rdfs:domain :UNI_DSL ;
+    rdfs:range xsd:boolean .
+
+:dependsOnXDSLPortAllocation a owl:DatatypeProperty ;
+    rdfs:label "dependsOnXDSLPortAllocation" ;
+    rdfs:comment "Indicates that the number of UNI-DSLs available depends on the allocation and installation of a single xDSL port to each distinct nbn Copper Pair. [extension: nbn Ethernet Product Module, Section 4.4(a)(ii), p.17]" ;
+    rdfs:domain :UNI_DSL ;
+    rdfs:range xsd:boolean .
+
+:dependsOnNTDVersion a owl:DatatypeProperty ;
+    rdfs:label "dependsOnNTDVersion" ;
+    rdfs:comment "Indicates that the number of UNI-Vs available depends on the number and version of NTDs installed. [extension: nbn Ethernet Product Module, Section 4.3(a), p.17]" ;
+    rdfs:domain :UNI_V ;
+    rdfs:range xsd:boolean .
+
+# --- Individuals / Facts ---
+
+# Section 4.2(a) - UNI-D availability depends on footprint and NTDs
+:UNI_D_Availability_Rule a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "UNI-D Availability Rule" ;
+    :hasCondition "a Premises is served by the Fibre Network, FTTC Network, HFC Network, Wireless Network or Satellite Network" ;
+    :hasConsequence "the number of UNI-Ds available depends on: (i) whether the Premises is located in the footprint of those networks; and (ii) the number and type of NTDs or FTTC-NCDs installed at that Premises" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.2(a), p.17" .
+
+# Section 4.2(b) - UNI-D has electrical interface
+:InterfaceType_Electrical a :Cl_InterfaceType, owl:NamedIndividual ;
+    rdfs:label "Electrical Interface" ;
+    rdfs:comment "An electrical interface type for UNI-D. [extension: nbn Ethernet Product Module, Section 4.2(b), p.17]" .
+
+:UNI_D_InterfaceType_Relation a owl:NamedIndividual ;
+    rdfs:label "UNI-D has electrical interface" ;
+    rdfs:comment "Reified relationship: UNI-D has an electrical interface and will not be made available with an optical interface. [extension: nbn Ethernet Product Module, Section 4.2(b), p.17]" ;
+    :hasInterfaceType :InterfaceType_Electrical .
+
+:Rule_UNID_ElectricalInterface a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "UNI-D Electrical Interface Rule" ;
+    :hasCondition "UNI-D is made available" ;
+    :hasConsequence "the UNI-D has an electrical interface and will not be made available with an optical interface" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.2(b), p.17" .
+
+# Section 4.2(c) - AVC TC-4 requires UNI-D for Fibre, FTTC, HFC, Wireless, Satellite
+:AVCTC4_ProductComponent_FibreUNID a :Cl_AVCTC4_ProductComponent, owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Product Component requiring UNI-D" ;
+    :requires :UNI_D ;
+    :isConditionOfSupplyFor :nbnEthernet_Fibre, :nbnEthernet_FTTC, :nbnEthernet_HFC, :nbnEthernet_Wireless, :nbnEthernet_Satellite ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.2(c), p.17" .
+
+:Rule_AVCTC4_Requires_UNID a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Requires UNI-D Rule" ;
+    :hasCondition "an AVC TC-4 Product Component of nbn Ethernet (Fibre), nbn Ethernet (FTTC), nbn Ethernet (HFC), nbn Ethernet (Wireless) or nbn Ethernet (Satellite) is supplied" ;
+    :hasConsequence "RSP also acquires a UNI-D in conjunction with that AVC TC-4 for each Premises at which nbn Ethernet will be supplied" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.2(c), p.17" .
+
+# Section 4.3(a) - UNI-V availability depends on NTDs
+:UNI_V_Availability_Rule a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "UNI-V Availability Rule" ;
+    :hasCondition "a Premises is served by the Fibre Network" ;
+    :hasConsequence "the number of UNI-Vs available depends on the number and version of NTDs which nbn has installed at that Premises" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.3(a), p.17" .
+
+# Section 4.3(b) - UNI-V is optional Product Feature of nbn Ethernet (Fibre), incorporates analogue telephone adaptor
+:UNIV_ProductFeature a :Cl_ProductFeature, owl:NamedIndividual ;
+    rdfs:label "UNI-V Product Feature" ;
+    rdfs:comment "The UNI-V is an optional Product Feature of nbn Ethernet (Fibre) and incorporates an analogue telephone adaptor for the supply of telephony services to a Premises. [extension: nbn Ethernet Product Module, Section 4.3(b), p.17]" ;
+    :isOptionalProductFeatureOf :nbnEthernet_Fibre ;
+    :incorporates :AnalogueTelephoneAdaptor_Instance .
+
+:AnalogueTelephoneAdaptor_Instance a :Cl_AnalogueTelephoneAdaptor, owl:NamedIndividual ;
+    rdfs:label "Analogue Telephone Adaptor" ;
+    rdfs:comment "An analogue telephone adaptor incorporated in the UNI-V for the supply of telephony services to a Premises. [extension: nbn Ethernet Product Module, Section 4.3(b), p.17]" .
+
+# Section 4.3 Notes - UNI-V withdrawal lifecycle
+:Event_UNIV_NoticeIssued a :Cl_ContractualEvent, owl:NamedIndividual ;
+    rdfs:label "UNI-V Notice Issued" ;
+    :eventType "nbn issued a notice in relation to the withdrawal of the UNI-V Product Feature" ;
+    :hasAgent :nbn ;
+:issuedNoticeOn "2023-05-26T00:00:00"^^xsd:dateTime ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.3 Notes, p.17" .
+
+:UNIV_ContinuedOrderingPeriod a owl:NamedIndividual ;
+    rdfs:label "UNI-V Continued Ordering Period" ;
+    rdfs:comment "The Continued Ordering Period for the UNI-V Product Feature, expiring on 26 May 2024. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" ;
+:expiresOn "2024-05-26T00:00:00"^^xsd:dateTime .
+:UNIV_WithdrawalDate a owl:NamedIndividual ;
+    rdfs:label "UNI-V Withdrawal Date" ;
+    rdfs:comment "The date on which the UNI-V Product Feature will be withdrawn: 31 January 2031. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" ;
+:withdrawnOn "2031-01-31T00:00:00"^^xsd:dateTime .
+
+# UNI-V Lifecycle States
+:ProductFeatureState_Orderable a :Cl_ProductFeatureState, owl:NamedIndividual ;
+    rdfs:label "Orderable" ;
+    rdfs:comment "State in which the UNI-V Product Feature is orderable. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" .
+
+:ProductFeatureState_TransitionOutOnly a :Cl_ProductFeatureState, owl:NamedIndividual ;
+    rdfs:label "Transition-out Only" ;
+    rdfs:comment "State in which the UNI-V Product Feature can only be ordered via Transition-out Modify Order or Disconnect Order. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" .
+
+:ProductFeatureState_Withdrawn a :Cl_ProductFeatureState, owl:NamedIndividual ;
+    rdfs:label "Withdrawn" ;
+    rdfs:comment "State in which the UNI-V Product Feature is withdrawn. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" .
+
+# UNI-V State Transitions
+:UNIV_StateTransition_OrderableToTransitionOut a :Cl_StateTransition, owl:NamedIndividual ;
+    rdfs:label "UNI-V: Orderable to Transition-out Only" ;
+    :hasTrigger "expiry of Continued Ordering Period on 26 May 2024" ;
+    :hasGuard "after 26 May 2024" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.3 Notes, p.17" .
+
+:UNIV_StateTransition_TransitionOutToWithdrawn a :Cl_StateTransition, owl:NamedIndividual ;
+    rdfs:label "UNI-V: Transition-out Only to Withdrawn" ;
+    :hasTrigger "withdrawal date of 31 January 2031" ;
+    :hasGuard "on 31 January 2031, unless disconnected earlier" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.3 Notes, p.17" .
+
+# Order Types
+:OrderType_Standard a :Cl_OrderType, owl:NamedIndividual ;
+    rdfs:label "Standard Order" ;
+    rdfs:comment "A standard order type. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" .
+
+:OrderType_TransitionOutModify a :Cl_OrderType, owl:NamedIndividual ;
+    rdfs:label "Transition-out Modify Order" ;
+    rdfs:comment "A Transition-out Modify Order type. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" .
+
+:OrderType_Disconnect a :Cl_OrderType, owl:NamedIndividual ;
+    rdfs:label "Disconnect Order" ;
+    rdfs:comment "A Disconnect Order type. [extension: nbn Ethernet Product Module, Section 4.3 Notes, p.17]" .
+
+# Business Rule: RSP must not submit Standard Order for UNI-V after Continued Ordering Period expiry
+:Rule_UNIV_NoStandardOrder_AfterExpiry a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "UNI-V No Standard Order After Expiry Rule" ;
+    :hasCondition "after the expiry of the Continued Ordering Period for the UNI-V Product Feature on 26 May 2024" ;
+    :hasConsequence "RSP must not submit an order for a UNI-V Product Feature unless that order is a Transition-out Modify Order or Disconnect Order" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.3 Notes, p.17" .
+
+:Rule_UNIV_ContinuedSupply_UntilWithdrawal a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "UNI-V Continued Supply Until Withdrawal Rule" ;
+    :hasCondition "existing orders for UNI-V Product Features are in place" ;
+    :hasConsequence "nbn will continue supplying UNI-V Product Features in respect of existing orders until the UNI-V Product Feature is withdrawn on 31 January 2031, unless disconnected earlier" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.3 Notes, p.17" .
+
+# Section 4.4(a) - UNI-DSL availability depends on Copper Pairs and xDSL port allocation
+:UNI_DSL_Availability_Rule a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "UNI-DSL Availability Rule" ;
+    :hasCondition "a Premises is served by the FTTB Network or FTTN Network" ;
+    :hasConsequence "the number of UNI-DSLs available depends on: (i) the number of distinct nbn Copper Pairs installed at the Premises which terminate at an accessible xDSL port; and (ii) the allocation and installation by nbn of a single xDSL port to each distinct nbn Copper Pair" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.4(a), p.17" .
+
+# Section 4.4(b) - AVC TC-4 requires UNI-DSL for FTTB and FTTN
+:AVCTC4_ProductComponent_FTTBFTTN_UNIDSL a :Cl_AVCTC4_ProductComponent, owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Product Component requiring UNI-DSL" ;
+    :requires :UNI_DSL ;
+    :isConditionOfSupplyFor :nbnEthernet_FTTB, :nbnEthernet_FTTN ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.4(b), p.17" .
+
+:Rule_AVCTC4_Requires_UNIDSL a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 Requires UNI-DSL Rule" ;
+    :hasCondition "an AVC TC-4 Product Component of nbn Ethernet (FTTB) or nbn Ethernet (FTTN) is supplied" ;
+    :hasConsequence "RSP also acquires a UNI-DSL in conjunction with that AVC TC-4 for each Premises at which nbn Ethernet will be supplied" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.4(b), p.17" .
+
+# Section 7 (Page 18) - No NTD or FTTC-NCD for FTTB/FTTN
+:Rule_NoNTD_FTTB_FTTN a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "No NTD or FTTC-NCD for FTTB/FTTN Rule" ;
+    :hasCondition "nbn Ethernet (FTTB) or nbn Ethernet (FTTN) is supplied" ;
+    :hasConsequence "there is no NTD or FTTC-NCD used in connection with the supply of nbn Ethernet (FTTB) or nbn Ethernet (FTTN)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 7, p.18" .
+
+# UNI-DSL Instance
+:UNI_DSL_Instance a :UNI_DSL, owl:NamedIndividual ;
+    rdfs:label "UNI-DSL Instance" ;
+    rdfs:comment "An instance of a UNI-DSL. [extension: nbn Ethernet Product Module, Section 4.4, p.17]" .
+# ===== EXTENSIONS FOR SECTION 4.6 (Page 18-19) - FTTC Network - UNI-D and nbn Downstream Network Boundary =====
+# --- New Classes ---
+
+:Cl_FTTCNetworkBoundary a owl:Class ;
+    rdfs:label "Cl_FTTCNetworkBoundary" ;
+    rdfs:comment "The nbn Downstream Network Boundary for the FTTC Network, determined by premises type (MDU vs non-MDU). [extension: nbn Ethernet Product Module, Section 4.6(b), p.19]" .
+
+:Cl_FTTCCircuitTermination a owl:Class ;
+    rdfs:label "Cl_FTTCCircuitTermination" ;
+    rdfs:comment "A reified relationship representing the physical and electromagnetic termination of an AVC provided by the UNI-D at a premises served by the FTTC Network. [extension: nbn Ethernet Product Module, Section 4.6(a)(ii), p.19]" .
+
+:Cl_FTTCNCD a owl:Class ;
+    rdfs:label "Cl_FTTCNCD" ;
+    rdfs:comment "The Fibre-to-the-Curb Network Connection Device at a premises served by the FTTC Network that hosts the UNI-D and is explicitly not a Network Termination Device. [extension: nbn Ethernet Product Module, Section 4.6(a)(i), p.19]" ;
+    owl:disjointWith :NTD .
+
+:Cl_CustomerSideMDF a owl:Class ;
+    rdfs:label "Cl_CustomerSideMDF" ;
+    rdfs:comment "The Customer Side MDF at an MDU site, which is the nbn Downstream Network Boundary for FTTC when the premises is at an MDU Site. [extension: nbn Ethernet Product Module, Section 4.6(b)(i), p.19]" .
+
+:Cl_TelecommunicationsOutlet a owl:Class ;
+    rdfs:label "Cl_TelecommunicationsOutlet" ;
+    rdfs:comment "The first Telecommunications Outlet at a non-MDU premises, which is the nbn Downstream Network Boundary for FTTC when the premises is not at an MDU Site (or the Passive NTD if present). [extension: nbn Ethernet Product Module, Section 4.6(b)(ii), p.19]" .
+
+:Cl_PassiveNTD a owl:Class ;
+    rdfs:label "Cl_PassiveNTD" ;
+    rdfs:comment "The Passive Network Termination Device at a non-MDU premises, which is the nbn Downstream Network Boundary for FTTC when present. [extension: nbn Ethernet Product Module, Section 4.6(b)(ii), p.19]" .
+
+:Cl_MDUSite a owl:Class ;
+    rdfs:label "Cl_MDUSite" ;
+    rdfs:comment "A premises that is an MDU (Multi-Dwelling Unit) Site. [extension: nbn Ethernet Product Module, Section 4.6(b)(i), p.19]" ;
+    rdfs:subClassOf :Premises .
+
+# --- New Object Properties ---
+
+:isDownstreamNetworkBoundaryFor a owl:ObjectProperty ;
+    rdfs:label "isDownstreamNetworkBoundaryFor" ;
+    rdfs:comment "Links the FTTC Network Boundary to the Premises for which it is the boundary. [extension: nbn Ethernet Product Module, Section 4.6(b), p.19]" ;
+    rdfs:domain :Cl_FTTCNetworkBoundary ;
+    rdfs:range :Premises .
+
+:isRealizedBy a owl:ObjectProperty ;
+    rdfs:label "isRealizedBy" ;
+    rdfs:comment "Links the FTTC Network Boundary to the physical entity that realizes it (Customer Side MDF, Telecommunications Outlet, or Passive NTD). [extension: nbn Ethernet Product Module, Section 4.6(b), p.19]" ;
+    rdfs:domain :Cl_FTTCNetworkBoundary ;
+    rdfs:range owl:Thing .
+
+:hosts a owl:ObjectProperty ;
+    rdfs:label "hosts" ;
+    rdfs:comment "Links an FTTC-NCD to the UNI-D it hosts. [extension: nbn Ethernet Product Module, Section 4.6(a)(i), p.19]" ;
+    rdfs:domain :Cl_FTTCNCD ;
+    rdfs:range :UNI_D .
+
+:providesTerminationOf a owl:ObjectProperty ;
+    rdfs:label "providesTerminationOf" ;
+    rdfs:comment "Links a UNI-D to the AVC it provides termination of. [extension: nbn Ethernet Product Module, Section 4.6(a)(ii), p.19]" ;
+    rdfs:domain :UNI_D ;
+    rdfs:range :AVC .
+
+:isLocatedOn a owl:ObjectProperty ;
+    rdfs:label "isLocatedOn" ;
+    rdfs:comment "Links a UNI-D to the FTTC-NCD on which it is located. [extension: nbn Ethernet Product Module, Section 4.6(a)(i), p.19]" ;
+    rdfs:domain :UNI_D ;
+    rdfs:range :Cl_FTTCNCD .
+
+:isAtMDUSite a owl:DatatypeProperty ;
+    rdfs:label "isAtMDUSite" ;
+    rdfs:comment "Indicates if a Premises is at an MDU Site. [extension: nbn Ethernet Product Module, Section 4.6(b), p.19]" ;
+    rdfs:domain :Premises ;
+    rdfs:range xsd:boolean .
+
+:hasTerminationType a owl:DatatypeProperty ;
+    rdfs:label "hasTerminationType" ;
+    rdfs:comment "The type of termination provided by a UNI-D (e.g. physical and electromagnetic). [extension: nbn Ethernet Product Module, Section 4.6(a)(ii), p.19]" ;
+    rdfs:domain :Cl_FTTCCircuitTermination ;
+    rdfs:range xsd:string .
+
+# --- Individuals / Facts ---
+
+# Section 4.6(a)(i) - UNI-D is located on the FTTC-NCD
+:FTTCNCD_Instance a :Cl_FTTCNCD, owl:NamedIndividual ;
+    rdfs:label "FTTC-NCD Instance" ;
+    rdfs:comment "An FTTC Network Connection Device at a premises served by the FTTC Network. [extension: nbn Ethernet Product Module, Section 4.6(a)(i), p.19]" .
+
+:UNI_D_FTTC_Instance a :UNI_D, owl:NamedIndividual ;
+    rdfs:label "UNI-D at FTTC Premises" ;
+    rdfs:comment "A UNI-D at a Premises served by the FTTC Network. [extension: nbn Ethernet Product Module, Section 4.6(a), p.19]" ;
+    :isLocatedOn :FTTCNCD_Instance .
+
+# Section 4.6(a)(ii) - UNI-D provides physical and electromagnetic termination of the AVC
+:FttcCircuitTermination_Instance a :Cl_FTTCCircuitTermination, owl:NamedIndividual ;
+    rdfs:label "FTTC Circuit Termination Instance" ;
+    rdfs:comment "The physical and electromagnetic termination of an AVC provided by the UNI-D at an FTTC premises. [extension: nbn Ethernet Product Module, Section 4.6(a)(ii), p.19]" ;
+    :hasTerminationType "physical and electromagnetic" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.6(a)(ii), p.19" .
+
+:UNI_D_FTTC_Instance :providesTerminationOf :AVC_ObjectRole .
+
+# Section 4.6(a) - UNI-D is not the nbn Downstream Network Boundary for FTTC
+:Rule_UNID_Not_FTTCBoundary a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "UNI-D is not FTTC Network Boundary Rule" ;
+    rdfs:comment "The UNI-D at a Premises served by the FTTC Network is not the nbn Downstream Network Boundary for the FTTC Network. [extension: nbn Ethernet Product Module, Section 4.6(a), p.19]" ;
+    :hasCondition "a UNI-D is at a Premises served by the FTTC Network" ;
+    :hasConsequence "the UNI-D is not the nbn Downstream Network Boundary for the FTTC Network" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.6(a), p.19" .
+
+# Section 4.6(b)(i) - FTTC Network Boundary for MDU Site is the Customer Side MDF
+:FTTCNetworkBoundary_MDU a :Cl_FTTCNetworkBoundary, owl:NamedIndividual ;
+    rdfs:label "FTTC Network Boundary - MDU Site" ;
+    rdfs:comment "The nbn Downstream Network Boundary for a Premises served by the FTTC Network that is at an MDU Site. [extension: nbn Ethernet Product Module, Section 4.6(b)(i), p.19]" ;
+    :isRealizedBy :CustomerSideMDF_Instance .
+
+:CustomerSideMDF_Instance a :Cl_CustomerSideMDF, owl:NamedIndividual ;
+    rdfs:label "Customer Side MDF Instance" ;
+    rdfs:comment "The Customer Side MDF at an MDU site. [extension: nbn Ethernet Product Module, Section 4.6(b)(i), p.19]" .
+
+:Premises_MDUSite_Instance a :Cl_MDUSite, owl:NamedIndividual ;
+    rdfs:label "Premises at MDU Site" ;
+    rdfs:comment "A Premises served by the FTTC Network that is at an MDU Site. [extension: nbn Ethernet Product Module, Section 4.6(b)(i), p.19]" ;
+    :isAtMDUSite true .
+
+:FTTCNetworkBoundary_MDU :isDownstreamNetworkBoundaryFor :Premises_MDUSite_Instance .
+
+# Section 4.6(b)(ii) - FTTC Network Boundary for non-MDU Site is the first Telecommunications Outlet or Passive NTD
+:FTTCNetworkBoundary_NonMDU a :Cl_FTTCNetworkBoundary, owl:NamedIndividual ;
+    rdfs:label "FTTC Network Boundary - Non-MDU Site" ;
+    rdfs:comment "The nbn Downstream Network Boundary for a Premises served by the FTTC Network that is not at an MDU Site. [extension: nbn Ethernet Product Module, Section 4.6(b)(ii), p.19]" .
+
+:TelecommunicationsOutlet_Instance a :Cl_TelecommunicationsOutlet, owl:NamedIndividual ;
+    rdfs:label "First Telecommunications Outlet Instance" ;
+    rdfs:comment "The first Telecommunications Outlet at a non-MDU premises. [extension: nbn Ethernet Product Module, Section 4.6(b)(ii), p.19]" .
+
+:PassiveNTD_Instance a :Cl_PassiveNTD, owl:NamedIndividual ;
+    rdfs:label "Passive NTD Instance" ;
+    rdfs:comment "A Passive Network Termination Device at a non-MDU premises. [extension: nbn Ethernet Product Module, Section 4.6(b)(ii), p.19]" .
+
+:Premises_NonMDUSite_Instance a :Premises, owl:NamedIndividual ;
+    rdfs:label "Premises not at MDU Site" ;
+    rdfs:comment "A Premises served by the FTTC Network that is not at an MDU Site. [extension: nbn Ethernet Product Module, Section 4.6(b)(ii), p.19]" ;
+    :isAtMDUSite false .
+
+:FTTCNetworkBoundary_NonMDU :isDownstreamNetworkBoundaryFor :Premises_NonMDUSite_Instance .
+
+# Rule: For non-MDU, boundary is first Telecommunications Outlet or Passive NTD
+:Rule_FTTCBoundary_NonMDU a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "FTTC Network Boundary for Non-MDU Rule" ;
+    rdfs:comment "For a Premises served by the FTTC Network that is not at an MDU Site, the nbn Downstream Network Boundary is the first Telecommunications Outlet or, if present, Passive NTD. [extension: nbn Ethernet Product Module, Section 4.6(b)(ii), p.19]" ;
+    :hasCondition "a Premises served by the FTTC Network is not at an MDU Site" ;
+    :hasConsequence "the nbn Downstream Network Boundary is the first Telecommunications Outlet or, if present, Passive NTD" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.6(b)(ii), p.19" .
+
+# Rule: For MDU, boundary is Customer Side MDF
+:Rule_FTTCBoundary_MDU a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "FTTC Network Boundary for MDU Rule" ;
+    rdfs:comment "For a Premises served by the FTTC Network that is at an MDU Site, the nbn Downstream Network Boundary is the Customer Side MDF. [extension: nbn Ethernet Product Module, Section 4.6(b)(i), p.19]" ;
+    :hasCondition "a Premises served by the FTTC Network is at an MDU Site" ;
+    :hasConsequence "the nbn Downstream Network Boundary is the Customer Side MDF" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.6(b)(i), p.19" .
+
+# Section 4.6(c) - FTTC-NCD is not a Network Termination Device
+:Rule_FTTCNCD_Not_NTD a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "FTTC-NCD is not a Network Termination Device Rule" ;
+    rdfs:comment "The FTTC-NCD is not a Network Termination Device. [extension: nbn Ethernet Product Module, Section 4.6(c), p.19]" ;
+    :hasCondition "an FTTC-NCD is used" ;
+    :hasConsequence "the FTTC-NCD is not a Network Termination Device" ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.6(c), p.19" .
+
+# Table from Page 19 - FTTC AVC/UNI mapping
+:AVCTC4_FTTC_Instance a :AVC_TC_4, owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 for FTTC" ;
+    rdfs:comment "An AVC TC-4 mapped to a UNI-D for the FTTC Network. [extension: nbn Ethernet Product Module, Section 4.6 Table, p.19]" ;
+    :isConfiguredInTrafficClass :TC_4 ;
+    :mappedToUNI :UNI_D_FTTC_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.6 Table, p.19" .
+
+:AVCTC1_FTTC_Instance a :AVC_TC_1, owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 for FTTC (default)" ;
+    rdfs:comment "An AVC TC-1 mapped to a UNI-D for the FTTC Network (default mapping). [extension: nbn Ethernet Product Module, Section 4.6 Table, p.19]" ;
+    :isConfiguredInTrafficClass :TC_1 ;
+    :mappedToUNI :UNI_D_FTTC_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.6 Table, p.19" .
+
+:AVCTC2_FTTC_Instance a :AVC_TC_2, owl:NamedIndividual ;
+    rdfs:label "AVC TC-2 for FTTC" ;
+    rdfs:comment "An AVC TC-2 mapped to a UNI-D for the FTTC Network. [extension: nbn Ethernet Product Module, Section 4.6 Table, p.19]" ;
+    :isConfiguredInTrafficClass :TC_2 ;
+    :mappedToUNI :UNI_D_FTTC_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 4.6 Table, p.19" .
+# ===== EXTENSIONS FOR PART C - OPTIONAL PRODUCT FEATURES (Page 20-21) =====
+# --- New Classes ---
+
+:Cl_ServiceBundle a owl:Class ;
+    rdfs:label "Cl_ServiceBundle" ;
+    rdfs:comment "A composite offering that groups multiple product components and features into a single purchasable unit. [extension: nbn Ethernet Product Module, Part C, p.20]" .
+
+:Cl_ServiceLimit a owl:Class ;
+    rdfs:label "Cl_ServiceLimit" ;
+    rdfs:comment "A quantitative or qualitative restriction on the supply or use of a service. [extension: nbn Ethernet Product Module, Part C, p.20]" .
+
+:Cl_AreaType a owl:Class ;
+    rdfs:label "Cl_AreaType" ;
+    rdfs:comment "An enumeration of area types that may affect service availability (e.g. Isolated Area, Limited Access Area). [extension: nbn Ethernet Product Module, Section 5(f), p.20]" .
+
+:EnhancedFaultRectificationService a owl:Class ;
+    rdfs:label "EnhancedFaultRectificationService" ;
+    rdfs:comment "An optional product feature that provides enhanced fault rectification for nbn Ethernet (Fibre). [extension: nbn Ethernet Product Module, Section 5, p.20]" ;
+    rdfs:subClassOf :Cl_ProductFeature .
+
+:Enhanced90DayVariant a owl:Class ;
+    rdfs:label "Enhanced90DayVariant" ;
+    rdfs:comment "The Enhanced (90 Day) - 12 (24/7) variant of the Enhanced Fault Rectification Service, which is automatically removed after 90 days unless reordered. [extension: nbn Ethernet Product Module, Section 5(e), p.20]" ;
+    rdfs:subClassOf :EnhancedFaultRectificationService .
+
+:SatelliteTestService a owl:Class ;
+    rdfs:label "SatelliteTestService" ;
+    rdfs:comment "An nbn Ethernet (Satellite) Ordered Product which allows RSP to conduct testing of applications, RSP Products, the RSP Network and the RSP Platform in connection with the Satellite Network. [extension: nbn Ethernet Product Module, Section 7(a), p.20]" ;
+    rdfs:subClassOf :Cl_ServiceBundle .
+
+:Cl_InstallationOfConnectingEquipment a owl:Class ;
+    rdfs:label "Cl_InstallationOfConnectingEquipment" ;
+    rdfs:comment "The installation of connecting equipment as a component of a service bundle. [extension: nbn Ethernet Product Module, Section 7(b)(iii), p.20]" .
+
+# --- New Object Properties ---
+
+:comprises a owl:ObjectProperty ;
+    rdfs:label "comprises" ;
+    rdfs:comment "Links a service bundle to its constituent components. [extension: nbn Ethernet Product Module, Section 7(b), p.20]" ;
+    rdfs:domain :Cl_ServiceBundle ;
+    rdfs:range owl:Thing .
+
+:isAvailableFor a owl:ObjectProperty ;
+    rdfs:label "isAvailableFor" ;
+    rdfs:comment "Links a service bundle or product feature to the nbn Ethernet product it is available for. [extension: nbn Ethernet Product Module, Section 6, p.20]" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :nbnEthernetProduct .
+
+:hasLimitValue a owl:DatatypeProperty ;
+    rdfs:label "hasLimitValue" ;
+    rdfs:comment "The numeric value of a service limit. [extension: nbn Ethernet Product Module, Section 7(c), p.20]" ;
+    rdfs:domain :Cl_ServiceLimit ;
+    rdfs:range xsd:integer .
+
+:hasLimitCondition a owl:DatatypeProperty ;
+    rdfs:label "hasLimitCondition" ;
+    rdfs:comment "The condition under which a service limit applies (e.g. per Beam, in total). [extension: nbn Ethernet Product Module, Section 7(c), p.20]" ;
+    rdfs:domain :Cl_ServiceLimit ;
+    rdfs:range xsd:string .
+
+:appliesTo a owl:ObjectProperty ;
+    rdfs:label "appliesTo" ;
+    rdfs:comment "Links a service limit to the service it governs. [extension: nbn Ethernet Product Module, Section 7(c), p.20]" ;
+    rdfs:domain :Cl_ServiceLimit ;
+    rdfs:range owl:Thing .
+
+:isAutomaticallyRemovedAfter a owl:DatatypeProperty ;
+    rdfs:label "isAutomaticallyRemovedAfter" ;
+    rdfs:comment "The duration after which a service is automatically removed unless reordered. [extension: nbn Ethernet Product Module, Section 5(e), p.20]" ;
+    rdfs:domain :Cl_ProductFeature ;
+    rdfs:range xsd:string .
+
+:hasValidityDuration a owl:DatatypeProperty ;
+    rdfs:label "hasValidityDuration" ;
+    rdfs:comment "The duration of validity for a service or feature. [extension: nbn Ethernet Product Module, Section 5(e), p.20]" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
+
+:isMappedTo a owl:ObjectProperty ;
+    rdfs:label "isMappedTo" ;
+    rdfs:comment "Links an AVC TC-1 to the UNI-V it is mapped to. [extension: nbn Ethernet Product Module, Section 6(b), p.20]" ;
+    rdfs:domain :AVC_TC_1 ;
+    rdfs:range :UNI_V .
+
+:isRequiredWith a owl:ObjectProperty ;
+    rdfs:label "isRequiredWith" ;
+    rdfs:comment "Links a product or feature to another product or feature that must be acquired in conjunction with it. [extension: nbn Ethernet Product Module, Section 6(b), p.20]" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range owl:Thing .
+
+:allowsTestingOf a owl:DatatypeProperty ;
+    rdfs:label "allowsTestingOf" ;
+    rdfs:comment "Describes what the Satellite Test Service allows RSP to test. [extension: nbn Ethernet Product Module, Section 7(a), p.20]" ;
+    rdfs:domain :SatelliteTestService ;
+    rdfs:range xsd:string .
+
+:isNotAvailableIn a owl:ObjectProperty ;
+    rdfs:label "isNotAvailableIn" ;
+    rdfs:comment "Links a product feature to an area type where it is not available. [extension: nbn Ethernet Product Module, Section 5(f), p.20]" ;
+    rdfs:domain :Cl_ProductFeature ;
+    rdfs:range :Cl_AreaType .
+
+:isAssociatedWith a owl:ObjectProperty ;
+    rdfs:label "isAssociatedWith" ;
+    rdfs:comment "Links a Satellite Test Service component to the UNI it is associated with. [extension: nbn Ethernet Product Module, Section 7(b), p.20]" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :UNI .
+
+:isOptionalComponentOf a owl:ObjectProperty ;
+    rdfs:label "isOptionalComponentOf" ;
+    rdfs:comment "Links an optional component to the service bundle it is part of. [extension: nbn Ethernet Product Module, Section 7(b)(ii), p.20]" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :Cl_ServiceBundle .
+
+:isAcquiredInConjunctionWith a owl:ObjectProperty ;
+    rdfs:label "isAcquiredInConjunctionWith" ;
+    rdfs:comment "Links a bundle to another bundle that must also be acquired. [extension: nbn Ethernet Product Module, Section 6, p.20]" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range owl:Thing .
+
+:isAtDiscretionOf a owl:ObjectProperty ;
+    rdfs:label "isAtDiscretionOf" ;
+    rdfs:comment "Links a service or action to the party at whose discretion it is supplied or performed. [extension: nbn Ethernet Product Module, Section 7, p.20]" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :Cl_Agent .
+
+:hasOnboardingStatus a owl:DatatypeProperty ;
+    rdfs:label "hasOnboardingStatus" ;
+    rdfs:comment "The onboarding status of RSP for a particular nbn Ethernet product. [extension: nbn Ethernet Product Module, Section 7(d)(i), p.20]" ;
+    rdfs:domain :RSP ;
+    rdfs:range xsd:string .
+
+:determinesActingReasonably a owl:DatatypeProperty ;
+    rdfs:label "determinesActingReasonably" ;
+    rdfs:comment "The determination made by nbn, acting reasonably, regarding RSP's requirement for a service. [extension: nbn Ethernet Product Module, Section 7(d)(ii), p.20]" ;
+    rdfs:domain :nbn ;
+    rdfs:range xsd:string .
+
+# --- Individuals / Facts ---
+
+# Section 5 - Enhanced Fault Rectification Service
+:EnhancedFaultRectificationService_Instance a :EnhancedFaultRectificationService, owl:NamedIndividual ;
+    rdfs:label "Enhanced Fault Rectification Service" ;
+    rdfs:comment "An optional product feature providing enhanced fault rectification for nbn Ethernet (Fibre). [extension: nbn Ethernet Product Module, Section 5, p.20]" ;
+    :isOptionalProductFeatureOf :nbnEthernet_Fibre ;
+    :sourceClause "nbn Ethernet Product Module, Section 5, p.20" .
+
+:Enhanced90DayVariant_Instance a :Enhanced90DayVariant, owl:NamedIndividual ;
+    rdfs:label "Enhanced (90 Day) - 12 (24/7)" ;
+    rdfs:comment "The Enhanced (90 Day) - 12 (24/7) variant of the Enhanced Fault Rectification Service. [extension: nbn Ethernet Product Module, Section 5(e), p.20]" ;
+    :isAutomaticallyRemovedAfter "90 days" ;
+    :hasValidityDuration "90 days" ;
+    :sourceClause "nbn Ethernet Product Module, Section 5(e), p.20" .
+
+# Section 5(e) - Automatic removal event
+:Event_Enhanced90Day_AutomaticRemoval a :Cl_ContractualEvent, owl:NamedIndividual ;
+    rdfs:label "Enhanced (90 Day) Automatic Removal Event" ;
+    :eventType "automatic removal of Enhanced (90 Day) - 12 (24/7) service at the end of the 90 day period unless RSP orders it again" ;
+    :hasObject :Enhanced90DayVariant_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 5(e), p.20" .
+
+# Section 5(e) - Reorder event
+:Event_Enhanced90Day_Reorder a :Cl_ContractualEvent, owl:NamedIndividual ;
+    rdfs:label "Enhanced (90 Day) Reorder Event" ;
+    :eventType "RSP orders Enhanced (90 Day) - 12 (24/7) again from the expiry of the relevant 90 day period" ;
+    :hasAgent :RSP_AgentRole ;
+    :hasObject :Enhanced90DayVariant_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 5(e), p.20" .
+
+# Section 5(f) - Not available in Isolated Area or Limited Access Area
+:AreaType_IsolatedArea a :Cl_AreaType, owl:NamedIndividual ;
+    rdfs:label "Isolated Area" ;
+    rdfs:comment "An Isolated Area where the Enhanced Fault Rectification Service is not available. [extension: nbn Ethernet Product Module, Section 5(f), p.20]" .
+
+:AreaType_LimitedAccessArea a :Cl_AreaType, owl:NamedIndividual ;
+    rdfs:label "Limited Access Area" ;
+    rdfs:comment "A Limited Access Area where the Enhanced Fault Rectification Service is not available. [extension: nbn Ethernet Product Module, Section 5(f), p.20]" .
+
+:EnhancedFaultRectificationService_Instance :isNotAvailableIn :AreaType_IsolatedArea, :AreaType_LimitedAccessArea .
+
+:Rule_EnhancedFaultRectification_NotAvailable_IsolatedLimited a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Enhanced Fault Rectification Not Available in Isolated/Limited Access Area Rule" ;
+    :hasCondition "a Premises is in an Isolated Area or Limited Access Area" ;
+    :hasConsequence "the Enhanced Fault Rectification Service is not available in respect of that Premises" ;
+    :sourceClause "nbn Ethernet Product Module, Section 5(f), p.20" .
+
+# Section 6 - UNI-V and AVC TC-1 bundle
+:UNIV_AVCTC1_Bundle a :Cl_ServiceBundle, owl:NamedIndividual ;
+    rdfs:label "UNI-V and AVC TC-1 Bundle" ;
+    rdfs:comment "The UNI-V and AVC TC-1 bundle which is a feature of nbn Ethernet designed for voice services over nbn Ethernet. [extension: nbn Ethernet Product Module, Section 6, p.20]" ;
+    :isAvailableFor :nbnEthernet_Fibre ;
+    :isAcquiredInConjunctionWith :AVCTC4_UNID_Bundle_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 6, p.20" .
+
+:AVCTC4_UNID_Bundle_Instance a :Cl_ServiceBundle, owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 and UNI-D Bundle" ;
+    rdfs:comment "The AVC TC-4 and UNI-D bundle that RSP must also acquire to be eligible for the UNI-V and AVC TC-1 bundle. [extension: nbn Ethernet Product Module, Section 6, p.20]" ;
+    :sourceClause "nbn Ethernet Product Module, Section 6, p.20" .
+
+:Rule_UNIV_AVCTC1_Bundle_Availability a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "UNI-V and AVC TC-1 Bundle Availability Rule" ;
+    :hasCondition "RSP wants to acquire the UNI-V and AVC TC-1 bundle" ;
+    :hasConsequence "the bundle is only available for nbn Ethernet (Fibre) and where RSP has also acquired an AVC TC-4 and UNI-D bundle" ;
+    :sourceClause "nbn Ethernet Product Module, Section 6, p.20" .
+
+# Section 6(a) - UNI-V is optional Product Feature of nbn Ethernet (Fibre)
+:UNIV_ProductFeature_Instance a :Cl_ProductFeature, owl:NamedIndividual ;
+    rdfs:label "UNI-V Product Feature" ;
+    rdfs:comment "The UNI-V is an optional Product Feature of nbn Ethernet (Fibre) which provides RSP with access to an analogue telephony interface on the NTD (where available) for the purpose of migrating legacy telephone services. [extension: nbn Ethernet Product Module, Section 6(a), p.20]" ;
+    :isOptionalProductFeatureOf :nbnEthernet_Fibre ;
+    :sourceClause "nbn Ethernet Product Module, Section 6(a), p.20" .
+
+# Section 6(b) - RSP may elect to order 0.15 Mbps AVC TC-1 mapped to UNI-V
+:AVCTC1_0_15_UNIV_Instance a :AVC_TC_1, owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 0.15 Mbps mapped to UNI-V" ;
+    rdfs:comment "A 0.15 Mbps AVC TC-1 which is mapped to the UNI-V (where available) in the case of nbn Ethernet (Fibre). [extension: nbn Ethernet Product Module, Section 6(b), p.20]" ;
+    :isConfiguredInTrafficClass :TC_1 ;
+    :isMappedTo :UNI_V_Instance ;
+    :hasDataTransferRate :DataTransferRate_AVCTC1_0_15 ;
+    :sourceClause "nbn Ethernet Product Module, Section 6(b), p.20" .
+
+:Rule_AVCTC1_UNIV_RequiresUNIV a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 mapped to UNI-V requires UNI-V Rule" ;
+    :hasCondition "RSP elects to order a 0.15 Mbps AVC TC-1 which is mapped to the UNI-V" ;
+    :hasConsequence "RSP must acquire a UNI-V in conjunction with that AVC TC-1" ;
+    :sourceClause "nbn Ethernet Product Module, Section 6(b), p.20" .
+
+# Section 6(c) - AVC TC-1 mapped to UNI-V supplied through separate AVC
+:Rule_AVCTC1_UNIV_SeparateAVC a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "AVC TC-1 mapped to UNI-V supplied through separate AVC Rule" ;
+    :hasCondition "the AVC TC-1 is mapped to the UNI-V" ;
+    :hasConsequence "the 0.15 Mbps AVC TC-1 will be supplied through a separate AVC and not included in the overall AVC TC-4 Data Transfer Rate" ;
+    :sourceClause "nbn Ethernet Product Module, Section 6(c), p.20" .
+
+# Section 6(d) - Permitted use of UNI-V
+:Rule_UNIV_PermittedUse a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "UNI-V Permitted Use Rule" ;
+    :hasCondition "RSP uses the UNI-V" ;
+    :hasConsequence "RSP may only use the UNI-V to transmit voice and data traffic in the voice band" ;
+    :sourceClause "nbn Ethernet Product Module, Section 6(d), p.20" .
+
+# Section 7 - Satellite Test Service
+:SatelliteTestService_Instance a :SatelliteTestService, owl:NamedIndividual ;
+    rdfs:label "Satellite Test Service" ;
+    rdfs:comment "An nbn Ethernet (Satellite) Ordered Product which allows RSP to conduct testing of applications, RSP Products, the RSP Network and the RSP Platform in connection with the Satellite Network. [extension: nbn Ethernet Product Module, Section 7(a), p.20]" ;
+    :isAvailableFor :nbnEthernet_Satellite ;
+    :allowsTestingOf "applications, RSP Products, the RSP Network and the RSP Platform in connection with the Satellite Network" ;
+    :isAtDiscretionOf :nbn ;
+    :sourceClause "nbn Ethernet Product Module, Section 7(a), p.20" .
+
+# Section 7(b) - Components of Satellite Test Service
+:SatelliteTestService_Instance :comprises :AVCTC4_SatelliteTest_Instance, :UNI_SatelliteTest_Instance, :AVCTC1_SatelliteTest_Optional_Instance, :InstallationOfConnectingEquipment_SatelliteTest_Instance .
+
+:AVCTC4_SatelliteTest_Instance a :AVC_TC_4, owl:NamedIndividual ;
+    rdfs:label "AVC TC-4 for Satellite Test Service" ;
+    rdfs:comment "An AVC TC-4 supplied as part of the Satellite Test Service. [extension: nbn Ethernet Product Module, Section 7(b)(i), p.20]" ;
+    :isConfiguredInTrafficClass :TC_4 ;
+    :sourceClause "nbn Ethernet Product Module, Section 7(b)(i), p.20" .
+
+:UNI_SatelliteTest_Instance a :UNI, owl:NamedIndividual ;
+    rdfs:label "UNI associated with Satellite Test Service" ;
+    rdfs:comment "A UNI associated with the AVC TC-4 supplied as part of the Satellite Test Service. [extension: nbn Ethernet Product Module, Section 7(b)(i), p.20]" ;
+    :sourceClause "nbn Ethernet Product Module, Section 7(b)(i), p.20" .
+
+:AVCTC4_SatelliteTest_Instance :mappedToUNI :UNI_SatelliteTest_Instance .
+
+:AVCTC1_SatelliteTest_Optional_Instance a :AVC_TC_1, owl:NamedIndividual ;
+    rdfs:label "Optional AVC TC-1 for Satellite Test Service" ;
+    rdfs:comment "An optional AVC TC-1 associated with the same UNI as the AVC TC-4 in the Satellite Test Service. [extension: nbn Ethernet Product Module, Section 7(b)(ii), p.20]" ;
+    :isConfiguredInTrafficClass :TC_1 ;
+    :isOptionalComponentOf :SatelliteTestService_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 7(b)(ii), p.20" .
+
+:AVCTC1_SatelliteTest_Optional_Instance :isAssociatedWith :UNI_SatelliteTest_Instance .
+
+:InstallationOfConnectingEquipment_SatelliteTest_Instance a :Cl_InstallationOfConnectingEquipment, owl:NamedIndividual ;
+    rdfs:label "Installation of Connecting Equipment for Satellite Test Service" ;
+    rdfs:comment "The Installation of Connecting Equipment supplied as part of the Satellite Test Service. [extension: nbn Ethernet Product Module, Section 7(b)(iii), p.20]" ;
+    :sourceClause "nbn Ethernet Product Module, Section 7(b)(iii), p.20" .
+
+# Section 7(c) - Limits on Satellite Test Service
+:SatelliteTestService_Limit_Total a :Cl_ServiceLimit, owl:NamedIndividual ;
+    rdfs:label "Satellite Test Service Total Limit" ;
+    rdfs:comment "Maximum of five Satellite Test Services in total. [extension: nbn Ethernet Product Module, Section 7(c)(i), p.20]" ;
+    :appliesTo :SatelliteTestService_Instance ;
+    :hasLimitValue 5 ;
+    :hasLimitCondition "in total" ;
+    :sourceClause "nbn Ethernet Product Module, Section 7(c)(i), p.20" .
+
+:SatelliteTestService_Limit_PerBeam a :Cl_ServiceLimit, owl:NamedIndividual ;
+    rdfs:label "Satellite Test Service Per Beam Limit" ;
+    rdfs:comment "Maximum of one Satellite Test Service per Beam. [extension: nbn Ethernet Product Module, Section 7(c)(ii), p.20]" ;
+    :appliesTo :SatelliteTestService_Instance ;
+    :hasLimitValue 1 ;
+    :hasLimitCondition "per Beam" ;
+    :sourceClause "nbn Ethernet Product Module, Section 7(c)(ii), p.20" .
+
+# Section 7(d) - Conditions for supply of Satellite Test Service
+:Rule_SatelliteTestService_OnboardingCondition a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Satellite Test Service Onboarding Condition Rule" ;
+    :hasCondition "RSP requests a Satellite Test Service" ;
+    :hasConsequence "nbn will only supply the Satellite Test Service if RSP has successfully On-boarded, or is in the process of On-boarding, for nbn Ethernet (Satellite)" ;
+    :sourceClause "nbn Ethernet Product Module, Section 7(d)(i), p.20" .
+
+:Rule_SatelliteTestService_RequirementDetermination a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Satellite Test Service Requirement Determination Rule" ;
+    :hasCondition "RSP requests a Satellite Test Service" ;
+    :hasConsequence "nbn will only supply the Satellite Test Service if nbn determines, acting reasonably, that RSP requires the Satellite Test Service to successfully supply RSP Products to which nbn Ethernet (Satellite) is an input" ;
+    :sourceClause "nbn Ethernet Product Module, Section 7(d)(ii), p.20" .
+
+# Section 7(e) - nbn may at its discretion
+:Event_SatelliteTestService_Discretion a :Cl_ContractualEvent, owl:NamedIndividual ;
+    rdfs:label "Satellite Test Service at nbn's Discretion" ;
+    :eventType "nbn may, at its discretion, supply the Satellite Test Service" ;
+    :hasAgent :nbn ;
+    :hasObject :SatelliteTestService_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 7(e), p.20" .
+# ===== EXTENSIONS FOR SECTION 12 (Page 25-26) - nbn Network Architecture and nbn Ethernet Boundaries =====
+# --- New Classes ---
+
+:Cl_ConnectivityServingArea a owl:Class ;
+    rdfs:label "Cl_ConnectivityServingArea" ;
+    rdfs:comment "A geographic area that contains FSAs (fixed-line), WSAs (wireless), or Beams (satellite) and is served by exactly one POI. [extension: nbn Ethernet Product Module, Section 12.1, p.26]" ;
+    rdfs:subClassOf :PlanningResource .
+
+:Cl_AccessDistributionArea a owl:Class ;
+    rdfs:label "Cl_AccessDistributionArea" ;
+    rdfs:comment "The smallest geographic unit in fixed-line networks (Fibre, FTTB, FTTN, FTTC, HFC) that contains Premises where nbn Ethernet is available. [extension: nbn Ethernet Product Module, Section 12.1(a)(i), p.26]" ;
+    rdfs:subClassOf :PlanningResource .
+
+:Cl_ServingAreaModule a owl:Class ;
+    rdfs:label "Cl_ServingAreaModule" ;
+    rdfs:comment "A geographic area in fixed-line networks that contains ADAs and is located within an FSA. [extension: nbn Ethernet Product Module, Section 12.1(a)(ii), p.26]" ;
+    rdfs:subClassOf :PlanningResource .
+
+:Cl_FixedLineServingArea a owl:Class ;
+    rdfs:label "Cl_FixedLineServingArea" ;
+    rdfs:comment "A Fixed-Line Serving Area (or FSA) that contains SAMs and is located within a CSA. [extension: nbn Ethernet Product Module, Section 12.1(a)(iii)-(iv), p.26]" ;
+    rdfs:subClassOf :PlanningResource .
+
+:Cl_WirelessServingArea a owl:Class ;
+    rdfs:label "Cl_WirelessServingArea" ;
+    rdfs:comment "A Wireless Serving Area (or WSA) that contains Premises and is located within a CSA. [extension: nbn Ethernet Product Module, Section 12.1(b), p.26]" ;
+    rdfs:subClassOf :PlanningResource .
+
+:Cl_PowerOutage a owl:Class ;
+    rdfs:label "Cl_PowerOutage" ;
+    rdfs:comment "An event in FTTB/FTTN networks where nbn may not be able to supply nbn Ethernet Ordered Products. [extension: nbn Ethernet Product Module, Section 12.3(a), p.26]" ;
+    rdfs:subClassOf :Cl_ContractualEvent .
+
+:Cl_SupplyRestriction a owl:Class ;
+    rdfs:label "Cl_SupplyRestriction" ;
+    rdfs:comment "A reified relationship representing the conditional restriction on supply of an nbn Ethernet Ordered Product due to a Power Outage. [extension: nbn Ethernet Product Module, Section 12.3(a), p.26]" .
+
+:Cl_nbnEthernetBoundary a owl:Class ;
+    rdfs:label "Cl_nbnEthernetBoundary" ;
+    rdfs:comment "A reified relationship representing the two endpoints (UNI and NNI) between which nbn Ethernet carries traffic for a Premises. [extension: nbn Ethernet Product Module, Section 12.2, p.26]" .
+
+# --- New Object Properties ---
+
+:containsFSA a owl:ObjectProperty ;
+    rdfs:label "containsFSA" ;
+    rdfs:comment "Links a CSA to the FSAs it contains. [extension: nbn Ethernet Product Module, Section 12.1(a)(iv), p.26]" ;
+    rdfs:domain :Cl_ConnectivityServingArea ;
+    rdfs:range :Cl_FixedLineServingArea .
+
+:containsWSA a owl:ObjectProperty ;
+    rdfs:label "containsWSA" ;
+    rdfs:comment "Links a CSA to the WSAs it contains. [extension: nbn Ethernet Product Module, Section 12.1(b)(ii), p.26]" ;
+    rdfs:domain :Cl_ConnectivityServingArea ;
+    rdfs:range :Cl_WirelessServingArea .
+
+:containsBeam a owl:ObjectProperty ;
+    rdfs:label "containsBeam" ;
+    rdfs:comment "Links a CSA to the Beams it contains. [extension: nbn Ethernet Product Module, Section 12.1(c)(ii), p.26]" ;
+    rdfs:domain :Cl_ConnectivityServingArea ;
+    rdfs:range :Cl_Beam .
+
+:locatedWithinSAM a owl:ObjectProperty ;
+    rdfs:label "locatedWithinSAM" ;
+    rdfs:comment "Links an ADA to the SAM it is located within. [extension: nbn Ethernet Product Module, Section 12.1(a)(ii), p.26]" ;
+    rdfs:domain :Cl_AccessDistributionArea ;
+    rdfs:range :Cl_ServingAreaModule .
+
+:locatedWithinFSA a owl:ObjectProperty ;
+    rdfs:label "locatedWithinFSA" ;
+    rdfs:comment "Links a SAM to the FSA it is located within. [extension: nbn Ethernet Product Module, Section 12.1(a)(iii), p.26]" ;
+    rdfs:domain :Cl_ServingAreaModule ;
+    rdfs:range :Cl_FixedLineServingArea .
+
+:locatedWithinCSA a owl:ObjectProperty ;
+    rdfs:label "locatedWithinCSA" ;
+    rdfs:comment "Links an FSA, WSA or Beam to the CSA it is located within. [extension: nbn Ethernet Product Module, Section 12.1(a)(iv), p.26]" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :Cl_ConnectivityServingArea .
+
+:servedByPOI a owl:ObjectProperty ;
+    rdfs:label "servedByPOI" ;
+    rdfs:comment "Links a CSA to the POI that serves it. Each CSA is served by exactly one POI. [extension: nbn Ethernet Product Module, Section 12.1(d)(i), p.26]" ;
+    rdfs:domain :Cl_ConnectivityServingArea ;
+    rdfs:range :POI .
+
+:servesCSA a owl:ObjectProperty ;
+    rdfs:label "servesCSA" ;
+    rdfs:comment "Links a POI to the CSAs it serves. A POI may serve one or more CSAs. [extension: nbn Ethernet Product Module, Section 12.1(d)(ii), p.26]" ;
+    rdfs:domain :POI ;
+    rdfs:range :Cl_ConnectivityServingArea .
+
+:isLocatedInADA a owl:ObjectProperty ;
+    rdfs:label "isLocatedInADA" ;
+    rdfs:comment "Links a Premises to the ADA it is located within. [extension: nbn Ethernet Product Module, Section 12.1(a)(i), p.26]" ;
+    rdfs:domain :Premises ;
+    rdfs:range :Cl_AccessDistributionArea .
+
+:isLocatedInWSA a owl:ObjectProperty ;
+    rdfs:label "isLocatedInWSA" ;
+    rdfs:comment "Links a Premises to the WSA it is located within. [extension: nbn Ethernet Product Module, Section 12.1(b)(i), p.26]" ;
+    rdfs:domain :Premises ;
+    rdfs:range :Cl_WirelessServingArea .
+
+:isLocatedInBeam a owl:ObjectProperty ;
+    rdfs:label "isLocatedInBeam" ;
+    rdfs:comment "Links a Premises to the Beam it is located within. [extension: nbn Ethernet Product Module, Section 12.1(c)(i), p.26]" ;
+    rdfs:domain :Premises ;
+    rdfs:range :Cl_Beam .
+
+:hasUNIBoundary a owl:ObjectProperty ;
+    rdfs:label "hasUNIBoundary" ;
+    rdfs:comment "Links an nbn Ethernet Boundary to the UNI that serves the Premises. [extension: nbn Ethernet Product Module, Section 12.2(a), p.26]" ;
+    rdfs:domain :Cl_nbnEthernetBoundary ;
+    rdfs:range :UNI .
+
+:hasNNIBoundary a owl:ObjectProperty ;
+    rdfs:label "hasNNIBoundary" ;
+    rdfs:comment "Links an nbn Ethernet Boundary to the NNI that serves the Premises. [extension: nbn Ethernet Product Module, Section 12.2(b), p.26]" ;
+    rdfs:domain :Cl_nbnEthernetBoundary ;
+    rdfs:range :NNI .
+
+:forPremises a owl:ObjectProperty ;
+    rdfs:label "forPremises" ;
+    rdfs:comment "Links an nbn Ethernet Boundary to the Premises for which it carries traffic. [extension: nbn Ethernet Product Module, Section 12.2, p.26]" ;
+    rdfs:domain :Cl_nbnEthernetBoundary ;
+    rdfs:range :Premises .
+
+:hasBoundary a owl:ObjectProperty ;
+    rdfs:label "hasBoundary" ;
+    rdfs:comment "Links an nbn Ethernet Product to the nbn Ethernet Boundary it uses. [extension: nbn Ethernet Product Module, Section 12.2, p.26]" ;
+    rdfs:domain :nbnEthernetProduct ;
+    rdfs:range :Cl_nbnEthernetBoundary .
+
+:isBoundaryOf a owl:ObjectProperty ;
+    rdfs:label "isBoundaryOf" ;
+    rdfs:comment "Links a UNI or NNI to the nbn Ethernet Boundary it is part of. [extension: nbn Ethernet Product Module, Section 12.2, p.26]" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :Cl_nbnEthernetBoundary .
+
+:preventsSupplyOf a owl:ObjectProperty ;
+    rdfs:label "preventsSupplyOf" ;
+    rdfs:comment "Links a Power Outage to the Supply Restriction it causes. [extension: nbn Ethernet Product Module, Section 12.3(a), p.26]" ;
+    rdfs:domain :Cl_PowerOutage ;
+    rdfs:range :Cl_SupplyRestriction .
+
+:restrictsProduct a owl:ObjectProperty ;
+    rdfs:label "restrictsProduct" ;
+    rdfs:comment "Links a Supply Restriction to the Ordered Product that may not be supplied. [extension: nbn Ethernet Product Module, Section 12.3(a), p.26]" ;
+    rdfs:domain :Cl_SupplyRestriction ;
+    rdfs:range :Cl_OrderedProduct .
+
+:occursInNetwork a owl:ObjectProperty ;
+    rdfs:label "occursInNetwork" ;
+    rdfs:comment "Links a Power Outage to the network type in which it occurs. [extension: nbn Ethernet Product Module, Section 12.3(a), p.26]" ;
+    rdfs:domain :Cl_PowerOutage ;
+    rdfs:range :AccessTechnology .
+
+:containsPremises a owl:ObjectProperty ;
+    rdfs:label "containsPremises" ;
+    rdfs:comment "Links an ADA to the Premises it contains. [extension: nbn Ethernet Product Module, Section 12.1(a)(i), p.26]" ;
+    rdfs:domain :Cl_AccessDistributionArea ;
+    rdfs:range :Premises .
+
+:geographicallyOverlapsWith a owl:ObjectProperty ;
+    rdfs:label "geographicallyOverlapsWith" ;
+    rdfs:comment "Links a CSA to another CSA that it geographically overlaps with. [extension: nbn Ethernet Product Module, Section 12.1(c)(iii), p.26]" ;
+    rdfs:domain :Cl_ConnectivityServingArea ;
+    rdfs:range :Cl_ConnectivityServingArea .
+
+# --- Business Rules ---
+
+:Rule_FixedLineHierarchy a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Fixed-Line Network Hierarchy Rule" ;
+    rdfs:comment "In the Fibre Network, FTTB Network, FTTN Network, FTTC Network and HFC Network, each Premises is located within an ADA, each ADA is located within a SAM, each SAM is located within an FSA, and each FSA is located within a CSA. [extension: nbn Ethernet Product Module, Section 12.1(a), p.26]" ;
+    :hasCondition "a Premises at which nbn Ethernet is available is in the Fibre Network, FTTB Network, FTTN Network, FTTC Network or HFC Network" ;
+    :hasConsequence "the Premises is located within an ADA, the ADA is located within a SAM, the SAM is located within an FSA, and the FSA is located within a CSA" ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.1(a), p.26" .
+
+:Rule_WirelessHierarchy a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Wireless Network Hierarchy Rule" ;
+    rdfs:comment "In the Wireless Network, each Premises is located within a WSA, and each WSA is located within a CSA. [extension: nbn Ethernet Product Module, Section 12.1(b), p.26]" ;
+    :hasCondition "a Premises at which nbn Ethernet is available is in the Wireless Network" ;
+    :hasConsequence "the Premises is located within a WSA, and the WSA is located within a CSA" ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.1(b), p.26" .
+
+:Rule_SatelliteHierarchy a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Satellite Network Hierarchy Rule" ;
+    rdfs:comment "In the Satellite Network, each Premises is located within a Beam, and all Premises and Beams are located within a single CSA that geographically overlaps with other CSAs. [extension: nbn Ethernet Product Module, Section 12.1(c), p.26]" ;
+    :hasCondition "a Premises at which nbn Ethernet is available is in the Satellite Network" ;
+    :hasConsequence "the Premises is located within a Beam, all Premises and Beams are located within a single CSA, and that single CSA geographically overlaps with other CSAs that contain Premises served by other access technologies" ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.1(c), p.26" .
+
+:Rule_CSAServedByOnePOI a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "CSA Served by One POI Rule" ;
+    rdfs:comment "Each CSA is served by one POI. [extension: nbn Ethernet Product Module, Section 12.1(d)(i), p.26]" ;
+    :hasCondition "a CSA exists in the nbn Network" ;
+    :hasConsequence "that CSA is served by exactly one POI" ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.1(d)(i), p.26" .
+
+:Rule_POIMayServeMultipleCSAs a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "POI May Serve Multiple CSAs Rule" ;
+    rdfs:comment "A POI may serve one or more CSAs. [extension: nbn Ethernet Product Module, Section 12.1(d)(ii), p.26]" ;
+    :hasCondition "a POI exists in the nbn Network" ;
+    :hasConsequence "that POI may serve one or more CSAs" ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.1(d)(ii), p.26" .
+
+:Rule_PowerOutageSupplyRestriction a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Power Outage Supply Restriction Rule" ;
+    rdfs:comment "nbn may not be able to supply an nbn Ethernet (FTTB) Ordered Product or nbn Ethernet (FTTN) Ordered Product in the event of a Power Outage. [extension: nbn Ethernet Product Module, Section 12.3(a), p.26]" ;
+    :hasCondition "a Power Outage occurs in the FTTB Network or FTTN Network" ;
+    :hasConsequence "nbn may not be able to supply an nbn Ethernet (FTTB) Ordered Product or nbn Ethernet (FTTN) Ordered Product" ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.3(a), p.26" .
+
+:Rule_DetailsAvailableOnRequest a :Cl_BusinessRule, owl:NamedIndividual ;
+    rdfs:label "Details of FSA/WSA, CSA and POI Available on Request Rule" ;
+    rdfs:comment "Details of the FSA or WSA, CSA and POI serving a Premises are available to RSP on request. [extension: nbn Ethernet Product Module, Section 12.1(e), p.26]" ;
+    :hasCondition "RSP requests details of the serving area or POI for a Premises" ;
+    :hasConsequence "details of the FSA or WSA, CSA and POI serving that Premises are available to RSP" ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.1(e), p.26" .
+
+# --- Individuals / Facts ---
+
+# Section 12.2 - nbn Ethernet boundaries
+:nbnEthernetBoundary_Instance a :Cl_nbnEthernetBoundary, owl:NamedIndividual ;
+    rdfs:label "nbn Ethernet Boundary Instance" ;
+    rdfs:comment "The boundary between the UNI used to serve a Premises and the NNI that serves the Premises, over which nbn Ethernet carries traffic. [extension: nbn Ethernet Product Module, Section 12.2, p.26]" ;
+    :hasUNIBoundary :UNI_ObjectRole ;
+    :hasNNIBoundary :NNI_ObjectRole ;
+    :forPremises :Premises_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.2, p.26" .
+
+:NNI_ObjectRole a :NNI, owl:NamedIndividual ;
+    rdfs:label "NNI (object role)" ;
+    rdfs:comment "An NNI that serves a Premises and is a boundary of nbn Ethernet. [extension: nbn Ethernet Product Module, Section 12.2(b), p.26]" .
+
+# Section 12.3 - Power Outage event and supply restriction
+:PowerOutage_FTTB_Instance a :Cl_PowerOutage, owl:NamedIndividual ;
+    rdfs:label "Power Outage - FTTB Network" ;
+    rdfs:comment "A Power Outage event in the FTTB Network that may prevent nbn from supplying nbn Ethernet (FTTB) Ordered Products. [extension: nbn Ethernet Product Module, Section 12.3(a), p.26]" ;
+    :eventType "Power Outage in the FTTB Network" ;
+    :occursInNetwork :AccessTechnology_FTTB ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.3(a), p.26" .
+
+:PowerOutage_FTTN_Instance a :Cl_PowerOutage, owl:NamedIndividual ;
+    rdfs:label "Power Outage - FTTN Network" ;
+    rdfs:comment "A Power Outage event in the FTTN Network that may prevent nbn from supplying nbn Ethernet (FTTN) Ordered Products. [extension: nbn Ethernet Product Module, Section 12.3(a), p.26]" ;
+    :eventType "Power Outage in the FTTN Network" ;
+    :occursInNetwork :AccessTechnology_FTTN ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.3(a), p.26" .
+
+:SupplyRestriction_FTTB_Instance a :Cl_SupplyRestriction, owl:NamedIndividual ;
+    rdfs:label "Supply Restriction - nbn Ethernet (FTTB) due to Power Outage" ;
+    rdfs:comment "The restriction on supply of nbn Ethernet (FTTB) Ordered Products due to a Power Outage. [extension: nbn Ethernet Product Module, Section 12.3(a), p.26]" ;
+    :restrictsProduct :OrderedProduct_FTTB_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.3(a), p.26" .
+
+:SupplyRestriction_FTTN_Instance a :Cl_SupplyRestriction, owl:NamedIndividual ;
+    rdfs:label "Supply Restriction - nbn Ethernet (FTTN) due to Power Outage" ;
+    rdfs:comment "The restriction on supply of nbn Ethernet (FTTN) Ordered Products due to a Power Outage. [extension: nbn Ethernet Product Module, Section 12.3(a), p.26]" ;
+    :restrictsProduct :OrderedProduct_FTTN_Instance ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.3(a), p.26" .
+
+:PowerOutage_FTTB_Instance :preventsSupplyOf :SupplyRestriction_FTTB_Instance .
+:PowerOutage_FTTN_Instance :preventsSupplyOf :SupplyRestriction_FTTN_Instance .
+
+# Section 12.1(c)(iii) - Satellite CSA geographic overlap
+:SatelliteCSA_Instance a :Cl_ConnectivityServingArea, owl:NamedIndividual ;
+    rdfs:label "Satellite CSA" ;
+    rdfs:comment "The single CSA that contains all Premises and Beams in the Satellite Network, which geographically overlaps with other CSAs. [extension: nbn Ethernet Product Module, Section 12.1(c)(ii)-(iii), p.26]" ;
+    :geographicallyOverlapsWith :CSA_ObjectRole ;
+    :sourceClause "nbn Ethernet Product Module, Section 12.1(c)(ii)-(iii), p.26" .

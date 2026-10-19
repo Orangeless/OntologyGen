@@ -1,0 +1,478 @@
+{
+    "sfaa-wba-nbn-ethernet-fair-use-policy-20231201.pdf.coredownload": {
+        "0": [],
+        "1": [],
+        "2": [
+            {
+                "competency_question": "What is the name of the policy that supports the consistent supply of relevant products to all of nbn\u2019s retail service providers?",
+                "expected_answer": "nbn\u00ae Ethernet Fair Use Policy"
+            },
+            {
+                "competency_question": "What is the purpose of the nbn\u00ae Ethernet Fair Use Policy?",
+                "expected_answer": "to support the consistent supply of relevant products to all of nbn\u2019s retail service providers and ultimately to end users as expected by both parties as at the Execution Date, recognising that the nbn\u00ae Infrastructure is a shared resource and the activities of one person can detrimentally affect the use of the nbn\u00ae Infrastructure or relevant nbn products or services by another person"
+            },
+            {
+                "competency_question": "What is the first objective of the nbn\u00ae Ethernet Fair Use Policy?",
+                "expected_answer": "avoid adverse impacts on the quality or reliability of the nbn\u00ae Infrastructure, or the consistent supply of any relevant nbn products and services to all nbn retail service providers and ultimately to end users, by ensuring that RSP does not use, or permit others to use, nbn's products or services in an excessive or unreasonable manner"
+            },
+            {
+                "competency_question": "What is the second objective of the nbn\u00ae Ethernet Fair Use Policy?",
+                "expected_answer": "permit use of the nbn\u00ae Infrastructure and nbn\u00ae Ethernet in accordance with the relevant terms of the WBA"
+            },
+            {
+                "competency_question": "What is the third objective of the nbn\u00ae Ethernet Fair Use Policy?",
+                "expected_answer": "enable nbn to deliver products and services in a commercially sustainable manner"
+            },
+            {
+                "competency_question": "To what does the nbn\u00ae Ethernet Fair Use Policy apply?",
+                "expected_answer": "RSP\u2019s use of the nbn\u00ae Infrastructure and nbn\u00ae Ethernet"
+            },
+            {
+                "competency_question": "Of which document does the nbn\u00ae Ethernet Fair Use Policy form a part?",
+                "expected_answer": "nbn\u00ae Ethernet Product Module"
+            },
+            {
+                "competency_question": "For what use has the AVC TC-4 been designed?",
+                "expected_answer": "for use as an input to the supply of Mass Market Retail Products for use within a single Premises"
+            },
+            {
+                "competency_question": "How is the AVC TC-4 supplied to RSP?",
+                "expected_answer": "using shared network resources (including parts that are contended) over which nbn supplies other products and services to RSP and Other RSPs"
+            },
+            {
+                "competency_question": "For what use have AVC TC-1 and AVC TC-2 been designed?",
+                "expected_answer": "for use as inputs to the supply of Performance Engineered Retail Products for use within a single Premises"
+            },
+            {
+                "competency_question": "What sections are excepted from the limitation on types or ranges of plans for Mass Market Retail Products?",
+                "expected_answer": "sections 4.3, 4.5, and 4.6"
+            }
+        ],
+        "3": [
+            {
+                "competency_question": "What is the name of the policy that defines Unfair Use in the context of nbn\u00ae Ethernet?",
+                "expected_answer": "nbn\u00ae Ethernet Fair Use Policy"
+            },
+            {
+                "competency_question": "Who is the agent participant in the obligation to not engage in Unfair Use?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in the obligation to not engage in Unfair Use?",
+                "expected_answer": "Unfair Use"
+            },
+            {
+                "competency_question": "What is the numeric value of the section that sets out the meaning of Unfair Use?",
+                "expected_answer": "4"
+            },
+            {
+                "competency_question": "What is the unit of the section number that sets out the meaning of Unfair Use?",
+                "expected_answer": "section"
+            },
+            {
+                "competency_question": "What event triggers the obligation for RSP to ensure contracts contain prohibitions against Unfair Use?",
+                "expected_answer": "entering into contracts with Downstream Service Providers and Contracted End Users"
+            },
+            {
+                "competency_question": "What is the state that must be prohibited in contracts with Downstream Service Providers and End Users?",
+                "expected_answer": "Unfair Use"
+            },
+            {
+                "competency_question": "What action must RSP be entitled to take to stop or prevent Unfair Use?",
+                "expected_answer": "disconnection or deactivation of equipment or suspension of the supply of the RSP Product or otherwise"
+            },
+            {
+                "competency_question": "What is the definition of Unfair Use according to section 4.2?",
+                "expected_answer": "use of the nbn\u00ae Infrastructure or nbn\u00ae Ethernet that is expressly prohibited, exceeds an express limitation, or is expressly described as Unfair Use in sections 4.3 to 4.6; or creates a risk to the integrity of the nbn\u00ae Infrastructure"
+            },
+            {
+                "competency_question": "What sections describe specific instances of Unfair Use?",
+                "expected_answer": "sections 4.3 to 4.6"
+            },
+            {
+                "competency_question": "What is the risk that Unfair Use may create?",
+                "expected_answer": "a risk to the integrity of the nbn\u00ae Infrastructure"
+            }
+        ],
+        "4": [
+            {
+                "competency_question": "What is the name of the policy that defines permitted uses of the nbn\u00ae Ethernet Product Module?",
+                "expected_answer": "Fair Use Policy \u2013 nbn\u00ae Ethernet Product Module"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when a use of the nbn\u00ae Infrastructure or nbn\u00ae Ethernet is excluded from Unfair Use?",
+                "expected_answer": "Permitted Fair Use Policy Exemptions document"
+            },
+            {
+                "competency_question": "What is the name of the conduct that may cause interference, disruption, congestion or sub-optimal network performance?",
+                "expected_answer": "Unfair Use"
+            },
+            {
+                "competency_question": "What is the name of the activity that involves disabling, disrupting or interfering with the regular working of any service or network?",
+                "expected_answer": "disabling, disrupting or interfering with the regular working of any service or network"
+            },
+            {
+                "competency_question": "What is the name of the activity that involves probing, scanning or testing the vulnerability of a system or network?",
+                "expected_answer": "probing, scanning or testing the vulnerability of a system or network"
+            },
+            {
+                "competency_question": "What is the name of the activity that involves breaching the security or authentication measures for a service or network?",
+                "expected_answer": "breaching the security or authentication measures for a service or network"
+            },
+            {
+                "competency_question": "Who is the agent participant in an 'Unfair Use' event involving the AVC?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in an 'Unfair Use' event involving the AVC?",
+                "expected_answer": "AVC"
+            },
+            {
+                "competency_question": "What is the name of the use that involves using the AVC to support Data Aggregation?",
+                "expected_answer": "Data Aggregation"
+            },
+            {
+                "competency_question": "What is the name of the use that involves using the AVC to support connections for the purpose of providing or enabling Carrier, Carriage Service Provider or Content Service Provider interconnection?",
+                "expected_answer": "Carrier, Carriage Service Provider or Content Service Provider interconnection"
+            },
+            {
+                "competency_question": "What is the name of the use that involves using the AVC in any other way which nbn considers, acting reasonably, to be inappropriate or excessive?",
+                "expected_answer": "any other way which nbn considers, acting reasonably, to be inappropriate or excessive"
+            },
+            {
+                "competency_question": "What is the name of the use that involves using the AVC for the purpose of supplying broadband services to Premises other than to the Premises in respect of which the relevant Ordered Product has been ordered?",
+                "expected_answer": "supplying broadband services to Premises other than to the Premises in respect of which the relevant Ordered Product has been ordered"
+            },
+            {
+                "competency_question": "What is the name of the use that involves using the AVC for the purpose of supplying broadband services to multiple Premises within Multi-Premises Sites?",
+                "expected_answer": "supplying broadband services to multiple Premises within Multi-Premises Sites"
+            },
+            {
+                "competency_question": "Who is the agent participant in an 'Unfair Use' event involving a Downstream Service Provider or Contracted End User?",
+                "expected_answer": "Downstream Service Provider or Contracted End User"
+            },
+            {
+                "competency_question": "What is the object participant in an 'Unfair Use' event involving a Downstream Service Provider or Contracted End User?",
+                "expected_answer": "RSP Product or Downstream Product that relies on the AVC"
+            },
+            {
+                "competency_question": "What is the example given of a use that would constitute Unfair Use under section 4.3(b)?",
+                "expected_answer": "A building manager for a multi-tenancy office building (where each business\u2019 office is a different addressable location) seeks to use a single nbn\u00ae Ethernet-based RSP Product to provide a building-wide Wi-Fi system. The building manager would not be entitled to use the RSP Product to satisfy the broadband needs of each of the different tenants in the building within their tenancies."
+            }
+        ],
+        "5": [
+            {
+                "competency_question": "What is the name of the event that occurs when a party modifies AVCs to change the associated CVC with unreasonable frequency or in unreasonable volumes?",
+                "expected_answer": "Unfair Use"
+            },
+            {
+                "competency_question": "Who is the agent participant in an 'Unfair Use' event involving modification of AVCs?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in an 'Unfair Use' event involving modification of AVCs?",
+                "expected_answer": "AVCs"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when an RSP offers RSP Products with features that contribute to nbn deprioritising data transfers?",
+                "expected_answer": "Unfair Use"
+            },
+            {
+                "competency_question": "Who is the agent participant in an 'Unfair Use' event involving offering RSP Products with certain features?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in an 'Unfair Use' event involving offering RSP Products with certain features?",
+                "expected_answer": "RSP Products"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when an RSP unreasonably fails to enforce provisions in contracts with Downstream Service Providers?",
+                "expected_answer": "Unfair Use"
+            },
+            {
+                "competency_question": "Who is the agent participant in an 'Unfair Use' event involving failure to enforce contract provisions?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in an 'Unfair Use' event involving failure to enforce contract provisions?",
+                "expected_answer": "Downstream Service Providers and Contracted End Users"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when an RSP bonds or knowingly permits bonding of UNIs?",
+                "expected_answer": "Unfair Use"
+            },
+            {
+                "competency_question": "Who is the agent participant in an 'Unfair Use' event involving bonding of UNIs?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in an 'Unfair Use' event involving bonding of UNIs?",
+                "expected_answer": "UNIs"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when an RSP disconnects and activates AVCs to bypass nbn's deprioritisation?",
+                "expected_answer": "Unfair Use"
+            },
+            {
+                "competency_question": "Who is the agent participant in an 'Unfair Use' event involving disconnecting and activating AVCs?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in an 'Unfair Use' event involving disconnecting and activating AVCs?",
+                "expected_answer": "AVCs"
+            },
+            {
+                "competency_question": "What is the numeric value of the notice period nbn must give to RSP before disconnecting or discontinuing an Ordered Product in response to Unfair Use under section 4.4(a)(iv)?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the unit of the notice period nbn must give to RSP before disconnecting or discontinuing an Ordered Product in response to Unfair Use under section 4.4(a)(iv)?",
+                "expected_answer": "Business Days"
+            },
+            {
+                "competency_question": "What is the numeric value of the download usage averaged across AVCs during Peak Periods for Associated CVC Class 0?",
+                "expected_answer": "55"
+            },
+            {
+                "competency_question": "What is the unit of the download usage averaged across AVCs during Peak Periods for Associated CVC Class 0?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the upload usage averaged across AVCs during Peak Periods for Associated CVC Class 0?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the unit of the upload usage averaged across AVCs during Peak Periods for Associated CVC Class 0?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the maximum usage by each AVC during Peak Periods for Associated CVC Class 0?",
+                "expected_answer": "150"
+            },
+            {
+                "competency_question": "What is the unit of the maximum usage by each AVC during Peak Periods for Associated CVC Class 0?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the maximum usage by each AVC in total for Associated CVC Class 0?",
+                "expected_answer": "300"
+            },
+            {
+                "competency_question": "What is the unit of the maximum usage by each AVC in total for Associated CVC Class 0?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the download usage averaged across AVCs during Peak Periods for Associated CVC Class 1?",
+                "expected_answer": "60"
+            },
+            {
+                "competency_question": "What is the unit of the download usage averaged across AVCs during Peak Periods for Associated CVC Class 1?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the upload usage averaged across AVCs during Peak Periods for Associated CVC Class 1?",
+                "expected_answer": "6"
+            },
+            {
+                "competency_question": "What is the unit of the upload usage averaged across AVCs during Peak Periods for Associated CVC Class 1?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the maximum usage by each AVC during Peak Periods for Associated CVC Class 1?",
+                "expected_answer": "200"
+            },
+            {
+                "competency_question": "What is the unit of the maximum usage by each AVC during Peak Periods for Associated CVC Class 1?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the maximum usage by each AVC in total for Associated CVC Class 1?",
+                "expected_answer": "300"
+            },
+            {
+                "competency_question": "What is the unit of the maximum usage by each AVC in total for Associated CVC Class 1?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the download usage averaged across AVCs during Peak Periods for Associated CVC Class 2?",
+                "expected_answer": "65"
+            },
+            {
+                "competency_question": "What is the unit of the download usage averaged across AVCs during Peak Periods for Associated CVC Class 2?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the upload usage averaged across AVCs during Peak Periods for Associated CVC Class 2?",
+                "expected_answer": "7"
+            },
+            {
+                "competency_question": "What is the unit of the upload usage averaged across AVCs during Peak Periods for Associated CVC Class 2?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the maximum usage by each AVC during Peak Periods for Associated CVC Class 2?",
+                "expected_answer": "300"
+            },
+            {
+                "competency_question": "What is the unit of the maximum usage by each AVC during Peak Periods for Associated CVC Class 2?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the numeric value of the maximum usage by each AVC in total for Associated CVC Class 2?",
+                "expected_answer": "300"
+            },
+            {
+                "competency_question": "What is the unit of the maximum usage by each AVC in total for Associated CVC Class 2?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the time interval over which usage figures are calculated?",
+                "expected_answer": "weekly, based on data transfers over the preceding four week period"
+            },
+            {
+                "competency_question": "What event marks the beginning of the calculation period for usage figures?",
+                "expected_answer": "the preceding four week period"
+            },
+            {
+                "competency_question": "What is the state of an Ordered Product that is subject to disconnection or discontinuation by nbn in response to Unfair Use?",
+                "expected_answer": "disconnected or discontinued (in whole or in part)"
+            },
+            {
+                "competency_question": "What event causes a transition to the 'disconnected or discontinued' state for an Ordered Product?",
+                "expected_answer": "Unfair Use under section 4.4(a)(iv)"
+            }
+        ],
+        "6": [
+            {
+                "competency_question": "What is the basis for calculating average usage across AVCs?",
+                "expected_answer": "all AVCs associated with each CVC and all AVCs associated with each CVC Class on each Beam"
+            },
+            {
+                "competency_question": "What does maximum usage by each AVC include?",
+                "expected_answer": "both upload and download usage"
+            },
+            {
+                "competency_question": "How is maximum usage by each AVC calculated?",
+                "expected_answer": "based on data transfers in both Peak Periods and Off Peak Periods"
+            },
+            {
+                "competency_question": "How is usage measured?",
+                "expected_answer": "based on Layer 2 frames calculated in accordance with section 2.2.2.1 of the nbn\u00ae Ethernet Product Technical Specification, section 2.1 of the Network Interface Specification \u2013 AVC and section 2.1 of the Network Interface Specification \u2013 CVC"
+            },
+            {
+                "competency_question": "What event triggers the non-application of section 4.5(a) in respect of Public Interest Premises?",
+                "expected_answer": "nbn waives any obligation in section 4.5(a) under section 39 of the nbn\u00ae Ethernet Product Terms"
+            },
+            {
+                "competency_question": "What action may nbn take if RSP fails to enforce any limitation in section 4.5(a)?",
+                "expected_answer": "deprioritise data transfers of any AVC or CVC contributing to the failure; and reduce, to 256 Kilobits per second for uploads and 256 Kilobits per second for downloads, the maximum data transfer rate of any AVC contributing to the failure, until nbn determines that RSP is complying with all limitations in section 4.5(a)"
+            },
+            {
+                "competency_question": "What is the numeric value of the reduced maximum data transfer rate for uploads?",
+                "expected_answer": "256"
+            },
+            {
+                "competency_question": "What is the unit of the reduced maximum data transfer rate for uploads?",
+                "expected_answer": "Kilobits per second"
+            },
+            {
+                "competency_question": "What is the numeric value of the reduced maximum data transfer rate for downloads?",
+                "expected_answer": "256"
+            },
+            {
+                "competency_question": "What is the unit of the reduced maximum data transfer rate for downloads?",
+                "expected_answer": "Kilobits per second"
+            },
+            {
+                "competency_question": "What event ends the period of reduced data transfer rates?",
+                "expected_answer": "nbn determines that RSP is complying with all limitations in section 4.5(a)"
+            },
+            {
+                "competency_question": "What charge must RSP pay if it uses capacity of the Satellite Network in excess of the average download and upload usage limitations in section 4.5(a)?",
+                "expected_answer": "CVC Class Adjustment Charge set out in the nbn\u00ae Ethernet Price List"
+            },
+            {
+                "competency_question": "What is the maximum utilisation of each nbn Ethernet (Satellite) CVC TC-4 in any 10 hours in a calendar day?",
+                "expected_answer": "90%"
+            },
+            {
+                "competency_question": "What is the maximum utilisation of each nbn Ethernet (Satellite) CVC TC-4 in any 3 continuous hours?",
+                "expected_answer": "100%"
+            },
+            {
+                "competency_question": "What is the maximum utilisation of each nbn Ethernet (Satellite) CVC TC-4 in any 5 hours in a calendar day?",
+                "expected_answer": "100%"
+            },
+            {
+                "competency_question": "What event triggers the non-application of section 4.5(d) in respect of Public Interest Premises?",
+                "expected_answer": "nbn waives any obligation in this section 4.5(d) under section 39 of the nbn\u00ae Ethernet Product Terms"
+            },
+            {
+                "competency_question": "What actions may nbn take if RSP fails to comply with section 4.5(d) in respect of a CVC?",
+                "expected_answer": "decline AVC orders or modifications for AVCs associated with the CVC; and suspend the supply of any AVCs associated with the CVC, until nbn determines that RSP is complying with all limitations in section 4.5(d)"
+            },
+            {
+                "competency_question": "What event ends the period of declined AVC orders or modifications?",
+                "expected_answer": "nbn determines that RSP is complying with all limitations in section 4.5(d)"
+            },
+            {
+                "competency_question": "What is the average download usage threshold for RSP's Ordered Products using the Wireless Network in a calendar month?",
+                "expected_answer": "200GB"
+            }
+        ],
+        "7": [
+            {
+                "competency_question": "What is the numeric threshold for average upload usage that triggers a determination of Unfair Use for RSP's Ordered Products using the Wireless Network?",
+                "expected_answer": "60GB"
+            },
+            {
+                "competency_question": "What is the unit of the average upload usage threshold for Unfair Use on the Wireless Network?",
+                "expected_answer": "GB"
+            },
+            {
+                "competency_question": "What is the time period over which average upload usage is measured for determining Unfair Use on the Wireless Network?",
+                "expected_answer": "calendar month"
+            },
+            {
+                "competency_question": "What event triggers the determination of Unfair Use under section 4.3(a)(iii)?",
+                "expected_answer": "nbn considers that a use of AVC TC-4 is inappropriate or excessive"
+            },
+            {
+                "competency_question": "What type of knowledge is used by nbn when determining reasonableness under section 4.3(a)(iii)?",
+                "expected_answer": "actual knowledge"
+            },
+            {
+                "competency_question": "At what time is nbn's knowledge considered for determining reasonableness under section 4.3(a)(iii)?",
+                "expected_answer": "the time of providing the relevant notice under section 4.3(a)(iii)"
+            },
+            {
+                "competency_question": "What is the name of the notice that nbn provides when it considers a use of AVC TC-4 to be inappropriate or excessive?",
+                "expected_answer": "notice under section 4.3(a)(iii)"
+            },
+            {
+                "competency_question": "What are the possible consequences of non-compliance with the nbn Ethernet Fair Use Policy?",
+                "expected_answer": "an immediate Ordering Freeze, Service Reduction or Suspension of an Ordered Product under clause F5 of the Head Terms; the disconnection of RSP Equipment under clause C10 of the Head Terms; or other consequences in respect of nbn Ethernet (Satellite), including as set out in this nbn Ethernet Fair Use Policy"
+            },
+            {
+                "competency_question": "What event can cause an immediate Ordering Freeze, Service Reduction or Suspension of an Ordered Product?",
+                "expected_answer": "non-compliance with this nbn Ethernet Fair Use Policy"
+            },
+            {
+                "competency_question": "What event can cause the disconnection of RSP Equipment?",
+                "expected_answer": "non-compliance with this nbn Ethernet Fair Use Policy"
+            },
+            {
+                "competency_question": "What must RSP do if requested in writing by nbn under section 4.1(b)(ii)?",
+                "expected_answer": "exercise those rights referred to in section 4.1(b)(ii) as soon as reasonably practicable to the extent necessary to stop and/or prevent Unfair Use by the Downstream Service Provider or End User"
+            },
+            {
+                "competency_question": "Who are the participants in the event of RSP exercising rights under section 4.1(b)(ii)?",
+                "expected_answer": "RSP (agent), nbn (requesting party), Downstream Service Provider or End User (target of the rights)"
+            },
+            {
+                "competency_question": "What is the purpose of RSP exercising rights under section 4.1(b)(ii)?",
+                "expected_answer": "to stop and/or prevent Unfair Use by the Downstream Service Provider or End User"
+            }
+        ]
+    }
+}

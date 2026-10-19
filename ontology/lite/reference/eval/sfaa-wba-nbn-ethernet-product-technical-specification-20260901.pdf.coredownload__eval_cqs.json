@@ -1,0 +1,274 @@
+{
+ "sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload": {
+  "0": [
+   {
+    "competency_question": "What is the maximum number of NNI Bearers that an NNI Group can support for 1Gbps and 10Gbps NNI Bearers?",
+    "expected_answer": "8"
+   },
+   {
+    "competency_question": "What is the protection mode when an NNI Group is configured in Single Chassis mode?",
+    "expected_answer": "N:1 protection mode"
+   },
+   {
+    "competency_question": "What is the Bearer Limit for an NNI Group of 1 x 100Gbps NNI Bearer in Single Chassis mode?",
+    "expected_answer": "31,000"
+   },
+   {
+    "competency_question": "What is the document version number?",
+    "expected_answer": "5"
+   },
+   {
+    "competency_question": "What is the subsection number for Unicast N:1 CVC Bandwidth Profile Availability?",
+    "expected_answer": "5.1.3.2"
+   },
+   {
+    "competency_question": "What is the subsection number for CVC Support?",
+    "expected_answer": "6.5"
+   },
+   {
+    "competency_question": "What is the subsection number for Configuration Attributes?",
+    "expected_answer": "8.1.1"
+   },
+   {
+    "competency_question": "What is the name of the document section that describes Modification of an AVC bandwidth profile and service interruption?",
+    "expected_answer": "8.1.2.5 Modification of an AVC bandwidth profile and service interruption"
+   },
+   {
+    "competency_question": "What is the name of the document section that describes NNI Group Redundancy Mode?",
+    "expected_answer": "8.3.1.3 NNI Group Redundancy Mode"
+   },
+   {
+    "competency_question": "What is the name of the document section that describes V-NNI?",
+    "expected_answer": "8.3.4 V-NNI"
+   },
+   {
+    "competency_question": "What is the specification type for TC-4 (AVC)?",
+    "expected_answer": "PIR"
+   },
+   {
+    "competency_question": "What is the characteristic of TC-4 at the AVC regarding capacity sharing?",
+    "expected_answer": "AVC TC-4 capacity is shared with other traffic classes across the UNI and is available for TC-4 when higher-priority traffic classes are not utilising it"
+   },
+   {
+    "competency_question": "On which access network is Unicast 1:1 AVC available on UNI-D?",
+    "expected_answer": "Fibre Network, FTTB Network, FTTN Network, FTTC Network, HFC Network, Wireless Network, Satellite Network"
+   },
+   {
+    "competency_question": "What optional feature may an RSP order for a unicast AVC regarding Access Loop Identification?",
+    "expected_answer": "Access Loop Identification, and where applicable, Line Characteristic information inserted into DHCPv4, DHCPv6 and PPPoE upstream Layer 3 control packets"
+   },
+   {
+    "competency_question": "What is the control protocol for which Access Loop Identification is available on the Satellite Network?",
+    "expected_answer": "Not Available"
+   },
+   {
+    "competency_question": "Where is the description of the traffic classes for a Unicast 1:1 AVC found?",
+    "expected_answer": "section 3.1 of the nbn\u00ae Ethernet Product Description"
+   },
+   {
+    "competency_question": "What is the numeric value of the CIR for AVC TC-1 in the Unicast N:1 AVC bandwidth profile?",
+    "expected_answer": "0.15"
+   },
+   {
+    "competency_question": "In which access technology networks is the N:1 CVC type available?",
+    "expected_answer": "Available in Fibre Network only"
+   },
+   {
+    "competency_question": "For the CVC Max CVC TC-4 bandwidth profile, what will the amount of bandwidth capacity be automatically configured to equal?",
+    "expected_answer": "the bandwidth of the associated NNI"
+   },
+   {
+    "competency_question": "What do the available unicast 1:1 CVC bandwidth profiles comprise?",
+    "expected_answer": "a combination of available upstream/downstream bandwidth profiles for each traffic class as defined in sections 2.2 to 2.4 of the nbn\u00ae Ethernet Product Description"
+   },
+   {
+    "competency_question": "What does the NNI Group transparently support?",
+    "expected_answer": "the traffic class and priority encoding/decoding model set out in section 2.2 and 3.1.2 and detailed in section 3 of the Network Interface Specification \u2013 CVC"
+   },
+   {
+    "competency_question": "What is the Frame Delay Variation for TC-1 on the Fibre Network?",
+    "expected_answer": "\u2264 3msec"
+   },
+   {
+    "competency_question": "What is the Frame Delay (One-Way) for TC-1 on the FTTC Network?",
+    "expected_answer": "\u2264 25msec"
+   },
+   {
+    "competency_question": "What is the Frame Loss target for TC-1 on the Wireless Network?",
+    "expected_answer": "\u2264 0.04%"
+   },
+   {
+    "competency_question": "What is the Frame Delay Variation for TC-2 on the FTTB Network?",
+    "expected_answer": "\u2264 16msec"
+   },
+   {
+    "competency_question": "What is the Frame Delay (One-Way) for TC-2 on the HFC Network?",
+    "expected_answer": "\u2264 25msec"
+   },
+   {
+    "competency_question": "What is the Frame Rate condition for TC-2?",
+    "expected_answer": "Periodic <=CIR"
+   },
+   {
+    "competency_question": "Does TC-4 support a CIR?",
+    "expected_answer": "No"
+   },
+   {
+    "competency_question": "What is the effect of the particular access technology used to deliver nbn\u00ae Ethernet on TC-4 performance?",
+    "expected_answer": "will also have an impact on TC-4 performance"
+   },
+   {
+    "competency_question": "What is the consequence of processing a Modify Order for an AVC TC-4 bandwidth profile?",
+    "expected_answer": "a brief service interruption"
+   },
+   {
+    "competency_question": "What is the name of the attribute that determines the minimum number of provisioned AVCs required before an RSP can order an increased CVC bandwidth profile?",
+    "expected_answer": "Satellite CVC Minimum AVC threshold"
+   },
+   {
+    "competency_question": "What optional action may the RSP take regarding the S/C-VID?",
+    "expected_answer": "RSP may optionally elect to nominate the S/C-VID used to address each CVC/AVC service instance through the NNI by specifying a S/C-VID in the Product Order Form for the CVC/AVC"
+   },
+   {
+    "competency_question": "For which network type is the CVC_TC-4_CIR attribute applicable?",
+    "expected_answer": "Satellite"
+   },
+   {
+    "competency_question": "What is the object participant in the event of creating an NNI Group?",
+    "expected_answer": "the location of the NNI Group"
+   },
+   {
+    "competency_question": "What is the name of the event where an RSP requests to change the redundancy mode of an NNI Group from Single Chassis to Diverse Chassis at an Upgraded POI?",
+    "expected_answer": "NNI Diversity Upgrade"
+   },
+   {
+    "competency_question": "What is the selectable option for TPID besides the default?",
+    "expected_answer": "0x8100"
+   },
+   {
+    "competency_question": "What is the minimum number of NNI Bearers required to establish a new NNI Group in Single Chassis mode?",
+    "expected_answer": "at least one NNI Bearer"
+   },
+   {
+    "competency_question": "What are the selectable options for the NNI Bearer Type attribute?",
+    "expected_answer": "1000BaseLX, 1000BaseEX, 10GBaseLR, 10GBaseER, 100GBaseLR4, 100GBaseER4"
+   },
+   {
+    "competency_question": "What condition must be true for a 'Cancel an existing NNI Link' event to be permitted?",
+    "expected_answer": "when not used by a Downstream V-NNI"
+   },
+   {
+    "competency_question": "What is the identification number assigned to a successful NNI Bearer order?",
+    "expected_answer": "nbn-supplied NNI Bearer identification"
+   },
+   {
+    "competency_question": "What is the object participant in a 'Cancel an existing V-NNI' event?",
+    "expected_answer": "V-NNI"
+   },
+   {
+    "competency_question": "What is the name of the traffic class that is available on UNI-DSL for FTTB/FTTN?",
+    "expected_answer": "TC-1"
+   },
+   {
+    "competency_question": "What is the unit of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, Wireless, HFC, FTTC, Satellite, and FTTB/FTTN?",
+    "expected_answer": "Mbps"
+   },
+   {
+    "competency_question": "What is the unit of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, HFC, FTTC, and FTTB/FTTN but not available on Wireless and Satellite?",
+    "expected_answer": "Mbps"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for which TC-1 is available on UNI-V for FTTC?",
+    "expected_answer": "Not Available"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-DSL for FTTB/FTTN?",
+    "expected_answer": "Available on UNI-DSL"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+    "expected_answer": "Not Available"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+    "expected_answer": "Available on UNI-D"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+    "expected_answer": "40 Mbps"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+    "expected_answer": "Not Available"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+    "expected_answer": "Not Available"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+    "expected_answer": "Not Available"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+    "expected_answer": "Not Available"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Fibre when the bandwidth profile is 25/5 Mbps?",
+    "expected_answer": "25/5 Mbps"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Fibre when the bandwidth profile is 100/40 Mbps?",
+    "expected_answer": "100/40 Mbps"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Wireless when the bandwidth profile is Fixed Wireless Home Fast?",
+    "expected_answer": "Fixed Wireless Home Fast"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on HFC when the bandwidth profile is 50/20 Mbps?",
+    "expected_answer": "50/20 Mbps"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTC when the bandwidth profile is 25/5 Mbps?",
+    "expected_answer": "25/5 Mbps"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTC when the bandwidth profile is 50-100/20-40 Mbps?",
+    "expected_answer": "50-100/20-40 Mbps"
+   },
+   {
+    "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTB/FTTN when the bandwidth profile is 25/5 Mbps?",
+    "expected_answer": "25/5 Mbps"
+   },
+   {
+    "competency_question": "What is the maximum number of NNI Bearers an NNI Group can support for 1Gbps and 10Gbps NNI Bearers?",
+    "expected_answer": "8"
+   },
+   {
+    "competency_question": "What is the maximum number of 100Gbps NNI Bearers in an NNI Group in Single Chassis mode and in Diverse Chassis mode?",
+    "expected_answer": "2 in Single Chassis mode; 4 in Diverse Chassis mode"
+   },
+   {
+    "competency_question": "Which interface rates can the NNI Bearers of an NNI Group have, and must all bearers in the group use the same rate?",
+    "expected_answer": "1, 10 or 100 Gbps; every NNI Bearer must be consistent with the group interface rate"
+   },
+   {
+    "competency_question": "Which redundancy modes can an NNI Group be configured in?",
+    "expected_answer": "Single Chassis or Diverse Chassis"
+   },
+   {
+    "competency_question": "How many CVCs can an NNI Group support in aggregate?",
+    "expected_answer": "4,000"
+   },
+   {
+    "competency_question": "What is the Bearer Limit for an NNI Group of 2 x 100Gbps NNI Bearers in Diverse Chassis mode?",
+    "expected_answer": "31,000"
+   },
+   {
+    "competency_question": "Do Unicast 1:1 AVCs count toward the Bearer Limit?",
+    "expected_answer": "Yes, the Bearer Limit includes the total number of Unicast 1:1 AVCs"
+   }
+  ]
+ }
+}

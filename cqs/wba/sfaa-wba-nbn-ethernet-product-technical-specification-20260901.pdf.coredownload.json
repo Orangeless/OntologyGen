@@ -1,0 +1,2106 @@
+{
+    "sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload": {
+        "28": [
+            {
+                "competency_question": "What is the maximum number of NNI Bearers that an NNI Group can support for 1Gbps and 10Gbps NNI Bearers?",
+                "expected_answer": "8"
+            },
+            {
+                "competency_question": "What is the unit of the maximum number of NNI Bearers that an NNI Group can support for 1Gbps and 10Gbps NNI Bearers?",
+                "expected_answer": "NNI Bearers"
+            },
+            {
+                "competency_question": "What is the maximum number of NNI Bearers that an NNI Group can support for 100Gbps NNI Bearers in Single Chassis mode?",
+                "expected_answer": "2"
+            },
+            {
+                "competency_question": "What is the unit of the maximum number of NNI Bearers that an NNI Group can support for 100Gbps NNI Bearers in Single Chassis mode?",
+                "expected_answer": "NNI Bearers"
+            },
+            {
+                "competency_question": "What is the maximum number of NNI Bearers that an NNI Group can support for 100Gbps NNI Bearers in Diverse Chassis mode?",
+                "expected_answer": "4"
+            },
+            {
+                "competency_question": "What is the unit of the maximum number of NNI Bearers that an NNI Group can support for 100Gbps NNI Bearers in Diverse Chassis mode?",
+                "expected_answer": "NNI Bearers"
+            },
+            {
+                "competency_question": "What condition must all NNI Bearers within an NNI Group satisfy?",
+                "expected_answer": "All NNI Bearers within an NNI Group must be consistent with the group interface rate for that NNI Group (i.e. 1Gbps, 10Gbps or 100Gbps)."
+            },
+            {
+                "competency_question": "What are the possible redundancy modes for an NNI Group?",
+                "expected_answer": "Single Chassis, Diverse Chassis"
+            },
+            {
+                "competency_question": "What is the protection mode when an NNI Group is configured in Single Chassis mode?",
+                "expected_answer": "N:1 protection mode"
+            },
+            {
+                "competency_question": "What happens if any NNI Bearer within an NNI Group configured in Single Chassis mode fails?",
+                "expected_answer": "the NNI Group will continue to operate at an aggregate capacity that is reduced by the capacity of the failed NNI Bearer"
+            },
+            {
+                "competency_question": "What is the protection mode when an NNI Group is configured in Diverse Chassis mode?",
+                "expected_answer": "1:1 protection mode"
+            },
+            {
+                "competency_question": "What happens if any NNI Bearer on the working chassis fails in Diverse Chassis mode?",
+                "expected_answer": "traffic will be re-directed to the NNI Bearers on the protect chassis"
+            }
+        ],
+        "29": [
+            {
+                "competency_question": "What is the maximum number of NNI Links that an NNI can support?",
+                "expected_answer": "4000"
+            },
+            {
+                "competency_question": "What is the unit for the maximum number of NNI Links an NNI can support?",
+                "expected_answer": "NNI Links"
+            },
+            {
+                "competency_question": "What is the maximum number of CVCs an NNI Group can support in aggregate?",
+                "expected_answer": "4,000"
+            },
+            {
+                "competency_question": "What is the unit for the maximum number of CVCs an NNI Group can support?",
+                "expected_answer": "CVCs"
+            },
+            {
+                "competency_question": "What is the Bearer Limit for an NNI Group of 1 x 100Gbps NNI Bearer in Single Chassis mode?",
+                "expected_answer": "31,000"
+            },
+            {
+                "competency_question": "What is the Bearer Limit for an NNI Group of 2 x 100Gbps NNI Bearers in Single Chassis mode?",
+                "expected_answer": "62,000"
+            },
+            {
+                "competency_question": "What is the Bearer Limit for an NNI Group of 2 x 100Gbps NNI Bearers in Diverse Chassis mode?",
+                "expected_answer": "31,000"
+            },
+            {
+                "competency_question": "What is the name of the limit that includes the total number of Unicast 1:1 AVCs, OVCs, and Unicast N:1 CVCs associated with an NNI Group?",
+                "expected_answer": "Bearer Limit"
+            },
+            {
+                "competency_question": "What is the object participant in the 'Bearer Limit' definition?",
+                "expected_answer": "the total number of Unicast 1:1 AVCs, OVCs, and Unicast N:1 CVCs associated with an NNI Group"
+            },
+            {
+                "competency_question": "What is the numeric value of the maximum number of NNI Links an NNI can support?",
+                "expected_answer": "4000"
+            },
+            {
+                "competency_question": "What is the unit for the maximum number of CVCs an NNI Group can support?",
+                "expected_answer": "CVCs"
+            }
+        ],
+        "4": [
+            {
+                "competency_question": "What is the name of the product module described in the document?",
+                "expected_answer": "nbn\u00ae Ethernet Product Module"
+            },
+            {
+                "competency_question": "What is the document version number?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the section number for Connectivity Virtual Circuit (CVC)?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the section number for Network-Network Interface (NNI)?",
+                "expected_answer": "6"
+            },
+            {
+                "competency_question": "What is the section number for Network Performance?",
+                "expected_answer": "7"
+            },
+            {
+                "competency_question": "What is the section number for Orderable Attributes?",
+                "expected_answer": "8"
+            },
+            {
+                "competency_question": "What is the subsection number for Unicast 1:1 CVC Scalability?",
+                "expected_answer": "5.1.2.1"
+            },
+            {
+                "competency_question": "What is the subsection number for Unicast N:1 CVC Scalability?",
+                "expected_answer": "5.1.2.2"
+            },
+            {
+                "competency_question": "What is the subsection number for Unicast 1:1 CVC Bandwidth Profile Availability?",
+                "expected_answer": "5.1.3.1"
+            },
+            {
+                "competency_question": "What is the subsection number for Unicast N:1 CVC Bandwidth Profile Availability?",
+                "expected_answer": "5.1.3.2"
+            },
+            {
+                "competency_question": "What is the subsection number for CVC Contention Management?",
+                "expected_answer": "5.1.4"
+            },
+            {
+                "competency_question": "What is the subsection number for NNI Group and NNI Bearers?",
+                "expected_answer": "6.1"
+            },
+            {
+                "competency_question": "What is the subsection number for Redundancy Mode?",
+                "expected_answer": "6.2"
+            },
+            {
+                "competency_question": "What is the subsection number for Single Chassis?",
+                "expected_answer": "6.2.1"
+            },
+            {
+                "competency_question": "What is the subsection number for Diverse Chassis?",
+                "expected_answer": "6.2.2"
+            },
+            {
+                "competency_question": "What is the subsection number for NNI Link?",
+                "expected_answer": "6.3"
+            },
+            {
+                "competency_question": "What is the subsection number for V-NNI?",
+                "expected_answer": "6.4"
+            },
+            {
+                "competency_question": "What is the subsection number for CVC Support?",
+                "expected_answer": "6.5"
+            },
+            {
+                "competency_question": "What is the subsection number for Service Support?",
+                "expected_answer": "6.6"
+            },
+            {
+                "competency_question": "What is the subsection number for 100Gbps NNI Bearers?",
+                "expected_answer": "6.6.1"
+            },
+            {
+                "competency_question": "What is the subsection number for Class of Service Support?",
+                "expected_answer": "6.7"
+            },
+            {
+                "competency_question": "What is the subsection number for Traffic Class Performance?",
+                "expected_answer": "7.1"
+            },
+            {
+                "competency_question": "What is the subsection number for Limitations on the Standards for Traffic Class Operations Performance?",
+                "expected_answer": "7.2"
+            },
+            {
+                "competency_question": "What is the subsection number for TC-4 Traffic Performance Characteristics?",
+                "expected_answer": "7.3"
+            },
+            {
+                "competency_question": "What is the subsection number for Access Components?",
+                "expected_answer": "8.1"
+            },
+            {
+                "competency_question": "What is the subsection number for Configuration Attributes?",
+                "expected_answer": "8.1.1"
+            },
+            {
+                "competency_question": "What is the subsection number for UNI Configuration Attributes?",
+                "expected_answer": "8.1.1.1"
+            },
+            {
+                "competency_question": "What is the subsection number for AVC Configuration Attributes?",
+                "expected_answer": "8.1.1.2"
+            },
+            {
+                "competency_question": "What is the subsection number for Service Attributes?",
+                "expected_answer": "8.1.2"
+            },
+            {
+                "competency_question": "What is the subsection number for Access Component Attributes?",
+                "expected_answer": "8.1.2.1"
+            }
+        ],
+        "5": [
+            {
+                "competency_question": "What is the name of the document section that describes UNI-D Service Attributes?",
+                "expected_answer": "8.1.2.2 UNI-D Service Attributes"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes UNI-DSL Service Attributes?",
+                "expected_answer": "8.1.2.3 UNI-DSL Service Attributes"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes Unicast AVC Service Attributes?",
+                "expected_answer": "8.1.2.4 Unicast AVC Service Attributes"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes Modification of an AVC bandwidth profile and service interruption?",
+                "expected_answer": "8.1.2.5 Modification of an AVC bandwidth profile and service interruption"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes CVC Service Attributes?",
+                "expected_answer": "8.2 CVC Service Attributes"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes Unicast 1:1 CVC?",
+                "expected_answer": "8.2.1 Unicast 1:1 CVC"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes Unicast N:1 CVC?",
+                "expected_answer": "8.2.2 Unicast N:1 CVC"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Service Attributes?",
+                "expected_answer": "8.3 NNI Service Attributes"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Group?",
+                "expected_answer": "8.3.1 NNI Group"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Group Location?",
+                "expected_answer": "8.3.1.1 NNI Group Location"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Group Interface Rate?",
+                "expected_answer": "8.3.1.2 NNI Group Interface Rate"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Group Redundancy Mode?",
+                "expected_answer": "8.3.1.3 NNI Group Redundancy Mode"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Group Orderable Attributes Summary?",
+                "expected_answer": "8.3.1.4 NNI Group Orderable Attributes Summary"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Bearer?",
+                "expected_answer": "8.3.2 NNI Bearer"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Bearer Ordering?",
+                "expected_answer": "8.3.2.1 NNI Bearer Ordering"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Bearer Orderable Attributes?",
+                "expected_answer": "8.3.2.2 NNI Bearer Orderable Attributes"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Link?",
+                "expected_answer": "8.3.3 NNI Link"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Link Ordering?",
+                "expected_answer": "8.3.3.1 NNI Link Ordering"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes NNI Link Orderable Attributes?",
+                "expected_answer": "8.3.3.2 NNI Link Orderable Attributes"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes V-NNI?",
+                "expected_answer": "8.3.4 V-NNI"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes V-NNI Ordering?",
+                "expected_answer": "8.3.4.1 V-NNI Ordering"
+            },
+            {
+                "competency_question": "What is the name of the document section that describes V-NNI Orderable Attributes?",
+                "expected_answer": "8.3.4.2 V-NNI Orderable Attributes"
+            },
+            {
+                "competency_question": "What is the name of the appendix that describes Access Technology Compatibility?",
+                "expected_answer": "Appendix A Access Technology Compatibility"
+            },
+            {
+                "competency_question": "What is the name of the appendix that describes Traffic Class Combinations?",
+                "expected_answer": "Appendix B Traffic Class Combinations"
+            }
+        ],
+        "9": [
+            {
+                "competency_question": "What is the name of the traffic class targeted towards real-time, interactive multimedia applications with low bit-rate and low Frame Delay, Frame Delay Variation, Frame Loss?",
+                "expected_answer": "TC-1"
+            },
+            {
+                "competency_question": "What is the specification type for TC-1?",
+                "expected_answer": "CIR"
+            },
+            {
+                "competency_question": "What is the specification type for TC-2?",
+                "expected_answer": "CIR"
+            },
+            {
+                "competency_question": "What is the specification type for TC-4 (AVC)?",
+                "expected_answer": "PIR"
+            },
+            {
+                "competency_question": "What is the specification type for TC-4 (CVC except in respect of Satellite Network)?",
+                "expected_answer": "PIR"
+            },
+            {
+                "competency_question": "What is the specification type for TC-4 (CVC in respect of Satellite Network)?",
+                "expected_answer": "CIR"
+            },
+            {
+                "competency_question": "What is the example application for TC-1?",
+                "expected_answer": "Voice"
+            },
+            {
+                "competency_question": "What is the example application for TC-2?",
+                "expected_answer": "Streaming standard and high definition video and real-time collaboration applications"
+            },
+            {
+                "competency_question": "What is the example application for TC-4?",
+                "expected_answer": "Best-effort data"
+            },
+            {
+                "competency_question": "What is the per-hop behaviour that TC-1 attributes are aligned to?",
+                "expected_answer": "DSCP Expedited Forwarding per-hop behaviour described in RFC4594"
+            },
+            {
+                "competency_question": "What is the characteristic of TC-1 regarding burst capacity?",
+                "expected_answer": "limited ability to burst above its CIR"
+            },
+            {
+                "competency_question": "What is the characteristic of TC-4 at the AVC regarding capacity sharing?",
+                "expected_answer": "AVC TC-4 capacity is shared with other traffic classes across the UNI and is available for TC-4 when higher-priority traffic classes are not utilising it"
+            },
+            {
+                "competency_question": "What is the characteristic of TC-4 at the CVC for nbn\u00ae Ethernet (other than Satellite) regarding capacity sharing?",
+                "expected_answer": "CVC TC-4 capacity is shared with other CVC and OVC traffic across the NNI"
+            },
+            {
+                "competency_question": "What is the characteristic of TC-4 at the CVC for nbn\u00ae Ethernet (Satellite) regarding capacity sharing?",
+                "expected_answer": "CVC TC-4 capacity cannot be shared with other CVCs or traffic classes across the NNI"
+            },
+            {
+                "competency_question": "What is the note regarding TC-4 and Wireless Plus?",
+                "expected_answer": "no defined PIR applies in respect of Wireless Plus"
+            }
+        ],
+        "23": [
+            {
+                "competency_question": "What is the name of the product component that implements the C-VLAN component of an IEEE802.1ad Provider Bridge?",
+                "expected_answer": "Access Virtual Circuit (AVC)"
+            },
+            {
+                "competency_question": "What are the two variants of the nbn Ethernet AVC Product Component?",
+                "expected_answer": "Unicast 1:1 AVC and Unicast N:1 AVC"
+            },
+            {
+                "competency_question": "Which AVC type is required for unicast data applications using the UNI-D or UNI-DSL?",
+                "expected_answer": "Unicast 1:1 AVC"
+            },
+            {
+                "competency_question": "Which AVC type is required for unicast data applications using the UNI-V?",
+                "expected_answer": "Unicast N:1 AVC"
+            },
+            {
+                "competency_question": "On which access network is Unicast 1:1 AVC available on UNI-D?",
+                "expected_answer": "Fibre Network, FTTB Network, FTTN Network, FTTC Network, HFC Network, Wireless Network, Satellite Network"
+            },
+            {
+                "competency_question": "On which access network is Unicast 1:1 AVC available on UNI-DSL?",
+                "expected_answer": "FTTB Network, FTTN Network"
+            },
+            {
+                "competency_question": "On which access network is Unicast N:1 AVC available on UNI-V?",
+                "expected_answer": "Fibre Network"
+            },
+            {
+                "competency_question": "On which access networks is Unicast N:1 AVC not available?",
+                "expected_answer": "FTTB Network, FTTN Network, FTTC Network, HFC Network, Wireless Network, Satellite Network"
+            },
+            {
+                "competency_question": "How are AVCs logically isolated from each other?",
+                "expected_answer": "via the use of distinct S/C-VIDs"
+            },
+            {
+                "competency_question": "What is the purpose of distinct S/C-VIDs for AVCs?",
+                "expected_answer": "AVCs are logically isolated from each other via the use of distinct S/C-VIDs"
+            },
+            {
+                "competency_question": "How is an AVC designed to be scaled in capacity?",
+                "expected_answer": "through its bandwidth profile"
+            },
+            {
+                "competency_question": "What are the bounds within which an AVC can be scaled?",
+                "expected_answer": "within the bounds of the product constructs and the physical limits of the underlying access network technology"
+            },
+            {
+                "competency_question": "What optional feature may an RSP order for a unicast AVC regarding Access Loop Identification?",
+                "expected_answer": "Access Loop Identification, and where applicable, Line Characteristic information inserted into DHCPv4, DHCPv6 and PPPoE upstream Layer 3 control packets"
+            },
+            {
+                "competency_question": "Into which protocols may Access Loop Identification information be inserted?",
+                "expected_answer": "DHCPv4, DHCPv6 and PPPoE upstream Layer 3 control packets"
+            },
+            {
+                "competency_question": "What is the purpose of inserting Access Loop Identification information?",
+                "expected_answer": "to identify the individual logical circuit to upstream devices beyond the NNI"
+            },
+            {
+                "competency_question": "What AVC information can be included in the Access Loop Identification?",
+                "expected_answer": "Access Loop Identification \u2013 identifying an AVC ID configured in the Circuit ID field in the relevant DHCPv4, DHCPv6 or PPPoE protocols"
+            },
+            {
+                "competency_question": "How many AVCs inclusive of multiple traffic classes may be supported per UNI-D or UNI-DSL?",
+                "expected_answer": "One"
+            }
+        ],
+        "24": [
+            {
+                "competency_question": "What is the name of the feature that identifies actual data rate Upstream and actual data rate Downstream?",
+                "expected_answer": "Access Loop Characterisation"
+            },
+            {
+                "competency_question": "What is the name of the feature that identifies the access loop?",
+                "expected_answer": "Access Loop Identification"
+            },
+            {
+                "competency_question": "On which access technologies is Access Loop Identification insertion available?",
+                "expected_answer": "all access technologies"
+            },
+            {
+                "competency_question": "What is the control protocol for which Access Loop Identification is available on the Satellite Network?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the control protocol for which Access Loop Characterisation is available on the FTTB/FTTN Network?",
+                "expected_answer": "Available"
+            },
+            {
+                "competency_question": "On which access technologies is Access Loop Characterisation insertion available?",
+                "expected_answer": "nbn\u00ae Ethernet (FTTB) and nbn\u00ae Ethernet (FTTN)"
+            },
+            {
+                "competency_question": "What condition must be met for Access Loop Characterisation insertion to be optionally included?",
+                "expected_answer": "provided Access Loop Identification insertion is enabled"
+            },
+            {
+                "competency_question": "What document sets out the detailed specifications for Access Loop Identification and Characterisation?",
+                "expected_answer": "Network Interface Specification \u2013 AVC"
+            },
+            {
+                "competency_question": "What is the name of the AVC bandwidth profile type that comprises a combination of mandatory and optional traffic classes?",
+                "expected_answer": "Unicast 1:1 AVC"
+            },
+            {
+                "competency_question": "What are the mandatory traffic classes in a Unicast 1:1 AVC?",
+                "expected_answer": "TC-4"
+            },
+            {
+                "competency_question": "What are the optional traffic classes in a Unicast 1:1 AVC?",
+                "expected_answer": "TC-1 and/or TC-2"
+            },
+            {
+                "competency_question": "Where is the description of the traffic classes for a Unicast 1:1 AVC found?",
+                "expected_answer": "section 3.1 of the nbn\u00ae Ethernet Product Description"
+            },
+            {
+                "competency_question": "What does a valid Unicast 1:1 AVC bandwidth profile comprise?",
+                "expected_answer": "a combination of available upstream/downstream bandwidth profiles for each traffic class"
+            },
+            {
+                "competency_question": "Where are the available combinations of upstream/downstream bandwidth profiles for each traffic class specified?",
+                "expected_answer": "sections B.1 and B.2 to Appendix B"
+            },
+            {
+                "competency_question": "Where is the availability by access technology for each Unicast 1:1 AVC bandwidth profile combination set out?",
+                "expected_answer": "sections B.1 and B.2 to Appendix B"
+            }
+        ],
+        "25": [
+            {
+                "competency_question": "What is the name of the AVC type that is available only to support the UNI-V and AVC TC-1 bundle?",
+                "expected_answer": "Unicast N:1 AVC"
+            },
+            {
+                "competency_question": "What is the bandwidth profile of the Unicast N:1 AVC on the UNI-V?",
+                "expected_answer": "AVC TC-4 0/0 Mbps (PIR) and AVC TC-1 0.15Mbps (CIR)"
+            },
+            {
+                "competency_question": "What is the numeric value of the PIR for AVC TC-4 in the Unicast N:1 AVC bandwidth profile?",
+                "expected_answer": "0/0"
+            },
+            {
+                "competency_question": "What is the unit of the PIR for AVC TC-4 in the Unicast N:1 AVC bandwidth profile?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the CIR for AVC TC-1 in the Unicast N:1 AVC bandwidth profile?",
+                "expected_answer": "0.15"
+            },
+            {
+                "competency_question": "What is the unit of the CIR for AVC TC-1 in the Unicast N:1 AVC bandwidth profile?",
+                "expected_answer": "Mbps"
+            }
+        ],
+        "26": [
+            {
+                "competency_question": "What is the name of the Ethernet virtual circuit that provides connectivity from an NNI to a CSA?",
+                "expected_answer": "Connectivity Virtual Circuit (CVC)"
+            },
+            {
+                "competency_question": "What is the S-VLAN component of an IEEE802.1ad Provider Bridge implemented by the CVC?",
+                "expected_answer": "the S-VLAN component of an IEEE802.1ad Provider Bridge"
+            },
+            {
+                "competency_question": "What are the two variants of the nbn\u00ae Ethernet CVC Product Component?",
+                "expected_answer": "1:1 VLAN and N:1 VLAN"
+            },
+            {
+                "competency_question": "Which CVC variant is required for 1:1 AVC unicast services delivered using the UNI-D or UNI-DSL interface?",
+                "expected_answer": "1:1 VLAN"
+            },
+            {
+                "competency_question": "Which CVC variant is required for N:1 AVC unicast services delivered using the UNI-V interface?",
+                "expected_answer": "N:1 VLAN"
+            },
+            {
+                "competency_question": "In which access technology networks is the 1:1 CVC type available?",
+                "expected_answer": "Available in Fibre Network, FTTB/FTTN Network, FTTC Network, HFC Network, Wireless Network, Satellite Network"
+            },
+            {
+                "competency_question": "In which access technology networks is the N:1 CVC type available?",
+                "expected_answer": "Available in Fibre Network only"
+            },
+            {
+                "competency_question": "In which access technology networks is the N:1 CVC type not available?",
+                "expected_answer": "Not Available in FTTB/FTTN Network, FTTC Network, HFC Network, Wireless Network, Satellite Network"
+            },
+            {
+                "competency_question": "What is the NNI and all CVCs delivered through it specific to?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "Can an RSP have multiple CVCs within a CSA delivered using a number of NNI?",
+                "expected_answer": "It is possible that RSP may have multiple CVCs within a CSA delivered using a number of NNI."
+            },
+            {
+                "competency_question": "How are CVCs isolated from each other on an NNI?",
+                "expected_answer": "via the use of distinct S-VIDs"
+            },
+            {
+                "competency_question": "Can different CVC types co-exist on the same NNI?",
+                "expected_answer": "Subject to section 1.1(e) of the nbn\u00ae Ethernet Product Description, different CVC types are able to co-exist on the same NNI."
+            },
+            {
+                "competency_question": "What should RSP consider in conjunction with contention?",
+                "expected_answer": "AVC and CVC scalability"
+            },
+            {
+                "competency_question": "How may RSP control End User experience?",
+                "expected_answer": "through contention applied by dimensioning of capacity between the AVC and CVC subject to conditions set out in the nbn\u00ae Ethernet Product Description"
+            },
+            {
+                "competency_question": "For the CVC Max CVC TC-4 bandwidth profile, what will the amount of bandwidth capacity be automatically configured to equal?",
+                "expected_answer": "the bandwidth of the associated NNI"
+            }
+        ],
+        "27": [
+            {
+                "competency_question": "What is the maximum number of unicast 1:1 AVCs a single unicast 1:1 CVC can support?",
+                "expected_answer": "4,000"
+            },
+            {
+                "competency_question": "What is the unit of the maximum number of unicast 1:1 AVCs a single unicast 1:1 CVC can support?",
+                "expected_answer": "AVCs"
+            },
+            {
+                "competency_question": "What is used to address each unicast 1:1 AVC within a single unicast 1:1 CVC?",
+                "expected_answer": "a single, unique C-VID, locally significant to the CVC"
+            },
+            {
+                "competency_question": "What is the scope of significance of the C-VID used to address a unicast 1:1 AVC?",
+                "expected_answer": "locally significant to the CVC"
+            },
+            {
+                "competency_question": "What limits the number of CVCs an RSP may purchase in relation to a given CSA?",
+                "expected_answer": "the NNI resources that RSP has purchased for that CSA"
+            },
+            {
+                "competency_question": "What must an RSP do if it requires access to more than 4,000 AVCs in a given CSA?",
+                "expected_answer": "utilise more than one CVC"
+            },
+            {
+                "competency_question": "Is there any restriction on the number of unicast N:1 AVCs within a CSA that can be associated with a single unicast N:1 CVC at the NNI?",
+                "expected_answer": "no restriction"
+            },
+            {
+                "competency_question": "What do the available unicast 1:1 CVC bandwidth profiles comprise?",
+                "expected_answer": "a combination of available upstream/downstream bandwidth profiles for each traffic class as defined in sections 2.2 to 2.4 of the nbn\u00ae Ethernet Product Description"
+            },
+            {
+                "competency_question": "What condition must the total combination of CVC bandwidth profiles satisfy?",
+                "expected_answer": "is not zero"
+            },
+            {
+                "competency_question": "What additional limitations apply in respect of nbn\u00ae Ethernet (Satellite) for unicast 1:1 CVC bandwidth profiles?",
+                "expected_answer": "Those sections set out additional limitations that apply in respect of nbn\u00ae Ethernet (Satellite)"
+            },
+            {
+                "competency_question": "What do the available unicast N:1 CVC bandwidth profiles comprise?",
+                "expected_answer": "the TC-1 traffic class bandwidth profiles set out in section 2.3(b) of the nbn\u00ae Ethernet Product Description"
+            },
+            {
+                "competency_question": "Who should control AVC:CVC contention for the purpose of managing service utilisation?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What will the nbn\u00ae Network do in the event of AVC:CVC congestion within unicast services?",
+                "expected_answer": "discard traffic in accordance with section 2.2"
+            }
+        ],
+        "30": [
+            {
+                "competency_question": "What is the numeric value of the Bearer Limit for an NNI Group of 4 x 100Gbps NNI Bearers in Diverse Chassis mode?",
+                "expected_answer": "62,000"
+            },
+            {
+                "competency_question": "What is the unit of the Bearer Limit for an NNI Group of 4 x 100Gbps NNI Bearers in Diverse Chassis mode?",
+                "expected_answer": "bearers"
+            },
+            {
+                "competency_question": "What does the NNI Group transparently support?",
+                "expected_answer": "the traffic class and priority encoding/decoding model set out in section 2.2 and 3.1.2 and detailed in section 3 of the Network Interface Specification \u2013 CVC"
+            },
+            {
+                "competency_question": "What event may result in the discard of traffic for NNI Groups configured as Single Chassis?",
+                "expected_answer": "the failure of one or more NNI Bearers"
+            },
+            {
+                "competency_question": "What is the cause of traffic discard in NNI Groups configured as Single Chassis?",
+                "expected_answer": "insufficient NNI Group aggregate capacity to carry the provisioned CVC capacity"
+            },
+            {
+                "competency_question": "According to what priority is traffic designed to be discarded in the case of insufficient NNI Group aggregate capacity?",
+                "expected_answer": "the priority as indicated at the CVC level"
+            }
+        ],
+        "31": [
+            {
+                "competency_question": "What is the traffic class for which network performance standards are defined?",
+                "expected_answer": "TC-1, TC-2, TC-4"
+            },
+            {
+                "competency_question": "What is the network type for which TC-1 Frame Delay (One-Way) is \u2264 6msec?",
+                "expected_answer": "Fibre Network"
+            },
+            {
+                "competency_question": "What is the numeric value of the Frame Delay (One-Way) for TC-1 on the Fibre Network?",
+                "expected_answer": "6"
+            },
+            {
+                "competency_question": "What is the unit of the Frame Delay (One-Way) for TC-1 on the Fibre Network?",
+                "expected_answer": "msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-1 on the Fibre Network?",
+                "expected_answer": "\u2264 3msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-1 on the Fibre Network?",
+                "expected_answer": "\u2264 0.01%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-1 on the FTTB Network?",
+                "expected_answer": "\u2264 25msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-1 on the FTTB Network?",
+                "expected_answer": "\u2264 10msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-1 on the FTTB Network?",
+                "expected_answer": "\u2264 0.04%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-1 on the FTTN Network?",
+                "expected_answer": "\u2264 25msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-1 on the FTTN Network?",
+                "expected_answer": "\u2264 10msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-1 on the FTTN Network?",
+                "expected_answer": "\u2264 0.04%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-1 on the FTTC Network?",
+                "expected_answer": "\u2264 25msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-1 on the FTTC Network?",
+                "expected_answer": "\u2264 10msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-1 on the FTTC Network?",
+                "expected_answer": "\u2264 0.04%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-1 on the HFC Network?",
+                "expected_answer": "\u2264 25msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-1 on the HFC Network?",
+                "expected_answer": "\u2264 10msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-1 on the HFC Network?",
+                "expected_answer": "\u2264 0.04%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-1 on the Wireless Network?",
+                "expected_answer": "\u2264 40msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-1 on the Wireless Network?",
+                "expected_answer": "\u2264 50msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-1 on the Wireless Network?",
+                "expected_answer": "\u2264 0.04%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-1 on the Satellite Network?",
+                "expected_answer": "\u2264 370msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-1 on the Satellite Network?",
+                "expected_answer": "\u2264 25msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-1 on the Satellite Network?",
+                "expected_answer": "\u2264 0.04%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-2 on the Fibre Network?",
+                "expected_answer": "\u2264 6msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-2 on the Fibre Network?",
+                "expected_answer": "\u2264 10msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-2 on the Fibre Network?",
+                "expected_answer": "\u2264 0.01%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-2 on the FTTB Network?",
+                "expected_answer": "\u2264 25msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-2 on the FTTB Network?",
+                "expected_answer": "\u2264 16msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-2 on the FTTB Network?",
+                "expected_answer": "\u2264 0.04%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-2 on the FTTN Network?",
+                "expected_answer": "\u2264 25msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-2 on the FTTN Network?",
+                "expected_answer": "\u2264 16msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-2 on the FTTN Network?",
+                "expected_answer": "\u2264 0.04%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-2 on the FTTC Network?",
+                "expected_answer": "\u2264 25msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-2 on the FTTC Network?",
+                "expected_answer": "\u2264 16msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-2 on the FTTC Network?",
+                "expected_answer": "\u2264 0.04%"
+            },
+            {
+                "competency_question": "What is the Frame Delay (One-Way) for TC-2 on the HFC Network?",
+                "expected_answer": "\u2264 25msec"
+            },
+            {
+                "competency_question": "What is the Frame Delay Variation for TC-2 on the HFC Network?",
+                "expected_answer": "\u2264 16msec"
+            },
+            {
+                "competency_question": "What is the Frame Loss target for TC-2 on the HFC Network?",
+                "expected_answer": "\u2264 0.04%"
+            },
+            {
+                "competency_question": "What is the performance of traffic class operations for TC-4?",
+                "expected_answer": "Not Applicable"
+            },
+            {
+                "competency_question": "What is the Layer 2 Frame Size at NNI (Bytes) for TC-1?",
+                "expected_answer": "250"
+            },
+            {
+                "competency_question": "What is the Frame Rate condition for TC-1?",
+                "expected_answer": "Periodic <=CIR"
+            },
+            {
+                "competency_question": "What is the CVC Traffic Class Capacity Utilisation for TC-1?",
+                "expected_answer": "\u2264 70%"
+            },
+            {
+                "competency_question": "What is the Layer 2 Frame Size at NNI (Bytes) for TC-2?",
+                "expected_answer": "1500"
+            },
+            {
+                "competency_question": "What is the Frame Rate condition for TC-2?",
+                "expected_answer": "Periodic <=CIR"
+            },
+            {
+                "competency_question": "What is the CVC Traffic Class Capacity Utilisation for TC-2?",
+                "expected_answer": "\u2264 70%"
+            },
+            {
+                "competency_question": "What is the distance threshold for Frame Delay guidance between UNI and NNI?",
+                "expected_answer": "100km"
+            },
+            {
+                "competency_question": "What is the extra latency allowance per additional 200km air path distance (or part thereof) when UNI to NNI distance > 100km?",
+                "expected_answer": "1.4msec"
+            },
+            {
+                "competency_question": "What condition must be met for Frame Loss targets to be achieved?",
+                "expected_answer": "the CBS is less than the specified limits at both the AVC and CVC level as described in section 2.2.2.2 and any applicable Network Interface Specification"
+            }
+        ],
+        "32": [
+            {
+                "competency_question": "What is the name of the traffic class designed for applications that can benefit from a peak capacity and can tolerate variable throughput?",
+                "expected_answer": "Traffic class 4"
+            },
+            {
+                "competency_question": "What is the peak capacity offered by TC-4?",
+                "expected_answer": "PIR"
+            },
+            {
+                "competency_question": "Which TC-4 product does not have a defined PIR?",
+                "expected_answer": "Wireless Plus"
+            },
+            {
+                "competency_question": "Does TC-4 support a CIR?",
+                "expected_answer": "No"
+            },
+            {
+                "competency_question": "What is the numeric value of the maximum number of consecutive Ethernet frames that may cause increased Frame Loss in the downstream for certain AVC TC-4 bandwidth profiles?",
+                "expected_answer": "100"
+            },
+            {
+                "competency_question": "What is the unit of the maximum consecutive Ethernet frames that may cause increased Frame Loss?",
+                "expected_answer": "consecutive Ethernet frames"
+            },
+            {
+                "competency_question": "What is the condition under which the performance of traffic class operations does not apply to services utilising the UNI-V over the Fibre Network?",
+                "expected_answer": "because they are subject to additional performance-affecting processing which will impact end-to-end performance"
+            },
+            {
+                "competency_question": "What is the condition under which the performance of traffic class operations does not apply to nbn\u00ae Ethernet (FTTB) Ordered Products or nbn\u00ae Ethernet (FTTN) Ordered Products?",
+                "expected_answer": "where the Line Rate is not capable of supporting the provision of all AVC TC-1 and AVC TC-2 bandwidth profiles ordered by RSP in respect of that Ordered Product"
+            },
+            {
+                "competency_question": "What is the condition under which the performance of traffic class operations does not apply to nbn\u00ae Ethernet (FTTC)?",
+                "expected_answer": "where the Access Line Rate or the Line Rate of the UNI-D is not capable of supporting the provision of all AVC TC-1 and AVC TC-2 bandwidth profiles ordered by RSP in respect of that Ordered Product"
+            },
+            {
+                "competency_question": "What must the Layer 2 Frame Size and Frame Rate values result in?",
+                "expected_answer": "a data stream which is less than or equal to the subscribed Traffic Class CIR"
+            },
+            {
+                "competency_question": "Under what condition must each traffic class be validated?",
+                "expected_answer": "in the presence of no other traffic from other traffic classes within the AVC"
+            },
+            {
+                "competency_question": "What is the effect of the particular access technology used to deliver nbn\u00ae Ethernet on TC-4 performance?",
+                "expected_answer": "will also have an impact on TC-4 performance"
+            },
+            {
+                "competency_question": "What is the recommended action for RSP to achieve optimum results for RSP Products that use AVC TC-4s as an input?",
+                "expected_answer": "use suitable higher-layer intelligent flow control mechanisms"
+            },
+            {
+                "competency_question": "What is the condition under which an AVC peak burst in excess of 100 consecutive Ethernet frames may cause increased Frame Loss in the downstream?",
+                "expected_answer": "For AVC TC-4 bandwidth profiles of Home Superfast, 250/100 Mbps, 500/200 Mbps, Home Ultrafast and 1000/400 Mbps offered over nbn\u00ae Ethernet where a 10Gbps or 100Gbps NNI is in use"
+            }
+        ],
+        "37": [
+            {
+                "competency_question": "What is the default value for TPEP Web Optimisation for nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "ON (Default)"
+            },
+            {
+                "competency_question": "What is the default value for TPEP TCP Optimisation for nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "ON (Default)"
+            },
+            {
+                "competency_question": "What are the selectable options for Interface mode?",
+                "expected_answer": "Default-Mapped / Priority-Tagged / Tagged / DSCP Mapped"
+            },
+            {
+                "competency_question": "What service attribute must be specified at time of order for each unicast N:1 AVC?",
+                "expected_answer": "CVC ID"
+            },
+            {
+                "competency_question": "What is the name of the event that modifies an AVC TC-4 bandwidth profile?",
+                "expected_answer": "Modify Order"
+            },
+            {
+                "competency_question": "What is the consequence of processing a Modify Order for an AVC TC-4 bandwidth profile?",
+                "expected_answer": "a brief service interruption"
+            },
+            {
+                "competency_question": "What is the identification of the NNI that the CVC is to be terminated on?",
+                "expected_answer": "NNI Group identification (Existing)"
+            },
+            {
+                "competency_question": "What is the identification of the CSA that the CVC is terminated on?",
+                "expected_answer": "CSA identification"
+            },
+            {
+                "competency_question": "What is the optional parameter for S-TAG (NNI) that the RSP may choose?",
+                "expected_answer": "Requested S-TAG (0 for nbn-supplied S-TAG)"
+            },
+            {
+                "competency_question": "What is the default value for Requested S-TAG?",
+                "expected_answer": "Default = 0"
+            },
+            {
+                "competency_question": "What is the range of values for S-TAG?",
+                "expected_answer": "S-TAG: (1 \u2013 4000)"
+            },
+            {
+                "competency_question": "What does selecting TPEP Web Optimisation also enable?",
+                "expected_answer": "TPEP TCP Optimisation"
+            },
+            {
+                "competency_question": "What is the coverage area of nbn\u00ae Ethernet (Satellite) in terms of CSA?",
+                "expected_answer": "a single CSA"
+            }
+        ],
+        "38": [
+            {
+                "competency_question": "What is the name of the attribute that determines the minimum number of provisioned AVCs required before an RSP can order an increased CVC bandwidth profile?",
+                "expected_answer": "Satellite CVC Minimum AVC threshold"
+            },
+            {
+                "competency_question": "What are the possible values for the CVC Class attribute for nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "CVC Class-0 (Default), CVC Class-1 (Premium), CVC Class-2 (Premium)"
+            },
+            {
+                "competency_question": "What is the default value for the CVC Class attribute?",
+                "expected_answer": "CVC Class-0 (Default)"
+            },
+            {
+                "competency_question": "What event triggers the allocation of an S/C-VID by nbn?",
+                "expected_answer": "When requested by RSP as part of a Product Order Form for a CVC or AVC"
+            },
+            {
+                "competency_question": "Who is the agent participant in the S/C-VID allocation event?",
+                "expected_answer": "nbn"
+            },
+            {
+                "competency_question": "What is the object participant in the S/C-VID allocation event?",
+                "expected_answer": "each new CVC/AVC"
+            },
+            {
+                "competency_question": "Where is the S/C-VID value returned to the RSP?",
+                "expected_answer": "in accordance with the WBA Operations Manual"
+            },
+            {
+                "competency_question": "What must the RSP use the S/C-VID value for?",
+                "expected_answer": "accessing the CVC/AVC at the NNI"
+            },
+            {
+                "competency_question": "What optional action may the RSP take regarding the S/C-VID?",
+                "expected_answer": "RSP may optionally elect to nominate the S/C-VID used to address each CVC/AVC service instance through the NNI by specifying a S/C-VID in the Product Order Form for the CVC/AVC"
+            },
+            {
+                "competency_question": "What is the purpose of the RSP nominating its own S/C-VID?",
+                "expected_answer": "for the purpose of further alignment to its own backhaul network addressing schemes"
+            },
+            {
+                "competency_question": "What is the recommended practice for S/C-VID allocation?",
+                "expected_answer": "RSP is encouraged to use nbn\u2019s S/C-VID allocations, which will be unique to RSP\u2019s service"
+            },
+            {
+                "competency_question": "What potential issue does using nbn's S/C-VID allocations avoid?",
+                "expected_answer": "any potential for S/C-VID mismatch between RSP and nbn"
+            },
+            {
+                "competency_question": "Under what condition is the allocation of a C-VID not required?",
+                "expected_answer": "For service addressing modes at the NNI that rely on MAC addressing for forwarding within the nbn\u00ae Network"
+            },
+            {
+                "competency_question": "What type of CVC order must specify each of the service attributes listed in Table 9?",
+                "expected_answer": "Each unicast 1:1 CVC order"
+            },
+            {
+                "competency_question": "What are the bandwidth profile attributes for a unicast 1:1 CVC?",
+                "expected_answer": "CVC_TC-1_CIR (upstream and downstream), CVC_TC-2_CIR (upstream and downstream), CVC_TC-4_PIR (upstream and downstream), CVC_TC-4_CIR (upstream and downstream)"
+            },
+            {
+                "competency_question": "For which network types is the CVC_TC-4_PIR attribute applicable?",
+                "expected_answer": "Fibre, FTTB, FTTN, FTTC, HFC and Wireless"
+            },
+            {
+                "competency_question": "For which network type is the CVC_TC-4_CIR attribute applicable?",
+                "expected_answer": "Satellite"
+            },
+            {
+                "competency_question": "Where are the bandwidth profile values for the CVC attributes referenced?",
+                "expected_answer": "Refer to Appendix B"
+            }
+        ],
+        "39": [
+            {
+                "competency_question": "What is the name of the event that specifies the service attributes for a unicast N:1 CVC order?",
+                "expected_answer": "Each unicast N:1 CVC order must specify each of the service attributes listed in Table 10 below, in addition to those configuration attributes detailed in Table 8."
+            },
+            {
+                "competency_question": "What are the key entities involved in the event of specifying service attributes for a unicast N:1 CVC order?",
+                "expected_answer": "Unicast N:1 CVC order, service attributes listed in Table 10, configuration attributes detailed in Table 8"
+            },
+            {
+                "competency_question": "What is the numeric value of the bandwidth profile attribute for a unicast N:1 CVC?",
+                "expected_answer": "Refer to Appendix B"
+            },
+            {
+                "competency_question": "What is the unit of the bandwidth profile attribute for a unicast N:1 CVC?",
+                "expected_answer": "Refer to Appendix B"
+            },
+            {
+                "competency_question": "What is the name of the event that creates an NNI Group?",
+                "expected_answer": "The location of the NNI Group must be specified at time of NNI Group creation."
+            },
+            {
+                "competency_question": "Who is the agent participant in the event of creating an NNI Group?",
+                "expected_answer": "the party ordering the NNI Group"
+            },
+            {
+                "competency_question": "What is the object participant in the event of creating an NNI Group?",
+                "expected_answer": "the location of the NNI Group"
+            },
+            {
+                "competency_question": "What is the numeric value of the group interface rate for an NNI Group?",
+                "expected_answer": "1Gbps, 10Gbps, 100Gbps"
+            },
+            {
+                "competency_question": "What is the unit of the group interface rate for an NNI Group?",
+                "expected_answer": "Gbps"
+            },
+            {
+                "competency_question": "What event causes a transition from the 'active NNI Group' state to the 'cancelled NNI Group' state?",
+                "expected_answer": "Once completed, the previous NNI Group may be cancelled."
+            },
+            {
+                "competency_question": "What is the maximum duration an NNI Group can remain in the 'active' state before being cancelled?",
+                "expected_answer": "not specified"
+            }
+        ],
+        "40": [
+            {
+                "competency_question": "What is the name of the event where an RSP requests to change the group interface rate of an NNI Group at an Upgraded POI?",
+                "expected_answer": "NNI Upsize Migration"
+            },
+            {
+                "competency_question": "Who is the agent participant in an 'NNI Upsize Migration' event?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in an 'NNI Upsize Migration' event?",
+                "expected_answer": "NNI Group"
+            },
+            {
+                "competency_question": "What is the name of the event where an RSP requests to change the redundancy mode of an NNI Group from Single Chassis to Diverse Chassis at an Upgraded POI?",
+                "expected_answer": "NNI Diversity Upgrade"
+            },
+            {
+                "competency_question": "Who is the agent participant in an 'NNI Diversity Upgrade' event?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in an 'NNI Diversity Upgrade' event?",
+                "expected_answer": "NNI Group"
+            },
+            {
+                "competency_question": "What is the name of the event that marks the beginning of the interval during which a previous NNI Group can be disconnected after migrating AVCs and CVCs?",
+                "expected_answer": "migration of existing AVCs and CVCs from the previous NNI Group"
+            },
+            {
+                "competency_question": "What is the redundancy mode where all NNI Bearers are connected to the same chassis?",
+                "expected_answer": "Single Chassis"
+            },
+            {
+                "competency_question": "What is the redundancy mode where NNI Bearers are connected across a pair of chassis?",
+                "expected_answer": "Diverse Chassis"
+            },
+            {
+                "competency_question": "What event causes a transition from the 'Single Chassis' state to the 'Diverse Chassis' state for an NNI Group at an Upgraded POI?",
+                "expected_answer": "NNI Diversity Upgrade"
+            },
+            {
+                "competency_question": "What is the default value for the TPID attribute of an NNI Group?",
+                "expected_answer": "0x88A8 (default)"
+            },
+            {
+                "competency_question": "What is the selectable option for TPID besides the default?",
+                "expected_answer": "0x8100"
+            },
+            {
+                "competency_question": "What is the default redundancy mode for an NNI Group?",
+                "expected_answer": "Single Chassis (default)"
+            },
+            {
+                "competency_question": "What is the physical location attribute of an NNI Group?",
+                "expected_answer": "POI Site"
+            },
+            {
+                "competency_question": "What is the group interface rate of an NNI Group initially created with a 1Gbps NNI Bearer?",
+                "expected_answer": "1Gbps"
+            },
+            {
+                "competency_question": "What are the possible group interface rates for an NNI Group?",
+                "expected_answer": "1Gbps, 10Gbps, 100Gbps"
+            }
+        ],
+        "41": [
+            {
+                "competency_question": "What is the name of the check required upon addition of any NNI Bearer to an NNI Group?",
+                "expected_answer": "A feasibility check"
+            },
+            {
+                "competency_question": "What is the initial state of a completed NNI Bearer order?",
+                "expected_answer": "administratively \"down\" state"
+            },
+            {
+                "competency_question": "What event changes the state of a completed NNI Bearer order from \"down\" to \"up\"?",
+                "expected_answer": "nbn will change this to an \"up\" state in co-ordination with RSP"
+            },
+            {
+                "competency_question": "What is the minimum number of NNI Bearers required to establish a new NNI Group in Single Chassis mode?",
+                "expected_answer": "at least one NNI Bearer"
+            },
+            {
+                "competency_question": "What is the minimum number of NNI Bearers required to establish a new NNI Group in Diverse Chassis mode?",
+                "expected_answer": "at least one pair of NNI Bearers"
+            },
+            {
+                "competency_question": "What activities can be performed on an NNI Group with respect to the set of NNI Bearers?",
+                "expected_answer": "establish a new NNI Group through ordering at least one NNI Bearer (Single Chassis mode) or at least one pair of NNI Bearers (Diverse Chassis mode), modify an existing NNI Group through Activating/disconnecting NNI Bearer(s), disconnect an existing NNI Group \u2013 all underlying NNI Bearers and NNI Links will be automatically disconnected"
+            },
+            {
+                "competency_question": "What is the maximum number of NNI Bearers to which nbn intends to use reasonable endeavours to provide the ability to seamlessly scale an NNI Group comprising 1Gbps Ethernet interfaces?",
+                "expected_answer": "four NNI Bearers"
+            },
+            {
+                "competency_question": "What event does nbn intend to schedule with RSP to augment an NNI Group comprising 1Gbps Ethernet interfaces beyond four NNI Bearers?",
+                "expected_answer": "an Outage"
+            },
+            {
+                "competency_question": "What event does nbn intend to schedule with RSP to augment an NNI Group comprising 10Gbps or 100Gbps Ethernet interfaces with additional NNI Bearers?",
+                "expected_answer": "an Outage"
+            },
+            {
+                "competency_question": "What is the name of the attribute that specifies the NNI Group to which the NNI Bearer is intended to be associated?",
+                "expected_answer": "NNI Group"
+            },
+            {
+                "competency_question": "What is the name of the attribute that specifies the physical interface type of an NNI Bearer?",
+                "expected_answer": "NNI Bearer Type"
+            },
+            {
+                "competency_question": "What are the selectable options for the NNI Bearer Type attribute?",
+                "expected_answer": "1000BaseLX, 1000BaseEX, 10GBaseLR, 10GBaseER, 100GBaseLR4, 100GBaseER4"
+            },
+            {
+                "competency_question": "Which NNI Bearer Type options are not available for nbn Ethernet (Satellite)?",
+                "expected_answer": "100GBaseLR4 and 100GBaseER4"
+            }
+        ],
+        "42": [
+            {
+                "competency_question": "What is the name of the event that creates a new NNI Link?",
+                "expected_answer": "Establish a new NNI Link"
+            },
+            {
+                "competency_question": "Who is the agent participant in an 'Establish a new NNI Link' event?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in an 'Establish a new NNI Link' event?",
+                "expected_answer": "the range of S-TAGs, bandwidth and the V-NNI RSP"
+            },
+            {
+                "competency_question": "What is the name of the event that modifies an existing NNI Link?",
+                "expected_answer": "Modify an existing NNI Link"
+            },
+            {
+                "competency_question": "What is the object participant in a 'Modify an existing NNI Link' event?",
+                "expected_answer": "updating of the S-TAG pool and bandwidth (subject to there being sufficient spare capacity on the associated Downstream V-NNI to accommodate the Modification)"
+            },
+            {
+                "competency_question": "What is the name of the event that cancels an existing NNI Link?",
+                "expected_answer": "Cancel an existing NNI Link"
+            },
+            {
+                "competency_question": "What condition must be true for a 'Cancel an existing NNI Link' event to be permitted?",
+                "expected_answer": "when not used by a Downstream V-NNI"
+            },
+            {
+                "competency_question": "What is the numeric value of the start of the S-TAG pool?",
+                "expected_answer": "greater than or equal to 1"
+            },
+            {
+                "competency_question": "What is the numeric value of the end of the S-TAG pool?",
+                "expected_answer": "less than or equal to 4000"
+            },
+            {
+                "competency_question": "What is the name of the attribute that specifies the bandwidth of an NNI Link?",
+                "expected_answer": "Bandwidth"
+            },
+            {
+                "competency_question": "What is the name of the attribute that specifies the V-NNI RSP for an NNI Link?",
+                "expected_answer": "V-NNI RSP"
+            },
+            {
+                "competency_question": "What is the name of the attribute that specifies the NNI Group for an NNI Link?",
+                "expected_answer": "NNI Group"
+            },
+            {
+                "competency_question": "What is the name of the attribute that specifies the S-TAG pool for an NNI Link?",
+                "expected_answer": "S-TAG pool"
+            },
+            {
+                "competency_question": "What is the identification number assigned to a successful NNI Link order?",
+                "expected_answer": "nbn-designated NNI Link identification number"
+            },
+            {
+                "competency_question": "What is the identification number assigned to a successful NNI Bearer order?",
+                "expected_answer": "nbn-supplied NNI Bearer identification"
+            },
+            {
+                "competency_question": "What does the NNI Bearer identification indicate?",
+                "expected_answer": "a physical port on the nbn ODF to which the NNI Bearer has been cabled"
+            },
+            {
+                "competency_question": "What must the RSP separately acquire to connect the NNI Bearer to its backhaul transmission cables or Active Equipment?",
+                "expected_answer": "the necessary facilities access rights"
+            }
+        ],
+        "43": [
+            {
+                "competency_question": "What is the name of the event that occurs when an RSP creates a new V-NNI?",
+                "expected_answer": "Create a new V-NNI"
+            },
+            {
+                "competency_question": "Who is the agent participant in a 'Create a new V-NNI' event?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in a 'Create a new V-NNI' event?",
+                "expected_answer": "V-NNI"
+            },
+            {
+                "competency_question": "What is the name of the event that occurs when an RSP cancels an existing V-NNI?",
+                "expected_answer": "Cancel an existing V-NNI"
+            },
+            {
+                "competency_question": "Who is the agent participant in a 'Cancel an existing V-NNI' event?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in a 'Cancel an existing V-NNI' event?",
+                "expected_answer": "V-NNI"
+            },
+            {
+                "competency_question": "What is the name of the link that a V-NNI can be associated with?",
+                "expected_answer": "Upstream NNI Link"
+            },
+            {
+                "competency_question": "What attributes of the Upstream NNI Link are displayed during the V-NNI ordering process?",
+                "expected_answer": "S-TAG pool and bandwidth"
+            },
+            {
+                "competency_question": "What is the condition that must be met before cancelling an existing V-NNI?",
+                "expected_answer": "associated CVCs have been cancelled"
+            },
+            {
+                "competency_question": "What is the name of the attribute that identifies the NNI Link associated with a V-NNI?",
+                "expected_answer": "NNI Link ID"
+            },
+            {
+                "competency_question": "What is the name of the identification number assigned to each successful V-NNI order?",
+                "expected_answer": "nbn-designated V-NNI identification number"
+            }
+        ],
+        "49": [
+            {
+                "competency_question": "What is the name of the traffic class that is available on UNI-D for Fibre, Wireless, HFC, FTTC, Satellite, and FTTB/FTTN?",
+                "expected_answer": "TC-1"
+            },
+            {
+                "competency_question": "What is the name of the traffic class that is available on UNI-V for Fibre?",
+                "expected_answer": "TC-1"
+            },
+            {
+                "competency_question": "What is the name of the traffic class that is available on UNI-DSL for FTTB/FTTN?",
+                "expected_answer": "TC-1"
+            },
+            {
+                "competency_question": "What is the name of the traffic class that is available on UNI-D for Fibre, HFC, FTTC, and FTTB/FTTN but not available on Wireless?",
+                "expected_answer": "TC-2"
+            },
+            {
+                "competency_question": "What is the name of the traffic class that is available on UNI-DSL for FTTB/FTTN?",
+                "expected_answer": "TC-2"
+            },
+            {
+                "competency_question": "What is the name of the traffic class that is available on UNI-D for Fibre, Wireless, HFC, FTTC, Satellite, and FTTB/FTTN?",
+                "expected_answer": "TC-4"
+            },
+            {
+                "competency_question": "What is the name of the traffic class that is available on UNI-DSL for FTTB/FTTN?",
+                "expected_answer": "TC-4"
+            },
+            {
+                "competency_question": "What is the numeric value of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, Wireless, HFC, FTTC, Satellite, and FTTB/FTTN?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the unit of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, Wireless, HFC, FTTC, Satellite, and FTTB/FTTN?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, Wireless, HFC, FTTC, Satellite, and FTTB/FTTN?",
+                "expected_answer": "0.15"
+            },
+            {
+                "competency_question": "What is the unit of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, Wireless, HFC, FTTC, Satellite, and FTTB/FTTN?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, Wireless, HFC, FTTC, and FTTB/FTTN but not available on Satellite?",
+                "expected_answer": "0.3"
+            },
+            {
+                "competency_question": "What is the unit of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, Wireless, HFC, FTTC, and FTTB/FTTN but not available on Satellite?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, HFC, FTTC, and FTTB/FTTN but not available on Wireless and Satellite?",
+                "expected_answer": "0.5"
+            },
+            {
+                "competency_question": "What is the unit of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, HFC, FTTC, and FTTB/FTTN but not available on Wireless and Satellite?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, HFC, FTTC, and FTTB/FTTN but not available on Wireless and Satellite?",
+                "expected_answer": "1"
+            },
+            {
+                "competency_question": "What is the unit of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, HFC, FTTC, and FTTB/FTTN but not available on Wireless and Satellite?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, HFC, FTTC, and FTTB/FTTN but not available on Wireless and Satellite?",
+                "expected_answer": "2"
+            },
+            {
+                "competency_question": "What is the unit of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, HFC, FTTC, and FTTB/FTTN but not available on Wireless and Satellite?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, HFC, FTTC, and FTTB/FTTN but not available on Wireless and Satellite?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the unit of the bandwidth profile (TC-1) that is available on UNI-D for Fibre, HFC, FTTC, and FTTB/FTTN but not available on Wireless and Satellite?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the variant of the HFC-NTD that does not support the TC-2 Traffic Class?",
+                "expected_answer": "CM820B"
+            },
+            {
+                "competency_question": "What is the variant of the HFC-NTD that does not support the TC-1 5Mbps bandwidth profile?",
+                "expected_answer": "CM820B"
+            }
+        ],
+        "50": [
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-1 is available on UNI-V for Fibre?",
+                "expected_answer": "0.15 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-1 is available on UNI-V for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-1 is available on UNI-V for HFC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-1 is available on UNI-V for FTTC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-1 is available on UNI-V for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-1 is available on UNI-V for FTTB/FTTN?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "0 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Available on UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Available on UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-DSL for FTTB/FTTN?",
+                "expected_answer": "Available on UNI-DSL"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "5 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Available on UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Available on UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-DSL for FTTB/FTTN?",
+                "expected_answer": "Available on UNI-DSL"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "10 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Available on UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Available on UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-DSL for FTTB/FTTN?",
+                "expected_answer": "Available on UNI-DSL"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "20 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Available on UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-DSL for FTTB/FTTN?",
+                "expected_answer": "Available on UNI-DSL"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "30 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "40 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "50 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "60 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "70 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "80 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "90 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Fibre?",
+                "expected_answer": "100 Mbps"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Wireless?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for HFC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for FTTC?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for which TC-2 is available on UNI-D for Satellite?",
+                "expected_answer": "Not Available"
+            },
+            {
+                "competency_question": "Which variant of the HFC-NTD does not support the TC-2 Traffic Class?",
+                "expected_answer": "CM820B"
+            }
+        ],
+        "51": [
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Fibre when the bandwidth profile is 0 Mbps?",
+                "expected_answer": "0 Mbps"
+            },
+            {
+                "competency_question": "What is the condition for the availability of the 0 Mbps bandwidth profile for Unicast 1:1 AVC TC-4 on Fibre?",
+                "expected_answer": "Available subject to UNI-V order being in place"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Fibre when the bandwidth profile is 12/1 Mbps?",
+                "expected_answer": "12/1 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 12/1 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on Fibre?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Fibre when the bandwidth profile is 25/5 Mbps?",
+                "expected_answer": "25/5 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25/5 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on Fibre?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Fibre when the bandwidth profile is 25/10 Mbps?",
+                "expected_answer": "25/10 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25/10 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on Fibre?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Fibre when the bandwidth profile is 50/20 Mbps?",
+                "expected_answer": "50/20 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 50/20 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on Fibre?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Fibre when the bandwidth profile is Home Fast?",
+                "expected_answer": "Home Fast"
+            },
+            {
+                "competency_question": "What is the UNI type on which the Home Fast bandwidth profile is available for Unicast 1:1 AVC TC-4 on Fibre?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Fibre when the bandwidth profile is 100/40 Mbps?",
+                "expected_answer": "100/40 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 100/40 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on Fibre?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Wireless when the bandwidth profile is 12/1 Mbps?",
+                "expected_answer": "12/1 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 12/1 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on Wireless?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Wireless when the bandwidth profile is 25/5 Mbps?",
+                "expected_answer": "25/5 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25/5 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on Wireless?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Wireless when the bandwidth profile is Wireless Plus?",
+                "expected_answer": "Wireless Plus"
+            },
+            {
+                "competency_question": "What is the UNI type on which the Wireless Plus bandwidth profile is available for Unicast 1:1 AVC TC-4 on Wireless?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Wireless when the bandwidth profile is Fixed Wireless Home Fast?",
+                "expected_answer": "Fixed Wireless Home Fast"
+            },
+            {
+                "competency_question": "What is the UNI type on which the Fixed Wireless Home Fast bandwidth profile is available for Unicast 1:1 AVC TC-4 on Wireless?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on HFC when the bandwidth profile is 12/1 Mbps?",
+                "expected_answer": "12/1 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 12/1 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on HFC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on HFC when the bandwidth profile is 25/5 Mbps?",
+                "expected_answer": "25/5 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25/5 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on HFC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on HFC when the bandwidth profile is 25/10 Mbps?",
+                "expected_answer": "25/10 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25/10 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on HFC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on HFC when the bandwidth profile is 50/20 Mbps?",
+                "expected_answer": "50/20 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 50/20 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on HFC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on HFC when the bandwidth profile is Home Fast?",
+                "expected_answer": "Home Fast"
+            },
+            {
+                "competency_question": "What is the UNI type on which the Home Fast bandwidth profile is available for Unicast 1:1 AVC TC-4 on HFC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on HFC when the bandwidth profile is 100/40 Mbps?",
+                "expected_answer": "100/40 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 100/40 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on HFC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTC when the bandwidth profile is 12/1 Mbps?",
+                "expected_answer": "12/1 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 12/1 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTC when the bandwidth profile is 25/5 Mbps?",
+                "expected_answer": "25/5 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25/5 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTC when the bandwidth profile is 25/10 Mbps?",
+                "expected_answer": "25/10 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25/10 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTC when the bandwidth profile is 50/20 Mbps?",
+                "expected_answer": "50/20 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 50/20 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTC when the bandwidth profile is Home Fast?",
+                "expected_answer": "Home Fast"
+            },
+            {
+                "competency_question": "What is the UNI type on which the Home Fast bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTC when the bandwidth profile is 50-100/20-40 Mbps?",
+                "expected_answer": "50-100/20-40 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 50-100/20-40 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTC?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Satellite when the bandwidth profile is 12/1 Mbps?",
+                "expected_answer": "12/1 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 12/1 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on Satellite?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on Satellite when the bandwidth profile is 25/5 Mbps?",
+                "expected_answer": "25/5 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25/5 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on Satellite?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTB/FTTN when the bandwidth profile is 12/1 Mbps?",
+                "expected_answer": "12/1 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 12/1 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTB/FTTN?",
+                "expected_answer": "UNI-DSL"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTB/FTTN when the bandwidth profile is 25/5 Mbps?",
+                "expected_answer": "25/5 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25/5 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTB/FTTN?",
+                "expected_answer": "UNI-DSL"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTB/FTTN when the bandwidth profile is 25/5-10 Mbps?",
+                "expected_answer": "25/5-10 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25/5-10 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTB/FTTN?",
+                "expected_answer": "UNI-DSL"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTB/FTTN when the bandwidth profile is 25-50/5-20 Mbps?",
+                "expected_answer": "25-50/5-20 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25-50/5-20 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTB/FTTN?",
+                "expected_answer": "UNI-DSL"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTB/FTTN when the bandwidth profile is Home Fast?",
+                "expected_answer": "Home Fast"
+            },
+            {
+                "competency_question": "What is the UNI type on which the Home Fast bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTB/FTTN?",
+                "expected_answer": "UNI-DSL"
+            },
+            {
+                "competency_question": "What is the bandwidth profile value for Unicast 1:1 AVC TC-4 on FTTB/FTTN when the bandwidth profile is 25-100/5-40 Mbps?",
+                "expected_answer": "25-100/5-40 Mbps"
+            },
+            {
+                "competency_question": "What is the UNI type on which the 25-100/5-40 Mbps bandwidth profile is available for Unicast 1:1 AVC TC-4 on FTTB/FTTN?",
+                "expected_answer": "UNI-DSL"
+            },
+            {
+                "competency_question": "What event triggers the automatic provisioning of TC-1 capacity on a UNI-V?",
+                "expected_answer": "Upon order of the UNI-V by RSP"
+            },
+            {
+                "competency_question": "What is the condition under which a TC-4 bandwidth profile of 0 Mbps can be ordered?",
+                "expected_answer": "when a UNI-V is provisioned with associated TC-1 capacity"
+            }
+        ],
+        "63": [
+            {
+                "competency_question": "What is the downstream capacity of AVC_TC-4 for profile number 296?",
+                "expected_answer": "2000"
+            },
+            {
+                "competency_question": "What is the unit of the downstream capacity for AVC_TC-4 in profile number 296?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the upstream capacity of AVC_TC-4 for profile number 296?",
+                "expected_answer": "500"
+            },
+            {
+                "competency_question": "What is the unit of the upstream capacity for AVC_TC-4 in profile number 296?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the UNI Interface for profile number 293?",
+                "expected_answer": "UNI-D"
+            },
+            {
+                "competency_question": "What is the Default-Mapped Traffic Class for profile number 294?",
+                "expected_answer": "4"
+            },
+            {
+                "competency_question": "What Access Technologies are available for profile number 294?",
+                "expected_answer": "F/H"
+            },
+            {
+                "competency_question": "What is the name of the product associated with profile number 293?",
+                "expected_answer": "Wireless Plus"
+            },
+            {
+                "competency_question": "What is the name of the product associated with profile number 294?",
+                "expected_answer": "Home Hyperfast"
+            },
+            {
+                "competency_question": "What is the condition under which nbn may limit the availability of bandwidth profiles with TC-1 capacities greater than 1 Mbps?",
+                "expected_answer": "in CSAs where nbn does not, or considers it is likely to not, have sufficient capacity to provide all requested TC-1 capacity"
+            },
+            {
+                "competency_question": "What action must an RSP take to determine the availability of bandwidth profiles for TC-1 capacities greater than 1 Mbps?",
+                "expected_answer": "conduct a Site Qualification Enquiry"
+            },
+            {
+                "competency_question": "What is the threshold above which nbn may limit the availability of bandwidth profiles with TC-2 capacities?",
+                "expected_answer": "10 Mbps"
+            },
+            {
+                "competency_question": "What is the condition under which nbn may limit the availability of bandwidth profiles with TC-2 capacities greater than 10 Mbps?",
+                "expected_answer": "in CSAs where nbn does not, or considers it is likely to not, have sufficient capacity to provide all requested TC-2 capacity"
+            },
+            {
+                "competency_question": "What action must an RSP take to determine the availability of bandwidth profiles for TC-2 capacities greater than 10 Mbps?",
+                "expected_answer": "conduct a Site Qualification Enquiry"
+            },
+            {
+                "competency_question": "What is the threshold above which nbn may limit the availability of bandwidth profiles with TC-4 capacities?",
+                "expected_answer": "100 Mbps"
+            },
+            {
+                "competency_question": "What is the condition under which nbn may limit the availability of bandwidth profiles with TC-4 capacities greater than 100 Mbps?",
+                "expected_answer": "in CSAs where nbn does not, or considers it is likely to not, have sufficient capacity to provide all requested TC-4 capacity"
+            },
+            {
+                "competency_question": "What action must an RSP take to determine the availability of bandwidth profiles for TC-4 capacities greater than 100 Mbps?",
+                "expected_answer": "conduct a Site Qualification Enquiry"
+            },
+            {
+                "competency_question": "Which access technologies are associated with the bandwidth profiles in Table 28?",
+                "expected_answer": "nbn\u00ae Ethernet (Fibre), nbn\u00ae Ethernet (Wireless), nbn\u00ae Ethernet (HFC) and nbn\u00ae Ethernet (Satellite)"
+            },
+            {
+                "competency_question": "What document section must Table 28 be read subject to?",
+                "expected_answer": "section 2.2.2 of this nbn\u00ae Ethernet Product Technical Specification and section 13 of the nbn\u00ae Ethernet Product Description"
+            }
+        ],
+        "78": [
+            {
+                "competency_question": "What is the numeric value of the CVC TC-4 Bandwidth for a Satellite service with 725 Mbps?",
+                "expected_answer": "725"
+            },
+            {
+                "competency_question": "What is the unit of the CVC TC-4 Bandwidth values in Table 35?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each Satellite CVC TC-4 for CVC Class-0 (Default) at 725 Mbps?",
+                "expected_answer": "1906"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each Satellite CVC TC-4 for CVC Class-1 (Premium) at 725 Mbps?",
+                "expected_answer": "1726"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each Satellite CVC TC-4 for CVC Class-2 (Premium) at 725 Mbps?",
+                "expected_answer": "1543"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each Satellite CVC TC-4 for CVC Class-0 (Default) at 1000 Mbps?",
+                "expected_answer": "2687"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each Satellite CVC TC-4 for CVC Class-1 (Premium) at 1000 Mbps?",
+                "expected_answer": "2441"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each Satellite CVC TC-4 for CVC Class-2 (Premium) at 1000 Mbps?",
+                "expected_answer": "2181"
+            },
+            {
+                "competency_question": "What is the configuration type for which the Satellite unicast CVC TC-4 Bandwidth Profile Capacities and Minimum AVC Thresholds are available?",
+                "expected_answer": "1:1"
+            },
+            {
+                "competency_question": "What is the subject to which the minimum AVC thresholds per CVC Class for nbn\u00ae Ethernet (Satellite) apply?",
+                "expected_answer": "sections 2.2(e) and 2.2(f) of the nbn\u00ae Ethernet Product Description"
+            }
+        ]
+    }
+}

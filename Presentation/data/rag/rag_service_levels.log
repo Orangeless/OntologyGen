@@ -1,0 +1,91 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Starting CQ evaluation pipeline for contract: service_levels
+Loaded and flattened 60 competency questions.
+Initializing OntologyRetriever with file: ontology/lite/reference/sfaa-wba-nbn-ethernet-service-levels-schedule-20260701.pdf.coredownload__reference.ttl
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 4289.55it/s]
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:31 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:32 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:32 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:43 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:43 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:43 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:43 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:44 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:44 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:44 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:44 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:44 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:44 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:44 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:44 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:44 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:45 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:45 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:45 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:45 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:47 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:47 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:47 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:47 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:48 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:48 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:48 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:48 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:48 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:49 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:49 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:49 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:49 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:50 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:50 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:50 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:50 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:50 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:50 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:51 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:51 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:55 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+2026/10/16 11:51:55 WARNING dspy.primitives.module: Calling module.forward(...) on QAEvaluator directly is discouraged. Please use module(...) instead.
+Parsing ontology from ontology/lite/reference/sfaa-wba-nbn-ethernet-service-levels-schedule-20260701.pdf.coredownload__reference.ttl...
+Creating embeddings for 769 nodes and 70 edges...
+Building BM25 index...
+Split 60 queries into 20 batches.
+Batch 4/20 completed.
+Batch 3/20 completed.
+Batch 20/20 completed.
+Batch 8/20 completed.
+Batch 10/20 completed.
+Batch 11/20 completed.
+Batch 9/20 completed.
+Batch 15/20 completed.
+Batch 17/20 completed.
+Batch 19/20 completed.
+Batch 6/20 completed.
+Batch 18/20 completed.
+Batch 1/20 completed.
+Batch 13/20 completed.
+Batch 7/20 completed.
+Batch 16/20 completed.
+Batch 2/20 completed.
+Batch 14/20 completed.
+Batch 12/20 completed.
+Batch 5/20 completed.
+CQ Evaluation complete. Overall accuracy: 73.33%
+Successfully saved CQ experiment for 'service_levels' to ../Presentation/data/rag/rag_service_levels.json

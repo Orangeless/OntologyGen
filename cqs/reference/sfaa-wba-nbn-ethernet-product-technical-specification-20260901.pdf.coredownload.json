@@ -1,0 +1,43 @@
+{
+  "sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload": {
+    "28": [
+      {
+        "competency_question": "What is the maximum number of NNI Bearers an NNI Group can support for 1Gbps and 10Gbps NNI Bearers?",
+        "expected_answer": "8",
+        "source": "reference PL-01: sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload.pdf section 6.1 page 29"
+      },
+      {
+        "competency_question": "What is the maximum number of 100Gbps NNI Bearers in an NNI Group in Single Chassis mode and in Diverse Chassis mode?",
+        "expected_answer": "2 in Single Chassis mode; 4 in Diverse Chassis mode",
+        "source": "reference PL-01: sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload.pdf section 6.1 page 29"
+      },
+      {
+        "competency_question": "Which interface rates can the NNI Bearers of an NNI Group have, and must all bearers in the group use the same rate?",
+        "expected_answer": "1, 10 or 100 Gbps; every NNI Bearer must be consistent with the group interface rate",
+        "source": "reference RD-02: sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload.pdf section 6.1 page 29"
+      },
+      {
+        "competency_question": "Which redundancy modes can an NNI Group be configured in?",
+        "expected_answer": "Single Chassis or Diverse Chassis",
+        "source": "reference RD-03: sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload.pdf section 6.2 page 29"
+      }
+    ],
+    "29": [
+      {
+        "competency_question": "How many CVCs can an NNI Group support in aggregate?",
+        "expected_answer": "4,000",
+        "source": "reference PL-03: sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload.pdf section 6.5 page 30"
+      },
+      {
+        "competency_question": "What is the Bearer Limit for an NNI Group of 2 x 100Gbps NNI Bearers in Diverse Chassis mode?",
+        "expected_answer": "31,000",
+        "source": "reference PL-04: sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload.pdf section 6.6 page 30"
+      },
+      {
+        "competency_question": "Do Unicast 1:1 AVCs count toward the Bearer Limit?",
+        "expected_answer": "Yes, the Bearer Limit includes the total number of Unicast 1:1 AVCs",
+        "source": "reference RD-10: sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload.pdf section 6.6 page 30"
+      }
+    ]
+  }
+}

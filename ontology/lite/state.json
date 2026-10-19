@@ -1,0 +1,17 @@
+{
+ "done": [
+  "cq:sfaa-wba-nbn-ethernet-price-list-20260701.pdf.coredownload",
+  "cq:sfaa-wba-nbn-ethernet-product-description-20260901.pdf.coredownload",
+  "cq:sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload",
+  "cq:sfaa-wba-nbn-ethernet-service-levels-schedule-20260701.pdf.coredownload",
+  "eval:reference:sfaa-wba-nbn-ethernet-price-list-20260701.pdf.coredownload",
+  "eval:reference:sfaa-wba-nbn-ethernet-product-description-20260901.pdf.coredownload",
+  "eval:reference:sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload",
+  "eval:reference:sfaa-wba-nbn-ethernet-service-levels-schedule-20260701.pdf.coredownload",
+  "onto:reference:sfaa-wba-nbn-ethernet-price-list-20260701.pdf.coredownload",
+  "onto:reference:sfaa-wba-nbn-ethernet-product-description-20260901.pdf.coredownload",
+  "onto:reference:sfaa-wba-nbn-ethernet-product-technical-specification-20260901.pdf.coredownload",
+  "onto:reference:sfaa-wba-nbn-ethernet-service-levels-schedule-20260701.pdf.coredownload"
+ ],
+ "failed": []
+}

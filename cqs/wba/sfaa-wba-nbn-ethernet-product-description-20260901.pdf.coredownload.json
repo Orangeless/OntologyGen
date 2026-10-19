@@ -1,0 +1,750 @@
+{
+    "sfaa-wba-nbn-ethernet-product-description-20260901.pdf.coredownload": {
+        "5": [
+            {
+                "competency_question": "What is the name of the interface at a POI where RSP traffic is handed over to the nbn\u00ae Network?",
+                "expected_answer": "Network-Network Interface or NNI"
+            },
+            {
+                "competency_question": "What is the point of handover for all CVCs associated with that NNI?",
+                "expected_answer": "The NNI is the point of handover for all CVCs associated with that NNI."
+            },
+            {
+                "competency_question": "What is the physical interface between the RSP switch and the nbn\u00ae Network called?",
+                "expected_answer": "NNI Bearer"
+            },
+            {
+                "competency_question": "What is the logical interface comprising one or more NNI Bearers supplied by nbn to RSP called?",
+                "expected_answer": "NNI Group"
+            },
+            {
+                "competency_question": "What is the name of the interface that includes a V-NNI when RSP has configured a V-NNI with an Upstream NNI Link?",
+                "expected_answer": "Network-Network interface or NNI"
+            },
+            {
+                "competency_question": "What is the NNI Bearer profile for nbn\u00ae Ethernet (Satellite) that is not made available for other access technologies?",
+                "expected_answer": "1000BaseLX, 10GBaseLR, 1000BaseEX, 10GBaseER"
+            },
+            {
+                "competency_question": "Which NNI Bearer profiles are not available for nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "100GBaseLR4 and 100GBaseER4"
+            },
+            {
+                "competency_question": "What is the condition for an NNI Bearer to be configured as a member of an NNI Group?",
+                "expected_answer": "its interface rate is the same as the interface rate of the NNI Group"
+            },
+            {
+                "competency_question": "What redundancy modes can be configured for an NNI Bearer?",
+                "expected_answer": "single or diverse chassis redundancy mode"
+            },
+            {
+                "competency_question": "What is the only redundancy mode available for an NNI Group comprised of a single NNI Bearer?",
+                "expected_answer": "Single chassis"
+            }
+        ],
+        "6": [
+            {
+                "competency_question": "What is the name of the event where an RSP selects a redundancy mode for an NNI Group?",
+                "expected_answer": "selects single chassis as the redundancy mode for an NNI Group"
+            },
+            {
+                "competency_question": "What is the agent participant in the event of selecting a redundancy mode for an NNI Group?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in the event of selecting a redundancy mode for an NNI Group?",
+                "expected_answer": "NNI Group"
+            },
+            {
+                "competency_question": "What is the name of the event where an NNI Group is activated?",
+                "expected_answer": "NNI Group is activated"
+            },
+            {
+                "competency_question": "What is the name of the event where the redundancy mode of an NNI Group is reconfigured?",
+                "expected_answer": "reconfigured"
+            },
+            {
+                "competency_question": "What is the condition that must be satisfied for the redundancy mode of an NNI Group to be reconfigured?",
+                "expected_answer": "it satisfies the criteria for an NNI Diversity Upgrade in the WBA Operations Manual (including that the NNI Group is located at an Upgraded POI)"
+            },
+            {
+                "competency_question": "What is the name of the event where a V-NNI is configured with an Upstream NNI Link?",
+                "expected_answer": "configured with an Upstream NNI Link"
+            },
+            {
+                "competency_question": "What is the name of the event where RSP associates CVCs and AVC/UNIs with a V-NNI?",
+                "expected_answer": "associate CVCs and AVC/UNIs with a V-NNI"
+            },
+            {
+                "competency_question": "What is the agent participant in the event of associating CVCs and AVC/UNIs with a V-NNI?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in the event of associating CVCs and AVC/UNIs with a V-NNI?",
+                "expected_answer": "CVCs and AVC/UNIs"
+            },
+            {
+                "competency_question": "What is the name of the event where RSP orders a CVC for a CSA?",
+                "expected_answer": "order a CVC for each CSA"
+            },
+            {
+                "competency_question": "What is the agent participant in the event of ordering a CVC for a CSA?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in the event of ordering a CVC for a CSA?",
+                "expected_answer": "CVC"
+            },
+            {
+                "competency_question": "What is the name of the event where nbn makes a CVC available in a traffic class?",
+                "expected_answer": "make the CVC available in traffic class 1 (CVC TC-1), traffic class 2 (CVC TC-2) and traffic class 4 (CVC TC-4)"
+            },
+            {
+                "competency_question": "What is the agent participant in the event of making a CVC available in a traffic class?",
+                "expected_answer": "nbn"
+            },
+            {
+                "competency_question": "What is the object participant in the event of making a CVC available in a traffic class?",
+                "expected_answer": "CVC"
+            },
+            {
+                "competency_question": "What is the name of the event where RSP orders a CVC TC-4, CVC TC-1 or CVC TC-2?",
+                "expected_answer": "order a CVC TC-4, CVC TC-1 or CVC TC-2, or any combination of the three"
+            },
+            {
+                "competency_question": "What is the condition that the total combination of CVC bandwidth profiles must satisfy when RSP orders a combination?",
+                "expected_answer": "the total combination of CVC bandwidth profiles is not zero"
+            },
+            {
+                "competency_question": "What is the name of the event where RSP selects a bandwidth profile for the CVC TC-4?",
+                "expected_answer": "select a bandwidth profile for the CVC TC-4"
+            },
+            {
+                "competency_question": "What is the agent participant in the event of selecting a bandwidth profile for the CVC TC-4?",
+                "expected_answer": "RSP"
+            },
+            {
+                "competency_question": "What is the object participant in the event of selecting a bandwidth profile for the CVC TC-4?",
+                "expected_answer": "CVC TC-4"
+            }
+        ],
+        "7": [
+            {
+                "competency_question": "What is the name of the product component that has a symmetrical Mbps (PIR) bandwidth profile?",
+                "expected_answer": "CVC TC-4 symmetrical Mbps (PIR)"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-4 symmetrical Mbps (PIR) increment for the range 0?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-4 symmetrical Mbps (PIR) increment for the range 100-300?",
+                "expected_answer": "50"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-4 symmetrical Mbps (PIR) increment for the range 300-10,000?",
+                "expected_answer": "100"
+            },
+            {
+                "competency_question": "What is the CVC Max value for CVC TC-4 symmetrical Mbps (PIR)?",
+                "expected_answer": "N/A"
+            },
+            {
+                "competency_question": "What is the name of the product component that has a symmetrical Mbps (CIR) bandwidth profile for nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "CVC TC-4 symmetrical Mbps (CIR)"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-4 symmetrical Mbps (CIR) increment for CVC Class 0?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-4 symmetrical Mbps (CIR) increment for CVC Class 1?",
+                "expected_answer": "25"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-4 symmetrical Mbps (CIR) increment for CVC Class 2?",
+                "expected_answer": "25"
+            },
+            {
+                "competency_question": "What is the CIR range for CVC Class 0?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the CIR range for CVC Class 1?",
+                "expected_answer": "100-1,000"
+            },
+            {
+                "competency_question": "What is the CIR range for CVC Class 2?",
+                "expected_answer": "100-1,000"
+            },
+            {
+                "competency_question": "What is the bandwidth profile of a CVC TC-4 with CVC Max?",
+                "expected_answer": "symmetrical PIR that is automatically configured to equal the bandwidth of the associated NNI as modified from time to time"
+            },
+            {
+                "competency_question": "What must an RSP specify for each CVC TC-4 in respect of nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "a CVC Class"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each CVC TC-4 before ordering any further CVC TC-4 in the same CVC Class?",
+                "expected_answer": "1,600"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each CVC TC-4 for CVC Class 0 with an initial 100 Mbps bandwidth profile?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each CVC TC-4 for CVC Class 0 with an initial 25 Mbps bandwidth profile?",
+                "expected_answer": "202"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each CVC TC-4 for CVC Class 0 with each additional 25 Mbps bandwidth profile increment?",
+                "expected_answer": "71"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each CVC TC-4 for CVC Class 1 with an initial 100 Mbps bandwidth profile?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each CVC TC-4 for CVC Class 1 with an initial 25 Mbps bandwidth profile?",
+                "expected_answer": "166"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each CVC TC-4 for CVC Class 1 with each additional 25 Mbps bandwidth profile increment?",
+                "expected_answer": "65"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each CVC TC-4 for CVC Class 2 with an initial 100 Mbps bandwidth profile?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each CVC TC-4 for CVC Class 2 with an initial 25 Mbps bandwidth profile?",
+                "expected_answer": "151"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with each CVC TC-4 for CVC Class 2 with each additional 25 Mbps bandwidth profile increment?",
+                "expected_answer": "58"
+            },
+            {
+                "competency_question": "What event may nbn perform if RSP fails to comply with section 2.2(e)(iii) in connection with a CVC TC-4?",
+                "expected_answer": "modify the bandwidth profile of that CVC TC-4 by following the process set out in the WBA Operations Manual"
+            },
+            {
+                "competency_question": "What is the name of the product component that can be ordered in respect of nbn\u00ae Ethernet (Fibre), nbn\u00ae Ethernet (FTTB), nbn\u00ae Ethernet (FTTN), nbn\u00ae Ethernet (FTTC), nbn\u00ae Ethernet (HFC), nbn\u00ae Ethernet (Wireless) and nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "CVC TC-1"
+            },
+            {
+                "competency_question": "What must RSP select for the CVC TC-1?",
+                "expected_answer": "a bandwidth profile"
+            }
+        ],
+        "8": [
+            {
+                "competency_question": "What is the numeric value of the lower bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite access technologies?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the numeric value of the upper bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC, Wireless and Satellite access technologies?",
+                "expected_answer": "10"
+            },
+            {
+                "competency_question": "What is the numeric value of the increment for the CVC TC-1 symmetrical Mbps (CIR) range 0-10?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the unit of the increment for the CVC TC-1 symmetrical Mbps (CIR) ranges?",
+                "expected_answer": "Mbps"
+            },
+            {
+                "competency_question": "What is the numeric value of the lower bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "10"
+            },
+            {
+                "competency_question": "What is the numeric value of the upper bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "20"
+            },
+            {
+                "competency_question": "What is the numeric value of the increment for the CVC TC-1 symmetrical Mbps (CIR) range 10-20?",
+                "expected_answer": "10"
+            },
+            {
+                "competency_question": "What is the numeric value of the lower bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "20"
+            },
+            {
+                "competency_question": "What is the numeric value of the upper bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "30"
+            },
+            {
+                "competency_question": "What is the numeric value of the increment for the CVC TC-1 symmetrical Mbps (CIR) range 20-30?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the numeric value of the lower bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "30"
+            },
+            {
+                "competency_question": "What is the numeric value of the upper bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "60"
+            },
+            {
+                "competency_question": "What is the numeric value of the increment for the CVC TC-1 symmetrical Mbps (CIR) range 30-60?",
+                "expected_answer": "10"
+            },
+            {
+                "competency_question": "What is the numeric value of the lower bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "60"
+            },
+            {
+                "competency_question": "What is the numeric value of the upper bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "120"
+            },
+            {
+                "competency_question": "What is the numeric value of the increment for the CVC TC-1 symmetrical Mbps (CIR) range 60-120?",
+                "expected_answer": "20"
+            },
+            {
+                "competency_question": "What is the numeric value of the lower bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "120"
+            },
+            {
+                "competency_question": "What is the numeric value of the upper bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "150"
+            },
+            {
+                "competency_question": "What is the numeric value of the increment for the CVC TC-1 symmetrical Mbps (CIR) range 120-150?",
+                "expected_answer": "30"
+            },
+            {
+                "competency_question": "What is the numeric value of the lower bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "150"
+            },
+            {
+                "competency_question": "What is the numeric value of the upper bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "300"
+            },
+            {
+                "competency_question": "What is the numeric value of the increment for the CVC TC-1 symmetrical Mbps (CIR) range 150-300?",
+                "expected_answer": "50"
+            },
+            {
+                "competency_question": "What is the numeric value of the lower bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "300"
+            },
+            {
+                "competency_question": "What is the numeric value of the upper bound of the CVC TC-1 symmetrical Mbps (CIR) range for the nbn\u00ae Network Fibre, FTTB, FTTN, FTTC, HFC and Wireless access technologies?",
+                "expected_answer": "500"
+            },
+            {
+                "competency_question": "What is the numeric value of the increment for the CVC TC-1 symmetrical Mbps (CIR) range 300-500?",
+                "expected_answer": "100"
+            },
+            {
+                "competency_question": "What is the name of the product component that RSP must associate at least a specified number of AVCs with?",
+                "expected_answer": "CVC TC-1"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with a CVC TC-1 of 0 symmetrical Mbps (CIR) for nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with a CVC TC-1 of 5 symmetrical Mbps (CIR) for nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the minimum number of AVCs that must be associated with a CVC TC-1 of 10 symmetrical Mbps (CIR) for nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "333"
+            },
+            {
+                "competency_question": "What action may nbn take if RSP fails to comply with section 2.3(c)?",
+                "expected_answer": "modify the bandwidth profile of the CVC TC-1 by following the process set out in the WBA Operations Manual"
+            },
+            {
+                "competency_question": "What is the name of the product component that RSP may order in respect of nbn\u00ae Ethernet (Fibre), nbn\u00ae Ethernet (FTTB), nbn\u00ae Ethernet (FTTN), nbn\u00ae Ethernet (FTTC) and nbn\u00ae Ethernet (HFC)?",
+                "expected_answer": "CVC TC-2"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-2 symmetrical Mbps (CIR) bandwidth profile that is listed first?",
+                "expected_answer": "0"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-2 symmetrical Mbps (CIR) bandwidth profile that is listed second?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-2 symmetrical Mbps (CIR) bandwidth profile that is listed third?",
+                "expected_answer": "10"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-2 symmetrical Mbps (CIR) bandwidth profile that is listed fourth?",
+                "expected_answer": "20"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-2 symmetrical Mbps (CIR) bandwidth profile that is listed fifth?",
+                "expected_answer": "25"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-2 symmetrical Mbps (CIR) bandwidth profile that is listed sixth?",
+                "expected_answer": "30"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-2 symmetrical Mbps (CIR) bandwidth profile that is listed seventh?",
+                "expected_answer": "40"
+            },
+            {
+                "competency_question": "What is the numeric value of the CVC TC-2 symmetrical Mbps (CIR) bandwidth profile that is listed eighth?",
+                "expected_answer": "50"
+            }
+        ],
+        "9": [
+            {
+                "competency_question": "What is the name of the virtual connection that carries RSP traffic to and from a UNI used to serve a Premises?",
+                "expected_answer": "Access Virtual Circuit or AVC"
+            },
+            {
+                "competency_question": "What is the network type on which an AVC is an Ethernet-based Layer 2 virtual connection?",
+                "expected_answer": "Fibre Network, FTTB Network, FTTN Network, FTTC Network, HFC Network, Wireless Network or Satellite Network"
+            },
+            {
+                "competency_question": "What must an RSP order for each Premises to which nbn\u00ae Ethernet will be supplied?",
+                "expected_answer": "an AVC"
+            },
+            {
+                "competency_question": "What is the default traffic class in which nbn will configure the AVC?",
+                "expected_answer": "traffic class 4 (AVC TC-4)"
+            },
+            {
+                "competency_question": "What additional traffic classes may an RSP elect to partition the AVC to carry?",
+                "expected_answer": "traffic class 1 (AVC TC-1), traffic class 2 (AVC TC-2), or both"
+            },
+            {
+                "competency_question": "What must an RSP order for each AVC traffic class in respect of a Premises in a CSA?",
+                "expected_answer": "a CVC in the same traffic class in respect of that CSA"
+            },
+            {
+                "competency_question": "How many AVC TC-4 will nbn map to any UNI used to serve the relevant Premises?",
+                "expected_answer": "one"
+            },
+            {
+                "competency_question": "What is the downstream PIR value for the AVC TC-4 bandwidth profile of 12 Mbps?",
+                "expected_answer": "12"
+            },
+            {
+                "competency_question": "What is the upstream PIR value for the AVC TC-4 bandwidth profile of 1 Mbps?",
+                "expected_answer": "1"
+            },
+            {
+                "competency_question": "What is the downstream PIR value for the AVC TC-4 bandwidth profile of 25 Mbps?",
+                "expected_answer": "25"
+            },
+            {
+                "competency_question": "What is the upstream PIR value for the AVC TC-4 bandwidth profile of 5 Mbps?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the upstream PIR value for the AVC TC-4 bandwidth profile of 5-10 Mbps on FTTB and FTTN?",
+                "expected_answer": "5 - 10"
+            },
+            {
+                "competency_question": "What is the upstream PIR value for the AVC TC-4 bandwidth profile of 10 Mbps on Fibre, FTTC and HFC?",
+                "expected_answer": "10"
+            },
+            {
+                "competency_question": "What is the downstream PIR value for the AVC TC-4 bandwidth profile of 60 Mbps?",
+                "expected_answer": "60"
+            },
+            {
+                "competency_question": "What is the downstream PIR value for the AVC TC-4 bandwidth profile of 80 Mbps?",
+                "expected_answer": "80"
+            },
+            {
+                "competency_question": "What is the downstream PIR value for the AVC TC-4 bandwidth profile of 100 Mbps?",
+                "expected_answer": "100"
+            },
+            {
+                "competency_question": "What is the downstream PIR value for the AVC TC-4 bandwidth profile of 120 Mbps?",
+                "expected_answer": "120"
+            },
+            {
+                "competency_question": "What is the downstream PIR value for the AVC TC-4 bandwidth profile of 150 Mbps?",
+                "expected_answer": "150"
+            },
+            {
+                "competency_question": "What is the downstream PIR value for the AVC TC-4 bandwidth profile of 200 Mbps?",
+                "expected_answer": "200"
+            },
+            {
+                "competency_question": "What is the downstream PIR value for the AVC TC-4 bandwidth profile of 250 Mbps?",
+                "expected_answer": "250"
+            },
+            {
+                "competency_question": "What is the downstream PIR value for the AVC TC-4 bandwidth profile of 300-1000 Mbps (in increments of 100 Mbps)?",
+                "expected_answer": "300-1000 (in increments of 100 Mbps)"
+            },
+            {
+                "competency_question": "What is the unit of the PIR values for AVC TC-4 bandwidth profiles?",
+                "expected_answer": "Mbps"
+            }
+        ],
+        "12": [
+            {
+                "competency_question": "What is the maximum AVC TC-1 capacity that an RSP may order in respect of each NTD used by nbn to supply nbn\u00ae Ethernet (Wireless)?",
+                "expected_answer": "0.6 symmetrical Mbps"
+            },
+            {
+                "competency_question": "What is the maximum AVC TC-1 capacity that an RSP may order in respect of any Home Fast, Home Superfast, Home Ultrafast, Home Hyperfast or 2000/500 Mbps (PIR) AVC TC-4 bandwidth profile?",
+                "expected_answer": "0.15 symmetrical Mbps"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre at 5 symmetrical Mbps (CIR)?",
+                "expected_answer": "5"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre at 10 symmetrical Mbps (CIR)?",
+                "expected_answer": "10"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre, FTTB, FTTN and FTTC at 20 symmetrical Mbps (CIR)?",
+                "expected_answer": "20"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre at 30 symmetrical Mbps (CIR)?",
+                "expected_answer": "30"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre at 40 symmetrical Mbps (CIR)?",
+                "expected_answer": "40"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre at 50 symmetrical Mbps (CIR)?",
+                "expected_answer": "50"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre at 60 symmetrical Mbps (CIR)?",
+                "expected_answer": "60"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre at 70 symmetrical Mbps (CIR)?",
+                "expected_answer": "70"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre at 80 symmetrical Mbps (CIR)?",
+                "expected_answer": "80"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre at 90 symmetrical Mbps (CIR)?",
+                "expected_answer": "90"
+            },
+            {
+                "competency_question": "What is the AVC TC-2 bandwidth profile for nbn\u00ae Network Fibre at 100 symmetrical Mbps (CIR)?",
+                "expected_answer": "100"
+            },
+            {
+                "competency_question": "What is the relationship between AVC TC-1 Data Transfer Rate and AVC TC-4 Data Transfer Rate?",
+                "expected_answer": "The AVC TC-1 Data Transfer Rate will be included in the overall AVC TC-4 Data Transfer Rate except where the AVC TC-1 is mapped to the UNI-V in the case of nbn\u00ae Ethernet (Fibre) under section 6."
+            },
+            {
+                "competency_question": "What is the relationship between AVC TC-2 Data Transfer Rate and AVC TC-4 Data Transfer Rate?",
+                "expected_answer": "The AVC TC-2 Data Transfer Rate will be included in the overall AVC TC-4 Data Transfer Rate."
+            },
+            {
+                "competency_question": "Under what condition may an RSP acquire both an AVC TC-1 mapped to the UNI-D and an additional AVC TC-1 mapped to the UNI-V?",
+                "expected_answer": "Where available, RSP may acquire both an AVC TC-1 mapped to the UNI-D and an additional AVC TC-1 mapped to the UNI-V in the case of nbn\u00ae Ethernet (Fibre) under section 6."
+            },
+            {
+                "competency_question": "What event triggers the application of sections 3.2(b) to 3.2(d) and 3.5 not preventing a failure from being a Service Fault or Performance Incident?",
+                "expected_answer": "If the CIR at the nbn\u00ae Downstream Network Boundary in respect of a Premises is not capable of achieving an applicable CIR Objective"
+            },
+            {
+                "competency_question": "What event causes the downstream CIR and upstream CIR at the nbn\u00ae Downstream Network Boundary to be considered not a Service Fault or Performance Incident?",
+                "expected_answer": "if nbn designates that a Network Activity or Interference Mitigation is required, until that Network Activity or Interference Mitigation is completed"
+            }
+        ],
+        "14": [
+            {
+                "competency_question": "What is the name of the event that occurs when a third party's equipment or network prejudices the integrity or causes deterioration of an nbn\u00ae Ethernet Ordered Product?",
+                "expected_answer": "Interference Event"
+            },
+            {
+                "competency_question": "What is the action that nbn undertakes in response to an Interference Event caused by a third party?",
+                "expected_answer": "Interference Mitigation"
+            },
+            {
+                "competency_question": "What is the time interval within which nbn must undertake Interference Mitigation after an Interference Event occurs?",
+                "expected_answer": "as soon as reasonably practicable in the circumstances"
+            },
+            {
+                "competency_question": "What is the state of the affected Ordered Product until nbn can mitigate the effects of an Interference Event?",
+                "expected_answer": "may not operate in accordance with this nbn\u00ae Ethernet Product Description or the nbn\u00ae Ethernet Product Technical Specification"
+            },
+            {
+                "competency_question": "What is the maximum number of AVC TC-4 and associated AVC TC-1 that nbn may supply to all its retail service providers in respect of a Premises for nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "one AVC TC-4 and one associated AVC TC-1"
+            },
+            {
+                "competency_question": "What is the condition under which nbn may decline an AVC order or AVC modification for nbn\u00ae Ethernet (Satellite)?",
+                "expected_answer": "which would require additional Beam capacity to be supplied during any period in which a Beam is at or near maximum capacity"
+            },
+            {
+                "competency_question": "What action may nbn take regarding data transfers or maximum data transfer rate of any AVC contributing disproportionately to Beam capacity utilisation?",
+                "expected_answer": "deprioritise data transfers or reduce the maximum data transfer rate of any AVC contributing disproportionately to Beam capacity utilisation"
+            },
+            {
+                "competency_question": "What is the value of the Information Rate that applies in respect of Wireless Plus?",
+                "expected_answer": "No PIR or CIR applies"
+            }
+        ],
+        "17": [
+            {
+                "competency_question": "What is the name of the network termination device used in connection with the supply of nbn\u00ae Ethernet (FTTB) or nbn\u00ae Ethernet (FTTN)?",
+                "expected_answer": "There is no NTD or FTTC-NCD used in connection with the supply of nbn\u00ae Ethernet (FTTB) or nbn\u00ae Ethernet (FTTN)."
+            },
+            {
+                "competency_question": "What is the name of the interface type for the UNI-D?",
+                "expected_answer": "electrical interface"
+            },
+            {
+                "competency_question": "What is the condition of supply of an AVC TC-4 Product Component of nbn\u00ae Ethernet (Fibre) regarding the UNI-D?",
+                "expected_answer": "RSP also acquire a UNI-D in conjunction with that AVC TC-4 for each Premises at which nbn\u00ae Ethernet will be supplied."
+            },
+            {
+                "competency_question": "What is the name of the optional Product Feature of nbn\u00ae Ethernet (Fibre) that incorporates an analogue telephone adaptor?",
+                "expected_answer": "UNI-V"
+            },
+            {
+                "competency_question": "What is the date of the notice issued by nbn in relation to the withdrawal of the UNI-V Product Feature?",
+                "expected_answer": "26 May 2023"
+            },
+            {
+                "competency_question": "What is the date of expiry of the Continued Ordering Period for the UNI-V Product Feature?",
+                "expected_answer": "26 May 2024"
+            },
+            {
+                "competency_question": "What is the date on which the UNI-V Product Feature will be withdrawn?",
+                "expected_answer": "31 January 2031"
+            },
+            {
+                "competency_question": "What type of order must an RSP not submit for a UNI-V Product Feature after the expiry of the Continued Ordering Period?",
+                "expected_answer": "RSP must not submit an order for a UNI-V Product Feature unless that order is a Transition-out Modify Order or Disconnect Order."
+            },
+            {
+                "competency_question": "What is the condition of supply of an AVC TC-4 Product Component of nbn\u00ae Ethernet (FTTB) and nbn\u00ae Ethernet (FTTN) regarding the UNI-DSL?",
+                "expected_answer": "RSP also acquires a UNI-DSL in conjunction with that AVC TC-4 for each Premises at which nbn\u00ae Ethernet will be supplied."
+            }
+        ],
+        "18": [
+            {
+                "competency_question": "What is the name of the product component that is mapped to a UNI-D on the FTTC Network?",
+                "expected_answer": "AVC"
+            },
+            {
+                "competency_question": "What is the location of the UNI-D at a Premises served by the FTTC Network?",
+                "expected_answer": "on the FTTC-NCD"
+            },
+            {
+                "competency_question": "What is the function of the UNI-D at a Premises served by the FTTC Network?",
+                "expected_answer": "provides physical and electromagnetic termination of the AVC mapped to that UNI-D"
+            },
+            {
+                "competency_question": "Is the UNI-D the nbn\u00ae Downstream Network Boundary for the FTTC Network?",
+                "expected_answer": "but is not the nbn\u00ae Downstream Network Boundary for the FTTC Network"
+            },
+            {
+                "competency_question": "What is the nbn\u00ae Downstream Network Boundary for a Premises served by the FTTC Network if that Premises is at an MDU Site?",
+                "expected_answer": "the Customer Side MDF"
+            },
+            {
+                "competency_question": "What is the nbn\u00ae Downstream Network Boundary for a Premises served by the FTTC Network if that Premises is not at an MDU Site?",
+                "expected_answer": "the first Telecommunications Outlet or, if present, Passive NTD"
+            },
+            {
+                "competency_question": "Is the FTTC-NCD a Network Termination Device?",
+                "expected_answer": "The FTTC-NCD is not a Network Termination Device"
+            }
+        ],
+        "20": [
+            {
+                "competency_question": "What is the duration of the period after which the Enhanced (90 Day) \u2013 12 (24/7) service is automatically removed unless reordered?",
+                "expected_answer": "90 day"
+            },
+            {
+                "competency_question": "What event triggers the automatic removal of the Enhanced (90 Day) \u2013 12 (24/7) service?",
+                "expected_answer": "the expiry of the relevant 90 day period"
+            },
+            {
+                "competency_question": "What is the name of the optional product feature that provides an analogue telephony interface on the NTD?",
+                "expected_answer": "UNI-V"
+            },
+            {
+                "competency_question": "Which product module is the UNI-V an optional feature of?",
+                "expected_answer": "nbn\u00ae Ethernet (Fibre)"
+            },
+            {
+                "competency_question": "What is the data transfer rate of the AVC TC-1 that can be ordered with the UNI-V?",
+                "expected_answer": "0.15 Mbps"
+            },
+            {
+                "competency_question": "What must RSP acquire in conjunction with an AVC TC-1 when electing to order it?",
+                "expected_answer": "a UNI-V"
+            },
+            {
+                "competency_question": "What is the permitted use of the UNI-V?",
+                "expected_answer": "to transmit voice and data traffic in the voice band"
+            },
+            {
+                "competency_question": "What is the name of the optional service that allows RSP to conduct testing in connection with the Satellite Network?",
+                "expected_answer": "Satellite Test Service"
+            },
+            {
+                "competency_question": "Which nbn\u00ae Ethernet product is the Satellite Test Service associated with?",
+                "expected_answer": "nbn\u00ae Ethernet (Satellite)"
+            },
+            {
+                "competency_question": "What components does the supply of the Satellite Test Service comprise?",
+                "expected_answer": "an AVC TC-4 and an associated UNI; an optional AVC TC-1 associated with the same UNI; and the Installation of Connecting Equipment"
+            },
+            {
+                "competency_question": "What is the maximum number of Satellite Test Services RSP may request in total?",
+                "expected_answer": "five"
+            },
+            {
+                "competency_question": "What is the maximum number of Satellite Test Services RSP may request per Beam?",
+                "expected_answer": "one"
+            },
+            {
+                "competency_question": "What condition must RSP satisfy regarding On-boarding for nbn\u00ae Ethernet (Satellite) to be eligible for a Satellite Test Service?",
+                "expected_answer": "RSP has successfully On-boarded, or is in the process of On-boarding, for nbn\u00ae Ethernet (Satellite)"
+            },
+            {
+                "competency_question": "What must nbn determine, acting reasonably, for it to supply the Satellite Test Service?",
+                "expected_answer": "that RSP requires the Satellite Test Service to successfully supply RSP Products to which nbn\u00ae Ethernet (Satellite) is an input"
+            }
+        ],
+        "25": [
+            {
+                "competency_question": "What is the name of the network architecture hierarchy for the Fibre Network, FTTB Network, FTTN Network, FTTC Network and HFC Network?",
+                "expected_answer": "Access Distribution Area (or ADA); Serving Area Module (or SAM); Fixed-Line Serving Area (or FSA); Connectivity Serving Area (or CSA)"
+            },
+            {
+                "competency_question": "What is the name of the network architecture hierarchy for the Wireless Network?",
+                "expected_answer": "Wireless Serving Area (or WSA); Connectivity Serving Area (or CSA)"
+            },
+            {
+                "competency_question": "What is the name of the network architecture hierarchy for the Satellite Network?",
+                "expected_answer": "Beam; Connectivity Serving Area (or CSA)"
+            },
+            {
+                "competency_question": "What is the relationship between a CSA and a POI in the nbn Network?",
+                "expected_answer": "each CSA is served by one POI; and POI may serve one or more CSAs"
+            },
+            {
+                "competency_question": "What are the boundaries of nbn Ethernet?",
+                "expected_answer": "the UNI used to serve that Premises; and the NNI that serves the Premises"
+            },
+            {
+                "competency_question": "Under what condition may nbn not be able to supply an nbn Ethernet (FTTB) Ordered Product or nbn Ethernet (FTTN) Ordered Product?",
+                "expected_answer": "in the event of a Power Outage"
+            }
+        ]
+    }
+}
