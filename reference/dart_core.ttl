@@ -1,0 +1,1737 @@
+@prefix : <http://www.example.com/dart#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://www.example.com/dart> a owl:Ontology ;
+    rdfs:label "DART reference ontology (merged: DART-NPO + WBA wholesale model)" ;
+    rdfs:comment "Merged from the newest DART code. Layer 'DART-NPO' = typed ontology contract (43 entity types, 58 relationship types, schemas 1.0-1.2). Layer 'WBA/legacy fixture' = wholesale domain model of the regional planning fixture (NNI Group, Bearer, CVC, AVC, CSA, POI, regions, ...) plus WBA names from ontology.yaml. Known to contain errors; use as a reference for comparison." .
+
+:layer a owl:AnnotationProperty ; rdfs:comment "DART-NPO and/or WBA/legacy fixture: which part of DART defines the concept." .
+:npoModule a owl:AnnotationProperty ; rdfs:comment "DART-NPO module, or the wholesale/legacy grouping." .
+:wbaOnly a owl:AnnotationProperty ; rdfs:comment "true = concept exists in the WBA documents / ontology.yaml but has no simulator table." .
+:simulationOnly a owl:AnnotationProperty ; rdfs:comment "true = simulator concept with no WBA counterpart (ontology.yaml simulation_only)." .
+:legacyName a owl:AnnotationProperty ; rdfs:comment "Name of the same concept in the legacy tables / Neo4j." .
+:origin a owl:AnnotationProperty ; rdfs:comment "Where a property comes from." .
+:simulatorRelationship a owl:AnnotationProperty .
+:endpointsInferred a owl:AnnotationProperty ; rdfs:comment "true = domain/range deduced from field names or counts, not stated verbatim in the DART docs." .
+:relationSource a owl:AnnotationProperty .
+
+# ======================= CLASSES =======================
+:PlanningRegion a owl:Class ;
+    rdfs:label "PlanningRegion" ;
+    rdfs:comment "A planning region (key of REFERENCE_REGION_SPECS, e.g. Region-West-1). Groups CSAs, NNI Groups, CVCs, a POI and transport conditions." ;
+    :npoModule "Wholesale" ;
+    :layer "WBA/legacy fixture" ;
+    :simulationOnly true .
+:POI a owl:Class ;
+    rdfs:label "POI" ;
+    rdfs:comment "Point of Interconnect: where CSAs and NNI Groups meet the wholesale network. One per region, hosted on aggregation devices." ;
+    :npoModule "Wholesale" ;
+    rdfs:subClassOf :PlanningResource ;
+    :layer "WBA/legacy fixture" ;
+    skos:altLabel "POI" ;
+    skos:altLabel "Point of Interconnect" ;
+    skos:altLabel "Local POI" ;
+    skos:altLabel "State Aggregation POI" .
+:CSA a owl:Class ;
+    rdfs:label "CSA" ;
+    rdfs:comment "Connectivity Serving Area: a served area with services, premises and demand growth." ;
+    :npoModule "Wholesale" ;
+    rdfs:subClassOf :PlanningResource ;
+    :layer "WBA/legacy fixture" ;
+    skos:altLabel "CSA" ;
+    skos:altLabel "Connectivity Serving Area" .
+:NNIGroup a owl:Class ;
+    rdfs:label "NNIGroup" ;
+    rdfs:comment "Group of NNI Bearers/NNIs at a POI sharing a redundancy mode, interface rate and protected capacity." ;
+    :npoModule "Wholesale" ;
+    rdfs:subClassOf :PlanningResource ;
+    :layer "WBA/legacy fixture" ;
+    skos:altLabel "NNI Group" ;
+    skos:altLabel "NNI" ;
+    skos:altLabel "Network-Network Interface" ;
+    skos:altLabel "NNI Product Component" .
+:NNI a owl:Class ;
+    rdfs:label "NNI" ;
+    rdfs:comment "A single NNI within an NNI Group, realised on one Bearer." ;
+    :npoModule "Wholesale" ;
+    :layer "WBA/legacy fixture" .
+:Bearer a owl:Class ;
+    rdfs:label "Bearer" ;
+    rdfs:comment "NNI Bearer: one physical interface of an NNI Group, landed on a line-card/port in a failure domain." ;
+    :npoModule "Wholesale" ;
+    :layer "WBA/legacy fixture" ;
+    skos:altLabel "NNI Bearer" ;
+    skos:altLabel "interface rate" ;
+    skos:altLabel "Single Chassis" ;
+    skos:altLabel "Diverse Chassis" ;
+    skos:altLabel "Redundancy Mode" .
+:CVC a owl:Class ;
+    rdfs:label "CVC" ;
+    rdfs:comment "Connectivity Virtual Circuit: carries a CSA's traffic over an NNI Group, with a traffic-class mix." ;
+    :npoModule "Wholesale" ;
+    rdfs:subClassOf :PlanningResource ;
+    :layer "WBA/legacy fixture" ;
+    skos:altLabel "CVC" ;
+    skos:altLabel "Connectivity Virtual Circuit" ;
+    skos:altLabel "CVC TC-1" ;
+    skos:altLabel "CVC TC-2" ;
+    skos:altLabel "CVC TC-4" ;
+    skos:altLabel "Unicast N:1 CVC" .
+:AVC a owl:Class ;
+    rdfs:label "AVC" ;
+    rdfs:comment "Access Virtual Circuit: per-service circuit that uses a CVC." ;
+    :npoModule "Wholesale" ;
+    :layer "WBA/legacy fixture" ;
+    skos:altLabel "AVC" ;
+    skos:altLabel "Access Virtual Circuit" ;
+    skos:altLabel "Unicast 1:1 AVC" ;
+    skos:altLabel "OVC" .
+:TrafficClass a owl:Class ;
+    rdfs:label "TrafficClass" ;
+    rdfs:comment "Traffic class (TC-1, TC-2, TC-4) with a planning utilisation threshold." ;
+    :npoModule "Wholesale" ;
+    :layer "WBA/legacy fixture" ;
+    skos:altLabel "TC-1" ;
+    skos:altLabel "TC-2" ;
+    skos:altLabel "TC-4" ;
+    skos:altLabel "traffic class" ;
+    skos:altLabel "bandwidth profile" .
+:PlanningLineCard a owl:Class ;
+    rdfs:label "PlanningLineCard" ;
+    rdfs:comment "Planning line-card on an aggregation device with NPU capacity/budget and committed load." ;
+    :npoModule "Network" ;
+    rdfs:subClassOf :PlanningResource ;
+    :layer "WBA/legacy fixture" ;
+    :simulationOnly true .
+:PlanningPort a owl:Class ;
+    rdfs:label "PlanningPort" ;
+    rdfs:comment "Planning port on a line-card; may be FREE/IN_SERVICE and usable or blocked." ;
+    :npoModule "Network" ;
+    rdfs:subClassOf :PlanningResource ;
+    :layer "WBA/legacy fixture" ;
+    :simulationOnly true .
+:TransportNode a owl:Class ;
+    rdfs:label "TransportNode" ;
+    rdfs:comment "Backhaul transport node (aggregation, transit or core gateway) representing a device." ;
+    :npoModule "Network" ;
+    :layer "WBA/legacy fixture" ;
+    :simulationOnly true .
+:BackhaulRing a owl:Class ;
+    rdfs:label "BackhaulRing" ;
+    rdfs:comment "Ring of same-layer transport links." ;
+    :npoModule "Network" ;
+    :layer "WBA/legacy fixture" .
+:CustomerSegment a owl:Class ;
+    rdfs:label "CustomerSegment" ;
+    rdfs:comment "Customer segment (residential, SME, enterprise) with criticality and default share." ;
+    :npoModule "Customer" ;
+    :layer "WBA/legacy fixture" .
+:Premises a owl:Class ;
+    rdfs:label "Premises" ;
+    rdfs:comment "Customer premises within a CSA." ;
+    :npoModule "Customer" ;
+    :layer "WBA/legacy fixture" .
+:CustomerService a owl:Class ;
+    rdfs:label "CustomerService" ;
+    rdfs:comment "A service delivered at premises over an AVC." ;
+    :npoModule "Customer" ;
+    :layer "WBA/legacy fixture" .
+:BandwidthTier a owl:Class ;
+    rdfs:label "BandwidthTier" ;
+    rdfs:comment "Downstream/upstream speed tier of a service." ;
+    :npoModule "Customer" ;
+    :layer "WBA/legacy fixture" .
+:CapacityPool a owl:Class ;
+    rdfs:label "CapacityPool" ;
+    rdfs:comment "Contractual/protected/used capacity of an NNI Group." ;
+    :npoModule "Capacity" ;
+    :layer "WBA/legacy fixture" .
+:DemandForecast a owl:Class ;
+    rdfs:label "DemandForecast" ;
+    rdfs:comment "Legacy demand growth forecast for a CSA or CVC under a scenario (the contract's Forecast, kind-qualified)." ;
+    :npoModule "Capacity" ;
+    rdfs:subClassOf :Forecast ;
+    :layer "WBA/legacy fixture" ;
+    :legacyName "demand_forecasts" .
+:Intent a owl:Class ;
+    rdfs:label "Intent" ;
+    rdfs:comment "Planning intent with cost/risk/utilisation/resilience weights." ;
+    :npoModule "Decision" ;
+    :layer "WBA/legacy fixture" .
+:CostItem a owl:Class ;
+    rdfs:label "CostItem" ;
+    rdfs:comment "A cost line of an action (capital, one-off, recurring, lease)." ;
+    :npoModule "Decision" ;
+    :layer "WBA/legacy fixture" .
+:ProductComponent a owl:Class ;
+    rdfs:label "ProductComponent" ;
+    rdfs:comment "WBA Product Component; counts toward an NNI Group's Bearer Limit. Not modelled in the simulator." ;
+    :npoModule "WBA-only" ;
+    :layer "WBA/legacy fixture" ;
+    skos:altLabel "Product Component" ;
+    skos:altLabel "Bearer Limit" ;
+    :wbaOnly true .
+:ServiceLevel a owl:Class ;
+    rdfs:label "ServiceLevel" ;
+    rdfs:comment "WBA availability and service levels (Network Availability, frame delay, frame loss). Not modelled." ;
+    :npoModule "WBA-only" ;
+    :layer "WBA/legacy fixture" ;
+    skos:altLabel "Network Availability" ;
+    skos:altLabel "Service Level" ;
+    skos:altLabel "frame delay" ;
+    skos:altLabel "frame loss" ;
+    :wbaOnly true .
+:NNILink a owl:Class ;
+    rdfs:label "NNILink" ;
+    rdfs:comment "WBA NNI Link / V-NNI / S-TAG concepts. Not modelled." ;
+    :npoModule "WBA-only" ;
+    :layer "WBA/legacy fixture" ;
+    skos:altLabel "NNI Link" ;
+    skos:altLabel "V-NNI" ;
+    skos:altLabel "S-TAG" ;
+    skos:altLabel "over-book" ;
+    :wbaOnly true .
+:Network a owl:Class ;
+    rdfs:label "Network" ;
+    rdfs:comment "The network (or network instance) that owns sites, devices, links and runs; persistent identity namespace." ;
+    :npoModule "Physical Network" ;
+    :layer "DART-NPO" ;
+    skos:altLabel "NetworkInstance" .
+:Site a owl:Class ;
+    rdfs:label "Site" ;
+    rdfs:comment "Physical or logical location that hosts devices (synthetic km coordinates in the simulator)." ;
+    :npoModule "Physical Network" ;
+    :layer "DART-NPO" .
+:Device a owl:Class ;
+    rdfs:label "Device" ;
+    rdfs:comment "Active network device with an explicit NetworkRole and NetworkLayer; legacy roles CORE/REGIONAL/LOCAL_AGG/ACCESS." ;
+    :npoModule "Physical Network" ;
+    :layer "DART-NPO" ;
+    :layer "WBA/legacy fixture" .
+:LineCard a owl:Class ;
+    rdfs:label "LineCard" ;
+    rdfs:comment "Replaceable module in a device (Module); generic capacity cards are distinguished." ;
+    :npoModule "Physical Network" ;
+    :layer "DART-NPO" .
+:Port a owl:Class ;
+    rdfs:label "Port" ;
+    rdfs:comment "Physical endpoint (port_role NETWORK) or logical capacity position (CAPACITY_UNIT); never summed as one count." ;
+    :npoModule "Physical Network" ;
+    :layer "DART-NPO" .
+:PhysicalLink a owl:Class ;
+    rdfs:label "PhysicalLink" ;
+    rdfs:comment "Physical connection with exactly two distinct port endpoints (HAS_ENDPOINT, side A/B)." ;
+    :npoModule "Physical Network" ;
+    :layer "DART-NPO" ;
+    :legacyName "Link" ;
+    skos:altLabel "Link" .
+:LinkAggregationGroup a owl:Class ;
+    rdfs:label "LinkAggregationGroup" ;
+    rdfs:comment "Logical bundle of physical links; observed and simulated active capacity kept separate." ;
+    :npoModule "Physical Network" ;
+    :layer "DART-NPO" ;
+    :legacyName "LAG" ;
+    skos:altLabel "LAG" .
+:SharedRiskGroup a owl:Class ;
+    rdfs:label "SharedRiskGroup" ;
+    rdfs:comment "Shared-risk link group: resources that can fail together (legacy srlg_id)." ;
+    :npoModule "Physical Network" ;
+    :layer "DART-NPO" ;
+    :layer "WBA/legacy fixture" ;
+    :legacyName "SRLG" ;
+    :simulationOnly true .
+:NetworkRole a owl:Class ;
+    rdfs:label "NetworkRole" ;
+    rdfs:comment "Controlled vocabulary of device functions (Access, LocalAggregation, RegionalAggregation, Core, Transit, Edge)." ;
+    :npoModule "Physical Network" ;
+    :layer "DART-NPO" .
+:NetworkLayer a owl:Class ;
+    rdfs:label "NetworkLayer" ;
+    rdfs:comment "Controlled vocabulary of architecture layers (AccessLayer, LocalAggregationLayer, RegionalLayer, CoreLayer)." ;
+    :npoModule "Physical Network" ;
+    :layer "DART-NPO" .
+:DemandGroup a owl:Class ;
+    rdfs:label "DemandGroup" ;
+    rdfs:comment "Aggregate offered traffic / user equivalents at an access point; not an endpoint-specific Service/Demand." ;
+    :npoModule "Service and Demand" ;
+    :layer "DART-NPO" .
+:Route a owl:Class ;
+    rdfs:label "Route" ;
+    rdfs:comment "Stable candidate physical path identity (route_semantics=CANDIDATE_PHYSICAL_PATH) with origin and destination." ;
+    :npoModule "Service and Demand" ;
+    :layer "DART-NPO" .
+:RouteHop a owl:Class ;
+    rdfs:label "RouteHop" ;
+    rdfs:comment "One ordered, oriented hop of a route; uses exactly one PhysicalLink." ;
+    :npoModule "Service and Demand" ;
+    :layer "DART-NPO" .
+:ResourceSnapshot a owl:Class ;
+    rdfs:label "ResourceSnapshot" ;
+    rdfs:comment "Run-scoped snapshot of mutable inventory/scenario facts about a resource (keeps shared identity immutable)." ;
+    :npoModule "State and Observation" ;
+    :layer "DART-NPO" .
+:ResourceState a owl:Class ;
+    rdfs:label "ResourceState" ;
+    rdfs:comment "Scoped state assertion or sample of a resource (state code, assertion type, time basis)." ;
+    :npoModule "State and Observation" ;
+    :layer "DART-NPO" .
+:Metric a owl:Class ;
+    rdfs:label "Metric" ;
+    rdfs:comment "Explicit metric definition: source table/field, unit, direction, measurement basis (27 in the current map)." ;
+    :npoModule "State and Observation" ;
+    :layer "DART-NPO" .
+:Observation a owl:Class ;
+    rdfs:label "Observation" ;
+    rdfs:comment "Scalar observation: timestamp, value or null, unit, direction, basis, PRESENT/MISSING status, coverage." ;
+    :npoModule "State and Observation" ;
+    :layer "DART-NPO" .
+:FailureEvent a owl:Class ;
+    rdfs:label "FailureEvent" ;
+    rdfs:comment "Failure with cause and half-open start/end affecting a resource." ;
+    :npoModule "Time and Events" ;
+    :layer "DART-NPO" .
+:MaintenanceEvent a owl:Class ;
+    rdfs:label "MaintenanceEvent" ;
+    rdfs:comment "Maintenance window with half-open start/end affecting a resource." ;
+    :npoModule "Time and Events" ;
+    :layer "DART-NPO" .
+:Scenario a owl:Class ;
+    rdfs:label "Scenario" ;
+    rdfs:comment "A scenario within a network (operational scenario or planning scenario)." ;
+    :npoModule "Scenario and Simulation" ;
+    :layer "DART-NPO" ;
+    :layer "WBA/legacy fixture" .
+:SimulationRun a owl:Class ;
+    rdfs:label "SimulationRun" ;
+    rdfs:comment "One execution: caller run/scenario/network IDs, seed, simulated times, input-binding hash, version." ;
+    :npoModule "Scenario and Simulation" ;
+    :layer "DART-NPO" .
+:Dataset a owl:Class ;
+    rdfs:label "Dataset" ;
+    rdfs:comment "Input dataset identity and classification." ;
+    :npoModule "Evidence and Provenance" ;
+    :layer "DART-NPO" .
+:Configuration a owl:Class ;
+    rdfs:label "Configuration" ;
+    rdfs:comment "Configuration with SHA-256." ;
+    :npoModule "Evidence and Provenance" ;
+    :layer "DART-NPO" .
+:SoftwareVersion a owl:Class ;
+    rdfs:label "SoftwareVersion" ;
+    rdfs:comment "Recorded simulator revision and exact-build limitation." ;
+    :npoModule "Evidence and Provenance" ;
+    :layer "DART-NPO" .
+:EvidenceArtifact a owl:Class ;
+    rdfs:label "EvidenceArtifact" ;
+    rdfs:comment "Indexed source file with SHA-256; target of DERIVED_FROM." ;
+    :npoModule "Evidence and Provenance" ;
+    :layer "DART-NPO" .
+:PlanningResource a owl:Class ;
+    rdfs:label "PlanningResource" ;
+    rdfs:comment "Run-scoped planning inventory object (not a new physical asset). Superclass of POI, CSA, NNIGroup, CVC, PlanningLineCard, PlanningPort." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" .
+:Forecast a owl:Class ;
+    rdfs:label "Forecast" ;
+    rdfs:comment "Planning forecast (kind-qualified: demand, capacity breach); direction/issue time may be explicitly unknown." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" .
+:PlanningProblem a owl:Class ;
+    rdfs:label "PlanningProblem" ;
+    rdfs:comment "Planning problem for a scenario (a decision scope)." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" .
+:PlanningRule a owl:Class ;
+    rdfs:label "PlanningRule" ;
+    rdfs:comment "Named planning/engineering/governance rule with a limit, unit and compliance level (PR-01 ... GV-03)." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" ;
+    :layer "WBA/legacy fixture" .
+:Threshold a owl:Class ;
+    rdfs:label "Threshold" ;
+    rdfs:comment "Numeric limit attached to a rule (legacy thresholds table), source units retained." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" .
+:Constraint a owl:Class ;
+    rdfs:label "Constraint" ;
+    rdfs:comment "Evaluation of a rule for a subject/resource in a scenario (observed before/after vs limit; status PASS/VIOLATED/not evaluated)." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" ;
+    :layer "WBA/legacy fixture" ;
+    :legacyName "PlanningConstraint" .
+:CandidateAction a owl:Class ;
+    rdfs:label "CandidateAction" ;
+    rdfs:comment "Candidate planning action with lead time, cost, feasibility, blocking reasons and scores." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" ;
+    :layer "WBA/legacy fixture" ;
+    :legacyName "Action" ;
+    skos:altLabel "order" ;
+    skos:altLabel "NNI Upsize Migration" ;
+    skos:altLabel "NNI Diversity Upgrade" ;
+    skos:altLabel "Modify" ;
+    skos:altLabel "charge" ;
+    skos:altLabel "price" ;
+    skos:altLabel "lead time" .
+:ActionAssessment a owl:Class ;
+    rdfs:label "ActionAssessment" ;
+    rdfs:comment "Scored assessment of one candidate action." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" ;
+    :layer "WBA/legacy fixture" ;
+    :legacyName "Assessment" .
+:ActionPlan a owl:Class ;
+    rdfs:label "ActionPlan" ;
+    rdfs:comment "Multi-action plan (set of candidate actions)." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" .
+:DecisionEvaluation a owl:Class ;
+    rdfs:label "DecisionEvaluation" ;
+    rdfs:comment "The existing regional scoring/search stage; optimality_status=NOT_CLAIMED." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" .
+:Recommendation a owl:Class ;
+    rdfs:label "Recommendation" ;
+    rdfs:comment "The selected action or plan for an intent in a scenario, with explanation; unresolved/unevaluated constraints stay explicit." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" ;
+    :layer "WBA/legacy fixture" .
+:OperationalReplay a owl:Class ;
+    rdfs:label "OperationalReplay" ;
+    rdfs:comment "Replay of a recommended/candidate action against the operational model." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" .
+:ActionApplication a owl:Class ;
+    rdfs:label "ActionApplication" ;
+    rdfs:comment "An action applied within a replay." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" .
+:ReplayFinding a owl:Class ;
+    rdfs:label "ReplayFinding" ;
+    rdfs:comment "A finding produced by a replay." ;
+    :npoModule "Planning" ;
+    :layer "DART-NPO" .
+:PlanningCheck a owl:Class ;
+    rdfs:label "PlanningCheck" ;
+    rdfs:comment "Counterfactual/plan check that checks a recommendation." ;
+    :npoModule "Evidence and Provenance" ;
+    :layer "DART-NPO" .
+:EvidenceRecord a owl:Class ;
+    rdfs:label "EvidenceRecord" ;
+    rdfs:comment "Evidence text for an action (feasibility gate or supporting measurement)." ;
+    :npoModule "Evidence and Provenance" ;
+    :layer "DART-NPO" .
+:ValidationRun a owl:Class ;
+    rdfs:label "ValidationRun" ;
+    rdfs:comment "Recorded role/model comparison group from an independent validator." ;
+    :npoModule "Evidence and Provenance" ;
+    :layer "DART-NPO" .
+:ValidationCase a owl:Class ;
+    rdfs:label "ValidationCase" ;
+    rdfs:comment "One validation case (replay cases only receive typed nodes)." ;
+    :npoModule "Evidence and Provenance" ;
+    :layer "DART-NPO" .
+
+# ======================= ENUMERATIONS =======================
+:RedundancyMode a owl:Class ; rdfs:label "RedundancyMode" ; rdfs:comment "NNI Group redundancy mode (nni_groups.mode)." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :RedundancyMode_DIVERSE_CHASSIS :RedundancyMode_SINGLE :RedundancyMode_SINGLE_CHASSIS ) ] .
+:RedundancyMode_DIVERSE_CHASSIS a :RedundancyMode, owl:NamedIndividual ; rdfs:label "DIVERSE_CHASSIS" .
+:RedundancyMode_SINGLE a :RedundancyMode, owl:NamedIndividual ; rdfs:label "SINGLE" ; rdfs:comment "Used by Region-Central-1 but not a WBA redundancy mode." .
+:RedundancyMode_SINGLE_CHASSIS a :RedundancyMode, owl:NamedIndividual ; rdfs:label "SINGLE_CHASSIS" .
+:InterfaceTechnology a owl:Class ; rdfs:label "InterfaceTechnology" ; rdfs:comment "NNI interface technology (nni_groups.technology)." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :InterfaceTechnology_100GE :InterfaceTechnology_10GE :InterfaceTechnology_1GE ) ] .
+:InterfaceTechnology_100GE a :InterfaceTechnology, owl:NamedIndividual ; rdfs:label "100GE" .
+:InterfaceTechnology_10GE a :InterfaceTechnology, owl:NamedIndividual ; rdfs:label "10GE" .
+:InterfaceTechnology_1GE a :InterfaceTechnology, owl:NamedIndividual ; rdfs:label "1GE" .
+:CSAState a owl:Class ; rdfs:label "CSAState" ; rdfs:comment "CSA lifecycle state (csas.state)." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :CSAState_ANNOUNCED_RFS_90D :CSAState_IN_SERVICE ) ] .
+:CSAState_ANNOUNCED_RFS_90D a :CSAState, owl:NamedIndividual ; rdfs:label "ANNOUNCED_RFS_90D" .
+:CSAState_IN_SERVICE a :CSAState, owl:NamedIndividual ; rdfs:label "IN_SERVICE" .
+:RiskRating a owl:Class ; rdfs:label "RiskRating" ; rdfs:comment "CSA risk rating (csas.risk_rating)." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :RiskRating_High :RiskRating_Low :RiskRating_Medium ) ] .
+:RiskRating_High a :RiskRating, owl:NamedIndividual ; rdfs:label "High" .
+:RiskRating_Low a :RiskRating, owl:NamedIndividual ; rdfs:label "Low" .
+:RiskRating_Medium a :RiskRating, owl:NamedIndividual ; rdfs:label "Medium" .
+:AccessTechnology a owl:Class ; rdfs:label "AccessTechnology" ; rdfs:comment "Access technology of a CSA (csas.tech; a CSA may have several, separated by '|')." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :AccessTechnology_FIBRE :AccessTechnology_FTTC :AccessTechnology_HFC ) ] .
+:AccessTechnology_FIBRE a :AccessTechnology, owl:NamedIndividual ; rdfs:label "FIBRE" .
+:AccessTechnology_FTTC a :AccessTechnology, owl:NamedIndividual ; rdfs:label "FTTC" .
+:AccessTechnology_HFC a :AccessTechnology, owl:NamedIndividual ; rdfs:label "HFC" .
+:TransportRiskMode a owl:Class ; rdfs:label "TransportRiskMode" ; rdfs:comment "Region transport risk (transport_risk_mode)." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :TransportRiskMode_DIVERSE :TransportRiskMode_NO_DIVERSITY :TransportRiskMode_SHARED_SRLG ) ] .
+:TransportRiskMode_DIVERSE a :TransportRiskMode, owl:NamedIndividual ; rdfs:label "DIVERSE" .
+:TransportRiskMode_NO_DIVERSITY a :TransportRiskMode, owl:NamedIndividual ; rdfs:label "NO_DIVERSITY" .
+:TransportRiskMode_SHARED_SRLG a :TransportRiskMode, owl:NamedIndividual ; rdfs:label "SHARED_SRLG" .
+:RegionCondition a owl:Class ; rdfs:label "RegionCondition" ; rdfs:comment "Reference-scenario condition tag of a region (condition)." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :RegionCondition_LEGACY_OVERSUBSCRIBED_LINECARD :RegionCondition_NO_DIVERSITY_AVAILABLE :RegionCondition_NO_USABLE_FREE_PORT_NEW_CSA_90D :RegionCondition_SINGLE_CHASSIS_AVAILABILITY_EXPOSURE ) ] .
+:RegionCondition_LEGACY_OVERSUBSCRIBED_LINECARD a :RegionCondition, owl:NamedIndividual ; rdfs:label "LEGACY_OVERSUBSCRIBED_LINECARD" .
+:RegionCondition_NO_DIVERSITY_AVAILABLE a :RegionCondition, owl:NamedIndividual ; rdfs:label "NO_DIVERSITY_AVAILABLE" .
+:RegionCondition_NO_USABLE_FREE_PORT_NEW_CSA_90D a :RegionCondition, owl:NamedIndividual ; rdfs:label "NO_USABLE_FREE_PORT_NEW_CSA_90D" .
+:RegionCondition_SINGLE_CHASSIS_AVAILABILITY_EXPOSURE a :RegionCondition, owl:NamedIndividual ; rdfs:label "SINGLE_CHASSIS_AVAILABILITY_EXPOSURE" .
+:ComplianceLevel a owl:Class ; rdfs:label "ComplianceLevel" ; rdfs:comment "Rule compliance level." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :ComplianceLevel_EXCEPTION_REQUIRED :ComplianceLevel_MUST_COMPLY :ComplianceLevel_PROHIBITED_DESIGN :ComplianceLevel_SHOULD_COMPLY ) ] .
+:ComplianceLevel_EXCEPTION_REQUIRED a :ComplianceLevel, owl:NamedIndividual ; rdfs:label "EXCEPTION_REQUIRED" .
+:ComplianceLevel_MUST_COMPLY a :ComplianceLevel, owl:NamedIndividual ; rdfs:label "MUST_COMPLY" .
+:ComplianceLevel_PROHIBITED_DESIGN a :ComplianceLevel, owl:NamedIndividual ; rdfs:label "PROHIBITED_DESIGN" .
+:ComplianceLevel_SHOULD_COMPLY a :ComplianceLevel, owl:NamedIndividual ; rdfs:label "SHOULD_COMPLY" .
+:DeviceRole a owl:Class ; rdfs:label "DeviceRole" ; rdfs:comment "Legacy device role (engine.py ROLE_LEVEL); mapped to NetworkRole/NetworkLayer by the contract." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :DeviceRole_CORE :DeviceRole_REGIONAL :DeviceRole_LOCAL_AGG :DeviceRole_ACCESS ) ] .
+:DeviceRole_CORE a :DeviceRole, owl:NamedIndividual ; rdfs:label "CORE" .
+:DeviceRole_REGIONAL a :DeviceRole, owl:NamedIndividual ; rdfs:label "REGIONAL" .
+:DeviceRole_LOCAL_AGG a :DeviceRole, owl:NamedIndividual ; rdfs:label "LOCAL_AGG" .
+:DeviceRole_ACCESS a :DeviceRole, owl:NamedIndividual ; rdfs:label "ACCESS" .
+:PortState a owl:Class ; rdfs:label "PortState" ; rdfs:comment "Planning port state." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :PortState_FREE :PortState_IN_SERVICE ) ] .
+:PortState_FREE a :PortState, owl:NamedIndividual ; rdfs:label "FREE" .
+:PortState_IN_SERVICE a :PortState, owl:NamedIndividual ; rdfs:label "IN_SERVICE" .
+:CostType a owl:Class ; rdfs:label "CostType" ; rdfs:comment "Cost line type." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :CostType_CAPITAL :CostType_ONE_OFF :CostType_RECURRING :CostType_LEASE ) ] .
+:CostType_CAPITAL a :CostType, owl:NamedIndividual ; rdfs:label "CAPITAL" .
+:CostType_ONE_OFF a :CostType, owl:NamedIndividual ; rdfs:label "ONE_OFF" .
+:CostType_RECURRING a :CostType, owl:NamedIndividual ; rdfs:label "RECURRING" .
+:CostType_LEASE a :CostType, owl:NamedIndividual ; rdfs:label "LEASE" .
+:ActionStatus a owl:Class ; rdfs:label "ActionStatus" ; rdfs:comment "Action feasibility status." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :ActionStatus_FEASIBLE :ActionStatus_ELIMINATED ) ] .
+:ActionStatus_FEASIBLE a :ActionStatus, owl:NamedIndividual ; rdfs:label "FEASIBLE" .
+:ActionStatus_ELIMINATED a :ActionStatus, owl:NamedIndividual ; rdfs:label "ELIMINATED" .
+:ActionType a owl:Class ; rdfs:label "ActionType" ; rdfs:comment "Planning action types (legacy fixture action generation)." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :ActionType_INCREASE_CVC_BW :ActionType_ADD_PORT :ActionType_MOVE_CSA_LOAD :ActionType_REBALANCE_AVCS :ActionType_SPLIT_CAPACITY_POOL :ActionType_CREATE_NEW_NNI :ActionType_CREATE_NEW_CVC :ActionType_UPGRADE_PORT :ActionType_ADD_BACKHAUL :ActionType_ADD_AGGREGATION :ActionType_CREATE_RESILIENCE_PATH :ActionType_CREATE_NEW_BEARER ) ] .
+:ActionType_INCREASE_CVC_BW a :ActionType, owl:NamedIndividual ; rdfs:label "INCREASE_CVC_BW" .
+:ActionType_ADD_PORT a :ActionType, owl:NamedIndividual ; rdfs:label "ADD_PORT" .
+:ActionType_MOVE_CSA_LOAD a :ActionType, owl:NamedIndividual ; rdfs:label "MOVE_CSA_LOAD" .
+:ActionType_REBALANCE_AVCS a :ActionType, owl:NamedIndividual ; rdfs:label "REBALANCE_AVCS" .
+:ActionType_SPLIT_CAPACITY_POOL a :ActionType, owl:NamedIndividual ; rdfs:label "SPLIT_CAPACITY_POOL" .
+:ActionType_CREATE_NEW_NNI a :ActionType, owl:NamedIndividual ; rdfs:label "CREATE_NEW_NNI" .
+:ActionType_CREATE_NEW_CVC a :ActionType, owl:NamedIndividual ; rdfs:label "CREATE_NEW_CVC" .
+:ActionType_UPGRADE_PORT a :ActionType, owl:NamedIndividual ; rdfs:label "UPGRADE_PORT" .
+:ActionType_ADD_BACKHAUL a :ActionType, owl:NamedIndividual ; rdfs:label "ADD_BACKHAUL" .
+:ActionType_ADD_AGGREGATION a :ActionType, owl:NamedIndividual ; rdfs:label "ADD_AGGREGATION" .
+:ActionType_CREATE_RESILIENCE_PATH a :ActionType, owl:NamedIndividual ; rdfs:label "CREATE_RESILIENCE_PATH" .
+:ActionType_CREATE_NEW_BEARER a :ActionType, owl:NamedIndividual ; rdfs:label "CREATE_NEW_BEARER" .
+:MaterialisationCoverage a owl:Class ; rdfs:label "MaterialisationCoverage" ; rdfs:comment "How many of a CVC's AVCs exist as explicit records." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :MaterialisationCoverage_COMPLETE :MaterialisationCoverage_PARTIAL :MaterialisationCoverage_NONE ) ] .
+:MaterialisationCoverage_COMPLETE a :MaterialisationCoverage, owl:NamedIndividual ; rdfs:label "COMPLETE" .
+:MaterialisationCoverage_PARTIAL a :MaterialisationCoverage, owl:NamedIndividual ; rdfs:label "PARTIAL" .
+:MaterialisationCoverage_NONE a :MaterialisationCoverage, owl:NamedIndividual ; rdfs:label "NONE" .
+:EvaluationStatus a owl:Class ; rdfs:label "EvaluationStatus" ; rdfs:comment "Whether all required constraints could be evaluated." ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( :EvaluationStatus_EVALUATED :EvaluationStatus_NOT_EVALUATED ) ] .
+:EvaluationStatus_EVALUATED a :EvaluationStatus, owl:NamedIndividual ; rdfs:label "EVALUATED" .
+:EvaluationStatus_NOT_EVALUATED a :EvaluationStatus, owl:NamedIndividual ; rdfs:label "NOT_EVALUATED" .
+# NetworkRole / NetworkLayer vocabularies (ontology_contract.py)
+:NetworkRole_Access a :NetworkRole, owl:NamedIndividual ; rdfs:label "Access" .
+:NetworkRole_Core a :NetworkRole, owl:NamedIndividual ; rdfs:label "Core" .
+:NetworkRole_Edge a :NetworkRole, owl:NamedIndividual ; rdfs:label "Edge" .
+:NetworkRole_LocalAggregation a :NetworkRole, owl:NamedIndividual ; rdfs:label "LocalAggregation" .
+:NetworkRole_RegionalAggregation a :NetworkRole, owl:NamedIndividual ; rdfs:label "RegionalAggregation" .
+:NetworkRole_Transit a :NetworkRole, owl:NamedIndividual ; rdfs:label "Transit" .
+:NetworkLayer_AccessLayer a :NetworkLayer, owl:NamedIndividual ; rdfs:label "AccessLayer" .
+:NetworkLayer_CoreLayer a :NetworkLayer, owl:NamedIndividual ; rdfs:label "CoreLayer" .
+:NetworkLayer_LocalAggregationLayer a :NetworkLayer, owl:NamedIndividual ; rdfs:label "LocalAggregationLayer" .
+:NetworkLayer_RegionalLayer a :NetworkLayer, owl:NamedIndividual ; rdfs:label "RegionalLayer" .
+:legacyRole a owl:ObjectProperty ; rdfs:domain :DeviceRole ; rdfs:range :NetworkRole ; rdfs:comment "Explicit legacy-role mapping of the contract (ROLE_LAYERS)." .
+:legacyLayer a owl:ObjectProperty ; rdfs:domain :DeviceRole ; rdfs:range :NetworkLayer .
+:DeviceRole_ACCESS :legacyRole :NetworkRole_Access ; :legacyLayer :NetworkLayer_AccessLayer .
+:DeviceRole_LOCAL_AGG :legacyRole :NetworkRole_LocalAggregation ; :legacyLayer :NetworkLayer_LocalAggregationLayer .
+:DeviceRole_REGIONAL :legacyRole :NetworkRole_RegionalAggregation ; :legacyLayer :NetworkLayer_RegionalLayer .
+:DeviceRole_CORE :legacyRole :NetworkRole_Core ; :legacyLayer :NetworkLayer_CoreLayer .
+
+# ======================= OBJECT PROPERTIES: DART-NPO contract relations (58) =======================
+:aboutRESOURCE a owl:ObjectProperty ;
+    rdfs:label "ABOUT_RESOURCE" ;
+    :layer "DART-NPO" ;
+    :relationSource "range: resource (may target persistent inventory)" ;
+    rdfs:range :PlanningResource ;
+    :endpointsInferred true .
+:addresses a owl:ObjectProperty ;
+    rdfs:label "ADDRESSES" ;
+    :layer "DART-NPO" ;
+    :relationSource "addresses_constraint_ids" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :Constraint ;
+    :endpointsInferred true .
+:affects a owl:ObjectProperty ;
+    rdfs:label "AFFECTS" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :FailureEvent :MaintenanceEvent ) ] ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( :Device :LineCard :LinkAggregationGroup :PhysicalLink :Port :SharedRiskGroup :Site ) ] .
+:appliesACTION a owl:ObjectProperty ;
+    rdfs:label "APPLIES_ACTION" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping (replay action log)" ;
+    rdfs:domain :ActionApplication ;
+    rdfs:range :CandidateAction ;
+    :endpointsInferred true .
+:appliesRULE a owl:ObjectProperty ;
+    rdfs:label "APPLIES_RULE" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :Constraint ;
+    rdfs:range :PlanningRule .
+:assesses a owl:ObjectProperty ;
+    rdfs:label "ASSESSES" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :ActionAssessment ;
+    rdfs:range :CandidateAction .
+:checksPLAN a owl:ObjectProperty ;
+    rdfs:label "CHECKS_PLAN" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :PlanningCheck ;
+    rdfs:range :Recommendation .
+:considers a owl:ObjectProperty ;
+    rdfs:label "CONSIDERS" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :DecisionEvaluation ;
+    rdfs:range :CandidateAction .
+:contains a owl:ObjectProperty ;
+    rdfs:label "CONTAINS" ;
+    :layer "DART-NPO" ;
+    :relationSource "endpoints not stated" ;
+    :endpointsInferred true .
+:derivedFROM a owl:ObjectProperty ;
+    rdfs:label "DERIVED_FROM" ;
+    :layer "DART-NPO" ;
+    :relationSource "range only (source-file artefact)" ;
+    rdfs:range :EvidenceArtifact .
+:explains a owl:ObjectProperty ;
+    rdfs:label "EXPLAINS" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :EvidenceRecord ;
+    rdfs:range :CandidateAction .
+:forPROBLEM a owl:ObjectProperty ;
+    rdfs:label "FOR_PROBLEM" ;
+    :layer "DART-NPO" ;
+    :relationSource "range only" ;
+    rdfs:range :PlanningProblem .
+:generatedBY a owl:ObjectProperty ;
+    rdfs:label "GENERATED_BY" ;
+    :layer "DART-NPO" ;
+    :relationSource "range only" ;
+    rdfs:range :SimulationRun .
+:hasACTION a owl:ObjectProperty ;
+    rdfs:label "HAS_ACTION" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :ActionPlan ;
+    rdfs:range :CandidateAction .
+:hasASSESSMENT a owl:ObjectProperty ;
+    rdfs:label "HAS_ASSESSMENT" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :ActionAssessment .
+:hasCASE a owl:ObjectProperty ;
+    rdfs:label "HAS_CASE" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :ValidationRun ;
+    rdfs:range :ValidationCase .
+:hasCONSTRAINT a owl:ObjectProperty ;
+    rdfs:label "HAS_CONSTRAINT" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :PlanningProblem ;
+    rdfs:range :Constraint .
+:hasENDPOINT a owl:ObjectProperty ;
+    rdfs:label "HAS_ENDPOINT" ;
+    :layer "DART-NPO" ;
+    :relationSource "export validation LINK_ENDPOINT_CARDINALITY" ;
+    rdfs:domain :PhysicalLink ;
+    rdfs:range :Port .
+:hasHOP a owl:ObjectProperty ;
+    rdfs:label "HAS_HOP" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :Route ;
+    rdfs:range :RouteHop .
+:hasMEMBER a owl:ObjectProperty ;
+    rdfs:label "HAS_MEMBER" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :LinkAggregationGroup ;
+    rdfs:range :PhysicalLink .
+:hasMODULE a owl:ObjectProperty ;
+    rdfs:label "HAS_MODULE" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :Device ;
+    rdfs:range :LineCard .
+:hasPLANNINGPROBLEM a owl:ObjectProperty ;
+    rdfs:label "HAS_PLANNING_PROBLEM" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :Network ;
+    rdfs:range :PlanningProblem .
+:hasPLANNINGRESOURCE a owl:ObjectProperty ;
+    rdfs:label "HAS_PLANNING_RESOURCE" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :Network ;
+    rdfs:range :PlanningResource .
+:hasPORT a owl:ObjectProperty ;
+    rdfs:label "HAS_PORT" ;
+    :layer "DART-NPO" ;
+    :relationSource "NPO §6" ;
+    rdfs:domain :Device ;
+    rdfs:range :Port .
+:hasRESOURCE a owl:ObjectProperty ;
+    rdfs:label "HAS_RESOURCE" ;
+    :layer "DART-NPO" ;
+    :relationSource "RESOURCE_TYPES" ;
+    rdfs:domain :Network ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( :DemandGroup :Device :LinkAggregationGroup :PhysicalLink :Route :SharedRiskGroup :Site ) ] ;
+    :endpointsInferred true .
+:hasROLE a owl:ObjectProperty ;
+    rdfs:label "HAS_ROLE" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :Device ;
+    rdfs:range :NetworkRole .
+:hasTHRESHOLD a owl:ObjectProperty ;
+    rdfs:label "HAS_THRESHOLD" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :PlanningRule ;
+    rdfs:range :Threshold .
+:hasUNEVALUATED a owl:ObjectProperty ;
+    rdfs:label "HAS_UNEVALUATED" ;
+    :layer "DART-NPO" ;
+    :relationSource "unevaluated constraints stay explicit" ;
+    rdfs:domain :Recommendation ;
+    rdfs:range :Constraint ;
+    :endpointsInferred true .
+:hosts a owl:ObjectProperty ;
+    rdfs:label "HOSTS" ;
+    :layer "DART-NPO" ;
+    :relationSource "NPO §6 / mapping" ;
+    rdfs:domain :Site ;
+    rdfs:range :Device .
+:inREPLAY a owl:ObjectProperty ;
+    rdfs:label "IN_REPLAY" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :ActionApplication :ReplayFinding ) ] ;
+    rdfs:range :OperationalReplay .
+:inSCENARIO a owl:ObjectProperty ;
+    rdfs:label "IN_SCENARIO" ;
+    :layer "DART-NPO" ;
+    :relationSource "range only" ;
+    rdfs:range :Scenario .
+:leavesUNRESOLVED a owl:ObjectProperty ;
+    rdfs:label "LEAVES_UNRESOLVED" ;
+    :layer "DART-NPO" ;
+    :relationSource "unresolved constraints stay explicit" ;
+    rdfs:domain :Recommendation ;
+    rdfs:range :Constraint ;
+    :endpointsInferred true .
+:mappedTODEVICE a owl:ObjectProperty ;
+    rdfs:label "MAPPED_TO_DEVICE" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :PlanningResource ;
+    rdfs:range :Device .
+:measures a owl:ObjectProperty ;
+    rdfs:label "MEASURES" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :Observation ;
+    rdfs:range :Metric .
+:memberOFSRLG a owl:ObjectProperty ;
+    rdfs:label "MEMBER_OF_SRLG" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping (links.srlg_id)" ;
+    rdfs:domain :PhysicalLink ;
+    rdfs:range :SharedRiskGroup .
+:observes a owl:ObjectProperty ;
+    rdfs:label "OBSERVES" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :Observation ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( :DemandGroup :Device :LinkAggregationGroup :Network :PhysicalLink :Site ) ] .
+:operatesINLAYER a owl:ObjectProperty ;
+    rdfs:label "OPERATES_IN_LAYER" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :Device ;
+    rdfs:range :NetworkLayer .
+:originatesAT a owl:ObjectProperty ;
+    rdfs:label "ORIGINATES_AT" ;
+    :layer "DART-NPO" ;
+    :relationSource "route origin" ;
+    rdfs:domain :Route ;
+    rdfs:range :Device ;
+    :endpointsInferred true .
+:participatesINLAYER a owl:ObjectProperty ;
+    rdfs:label "PARTICIPATES_IN_LAYER" ;
+    :layer "DART-NPO" ;
+    :relationSource "range only" ;
+    rdfs:range :NetworkLayer ;
+    :endpointsInferred true .
+:planningASSOCIATION a owl:ObjectProperty ;
+    rdfs:label "PLANNING_ASSOCIATION" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :PlanningResource ;
+    rdfs:range :PlanningResource .
+:produces a owl:ObjectProperty ;
+    rdfs:label "PRODUCES" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :SimulationRun ;
+    rdfs:range :Dataset .
+:producesRECOMMENDATION a owl:ObjectProperty ;
+    rdfs:label "PRODUCES_RECOMMENDATION" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :DecisionEvaluation ;
+    rdfs:range :Recommendation .
+:providesPORT a owl:ObjectProperty ;
+    rdfs:label "PROVIDES_PORT" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :LineCard ;
+    rdfs:range :Port .
+:replays a owl:ObjectProperty ;
+    rdfs:label "REPLAYS" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping / schema 1.2" ;
+    rdfs:domain :OperationalReplay ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( :CandidateAction :Recommendation ) ] .
+:runsSCENARIO a owl:ObjectProperty ;
+    rdfs:label "RUNS_SCENARIO" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :SimulationRun ;
+    rdfs:range :Scenario .
+:selects a owl:ObjectProperty ;
+    rdfs:label "SELECTS" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :Recommendation ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( :ActionPlan :CandidateAction ) ] .
+:snapshotOF a owl:ObjectProperty ;
+    rdfs:label "SNAPSHOT_OF" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :ResourceSnapshot ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( :DemandGroup :Device :LineCard :LinkAggregationGroup :Network :PhysicalLink :Port :Route :SharedRiskGroup :Site ) ] .
+:solves a owl:ObjectProperty ;
+    rdfs:label "SOLVES" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :DecisionEvaluation ;
+    rdfs:range :PlanningProblem .
+:stateOF a owl:ObjectProperty ;
+    rdfs:label "STATE_OF" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :ResourceState ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( :DemandGroup :Device :LineCard :LinkAggregationGroup :Network :PhysicalLink :Port :Route :SharedRiskGroup :Site ) ] .
+:supportedBY a owl:ObjectProperty ;
+    rdfs:label "SUPPORTED_BY" ;
+    :layer "DART-NPO" ;
+    :relationSource "endpoints not stated" ;
+    :endpointsInferred true .
+:terminatesAT a owl:ObjectProperty ;
+    rdfs:label "TERMINATES_AT" ;
+    :layer "DART-NPO" ;
+    :relationSource "route destination" ;
+    rdfs:domain :Route ;
+    rdfs:range :Device ;
+    :endpointsInferred true .
+:uses a owl:ObjectProperty ;
+    rdfs:label "USES" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :RouteHop ;
+    rdfs:range :PhysicalLink .
+:usesCONFIG a owl:ObjectProperty ;
+    rdfs:label "USES_CONFIG" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :SimulationRun ;
+    rdfs:range :Configuration .
+:usesFORECAST a owl:ObjectProperty ;
+    rdfs:label "USES_FORECAST" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :PlanningProblem ;
+    rdfs:range :Forecast .
+:usesINPUT a owl:ObjectProperty ;
+    rdfs:label "USES_INPUT" ;
+    :layer "DART-NPO" ;
+    :relationSource "endpoints not stated" ;
+    :endpointsInferred true .
+:usesNETWORK a owl:ObjectProperty ;
+    rdfs:label "USES_NETWORK" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :Scenario ;
+    rdfs:range :Network .
+:usesVERSION a owl:ObjectProperty ;
+    rdfs:label "USES_VERSION" ;
+    :layer "DART-NPO" ;
+    :relationSource "schema doc" ;
+    rdfs:domain :SimulationRun ;
+    rdfs:range :SoftwareVersion .
+:validates a owl:ObjectProperty ;
+    rdfs:label "VALIDATES" ;
+    :layer "DART-NPO" ;
+    :relationSource "mapping" ;
+    rdfs:domain :ValidationCase ;
+    rdfs:range :OperationalReplay .
+
+# ======================= OBJECT PROPERTIES: WBA/legacy fixture relations =======================
+:hostsPoi a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :Device ;
+    rdfs:range :POI ;
+    :simulatorRelationship "HOSTS (aggregation device -> POI; contract HOSTS is Site -> Device)" .
+:servedAt a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CSA ;
+    rdfs:range :POI ;
+    :simulatorRelationship "SERVED_AT" .
+:terminatesAtPoi a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :POI ;
+    :simulatorRelationship "TERMINATES_AT (NNI Group -> POI; contract TERMINATES_AT is Route -> Device)" .
+:hasNni a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :NNI ;
+    :simulatorRelationship "HAS_NNI" .
+:hasBearer a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :Bearer ;
+    :simulatorRelationship "HAS_BEARER" .
+:usesBearer a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :NNI ;
+    rdfs:range :Bearer ;
+    :simulatorRelationship "USES_BEARER" .
+:landedOn a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :Bearer ;
+    rdfs:range :Device ;
+    :simulatorRelationship "LANDED_ON" .
+:usesLinecard a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :Bearer ;
+    rdfs:range :PlanningLineCard ;
+    :simulatorRelationship "USES_LINECARD" .
+:terminatesOnPort a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :Bearer ;
+    rdfs:range :PlanningPort ;
+    :simulatorRelationship "TERMINATES_ON_PORT" .
+:hasPlanningLinecard a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :Device ;
+    rdfs:range :PlanningLineCard ;
+    :simulatorRelationship "HAS_PLANNING_LINECARD" .
+:hasPlanningPort a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :PlanningLineCard ;
+    rdfs:range :PlanningPort ;
+    :simulatorRelationship "HAS_PLANNING_PORT" .
+:carries a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CVC ;
+    rdfs:range :CSA ;
+    :simulatorRelationship "CARRIES" .
+:mapsTo a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CVC ;
+    rdfs:range :NNIGroup ;
+    :simulatorRelationship "MAPS_TO" .
+:consumes a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CVC ;
+    rdfs:range :TrafficClass ;
+    :simulatorRelationship "CONSUMES (share_pct)" .
+:usesCvc a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :AVC ;
+    rdfs:range :CVC ;
+    :simulatorRelationship "USES_CVC" .
+:belongsToSegment a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :AVC ;
+    rdfs:range :CustomerSegment ;
+    :simulatorRelationship "BELONGS_TO_SEGMENT" .
+:hasService a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :Premises ;
+    rdfs:range :CustomerService ;
+    :simulatorRelationship "HAS_SERVICE" .
+:deliveredBy a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CustomerService ;
+    rdfs:range :AVC ;
+    :simulatorRelationship "DELIVERED_BY" .
+:hasBandwidthTier a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CustomerService ;
+    rdfs:range :BandwidthTier ;
+    :simulatorRelationship "HAS_BANDWIDTH_TIER" .
+:inCsa a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :Premises ;
+    rdfs:range :CSA ;
+    :simulatorRelationship "premises.csa_id" .
+:hasCapacityPool a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:range :CapacityPool ;
+    :simulatorRelationship "HAS_CAPACITY_POOL" .
+:projectedToGrow a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CSA ;
+    rdfs:range :DemandForecast ;
+    :simulatorRelationship "PROJECTED_TO_GROW" .
+:hasSegmentMix a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CSA ;
+    rdfs:range :CustomerSegment ;
+    :simulatorRelationship "HAS_SEGMENT_MIX (share_pct)" .
+:representsDevice a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :TransportNode ;
+    rdfs:range :Device ;
+    :simulatorRelationship "REPRESENTS_DEVICE" .
+:derivedFromRule a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :Constraint ;
+    rdfs:range :PlanningRule ;
+    :simulatorRelationship "DERIVED_FROM (constraint -> rule; contract DERIVED_FROM is record -> EvidenceArtifact)" .
+:constrainsSubject a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :Constraint ;
+    rdfs:range :NNIGroup ;
+    :simulatorRelationship "constraint.subject_id" .
+:addressesRule a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :PlanningRule ;
+    :simulatorRelationship "ADDRESSES (rules)" .
+:blockedByRule a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :PlanningRule ;
+    :simulatorRelationship "BLOCKED_BY" .
+:hasCost a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :CostItem ;
+    :simulatorRelationship "HAS_COST" .
+:assessedAs a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :ActionAssessment ;
+    :simulatorRelationship "ASSESSED_AS" .
+:forScenario a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:range :Scenario ;
+    :simulatorRelationship "action.scenario_id" .
+:realisedBy a owl:ObjectProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :Intent ;
+    rdfs:range :Recommendation ;
+    :simulatorRelationship "REALISED_BY" .
+:forecastForCvc a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain :DemandForecast ;
+    rdfs:range :CVC ;
+    :simulatorRelationship "forecast.cvc_id" .
+:inRegion a owl:ObjectProperty, owl:FunctionalProperty ;
+    :layer "WBA/legacy fixture" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :Bearer :CSA :CVC :CapacityPool :DemandForecast :NNI :NNIGroup :POI :PlanningLineCard :PlanningPort ) ] ;
+    rdfs:range :PlanningRegion ;
+    :simulatorRelationship "planning_region attribute" .
+
+# ======================= ATTRIBUTES (datatype / enum-valued properties) =======================
+:actionType a owl:ObjectProperty ;
+    rdfs:label "action_type" ;
+    rdfs:range :ActionType ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction .
+:addressesConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "addresses_constraint_ids" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction ;
+    rdfs:comment "'|'-separated constraint ids covered, scoped to a resource." .
+:availableGbps a owl:DatatypeProperty ;
+    rdfs:label "available_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:comment "= protected - current load" .
+:availableProtectedGbps a owl:DatatypeProperty ;
+    rdfs:label "available_protected_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CapacityPool .
+:avcs a owl:DatatypeProperty ;
+    rdfs:label "avcs" ;
+    rdfs:range xsd:integer ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :CVC .
+:bandwidthTierMbps a owl:DatatypeProperty ;
+    rdfs:label "bandwidth_tier_mbps" ;
+    rdfs:range xsd:integer ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :AVC .
+:bearerRateGbps a owl:DatatypeProperty ;
+    rdfs:label "bearer_rate_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:comment "Interface rate of every bearer in the group." .
+:bearers a owl:DatatypeProperty ;
+    rdfs:label "bearers" ;
+    rdfs:range xsd:integer ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:comment "Number of bearers. Config product_rules: max_bearers_per_nni=8, by rate (Gbps) {'1': 2, '10': 4, '100': 8}." .
+:blockedBy a owl:DatatypeProperty ;
+    rdfs:label "blocked_by" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :CandidateAction :PlanningPort ) ] ;
+    rdfs:comment "Blocking rule ids; BEARER_CEILING when the per-rate bearer limit blocks it." ;
+    rdfs:comment "Rule id blocking use, e.g. EP-02." .
+:busyHourFactor a owl:DatatypeProperty ;
+    rdfs:label "busy_hour_factor" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS", "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :CSA :DemandForecast ) ] .
+:capacityGbps a owl:DatatypeProperty ;
+    rdfs:label "capacity_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:comment "= protected_gbps" .
+:commitmentPct a owl:DatatypeProperty ;
+    rdfs:label "commitment_pct" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :NNIGroup .
+:committedGbps a owl:DatatypeProperty ;
+    rdfs:label "committed_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningLineCard .
+:compliance a owl:ObjectProperty ;
+    rdfs:label "compliance" ;
+    rdfs:range :ComplianceLevel ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :Constraint :PlanningRule ) ] .
+:condition a owl:DatatypeProperty ;
+    rdfs:label "condition" ;
+    rdfs:range xsd:string ;
+    :origin "REFERENCE_REGION_SPECS", "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :PlanningLineCard :PlanningRegion ) ] .
+:confidence a owl:DatatypeProperty ;
+    rdfs:label "confidence" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :DemandForecast .
+:contractualGbps a owl:DatatypeProperty ;
+    rdfs:label "contractual_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS", "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :CapacityPool :NNIGroup ) ] .
+:costScore a owl:DatatypeProperty ;
+    rdfs:label "cost_score" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :ActionAssessment .
+:costType a owl:ObjectProperty ;
+    rdfs:label "cost_type" ;
+    rdfs:range :CostType ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CostItem .
+:criticality a owl:DatatypeProperty ;
+    rdfs:label "criticality" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CustomerSegment .
+:currency a owl:DatatypeProperty ;
+    rdfs:label "currency" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CostItem .
+:currentBandwidthGbps a owl:DatatypeProperty ;
+    rdfs:label "current_bandwidth_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :CVC .
+:currentLoadGbps a owl:DatatypeProperty ;
+    rdfs:label "current_load_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :NNIGroup .
+:defaultSharePct a owl:DatatypeProperty ;
+    rdfs:label "default_share_pct" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CustomerSegment .
+:demandMultiplier a owl:DatatypeProperty ;
+    rdfs:label "demand_multiplier" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Scenario .
+:description a owl:DatatypeProperty ;
+    rdfs:label "description" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Scenario .
+:direction a owl:DatatypeProperty ;
+    rdfs:label "direction" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :Metric :Observation ) ] .
+:diverseRouteAvailable a owl:DatatypeProperty ;
+    rdfs:label "diverse_route_available" ;
+    rdfs:range xsd:boolean ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :PlanningRegion .
+:domain a owl:DatatypeProperty ;
+    rdfs:label "domain" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningRule .
+:downstreamMbps a owl:DatatypeProperty ;
+    rdfs:label "downstream_mbps" ;
+    rdfs:range xsd:integer ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :BandwidthTier .
+:eligible a owl:DatatypeProperty ;
+    rdfs:label "eligible" ;
+    rdfs:range xsd:boolean ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :ActionAssessment .
+:engineeringThresholdPct a owl:DatatypeProperty ;
+    rdfs:label "engineering_threshold_pct" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningPort .
+:evidence a owl:DatatypeProperty ;
+    rdfs:label "evidence" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction .
+:explanation a owl:DatatypeProperty ;
+    rdfs:label "explanation" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Recommendation .
+:failureDomain a owl:DatatypeProperty ;
+    rdfs:label "failure_domain" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :Bearer :NNI :PlanningLineCard :PlanningPort ) ] ;
+    rdfs:comment "Cluster A/B the bearer lands in." .
+:feasible a owl:DatatypeProperty ;
+    rdfs:label "feasible" ;
+    rdfs:range xsd:boolean ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction .
+:forecastGrowthPct a owl:DatatypeProperty ;
+    rdfs:label "forecast_growth_pct" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS", "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :CSA :DemandForecast ) ] .
+:headroomGbps a owl:DatatypeProperty ;
+    rdfs:label "headroom_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningLineCard .
+:high a owl:DatatypeProperty ;
+    rdfs:label "high" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CostItem .
+:hopIndex a owl:DatatypeProperty ;
+    rdfs:label "hop_index" ;
+    rdfs:range xsd:integer ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain :RouteHop ;
+    rdfs:comment "One-based hop index." .
+:horizonMonths a owl:DatatypeProperty ;
+    rdfs:label "horizon_months" ;
+    rdfs:range xsd:integer ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :DemandForecast .
+:inputBindingSha256 a owl:DatatypeProperty ;
+    rdfs:label "input_binding_sha256" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain :SimulationRun .
+:knownRequiredConstraintsCovered a owl:DatatypeProperty ;
+    rdfs:label "known_required_constraints_covered" ;
+    rdfs:range xsd:boolean ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction .
+:label a owl:DatatypeProperty ;
+    rdfs:label "label" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction .
+:leadTimeDays a owl:DatatypeProperty ;
+    rdfs:label "lead_time_days" ;
+    rdfs:range xsd:integer ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction .
+:limit a owl:DatatypeProperty ;
+    rdfs:label "limit" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningRule .
+:limitPct a owl:DatatypeProperty ;
+    rdfs:label "limit_pct" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Constraint .
+:linkCount a owl:DatatypeProperty ;
+    rdfs:label "link_count" ;
+    rdfs:range xsd:integer ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :BackhaulRing :SharedRiskGroup ) ] .
+:low a owl:DatatypeProperty ;
+    rdfs:label "low" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CostItem .
+:materialisationCoverage a owl:ObjectProperty ;
+    rdfs:label "materialisation_coverage" ;
+    rdfs:range :MaterialisationCoverage ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CVC .
+:materialisedAvcCount a owl:DatatypeProperty ;
+    rdfs:label "materialised_avc_count" ;
+    rdfs:range xsd:integer ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CVC .
+:maxSupportedCvc a owl:DatatypeProperty ;
+    rdfs:label "max_supported_cvc" ;
+    rdfs:range xsd:integer ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :NNIGroup .
+:measurementBasis a owl:DatatypeProperty ;
+    rdfs:label "measurement_basis" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :Metric :Observation ) ] .
+:metric a owl:DatatypeProperty ;
+    rdfs:label "metric" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningRule .
+:mode a owl:ObjectProperty ;
+    rdfs:label "mode" ;
+    rdfs:range :RedundancyMode ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :NNIGroup .
+:monthlyCost a owl:DatatypeProperty ;
+    rdfs:label "monthly_cost" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :NNIGroup .
+:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :CustomerSegment :TrafficClass ) ] .
+:nodeType a owl:DatatypeProperty ;
+    rdfs:label "node_type" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :TransportNode ;
+    rdfs:comment "AggregationNode, TransitNode or CoreGateway." .
+:npuBudgetGbps a owl:DatatypeProperty ;
+    rdfs:label "npu_budget_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningLineCard .
+:npuCapacityGbps a owl:DatatypeProperty ;
+    rdfs:label "npu_capacity_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningLineCard .
+:observationStatus a owl:DatatypeProperty ;
+    rdfs:label "observation_status" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain :Observation ;
+    rdfs:comment "PRESENT or MISSING; missing is not failure." .
+:observationValue a owl:DatatypeProperty ;
+    rdfs:label "observation_value" ;
+    rdfs:range xsd:double ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain :Observation ;
+    rdfs:comment "Numeric value or null; missing is never zero." .
+:observedAfterPct a owl:DatatypeProperty ;
+    rdfs:label "observed_after_pct" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Constraint .
+:observedAt a owl:DatatypeProperty ;
+    rdfs:label "observed_at" ;
+    rdfs:range xsd:dateTime ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain :Observation .
+:observedBeforePct a owl:DatatypeProperty ;
+    rdfs:label "observed_before_pct" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Constraint .
+:operationalGbps a owl:DatatypeProperty ;
+    rdfs:label "operational_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CapacityPool .
+:optic a owl:DatatypeProperty ;
+    rdfs:label "optic" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningPort .
+:optimalityStatus a owl:DatatypeProperty ;
+    rdfs:label "optimality_status" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain :DecisionEvaluation ;
+    rdfs:comment "NOT_CLAIMED" .
+:owner a owl:DatatypeProperty ;
+    rdfs:label "owner" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningRule .
+:peakBandwidthGbps a owl:DatatypeProperty ;
+    rdfs:label "peak_bandwidth_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :CVC .
+:period a owl:DatatypeProperty ;
+    rdfs:label "period" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CostItem .
+:planningThresholdPct a owl:DatatypeProperty ;
+    rdfs:label "planning_threshold_pct" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :TrafficClass .
+:populationBasis a owl:DatatypeProperty ;
+    rdfs:label "population_basis" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CVC ;
+    rdfs:comment "CVC_AVC_COUNT_PROXY: the aggregate avcs count is authoritative over materialised AVC records." .
+:portSpeedGbps a owl:DatatypeProperty ;
+    rdfs:label "port_speed_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningPort .
+:premises a owl:DatatypeProperty ;
+    rdfs:label "premises" ;
+    rdfs:range xsd:integer ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :CSA .
+:projectedBandwidthGbps a owl:DatatypeProperty ;
+    rdfs:label "projected_bandwidth_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :DemandForecast .
+:protectedGbps a owl:DatatypeProperty ;
+    rdfs:label "protected_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS", "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :CapacityPool :NNIGroup ) ] .
+:rank a owl:DatatypeProperty ;
+    rdfs:label "rank" ;
+    rdfs:range xsd:integer ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Recommendation .
+:rateGbps a owl:DatatypeProperty ;
+    rdfs:label "rate_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :Bearer :NNI ) ] .
+:requiredEvaluationStatus a owl:ObjectProperty ;
+    rdfs:label "required_evaluation_status" ;
+    rdfs:range :EvaluationStatus ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :ActionAssessment :Recommendation ) ] .
+:resilienceScore a owl:DatatypeProperty ;
+    rdfs:label "resilience_score" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :ActionAssessment :CandidateAction ) ] .
+:resourceType a owl:DatatypeProperty ;
+    rdfs:label "resource_type" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CapacityPool .
+:ringType a owl:DatatypeProperty ;
+    rdfs:label "ring_type" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :BackhaulRing ;
+    rdfs:comment "LOCAL_RING or REGIONAL_RING." .
+:riskRating a owl:ObjectProperty ;
+    rdfs:label "risk_rating" ;
+    rdfs:range :RiskRating ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :CSA .
+:riskScore a owl:DatatypeProperty ;
+    rdfs:label "risk_score" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :ActionAssessment :CandidateAction ) ] .
+:role a owl:ObjectProperty ;
+    rdfs:label "role" ;
+    rdfs:range :DeviceRole ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Device .
+:routeSemantics a owl:DatatypeProperty ;
+    rdfs:label "route_semantics" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain :Route ;
+    rdfs:comment "CANDIDATE_PHYSICAL_PATH" .
+:score a owl:DatatypeProperty ;
+    rdfs:label "score" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Recommendation .
+:seed a owl:DatatypeProperty ;
+    rdfs:label "seed" ;
+    rdfs:range xsd:integer ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain :SimulationRun .
+:services a owl:DatatypeProperty ;
+    rdfs:label "services" ;
+    rdfs:range xsd:integer ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :CSA .
+:sha256 a owl:DatatypeProperty ;
+    rdfs:label "sha256" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :Configuration :EvidenceArtifact ) ] .
+:simulationRunId a owl:DatatypeProperty ;
+    rdfs:label "simulation_run_id" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :ActionApplication :ActionAssessment :ActionPlan :CandidateAction :Constraint :DecisionEvaluation :EvidenceRecord :Forecast :OperationalReplay :PlanningCheck :PlanningProblem :PlanningResource :PlanningRule :Recommendation :ReplayFinding :Threshold :ValidationCase :ValidationRun ) ] .
+:singleActionResolvesAllMust a owl:DatatypeProperty ;
+    rdfs:label "single_action_resolves_all_must" ;
+    rdfs:range xsd:boolean ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction .
+:slot a owl:DatatypeProperty ;
+    rdfs:label "slot" ;
+    rdfs:range xsd:integer ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningLineCard .
+:sourceFile a owl:DatatypeProperty ;
+    rdfs:label "source_file" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :ActionApplication :ActionAssessment :ActionPlan :CandidateAction :Constraint :DecisionEvaluation :EvidenceRecord :Forecast :OperationalReplay :PlanningCheck :PlanningProblem :PlanningResource :PlanningRule :Recommendation :ReplayFinding :Threshold :ValidationCase :ValidationRun ) ] .
+:sourceId a owl:DatatypeProperty ;
+    rdfs:label "source_id" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :ActionApplication :ActionAssessment :ActionPlan :CandidateAction :Constraint :DecisionEvaluation :EvidenceRecord :Forecast :OperationalReplay :PlanningCheck :PlanningProblem :PlanningResource :PlanningRule :Recommendation :ReplayFinding :Threshold :ValidationCase :ValidationRun ) ] .
+:sourceRecordJson a owl:DatatypeProperty ;
+    rdfs:label "source_record_json" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :ActionApplication :ActionAssessment :ActionPlan :CandidateAction :Constraint :DecisionEvaluation :EvidenceRecord :Forecast :OperationalReplay :PlanningCheck :PlanningProblem :PlanningResource :PlanningRule :Recommendation :ReplayFinding :Threshold :ValidationCase :ValidationRun ) ] ;
+    rdfs:comment "Original source row as canonical JSON." .
+:state a owl:DatatypeProperty ;
+    rdfs:label "state" ;
+    rdfs:range xsd:string ;
+    :origin "REFERENCE_REGION_SPECS", "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :AVC :Bearer :CSA :CustomerService :NNI :POI :PlanningLineCard :PlanningPort :Premises :TransportNode ) ] .
+:status a owl:DatatypeProperty ;
+    rdfs:label "status" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :CandidateAction :Recommendation ) ] .
+:subscriberGrowthPct a owl:DatatypeProperty ;
+    rdfs:label "subscriber_growth_pct" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS", "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :CSA :DemandForecast ) ] .
+:tc1Pct a owl:DatatypeProperty ;
+    rdfs:label "tc1_pct" ;
+    rdfs:range xsd:integer ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :CVC .
+:tc2Pct a owl:DatatypeProperty ;
+    rdfs:label "tc2_pct" ;
+    rdfs:range xsd:integer ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :CVC .
+:tc4Pct a owl:DatatypeProperty ;
+    rdfs:label "tc4_pct" ;
+    rdfs:range xsd:integer ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :CVC .
+:tech a owl:ObjectProperty ;
+    rdfs:label "tech" ;
+    rdfs:range :AccessTechnology ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :CSA .
+:technology a owl:ObjectProperty ;
+    rdfs:label "technology" ;
+    rdfs:range :InterfaceTechnology ;
+    :origin "REFERENCE_REGION_SPECS", "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :NNI :NNIGroup ) ] .
+:text a owl:DatatypeProperty ;
+    rdfs:label "text" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Intent .
+:totalScore a owl:DatatypeProperty ;
+    rdfs:label "total_score" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :ActionAssessment .
+:transportOfferedAfterGbps a owl:DatatypeProperty ;
+    rdfs:label "transport_offered_after_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :PlanningRegion ;
+    rdfs:comment "Offered load after the scenario." .
+:transportRiskMode a owl:ObjectProperty ;
+    rdfs:label "transport_risk_mode" ;
+    rdfs:range :TransportRiskMode ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :PlanningRegion .
+:transportSurvivableGbps a owl:DatatypeProperty ;
+    rdfs:label "transport_survivable_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "REFERENCE_REGION_SPECS" ;
+    rdfs:domain :PlanningRegion ;
+    rdfs:comment "Transport capacity that survives a single failure." .
+:unevaluatedConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "unevaluated_constraint_ids" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction .
+:unit a owl:DatatypeProperty ;
+    rdfs:label "unit" ;
+    rdfs:range xsd:string ;
+    :origin "DART-NPO contract", "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :Metric :Observation :PlanningRule ) ] .
+:unmaterialisedAvcCount a owl:DatatypeProperty ;
+    rdfs:label "unmaterialised_avc_count" ;
+    rdfs:range xsd:integer ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CVC .
+:unresolvedConstraintIds a owl:DatatypeProperty ;
+    rdfs:label "unresolved_constraint_ids" ;
+    rdfs:range xsd:string ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction .
+:upstreamMbps a owl:DatatypeProperty ;
+    rdfs:label "upstream_mbps" ;
+    rdfs:range xsd:integer ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :BandwidthTier .
+:usable a owl:DatatypeProperty ;
+    rdfs:label "usable" ;
+    rdfs:range xsd:boolean ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :PlanningPort ;
+    rdfs:comment "Free AND forwarding headroom available." .
+:usedGbps a owl:DatatypeProperty ;
+    rdfs:label "used_gbps" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CapacityPool .
+:utilisationPct a owl:DatatypeProperty ;
+    rdfs:label "utilisation_pct" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :NNIGroup ;
+    rdfs:comment "= 100 * current load / protected" .
+:utilisationScore a owl:DatatypeProperty ;
+    rdfs:label "utilisation_score" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :ActionAssessment :CandidateAction ) ] .
+:value a owl:DatatypeProperty ;
+    rdfs:label "value" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CostItem .
+:violated a owl:DatatypeProperty ;
+    rdfs:label "violated" ;
+    rdfs:range xsd:boolean ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Constraint .
+:weightCost a owl:DatatypeProperty ;
+    rdfs:label "weight_cost" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Intent .
+:weightResilience a owl:DatatypeProperty ;
+    rdfs:label "weight_resilience" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Intent .
+:weightRisk a owl:DatatypeProperty ;
+    rdfs:label "weight_risk" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Intent .
+:weightUtilisation a owl:DatatypeProperty ;
+    rdfs:label "weight_utilisation" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :Intent .
+:wholeOfLifeCost36m a owl:DatatypeProperty ;
+    rdfs:label "whole_of_life_cost_36m" ;
+    rdfs:range xsd:double ;
+    :origin "legacy_regional_fixture.py (derived)" ;
+    rdfs:domain :CandidateAction .
+
+# ======================= NAMED INDIVIDUALS =======================
+:TC_1 a :TrafficClass, owl:NamedIndividual ; rdfs:label "TC-1" ; :name "Priority / realtime" ; :planningThresholdPct 70.0 .
+:TC_2 a :TrafficClass, owl:NamedIndividual ; rdfs:label "TC-2" ; :name "Interactive" ; :planningThresholdPct 75.0 .
+:TC_4 a :TrafficClass, owl:NamedIndividual ; rdfs:label "TC-4" ; :name "Best effort / bulk" ; :planningThresholdPct 80.0 .
+:SEG_RES a :CustomerSegment, owl:NamedIndividual ; rdfs:label "SEG-RES" ; :name "Residential" ; :criticality "NORMAL" ; :defaultSharePct 88.0 .
+:SEG_SME a :CustomerSegment, owl:NamedIndividual ; rdfs:label "SEG-SME" ; :name "SME" ; :criticality "MEDIUM" ; :defaultSharePct 9.0 .
+:SEG_ENT a :CustomerSegment, owl:NamedIndividual ; rdfs:label "SEG-ENT" ; :name "Enterprise/Critical" ; :criticality "HIGH" ; :defaultSharePct 3.0 .
+# the 13 named planning rules (legacy fixture create_rules)
+:PR_01 a :PlanningRule, owl:NamedIndividual ; rdfs:label "PR-01" ; :domain "Capacity" ; :metric "NNI utilisation" ; :limit 70.0 ; :unit "PCT" ; :compliance :ComplianceLevel_MUST_COMPLY ; :owner "Capacity Planning" .
+:PR_02 a :PlanningRule, owl:NamedIndividual ; rdfs:label "PR-02" ; :domain "Capacity" ; :metric "CVC utilisation" ; :limit 70.0 ; :unit "PCT" ; :compliance :ComplianceLevel_MUST_COMPLY ; :owner "Capacity Planning" .
+:PR_03 a :PlanningRule, owl:NamedIndividual ; rdfs:label "PR-03" ; :domain "Capacity" ; :metric "Protected NNI fill" ; :limit 80.0 ; :unit "PCT" ; :compliance :ComplianceLevel_MUST_COMPLY ; :owner "Capacity Planning" .
+:EP_01 a :PlanningRule, owl:NamedIndividual ; rdfs:label "EP-01" ; :domain "Capacity" ; :metric "Port utilisation" ; :limit 75.0 ; :unit "PCT" ; :compliance :ComplianceLevel_SHOULD_COMPLY ; :owner "Network Engineering" .
+:EP_02 a :PlanningRule, owl:NamedIndividual ; rdfs:label "EP-02" ; :domain "Capacity" ; :metric "Line-card NPU budget" ; :limit 80.0 ; :unit "PCT" ; :compliance :ComplianceLevel_EXCEPTION_REQUIRED ; :owner "Network Architecture" .
+:RS_01 a :PlanningRule, owl:NamedIndividual ; rdfs:label "RS-01" ; :domain "Resilience" ; :metric "Dual homing across failure domains" ; :limit 1.0 ; :unit "BOOL" ; :compliance :ComplianceLevel_MUST_COMPLY ; :owner "Resilience Engineering" .
+:RS_02 a :PlanningRule, owl:NamedIndividual ; rdfs:label "RS-02" ; :domain "Resilience" ; :metric "Diverse chassis bearer pair" ; :limit 1.0 ; :unit "BOOL" ; :compliance :ComplianceLevel_MUST_COMPLY ; :owner "Resilience Engineering" .
+:RS_03 a :PlanningRule, owl:NamedIndividual ; rdfs:label "RS-03" ; :domain "Resilience" ; :metric "No shared SRLG across POI transport" ; :limit 1.0 ; :unit "BOOL" ; :compliance :ComplianceLevel_MUST_COMPLY ; :owner "Transport Engineering" .
+:PR_05 a :PlanningRule, owl:NamedIndividual ; rdfs:label "PR-05" ; :domain "Resilience" ; :metric "Offered load within single-failure survivable capacity" ; :limit 100.0 ; :unit "PCT" ; :compliance :ComplianceLevel_MUST_COMPLY ; :owner "Transport Engineering" .
+:CP_01 a :PlanningRule, owl:NamedIndividual ; rdfs:label "CP-01" ; :domain "Commercial" ; :metric "Whole-of-life cost horizon" ; :limit 36.0 ; :unit "MONTHS" ; :compliance :ComplianceLevel_SHOULD_COMPLY ; :owner "Commercial Planning" .
+:GV_01 a :PlanningRule, owl:NamedIndividual ; rdfs:label "GV-01" ; :domain "Governance" ; :metric "NNI Group rate immutable" ; :limit 1.0 ; :unit "BOOL" ; :compliance :ComplianceLevel_PROHIBITED_DESIGN ; :owner "Wholesale Governance" .
+:GV_02 a :PlanningRule, owl:NamedIndividual ; rdfs:label "GV-02" ; :domain "Governance" ; :metric "Diverse bearer additions ordered in pairs" ; :limit 2.0 ; :unit "COUNT" ; :compliance :ComplianceLevel_PROHIBITED_DESIGN ; :owner "Wholesale Governance" .
+:GV_03 a :PlanningRule, owl:NamedIndividual ; rdfs:label "GV-03" ; :domain "Governance" ; :metric "No over-booking within NNI Group" ; :limit 1.0 ; :unit "BOOL" ; :compliance :ComplianceLevel_PROHIBITED_DESIGN ; :owner "Wholesale Governance" .

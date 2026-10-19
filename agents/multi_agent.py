@@ -1,5 +1,7 @@
 import os
+import time
 import json
+import shutil
 from pathlib import Path
 from typing import TypedDict, List, Dict, Optional, Annotated
 
@@ -7,7 +9,7 @@ from typing import TypedDict, List, Dict, Optional, Annotated
 import fitz
 
 # LangChain / LangGraph
-from langchain_core.messages import HumanMessage, SystemMessage, BaseMessage
+from langchain_core.messages import HumanMessage, SystemMessage, BaseMessage, AIMessage
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, END
@@ -18,6 +20,11 @@ from langgraph.checkpoint.memory import MemorySaver
 from tools.file_management import *
 from tools.syntax_checks import verify_rdf_syntax, verify_owl_consistency
 from helper.tool_count import tool_call_count
+from helper.domain_profiles import PROFILES
+from helper.reference import Reference
+from helper.snapshot import compact_snapshot
+from helper import grounding
+from helper.usage import UsageHandler
 
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
@@ -33,16 +40,56 @@ ONTOLOGY_DIR = PROJECT_ROOT / "ontology"
 ONTOLOGY_DIR.mkdir(exist_ok=True)
 
 MODEL_NAME = os.getenv("MODEL_NAME", "Qwen/Qwen2-72B-Instruct")
-MAX_QA_CYCLES = 20
+MAX_QA_CYCLES = int(os.getenv("MAX_QA_CYCLES", "20"))
 MAX_SYNTAX_CHECKS = 20
+MAX_TOOL_MESSAGES = int(os.getenv("MAX_TOOL_MESSAGES", "0"))        # 0 = unlimited (original); cap on a tool loop's message history
+READ_CONTEXT_LINES = int(os.getenv("READ_CONTEXT_LINES", "200"))   # lines the QA-coder is told to read around an error
+SNAPSHOT_MAX_LINES = int(os.getenv("ONTOLOGY_SNAPSHOT_MAX_LINES", "0"))  # 0 = paste the whole ontology (original behaviour)
 
-# Shared LLM
+# Domain wording and the optional reference ontology; both are set from the CLI in __main__.
+# Defaults reproduce the original life-insurance behaviour exactly.
+MAX_DEBUG_CYCLES = int(os.getenv("MAX_DEBUG_CYCLES", "0"))  # repair rounds allowed for the syntax / consistency gates (0 = unlimited, as published)
+PIPELINE_MODE = os.getenv("PIPELINE_MODE", "paper")  # "paper" = the published LLM QA loop; "lite" = deterministic checks (helper/grounding.py)
+PAGE_BASE = None        # lite mode: the ontology as it was before the current page
+SEED_INDS = frozenset() # lite mode: individuals of the reference seed (must not be modified by the documents)
+PROFILE = PROFILES["insurance"]
+REF = None  # helper.reference.Reference when --reference is given
+
+
+def _p(text: str) -> str:
+    """Apply the active domain profile (currency)."""
+    return text.replace("USD", PROFILE["currency"])
+
+
+def _ref_block(role: str) -> str:
+    """Reference-ontology guidance for an agent role ('' when no reference is used)."""
+    return REF.prompt_block(role) if REF is not None else ""
+
+# Shared LLM. Endpoint/key: LLM_BASE_URL + LLM_API_KEY, else OPENROUTER_API_KEY -> OpenRouter, else a local vLLM server.
+_OR_KEY = os.getenv("OPENROUTER_API_KEY")
+USAGE = UsageHandler(os.getenv("USAGE_LOG"))
 llm = ChatOpenAI(
     model=MODEL_NAME,
-    base_url="http://localhost:8000/v1",
-    api_key="not-needed",
+    base_url=os.getenv("LLM_BASE_URL") or ("https://openrouter.ai/api/v1" if _OR_KEY else "http://localhost:8000/v1"),
+    api_key=os.getenv("LLM_API_KEY") or _OR_KEY or "not-needed",
     temperature=0.0,
-    max_tokens=4096,
+    max_tokens=int(os.getenv("LLM_MAX_TOKENS", "4096")),  # a dense page needs far more than 4096 tokens of Turtle in one tool call
+    callbacks=[USAGE],
+    timeout=float(os.getenv("LLM_TIMEOUT", "120")),  # a stalled request should fail fast, not wait minutes
+    max_retries=1,
+    # optional provider parameters as JSON, e.g. {"reasoning": {"effort": "low"}} for reasoning models on OpenRouter
+    extra_body=json.loads(os.getenv("LLM_EXTRA_BODY") or "null"),
+)
+qa_llm = ChatOpenAI(
+    model=MODEL_NAME,
+    base_url=os.getenv("LLM_BASE_URL") or ("https://openrouter.ai/api/v1" if _OR_KEY else "http://localhost:8000/v1"),
+    api_key=os.getenv("LLM_API_KEY") or _OR_KEY or "not-needed",
+    temperature=0.0,
+    max_tokens=int(os.getenv("QA_MAX_TOKENS") or os.getenv("LLM_MAX_TOKENS", "4096")),   # same cap as the coder unless QA_MAX_TOKENS is set
+    callbacks=[USAGE],
+    timeout=float(os.getenv("LLM_TIMEOUT", "120")),
+    max_retries=1,
+    extra_body=json.loads(os.getenv("LLM_EXTRA_BODY") or "null"),
 )
 
 # --------------------------
@@ -104,6 +151,7 @@ def _retry_invoke(model, messages, tries=3):
         except Exception as e:
             last = e
             print(f"[LLM retry {i+1}/{tries}] {type(e).__name__}: {e}")
+            time.sleep(min(30, 3 * 2 ** i))  # back off: a network blip should not burn all retries in a second
     raise last or RuntimeError("LLM failed with no exception?")
 
 def _read_ontology_snapshot(path: str) -> str:
@@ -112,7 +160,16 @@ def _read_ontology_snapshot(path: str) -> str:
     - a LangChain Tool (has .invoke) that expects {"file_path": "..."}
     - a plain function read_file_with_line_numbers(file_path=...)
     Returns a string (content).
+    With ONTOLOGY_SNAPSHOT_MAX_LINES > 0 a large ontology is shown as a term index + its last lines (helper/snapshot.py).
     """
+    if SNAPSHOT_MAX_LINES > 0:
+        known = None
+        if REF is not None:
+            from helper.reference import local
+            known = {local(c) for c in REF.classes} | {local(p) for p in REF.props} | {"sourceClause"}
+        compact = compact_snapshot(path, SNAPSHOT_MAX_LINES, known=known)
+        if compact is not None:
+            return compact
     try:
         if hasattr(read_file_with_line_numbers, "invoke"):
             raw = read_file_with_line_numbers.invoke({"file_path": str(path)})
@@ -154,10 +211,9 @@ def domain_expert_node(state: OrchestratorState) -> Dict:
 
     # Domain-savvy, terse, schema-constrained prompt
     sys = (
-        "You are a senior life-insurance legal analyst (US practice). Extract a concise, precise "
+        f"{PROFILE['expert_intro']} Extract a concise, precise "
         "Semantic Requirements Document (SRD) from the contract excerpt. Your SRD must be sufficient "
-        "for ontology engineering and SPARQL QA. Use industry knowledge (e.g., grace period, lapse, "
-        "reinstatement, contestability, suicide clause, misrepresentation) to identify implicit structure, "
+        f"for ontology engineering and SPARQL QA. {PROFILE['expert_knowledge']}"
         "but DO NOT invent facts beyond the text. Normalize:\n"
         "• Money: {amount: number, currency: 'USD'}\n"
         "• Durations: ISO-8601 (e.g., 'P31D', 'P5Y')\n"
@@ -201,16 +257,16 @@ def domain_expert_node(state: OrchestratorState) -> Dict:
         '  "assumptions": [str]\n'
         "}\n\n"
         "INSTRUCTIONS:\n"
-        "• Prefer canonical insurance terms (Policy, Policy Owner, Beneficiary, Premium, Grace Period, Lapse, Reinstatement, Contestability Period).\n"
+        f"• {PROFILE['canonical_terms']}\n"
         "• Use short, plain definitions (1 sentence). No citations are required.\n"
         "• Only include items present or reasonably implied by THIS text. If unknown, omit.\n"
         "• Ensure every CQ maps to cq_alignment or explain briefly why not answerable.\n"
         "• Output JSON only."
     )
-    
+    human += _ref_block("expert")
 
-    resp = _retry_invoke(llm, [SystemMessage(content=sys), HumanMessage(content=human)])
-    
+    resp = _retry_invoke(llm, [SystemMessage(content=_p(sys)), HumanMessage(content=_p(human))])
+
     #print(f"Domain Expert SRD:\n{resp.content.strip()}\n")
     
     return {"requirements_doc": resp.content.strip()}
@@ -220,7 +276,7 @@ def manager_node(state: OrchestratorState) -> Dict:
     print("--- 🧑‍💼 MANAGER ---")
 
     sys = (
-        "You are a Chief Ontology Architect with deep expertise in life-insurance law and OWL 2 DL. "
+        f"You are a Chief Ontology Architect with {PROFILE['manager_expertise']}. "
         "Your job is to translate a Semantic Requirements Document (SRD) into a practical, buildable "
         "Technical Implementation Plan (TIP) that a developer can execute with minimal ambiguity.\n\n"
         "Author a crisp, actionable plan in Markdown (not JSON). Be opinionated, avoid fluff, and prefer "
@@ -311,13 +367,14 @@ Description and Details: This category contains patterns that model the descript
         "- Keep total length focused; avoid restating the whole SRD.\n"
         "- Do NOT output code; this is a plan the coder will implement with tools.\n"
         "- Do NOT restate the directions I gave you in the output. For example, do not say 'For each Competency Question (CQ), provide a concise analysis using the exact format below.' This is a direction for you to follow not something that should be in the output.\n"
-        "Be PRECISE, CONCISE, and ACTIONABLE."
+        "Be PRECISE, CONCISE, and ACTIONABLE.\n"
+        f"{_ref_block('manager')}\n"
         "Current ontology file content (line-numbered):\n"
         f"{_read_ontology_snapshot(state['ontology_file_path'])}\n"
     )
 
-    resp = _retry_invoke(llm, [SystemMessage(content=sys), HumanMessage(content=human)])
-    
+    resp = _retry_invoke(llm, [SystemMessage(content=_p(sys)), HumanMessage(content=_p(human))])
+
     # print the content of the response
     print(f"Implementation Plan:\n{resp.content.strip()}\n")
     
@@ -417,7 +474,7 @@ The Managers Implementation Plan:
 ---
 
 **PATH to File to APPEND / Edit:** `{state['ontology_file_path']}`
-
+{_ref_block('coder')}
 Current ontology file content (line-numbered):
 {snapshot}
 
@@ -446,6 +503,9 @@ Use ONLY tool calls to append/edit. Do not print code directly.
         state["messages"].append(SystemMessage(content=sys))
         state["messages"].append(HumanMessage(content=human))
         
+
+    if MAX_TOOL_MESSAGES and len(state["messages"]) > MAX_TOOL_MESSAGES:
+        return {"messages": [AIMessage(content="Stopping: tool-iteration cap reached.")]}
 
     llm_with_tools = llm.bind_tools(CODER_TOOLS)
     
@@ -476,7 +536,29 @@ def clear_coder_messages_node(state: OrchestratorState) -> Dict:
     print("--- 🧹 CLEAR CODER MESSAGES ---")
     return {"messages": CLEAR}
 
+def lite_verify_node(state: OrchestratorState) -> Dict:
+    """Simplified loop: deterministic checks (grounding, duplicates, source, CQ coverage) instead of an LLM QA review. Free and precise."""
+    if state["qa_cycles"] >= MAX_QA_CYCLES:
+        print("--- VERIFY SKIPPED (repair rounds used up; unsupported values are stripped afterwards) ---")
+        return {"qa_feedback": [], "qa_cycles": state["qa_cycles"], "review_type": 0}
+    print(f"--- ✅ VERIFY (deterministic checks, no LLM) --- round {state['qa_cycles']} / {MAX_QA_CYCLES}")
+    try:
+        import rdflib
+        now = rdflib.Graph()
+        now.parse(state["ontology_file_path"], format="turtle")
+    except Exception:
+        return {"qa_feedback": [], "review_type": 0}  # invalid Turtle: the syntax gate handles it next
+    fb = grounding.build_feedback(PAGE_BASE, now, state["page_text"], state["cqs_for_page"], SEED_INDS)
+    if not fb:
+        print("--- all checks passed ---")
+        return {"qa_feedback": [], "review_type": 0}
+    print("--- VERIFY found:\n" + "\n".join("  - " + x[:200] for x in fb))
+    return {"qa_feedback": fb, "qa_cycles": state["qa_cycles"] + 1, "review_type": 1, "messages": CLEAR, "reflection": None}
+
+
 def qa_review_node(state: OrchestratorState) -> Dict:
+    if PIPELINE_MODE == "lite":
+        return lite_verify_node(state)
     # Disable QA review after max cycles
     if state["qa_cycles"] >= MAX_QA_CYCLES:
         print("--- ❌ QA REVIEW SKIPPED (max cycles reached) ---")
@@ -493,7 +575,7 @@ def qa_review_node(state: OrchestratorState) -> Dict:
     prior_feedback_text = "\n".join(prior_feedback) if prior_feedback else "None"
 
     # Force structured output
-    structured_llm = llm.with_structured_output(QAReview)
+    structured_llm = qa_llm.with_structured_output(QAReview)
 
     # --- Prompt templates (no ChatPromptTemplate) ---
     system_prompt = (
@@ -514,6 +596,7 @@ def qa_review_node(state: OrchestratorState) -> Dict:
         "• Do NOT require external data. Do NOT block on purely stylistic concerns.\n\n"
         "Output: Return ONLY a JSON object matching this schema:\n"
         f"{json.dumps(QAReview.model_json_schema(), indent=2)}\n"
+        + _ref_block("qa")
     )
 
     human_prompt = (
@@ -591,7 +674,7 @@ def qa_review_node(state: OrchestratorState) -> Dict:
             print(f"[QA attempt {attempt+1}] ❌ Structured parse failed: {e}")
 
     print("❌ QA failed to produce structured JSON after 5 attempts.")
-    if review_type == 1:
+    if state.get("review_type") == 1:
         return {"qa_feedback": [], "qa_cycles": state["qa_cycles"] + 1, "review_type": 0, "messages": CLEAR, "reflection": None}
     else:
         return {"qa_feedback": [], "qa_cycles": state["qa_cycles"] + 1, "messages": CLEAR, "reflection": None}
@@ -652,11 +735,15 @@ def syntax_check_node(state: OrchestratorState) -> dict:
             
             reflection = _retry_invoke(llm, [SystemMessage(content=system_prompt), HumanMessage(content=human_prompt)]).content.strip()
             
-        return {"syntax_error": raw, "debug_cycles": state.get('debug_cycles', 0) + 0.01, "reflection": reflection, "messages": CLEAR, "review_type":1}  # keep raw so the bug fixer sees the JSON
+        return {"syntax_error": raw, "debug_cycles": state.get('debug_cycles', 0) + (1 if MAX_DEBUG_CYCLES else 0.01), "reflection": reflection, "messages": CLEAR, "review_type":1}  # keep raw so the bug fixer sees the JSON
 
 def semantics_check_node(state: OrchestratorState) -> dict:
     print("\n" + "="*50 + "\nSTEP 2: Checking OWL Consistency\n" + "="*50)
     file_path = state['ontology_file_path']
+    # The reasoner (HermiT via Owlready2) needs Java; without it every check would "fail" and trap the agents in a fix loop.
+    if shutil.which("java") is None:
+        print("⚠️  Java not found - OWL reasoner check skipped (RDF syntax is still checked).")
+        return {"consistency_error": None, "messages": CLEAR, "reflection": None, "review_type": 0}
     raw = verify_owl_consistency.invoke({"file_path": str(file_path)})
     status, payload = _parse_tool_status(raw)
     if status == "success":
@@ -739,7 +826,8 @@ def qa_coder_node(state: OrchestratorState) -> Dict:
     You will also sometimes receive a reflection on previous attempts to fix the error. This will help you understand what went wrong in previous attempts and how to fix the error this time.
     DO NOT REPEAT THE SAME MISTAKES AS BEFORE. Use the reflection to guide your fixes and avoid making the same mistakes again.
     """
-    
+    system_prompt += _ref_block("qa_coder")
+
 
 
     heading = ""
@@ -760,7 +848,7 @@ def qa_coder_node(state: OrchestratorState) -> Dict:
     """
     
     if mode == "quality assurance":
-        prompt += """
+        prompt += f"""
         The Managers Implementation Plan:
         \n{state['implementation_plan']}\n
         
@@ -782,6 +870,15 @@ def qa_coder_node(state: OrchestratorState) -> Dict:
         state["messages"].append(HumanMessage(content="Address all the issues in the feedback step by step, using the tools provided. Only stop if you have addressed all the issues in the feedback."))
     
 
+    if READ_CONTEXT_LINES != 200:
+        system_prompt_msg = state["messages"][0]
+        if hasattr(system_prompt_msg, "content"):
+            system_prompt_msg.content = system_prompt_msg.content.replace("200 lines", f"{READ_CONTEXT_LINES} lines")
+    if MAX_TOOL_MESSAGES and len(state["messages"]) > MAX_TOOL_MESSAGES:
+        # every tool result stays in the history and is re-sent on each call: stop runaway read/edit loops
+        print(f"--- QA-CODER: tool-loop cap reached ({len(state['messages'])} messages) - handing back to QA ---")
+        return {"messages": [AIMessage(content="Stopping: tool-iteration cap reached.")]}
+
     llm_with_tools = llm.bind_tools(QA_CODER_TOOLS)
     ai = _retry_invoke(llm_with_tools, state["messages"])
 
@@ -796,10 +893,19 @@ def clear_qa_coder_messages_node(state: OrchestratorState) -> Dict:
 # --------------------------
 # Routers
 # --------------------------
+def _gave_up(state) -> bool:
+    return bool(MAX_DEBUG_CYCLES) and state.get("debug_cycles", 0) >= MAX_DEBUG_CYCLES
+
 def route_after_syntax(state: OrchestratorState) -> str:
+    if state.get("syntax_error") and _gave_up(state):
+        print(f"--- repair rounds used up ({MAX_DEBUG_CYCLES}): giving up on this page's syntax error ---")
+        return "to_end"
     return "to_qa_coder" if state.get("syntax_error") else "to_semantics"
 
 def route_after_semantics(state: OrchestratorState) -> str:
+    if state.get("consistency_error") and _gave_up(state):
+        print(f"--- repair rounds used up ({MAX_DEBUG_CYCLES}): giving up on this page's consistency error ---")
+        return "to_end"
     return "to_qa_coder" if state.get("consistency_error") else "to_end"
     
 def route_after_qa_review(state: OrchestratorState) -> str:
@@ -859,7 +965,7 @@ def build_graph():
     builder.add_conditional_edges(
         "syntax_check",
         route_after_syntax,
-        {"to_qa_coder": "qa_coder", "to_semantics": "semantics_check"}
+        {"to_qa_coder": "qa_coder", "to_semantics": "semantics_check", "to_end": END}
     )
 
     builder.add_conditional_edges(
@@ -889,7 +995,38 @@ if __name__ == "__main__":
     parser.add_argument("--cqs", required=True, type=str, help="Path to the CQs JSON file for that contract")
     parser.add_argument("--ontology-out", required=True, type=str, help="Output TTL path (will be created if missing)")
     parser.add_argument("--recursion-limit", type=int, default=10000, help="LangGraph recursion limit")
+    parser.add_argument("--domain", choices=sorted(PROFILES), default="insurance",
+                        help="Prompt wording profile (helper/domain_profiles.py). Default reproduces the original insurance prompts.")
+    parser.add_argument("--reference", type=str, default=None,
+                        help="Reference ontology .ttl (e.g. reference/dart_core.ttl). Seeds the output file and guides every agent; "
+                             "new content found in the documents is added as tagged extensions.")
+    parser.add_argument("--reference-scope", choices=["core", "wba", "all"], default="core",
+                        help="Which part of the reference to use: core (WBA-named entities + what they link to), wba (whole wholesale layer), all")
+    parser.add_argument("--start-page", type=int, default=0, help="First page index (0-based) to process")
+    parser.add_argument("--max-pages", type=int, default=None, help="Process at most this many pages (cheap pilot runs)")
+    parser.add_argument("--page-list", type=str, default=None, help='1-based pages to process, e.g. "5,6,24-33" (all others are skipped)')
+    parser.add_argument("--mode", choices=["paper", "lite"], default=None,
+                        help="paper = published LLM QA loop (default); lite = deterministic checks instead of the LLM QA review")
+    parser.add_argument("--min-words", type=int, default=0, help="Skip pages with fewer words (blank / separator pages)")
+    parser.add_argument("--snapshot-max-lines", type=int, default=None,
+                        help="Show agents a term index + last lines once the ontology exceeds this many lines (0 = always the full file)")
     args = parser.parse_args()
+    if args.snapshot_max_lines is not None:
+        SNAPSHOT_MAX_LINES = args.snapshot_max_lines
+    if args.mode:
+        PIPELINE_MODE = args.mode
+    wanted = None
+    if args.page_list:
+        wanted = set()
+        for part in args.page_list.split(","):
+            a, _, b = part.strip().partition("-")
+            wanted |= set(range(int(a) - 1, int(b or a)))  # 1-based inclusive -> 0-based
+
+    PROFILE = PROFILES[args.domain]
+    if args.reference:
+        REF = Reference(args.reference, args.reference_scope)
+        print(f"📚 Reference ontology: {args.reference} (scope={args.reference_scope}, "
+              f"{len(REF.classes)} classes, {len(REF.props)} properties)")
 
     print("🤖 Initializing Multi-Agent Ontology Generation System...")
 
@@ -919,6 +1056,29 @@ if __name__ == "__main__":
         )
         ontology_file_path.write_text(initial_content, encoding="utf-8")
 
+    # Seed the reference schema into a fresh (prefix-only) file; never overwrite existing work
+    if REF is not None:
+        from helper.reference import SEED_MARKER
+        current = ontology_file_path.read_text(encoding="utf-8")
+        has_content = any(l.strip() and not l.lstrip().startswith(("@prefix", "#")) for l in current.splitlines())
+        if SEED_MARKER in current:
+            print("📚 Reference seed already present - continuing from the existing ontology file.")
+        elif has_content:
+            print("⚠️  Ontology file already has content but no reference seed; leaving it untouched "
+                  "(agents still receive the reference guidance in their prompts).")
+        else:
+            ontology_file_path.write_text(REF.seed_turtle(), encoding="utf-8")
+            print(f"📚 Seeded {ontology_file_path.name} with the reference schema.")
+
+    if REF is not None and PIPELINE_MODE == "lite":  # individuals of the reference seed must not be modified by the documents
+        from rdflib import RDF, OWL, URIRef
+        seed_g = REF.seed_graph()
+        seed_cls = set(seed_g.subjects(RDF.type, OWL.Class))
+        SEED_INDS = frozenset(x for x in set(seed_g.subjects(RDF.type, None)) if isinstance(x, URIRef) and x not in seed_cls
+                              and not any((x, RDF.type, t) in seed_g for t in (OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty)))
+
+    progress_path = ontology_file_path.with_suffix(".progress.json")  # next page per document, for resuming
+
     # Load CQs & normalize to { "0": [...], "1": [...], ... }
     with open(cqs_path, "r", encoding="utf-8") as f:
         cqs_obj = json.load(f)
@@ -931,11 +1091,17 @@ if __name__ == "__main__":
         total_pages = len(pdf_doc)
         print(f"\n{'='*60}\n  Processing Contract: {contract_id}\n{'='*60}")
 
-        for page_number in range(total_pages):
+        last_page = total_pages if args.max_pages is None else min(total_pages, args.start_page + args.max_pages)
+        for page_number in range(args.start_page, last_page):
+            if wanted is not None and page_number not in wanted:
+                continue
             cqs_on_page = pages.get(str(page_number), [])
             print(f"\n--- Starting Page {page_number + 1} of {total_pages} ---")
 
             page_text = pdf_doc[page_number].get_text("text")
+            if len(page_text.split()) < args.min_words:
+                print(f"--- ⏭️  Page {page_number + 1} skipped ({len(page_text.split())} words) ---")
+                continue
 
             initial_page_state: OrchestratorState = {
                 "page_text": page_text,
@@ -966,12 +1132,52 @@ if __name__ == "__main__":
                     "checkpoint_ns": "multi_agent_generation",
                 },
             }
-            final_state = app.invoke(initial_page_state, config=config)
+            # Keep the last good ontology so a page that fails cannot leave invalid Turtle behind for every later page.
+            backup = ontology_file_path.read_text(encoding="utf-8")
+            if PIPELINE_MODE == "lite":
+                import rdflib
+                PAGE_BASE = rdflib.Graph()
+                PAGE_BASE.parse(data=backup, format="turtle")
+            final_state, error = {}, None
+            try:
+                final_state = app.invoke(initial_page_state, config=config)
+            except Exception as e:  # recursion limit, API failure, ... : log it and carry on with the next page
+                error = f"{type(e).__name__}: {str(e)[:300]}"
 
-            if final_state.get("syntax_error") or final_state.get("consistency_error"):
-                print(f"--- ❌ Page {page_number + 1} FAILED after retries. ---")
+            if error or final_state.get("syntax_error") or final_state.get("consistency_error"):
+                print(f"--- ❌ Page {page_number + 1} FAILED after retries. {error or ''}---")
+                try:
+                    import rdflib
+                    rdflib.Graph().parse(str(ontology_file_path), format="turtle")
+                    if final_state.get("consistency_error") or final_state.get("syntax_error"):
+                        raise ValueError("unresolved error: do not keep this page")
+                except Exception:
+                    ontology_file_path.write_text(backup, encoding="utf-8")
+                    print(f"--- ↩️  Restored the ontology from before page {page_number + 1} (the failed page left an invalid or inconsistent ontology). ---")
             else:
                 print(f"--- ✅ Page {page_number + 1} processed successfully. ---")
+            if PIPELINE_MODE == "lite" and PAGE_BASE is not None:  # accuracy first: drop numeric values the page does not support
+                try:
+                    removed = grounding.strip_ungrounded(ontology_file_path, PAGE_BASE, page_text, SEED_INDS)
+                    if removed:
+                        print(f"[stripped] page={page_number + 1} unsupported_values_removed={removed}", flush=True)
+                except Exception as e:
+                    print(f"(strip skipped: {type(e).__name__}: {str(e)[:120]})")
+            # "Success" only means the checks passed - count what the page really added (a model that never calls the file tools adds nothing).
+            try:
+                import rdflib
+                before, after = rdflib.Graph(), rdflib.Graph()
+                before.parse(data=backup, format="turtle")
+                after.parse(str(ontology_file_path), format="turtle")
+                new_triples = len(after) - len(before)
+                print(f"[added] page={page_number + 1} triples={new_triples}", flush=True)
+                if new_triples <= 0:
+                    print(f"--- ⚠️  Page {page_number + 1} added NO new triples to the ontology. ---", flush=True)
+            except Exception:
+                pass
+            print(f"[usage] calls={USAGE.calls} in={USAGE.tokens_in} out={USAGE.tokens_out}", flush=True)
+            progress_path.write_text(json.dumps({**(json.loads(progress_path.read_text()) if progress_path.exists() else {}),
+                                                 contract_id: page_number + 1}), encoding="utf-8")
 
     finally:
         pdf_doc.close()

@@ -73,8 +73,8 @@ if __name__ == "__main__":
     
     llm = ChatOpenAI(
         model=model_name,
-        base_url="http://localhost:8000/v1",
-        api_key="not-needed",
+        base_url=os.getenv("LLM_BASE_URL", "http://localhost:8000/v1"),
+        api_key=os.getenv("LLM_API_KEY", "not-needed"),
         temperature=0,
         max_tokens=4096,
     )

@@ -1,0 +1,13 @@
+# secrets and local environments
+.env
+.venv/
+.jre/
+# python
+__pycache__/
+*.pyc
+# inputs that are not stored here (download them, see README.md)
+wba_data/
+# scratch
+*.bak
+*.broken
+agents/eval_results/*__reference.json

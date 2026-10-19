@@ -21,7 +21,7 @@ def verify_rdf_syntax(file_path: str) -> str:
     if not p.exists():
         return json.dumps({"status":"error","message":f"File not found: {file_path}"})
 
-    txt = p.read_text().splitlines()
+    txt = p.read_text(encoding='utf-8').splitlines()
     def context_block(center, radius=3):
         start = max(1, center - radius)
         end   = min(len(txt), center + radius)
@@ -149,7 +149,9 @@ def verify_owl_consistency(file_path: str) -> str:
 
         # Run reasoner
         with onto:
-            sync_reasoner_hermit()
+            # reason over the world the ontology was loaded into (the original call used the default, empty world,
+            # so inconsistencies were never detected)
+            sync_reasoner_hermit(world)
 
         issues = {}
 
@@ -193,6 +195,15 @@ def verify_owl_consistency(file_path: str) -> str:
             })
 
     except Exception as e:
-        err = f"Unexpected error during consistency check. Details: {e}"
-        print(f"--- TOOL OUTPUT: ❌ Unexpected error: {err}")
+        if type(e).__name__ == "OwlReadyInconsistentOntologyError":
+            err = ("The ontology is logically INCONSISTENT (the reasoner found a contradiction). This usually means an individual is "
+                   "declared a member of two classes that are owl:disjointWith each other, or violates a cardinality/value restriction. "
+                   "Find the individuals and the disjoint-class declarations involved and remove or correct the conflicting statement.")
+        elif "inheritance cycle" in str(e):
+            err = ("The reasoner reports an INHERITANCE CYCLE. Look for: (1) classes that are directly or indirectly rdfs:subClassOf each other "
+                   "(A subClassOf B and B subClassOf A), (2) rdfs:subPropertyOf cycles, (3) a name used both as a class and as a property or "
+                   "individual, (4) owl:equivalentClass between a class and its own subclass. Remove the offending statement.")
+        else:
+            err = f"Unexpected error during consistency check. Details: {e}"
+        print(f"--- TOOL OUTPUT: ❌ {err}")
         return json.dumps({"status": "error", "message": err})

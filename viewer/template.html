@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ontology Viewer</title>
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#1c2330;--mute:#6b7585;--line:#dfe3ea;--ref:#2563eb;--ext:#d97706;--ind:#0f766e;--sel:#e8f0fe;--accent:#2563eb;--warn:#b45309;--chip:#eef1f6}
+html[data-theme=dark]{--bg:#12161d;--panel:#1a2029;--ink:#e6eaf0;--mute:#93a0b3;--line:#2b3441;--ref:#60a5fa;--ext:#fbbf24;--ind:#2dd4bf;--sel:#22314a;--accent:#60a5fa;--warn:#fbbf24;--chip:#252d3a}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);display:grid;grid-template-rows:auto 1fr;overflow:hidden}
+header{display:flex;gap:10px;align-items:center;padding:8px 14px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+header h1{font-size:15px;margin:0 8px 0 0;font-weight:650;white-space:nowrap}
+#q{flex:1 1 280px;min-width:200px;max-width:520px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+select,button,input[type=text],input[type=search]{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:5px 9px}
+button{cursor:pointer}button:hover{border-color:var(--accent)}
+label.chk{display:flex;gap:5px;align-items:center;color:var(--mute);white-space:nowrap}
+#app{display:grid;grid-template-columns:150px minmax(0,1fr) 380px;min-height:0}
+nav{background:var(--panel);border-right:1px solid var(--line);padding:8px}
+nav button{display:block;width:100%;text-align:left;margin-bottom:5px;border:0;background:transparent;padding:8px 10px}
+nav button.on{background:var(--sel);font-weight:600;color:var(--accent)}
+main{overflow:auto;padding:14px;min-width:0;position:relative}
+aside{background:var(--panel);border-left:1px solid var(--line);overflow:auto;padding:14px}
+a.lnk{color:var(--accent);cursor:pointer;text-decoration:none}a.lnk:hover{text-decoration:underline}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.dot.ref{background:var(--ref)}.dot.ext{background:var(--ext)}.dot.ind{background:var(--ind)}
+.chip{display:inline-block;background:var(--chip);border-radius:11px;padding:1px 9px;margin:2px 4px 2px 0;font-size:12px}
+.chip.ref{color:var(--ref)}.chip.ext{color:var(--ext)}
+.mute{color:var(--mute)}.small{font-size:12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.card b{font-size:22px;display:block}
+h2{font-size:15px;margin:18px 0 8px}
+.bar{display:grid;grid-template-columns:230px 1fr 50px;gap:8px;align-items:center;margin:3px 0;cursor:pointer}
+.bar:hover .fill{filter:brightness(1.15)}
+.bar .fill{height:14px;background:var(--ext);border-radius:3px}
+.bar.on .fill{outline:2px solid var(--accent)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.rcard{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--ref);border-radius:8px;padding:8px 10px;cursor:pointer}
+.rcard:hover{border-color:var(--accent)}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.q .item{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+.q .item:last-child{border:0}.q .item b{color:var(--warn)}
+ul.tree,ul.tree ul{list-style:none;margin:0;padding-left:18px}ul.tree{padding-left:0}
+.row{display:flex;align-items:center;gap:2px;padding:2px 4px;border-radius:5px;white-space:nowrap}
+.row:hover{background:var(--chip)}.row.sel{background:var(--sel)}
+.tw{width:16px;text-align:center;cursor:pointer;color:var(--mute);user-select:none}
+.cnt{color:var(--mute);font-size:12px;margin-left:8px}
+table{border-collapse:collapse;width:100%;background:var(--panel)}
+th,td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top;font-size:13px}
+th{position:sticky;top:-14px;background:var(--panel);cursor:pointer;white-space:nowrap}
+tr.hl:hover{background:var(--chip)}
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+#gwrap{position:absolute;inset:56px 0 0 0;background:var(--panel);border-top:1px solid var(--line)}
+#gsvg{width:100%;height:100%;display:block}
+.legend{position:absolute;right:10px;bottom:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:12px}
+#results{position:absolute;z-index:20;background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.25);max-height:70vh;overflow:auto;width:520px;display:none;padding:6px}
+#results .g{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin:6px 6px 2px}
+#results .r{padding:4px 8px;border-radius:6px;cursor:pointer}#results .r:hover,#results .r.on{background:var(--sel)}
+details.docs{position:relative}details.docs>summary{cursor:pointer;list-style:none;border:1px solid var(--line);border-radius:7px;padding:5px 9px;background:var(--bg)}
+details.docs .pop{position:absolute;z-index:15;top:32px;left:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;width:340px;max-height:60vh;overflow:auto;box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.pop label{display:flex;gap:6px;padding:2px 0;font-size:13px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:13px}.kv div:nth-child(odd){color:var(--mute)}
+aside h3{margin:0 0 4px;font-size:17px}aside h4{margin:14px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.cm{border-left:3px solid var(--line);padding-left:8px;margin:6px 0}
+.flag{color:var(--warn);font-size:12px}
+@media (max-width:1100px){#app{grid-template-columns:120px minmax(0,1fr) 320px}.bar{grid-template-columns:150px 1fr 40px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Ontology Viewer</h1>
+  <input id="q" type="search" placeholder='Search classes, properties, facts  (kind:class doc:"Head Terms")' autocomplete="off">
+  <select id="fkind" title="Show"><option value="both">Reference + extension</option><option value="ref">Reference only</option><option value="ext">Extensions only</option></select>
+  <details class="docs" id="fdocs"><summary id="fdocsum">Documents: all</summary><div class="pop" id="fdocpop"></div></details>
+  <label class="chk"><input type="checkbox" id="fonly"> only with instances</label>
+  <label class="chk"><input type="checkbox" id="fdesc"> hide undescribed</label>
+  <button id="theme" title="Light / dark">&#9788;/&#9790;</button>
+  <span class="mute small" id="meta"></span>
+</header>
+<div id="results"></div>
+<div id="app">
+  <nav id="tabs"></nav>
+  <main id="main"></main>
+  <aside id="details"><span class="mute">Select a class, property or fact.</span></aside>
+</div>
+<script>/*__D3__*/</script>
+<script>
+"use strict";
+const DATA = /*__DATA__*/null;
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const nm = o => o.l || o.id.replace(/^Cl_/, "").replace(/_/g, " ");
+const fmt = n => n.toLocaleString("en");
+
+/* ------------------------------------------------------------------ indexes */
+const C = {}, P = {}, I = {};
+DATA.classes.forEach(c => { C[c.id] = c; c.ch = []; c.ni = 0; c.inds = []; c.docs = c.docs && c.docs.length ? c.docs : (c.ref ? [] : ["(untagged)"]); });
+DATA.props.forEach(p => { P[p.id] = p; p.docs = p.docs && p.docs.length ? p.docs : (p.ref ? [] : ["(untagged)"]); });
+DATA.inds.forEach(i => { I[i.id] = i; });
+DATA.classes.forEach(c => c.p.forEach(p => C[p] && C[p].ch.push(c.id)));
+DATA.inds.forEach(i => i.cls.forEach(k => { if (C[k]) { C[k].ni++; C[k].inds.push(i.id); } }));
+function totalOf(id, seen = new Set()) { if (seen.has(id)) return 0; seen.add(id); return C[id].ni + C[id].ch.reduce((a, k) => a + totalOf(k, seen), 0); }
+DATA.classes.forEach(c => { c.tot = totalOf(c.id); });
+const classProps = {};   // class id -> [{p, role}]
+DATA.props.forEach(p => { p.dom.forEach(d => (classProps[d] ||= []).push({ p: p.id, role: "domain" })); p.rng.forEach(r => (classProps[r] ||= []).push({ p: p.id, role: "range" })); });
+const EDGES = [];        // graph edges between classes
+DATA.classes.forEach(c => c.p.forEach(p => EDGES.push({ s: c.id, t: p, k: "sub", l: "subClassOf" })));
+DATA.props.filter(p => p.k === "o").forEach(p => p.dom.forEach(d => p.rng.forEach(r => { if (C[d] && C[r]) EDGES.push({ s: d, t: r, k: "prop", l: p.l || p.id, pid: p.id }); })));
+const ADJ = {}; EDGES.forEach(e => { (ADJ[e.s] ||= []).push(e); (ADJ[e.t] ||= []).push(e); });
+const DOCS = {}; DATA.classes.filter(c => !c.ref).forEach(c => c.docs.forEach(d => DOCS[d] = (DOCS[d] || 0) + 1));
+const DOCLIST = Object.entries(DOCS).sort((a, b) => b[1] - a[1]);
+
+/* ------------------------------------------------------------------ state */
+const S = { tab: "overview", sel: null, f: { kind: "both", docs: new Set(), only: false, desc: false }, exp: new Set(), treeSort: "size",
+  g: { mode: "hood", depth: 1, cap: 120, inds: false }, pp: { q: "", sort: "use", dir: -1, page: 0 }, ff: { q: "", cls: "", doc: "", src: "", page: 0 }, quality: null };
+const TABS = [["overview", "Overview"], ["tree", "Class tree"], ["graph", "Graph"], ["props", "Properties"], ["facts", "Facts"]];
+
+function passClass(c) {
+  const f = S.f;
+  if (f.kind === "ref" && !c.ref) return false;
+  if (f.kind === "ext" && c.ref) return false;
+  if (f.docs.size && !c.docs.some(d => f.docs.has(d))) return false;
+  if (f.only && c.tot === 0) return false;
+  if (f.desc && !c.c.length) return false;
+  return true;
+}
+const filtersActive = () => S.f.kind !== "both" || S.f.docs.size || S.f.only || S.f.desc;
+function visibleSet() {
+  const vis = new Set();
+  const up = id => { if (vis.has(id)) return; vis.add(id); C[id].p.forEach(p => C[p] && up(p)); };
+  DATA.classes.forEach(c => { if (!filtersActive() || passClass(c)) up(c.id); });
+  return vis;
+}
+
+/* ------------------------------------------------------------------ selection / links */
+function select(type, id, keepTab) {
+  S.sel = { type, id };
+  renderDetails();
+  if (S.tab === "tree" && type === "c") { revealInTree(id); }
+  else if (S.tab === "graph" && type === "c") { renderGraph(); }
+  else if (!keepTab && S.tab === "overview") { /* stay */ }
+  syncHash();
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("a.lnk"); if (!a) return;
+  e.preventDefault(); select(a.dataset.t, a.dataset.id);
+});
+const link = (t, id, label) => `<a class="lnk" data-t="${t}" data-id="${esc(id)}">${esc(label)}</a>`;
+const clink = id => C[id] ? link("c", id, nm(C[id])) : `<span class="mute">${esc(id)}</span>`;
+const dotFor = c => `<span class="dot ${c.ref ? "ref" : "ext"}"></span>`;
+
+/* ------------------------------------------------------------------ details panel */
+function chips(tags) { return (tags || []).map(([d, l]) => `<span class="chip ext" title="${esc(d)}">${esc(d)}${l ? " &middot; " + esc(l) : ""}</span>`).join(""); }
+function renderDetails() {
+  const el = $("#details"); const s = S.sel; if (!s) return;
+  let h = "";
+  if (s.type === "c" && C[s.id]) {
+    const c = C[s.id];
+    h += `<h3>${dotFor(c)}${esc(nm(c))}</h3><span class="chip ${c.ref ? "ref" : "ext"}">${c.ref ? "reference" : "extension"}</span>`;
+    h += `<div class="small mute">:${esc(c.id)} <a class="lnk" onclick="navigator.clipboard&&navigator.clipboard.writeText(':${esc(c.id)}')">copy</a></div>`;
+    if (c.alt.length) h += `<h4>Also called</h4>${c.alt.map(a => `<span class="chip">${esc(a)}</span>`).join("")}`;
+    h += `<h4>Description</h4>` + (c.c.length ? c.c.map(t => `<div class="cm">${esc(t)}</div>`).join("") : `<span class="flag">no description</span>`);
+    if (c.t.length) h += `<h4>Source (${c.t.length})</h4>${chips(c.t.slice(0, 40))}${c.t.length > 40 ? `<span class="mute small"> +${c.t.length - 40} more</span>` : ""}`;
+    if (c.enum.length) h += `<h4>Enumeration members</h4>${c.enum.map(m => `<span class="chip">${esc(m)}</span>`).join("")}`;
+    h += `<h4>Parents</h4>` + (c.p.length ? c.p.map(clink).join(", ") : `<span class="mute">none</span>`) + (c.flat ? ` <span class="flag">only Thing/Entity</span>` : "");
+    h += `<h4>Subclasses (${c.ch.length})</h4>` + (c.ch.slice(0, 40).map(clink).join(", ") || `<span class="mute">none</span>`) + (c.ch.length > 40 ? ` <span class="mute small">+${c.ch.length - 40} more</span>` : "");
+    const cp = classProps[c.id] || [];
+    if (cp.length) h += `<h4>Properties (${cp.length})</h4>` + cp.slice(0, 40).map(x => { const p = P[x.p]; return `<div class="small">${link("p", p.id, p.l || p.id)} <span class="mute">${x.role}${p.rng.length && x.role === "domain" ? " &rarr; " + esc(p.rng.slice(0, 3).join(", ")) : ""}</span></div>`; }).join("") + (cp.length > 40 ? `<span class="mute small">+${cp.length - 40} more</span>` : "");
+    h += `<h4>Instances (${c.ni} direct, ${c.tot} incl. subclasses)</h4>` + (c.inds.slice(0, 30).map(i => link("i", i, nm(I[i]))).join(", ") || `<span class="mute">none</span>`) + (c.inds.length > 30 ? ` <span class="mute small">+${c.inds.length - 30} more</span>` : "");
+  } else if (s.type === "p" && P[s.id]) {
+    const p = P[s.id];
+    h += `<h3>${esc(p.l || p.id)}</h3><span class="chip ${p.ref ? "ref" : "ext"}">${p.ref ? "reference" : "extension"}</span><span class="chip">${p.k === "o" ? "object property" : "datatype property"}</span>`;
+    h += `<div class="small mute">:${esc(p.id)} &middot; used in ${fmt(p.use)} triples</div>`;
+    h += `<h4>Domain</h4>${p.dom.map(clink).join(", ") || '<span class="mute">unspecified</span>'}`;
+    h += `<h4>Range</h4>${p.rng.map(r => C[r] ? clink(r) : `<span class="chip">${esc(r)}</span>`).join(" ") || '<span class="mute">unspecified</span>'}`;
+    if (p.c.length) h += `<h4>Description</h4>` + p.c.map(t => `<div class="cm">${esc(t)}</div>`).join("");
+    if (p.t.length) h += `<h4>Source</h4>${chips(p.t.slice(0, 30))}`;
+  } else if (s.type === "i" && I[s.id]) {
+    const i = I[s.id];
+    h += `<h3><span class="dot ind"></span>${esc(nm(i))}</h3><div class="small mute">:${esc(i.id)}</div>`;
+    h += `<h4>Type</h4>${i.cls.map(clink).join(", ")}`;
+    h += `<h4>Source clause</h4>` + (i.src ? `<span class="chip ext">${esc(i.src)}</span>` : `<span class="flag">no :sourceClause</span>`);
+    h += `<h4>Values (${i.nv})</h4><div class="kv">${i.v.map(([p, v, o]) => `<div>${esc(p)}</div><div>${o ? (I[v] ? link("i", v, nm(I[v])) : C[v] ? clink(v) : esc(v)) : esc(v)}</div>`).join("")}</div>`;
+    if (i.c.length) h += `<h4>Notes</h4>${i.c.map(t => `<div class="cm">${esc(t)}</div>`).join("")}`;
+  } else h = '<span class="mute">Not found.</span>';
+  el.innerHTML = h; el.scrollTop = 0;
+}
+
+/* ------------------------------------------------------------------ overview */
+function renderOverview() {
+  const m = DATA.meta, q = DATA.quality;
+  const extC = m.classes - m.refClasses, refP = DATA.props.filter(p => p.ref).length;
+  const withSrc = DATA.inds.filter(i => i.src).length;
+  let h = `<div class="cards">
+   <div class="card"><b>${fmt(m.classes)}</b>classes<div class="small mute">${m.refClasses} reference &middot; ${fmt(extC)} extensions</div></div>
+   <div class="card"><b>${fmt(m.props)}</b>properties<div class="small mute">${refP} reference &middot; ${fmt(m.props - refP)} extensions</div></div>
+   <div class="card"><b>${fmt(m.inds)}</b>facts (individuals)<div class="small mute">${fmt(withSrc)} with source clause</div></div>
+   <div class="card"><b>${fmt(m.triples)}</b>triples<div class="small mute">${esc(m.file)}</div></div></div>`;
+  h += `<h2>Extension classes per source document <span class="mute small">(click to filter everything)</span></h2>`;
+  const max = DOCLIST.length ? DOCLIST[0][1] : 1;
+  h += DOCLIST.slice(0, 40).map(([d, n]) => `<div class="bar ${S.f.docs.has(d) ? "on" : ""}" data-doc="${esc(d)}"><span>${esc(d)}</span><span><div class="fill" style="width:${Math.max(2, 100 * n / max)}%"></div></span><span class="mute">${fmt(n)}</span></div>`).join("");
+  if (DOCLIST.length > 40) h += `<div class="mute small">+${DOCLIST.length - 40} more documents (see the Documents filter)</div>`;
+  h += `<h2>Reference classes</h2><div class="rgrid">`;
+  const refs = DATA.classes.filter(c => c.ref && !c.enum.length).sort((a, b) => b.tot - a.tot || a.id.localeCompare(b.id));
+  const subExt = id => { const seen = new Set(), st = [id]; let n = 0; while (st.length) { const u = st.pop(); C[u].ch.forEach(k => { if (!seen.has(k)) { seen.add(k); if (!C[k].ref) n++; st.push(k); } }); } return n; };
+  h += refs.map(c => `<div class="rcard" data-c="${esc(c.id)}"><b>${esc(nm(c))}</b><div class="small mute">${fmt(c.tot)} instances &middot; ${fmt(subExt(c.id))} ext. subclasses &middot; ${(classProps[c.id] || []).filter(x => !P[x.p].ref).length} ext. properties</div></div>`).join("") + `</div>`;
+  h += `<h2>Data quality <span class="mute small">(issues worth cleaning up)</span></h2><div class="q">`;
+  const items = [["dups", "Near-duplicate class names (same name apart from Cl_ prefix, case, plural)", q.dups.length], ["flat", "Classes whose only parent is Thing / Entity", q.flat.length], ["noInst", "Classes with no instances", q.noInst.length], ["noDesc", "Classes without a description", q.noDesc.length], ["noSource", "Facts without :sourceClause", q.noSource.length], ["badDates", "Facts with invalid xsd:date values", q.badDates.length]];
+  h += items.map(([k, t, n]) => `<div class="item" data-q="${k}"><span>${t}</span><b>${fmt(n)}</b></div>`).join("") + `</div><div id="qlist"></div>`;
+  $("#main").innerHTML = h;
+  $("#main").querySelectorAll(".bar").forEach(b => b.onclick = () => { const d = b.dataset.doc; S.f.docs.has(d) ? S.f.docs.delete(d) : S.f.docs.add(d); syncDocFilter(); renderMain(); });
+  $("#main").querySelectorAll(".rcard").forEach(b => b.onclick = () => select("c", b.dataset.c));
+  $("#main").querySelectorAll(".item").forEach(b => b.onclick = () => { S.quality = b.dataset.q; showQuality(); });
+  if (S.quality) showQuality();
+}
+function showQuality() {
+  const k = S.quality, q = DATA.quality, el = $("#qlist"); if (!el || !k) return;
+  const v = q[k]; let h = `<h2>${fmt(v.length)} items</h2><div class="small">`;
+  if (k === "dups") h += v.slice(0, 300).map(g => `<div>${g.map(id => clink(id)).join(" &nbsp;/&nbsp; ")}</div>`).join("");
+  else if (k === "noSource" || k === "badDates") h += v.slice(0, 300).map(id => `<span>${link("i", id, id)}</span>`).join(" &middot; ");
+  else h += v.slice(0, 400).map(id => `<span>${clink(id)}</span>`).join(" &middot; ");
+  if (v.length > 300) h += `<div class="mute">showing the first ${k === "noInst" || k === "flat" || k === "noDesc" ? 400 : 300}</div>`;
+  el.innerHTML = h + "</div>";
+}
+
+/* ------------------------------------------------------------------ class tree */
+let VIS = null;
+function renderTree() {
+  VIS = visibleSet();
+  $("#main").innerHTML = `<div class="toolbar"><button id="expall">Expand all</button><button id="colall">Collapse all</button>
+   <label>Sort <select id="tsort"><option value="name">name</option><option value="size">instances</option></select></label>
+   <span class="mute small">${VIS.size} classes shown &middot; <span class="dot ref"></span>reference <span class="dot ext"></span>extension</span></div><ul class="tree" id="tree"></ul>`;
+  $("#tsort").value = S.treeSort; $("#tsort").onchange = e => { S.treeSort = e.target.value; renderTree(); };
+  $("#expall").onclick = () => { VIS.forEach(id => C[id].ch.length && S.exp.add(id)); renderTree(); };
+  $("#colall").onclick = () => { S.exp.clear(); renderTree(); };
+  const cmp = S.treeSort === "size" ? (a, b) => C[b].ref - C[a].ref || C[b].tot - C[a].tot || a.localeCompare(b) : (a, b) => C[b].ref - C[a].ref || nm(C[a]).toLowerCase().localeCompare(nm(C[b]).toLowerCase());
+  const roots = DATA.classes.filter(c => !c.p.length && VIS.has(c.id)).map(c => c.id).sort(cmp);
+  const frag = document.createDocumentFragment(); roots.forEach(r => frag.appendChild(treeNode(r, new Set(), cmp)));
+  $("#tree").appendChild(frag);
+}
+function treeNode(id, path, cmp) {
+  const c = C[id], li = document.createElement("li");
+  const kids = c.ch.filter(k => VIS.has(k) && !path.has(k)).sort(cmp);
+  const open = S.exp.has(id) && kids.length;
+  const on = S.sel && S.sel.type === "c" && S.sel.id === id;
+  li.innerHTML = `<div class="row ${on ? "sel" : ""}"><span class="tw" data-tw="${esc(id)}">${kids.length ? (open ? "&#9662;" : "&#9656;") : "&middot;"}</span>${dotFor(c)}${link("c", id, nm(c))}<span class="cnt">${fmt(c.tot)} inst &middot; ${c.ch.length} sub${c.p.length > 1 ? " &middot; " + c.p.length + " parents" : ""}</span></div>`;
+  li.querySelector(".tw").onclick = e => { const y = $("#main").scrollTop; S.exp.has(id) ? S.exp.delete(id) : S.exp.add(id); renderTree(); $("#main").scrollTop = y; e.stopPropagation(); };
+  if (open) { const ul = document.createElement("ul"), p2 = new Set(path).add(id); kids.forEach(k => ul.appendChild(treeNode(k, p2, cmp))); li.appendChild(ul); }
+  return li;
+}
+function revealInTree(id) {
+  let cur = id, guard = 0; while (C[cur] && C[cur].p.length && guard++ < 60) { cur = C[cur].p[0]; S.exp.add(cur); }
+  renderTree();
+  const sel = [...document.querySelectorAll("#tree .row")].find(r => r.classList.contains("sel")); if (sel) sel.scrollIntoView({ block: "center" });
+}
+
+/* ------------------------------------------------------------------ graph */
+let SIM = null;
+function renderGraph() {
+  if (typeof d3 === "undefined") { $("#main").innerHTML = '<p class="mute">The graph library is missing; use the class tree.</p>'; return; }
+  const g = S.g, start = S.sel && S.sel.type === "c" ? S.sel.id : (S.sel && S.sel.type === "i" && I[S.sel.id].cls[0]) || "NNIGroup";
+  $("#main").innerHTML = `<div class="toolbar" style="position:absolute;top:8px;left:14px;right:14px;z-index:5">
+    <label>View <select id="gmode"><option value="hood">Neighbourhood of selection</option><option value="core">Reference core</option></select></label>
+    <label class="chk" id="gdl">Depth <input type="range" id="gdepth" min="1" max="3" value="${g.depth}"> <b id="gdv">${g.depth}</b></label>
+    <label class="chk" id="gil"><input type="checkbox" id="ginds" ${g.inds ? "checked" : ""}> show facts</label>
+    <button id="gmore">Show more</button><button id="gfit">Fit</button><button id="gsvgb">Export SVG</button><button id="gpng">Export PNG</button>
+    <span class="mute small" id="gnote"></span></div><div id="gwrap"><svg id="gsvg"></svg>
+    <div class="legend"><span class="dot ref"></span>reference <span class="dot ext"></span>extension <span class="dot ind"></span>fact<br>
+    <span style="border-top:2px solid #888;display:inline-block;width:22px;vertical-align:middle"></span> subClassOf &nbsp;
+    <span style="border-top:2px dashed #c0392b;display:inline-block;width:22px;vertical-align:middle"></span> property &nbsp;
+    <span style="border-top:2px dotted #0f766e;display:inline-block;width:22px;vertical-align:middle"></span> instance</div></div>`;
+  $("#gmode").value = g.mode;
+  $("#gmode").onchange = e => { g.mode = e.target.value; renderGraph(); };
+  $("#gdepth").oninput = e => { g.depth = +e.target.value; renderGraph(); };
+  $("#ginds").onchange = e => { g.inds = e.target.checked; renderGraph(); };
+  $("#gmore").onclick = () => { g.cap += 100; renderGraph(); };
+  $("#gdl").style.display = $("#gil").style.display = $("#gmore").style.display = g.mode === "core" ? "none" : "";
+  let ids;
+  if (g.mode === "core") ids = new Set(DATA.classes.filter(c => c.ref && !c.enum.length).map(c => c.id));
+  else {
+    const seen = new Map([[start, 0]]), queue = [start];
+    while (queue.length && seen.size < g.cap) {
+      const u = queue.shift(); if (seen.get(u) >= g.depth) continue;
+      if (u !== start && (ADJ[u] || []).length > 25) continue;  // hub: shown, but its many neighbours are not pulled in
+      for (const e of [...(ADJ[u] || [])].sort((a, b) => (b.k === "prop") - (a.k === "prop") || C[(b.s === u ? b.t : b.s)].tot - C[(a.s === u ? a.t : a.s)].tot)) { const v = e.s === u ? e.t : e.s; if (!seen.has(v)) { seen.set(v, seen.get(u) + 1); queue.push(v); if (seen.size >= g.cap) break; } }
+    }
+    ids = new Set(seen.keys());
+  }
+  const nodes = [...ids].map(id => ({ id, t: "c", r: C[id].ref, tot: C[id].tot, label: nm(C[id]) }));
+  const seenE = new Set(), links = [];
+  EDGES.forEach(e => { if (ids.has(e.s) && ids.has(e.t) && e.s !== e.t) { const key = e.k + e.s + e.t + e.l; if (!seenE.has(key)) { seenE.add(key); links.push({ source: e.s, target: e.t, k: e.k, l: e.l }); } } });
+  if (g.mode === "hood" && g.inds && C[start]) C[start].inds.slice(0, 15).forEach(i => { nodes.push({ id: "i:" + i, t: "i", r: 0, tot: 0, label: nm(I[i]), iid: i }); links.push({ source: start, target: "i:" + i, k: "inst", l: "instance" }); });
+  $("#gnote").textContent = `${nodes.length} nodes, ${links.length} edges` + (g.mode === "hood" ? ` around ${nm(C[start])}${nodes.length >= g.cap ? " (capped - Show more)" : ""}` : "");
+  const wrap = $("#gwrap"), w = wrap.clientWidth, h = wrap.clientHeight;
+  const svg = d3.select("#gsvg").attr("viewBox", [0, 0, w, h]);
+  const defs = svg.append("defs");
+  [["sub", "#888"], ["prop", "#c0392b"]].forEach(([k, col]) => defs.append("marker").attr("id", "arr-" + k).attr("viewBox", "0 -4 8 8").attr("refX", 16).attr("markerWidth", 6).attr("markerHeight", 6).attr("orient", "auto").append("path").attr("d", "M0,-4L8,0L0,4").attr("fill", col));
+  const root = svg.append("g");
+  svg.call(d3.zoom().scaleExtent([0.1, 6]).on("zoom", e => root.attr("transform", e.transform)));
+  const col = n => n.t === "i" ? "#0f766e" : n.r ? "#2563eb" : "#d97706";
+  const link_ = root.append("g").selectAll("line").data(links).join("line")
+    .attr("stroke", d => d.k === "prop" ? "#c0392b" : d.k === "inst" ? "#0f766e" : "#888").attr("stroke-width", 1.4)
+    .attr("stroke-dasharray", d => d.k === "prop" ? "5,3" : d.k === "inst" ? "2,3" : null).attr("opacity", .8)
+    .attr("marker-end", d => d.k === "inst" ? null : `url(#arr-${d.k})`);
+  link_.append("title").text(d => d.l);
+  const node = root.append("g").selectAll("g").data(nodes).join("g").style("cursor", "pointer");
+  node.append("circle").attr("r", d => d.t === "i" ? 5 : Math.max(6, Math.min(17, 5 + Math.sqrt(d.tot)))).attr("fill", col)
+    .attr("stroke", d => (S.sel && ((d.t === "c" && S.sel.type === "c" && S.sel.id === d.id) || (d.t === "i" && S.sel.type === "i" && S.sel.id === d.iid))) ? "#fff" : "none").attr("stroke-width", 3);
+  const dense = nodes.length > 45, important = d => d.t === "i" || d.r || d.id === start || d.tot >= 8;
+  node.append("text").text(d => d.label.length > 26 ? d.label.slice(0, 25) + "…" : d.label).attr("x", 10).attr("y", 4).attr("font-size", 11).attr("fill", "currentColor").style("pointer-events", "none").attr("opacity", d => !dense || important(d) ? 1 : 0);
+  node.on("mouseenter", function () { d3.select(this).select("text").attr("opacity", 1); }).on("mouseleave", function (e, d) { d3.select(this).select("text").attr("opacity", !dense || important(d) ? 1 : 0); });
+  node.append("title").text(d => d.label);
+  node.on("click", (e, d) => { if (d.t === "i") { S.sel = { type: "i", id: d.iid }; renderDetails(); syncHash(); } else { S.sel = { type: "c", id: d.id }; renderDetails(); syncHash(); } })
+      .on("dblclick", (e, d) => { if (d.t === "c") { g.mode = "hood"; select("c", d.id); } });
+  node.call(d3.drag().on("start", (e, d) => { if (!e.active) SIM.alphaTarget(.3).restart(); d.fx = d.x; d.fy = d.y; })
+    .on("drag", (e, d) => { d.fx = e.x; d.fy = e.y; }).on("end", (e, d) => { if (!e.active) SIM.alphaTarget(0); d.fx = d.fy = null; }));
+  if (SIM) SIM.stop();
+  SIM = d3.forceSimulation(nodes).force("link", d3.forceLink(links).id(d => d.id).distance(g.mode === "core" ? 110 : 80))
+    .force("charge", d3.forceManyBody().strength(-280)).force("center", d3.forceCenter(w / 2, h / 2)).force("collide", d3.forceCollide(22))
+    .on("tick", () => { link_.attr("x1", d => d.source.x).attr("y1", d => d.source.y).attr("x2", d => d.target.x).attr("y2", d => d.target.y); node.attr("transform", d => `translate(${d.x},${d.y})`); });
+  const fit = () => { const b = root.node().getBBox(); if (!b.width) return; const k = Math.min(w / (b.width + 80), h / (b.height + 80), 2); svg.transition().duration(300).call(d3.zoom().transform, d3.zoomIdentity.translate(w / 2 - k * (b.x + b.width / 2), h / 2 - k * (b.y + b.height / 2)).scale(k)); };
+  $("#gfit").onclick = fit; SIM.on("end", fit); setTimeout(fit, 1600);
+  // Export: a self-contained, print-style picture (white background, dark text with a halo, the WHOLE graph rather than the current zoom,
+  // a title and a legend) so it stays readable when pasted into slides or documents, whatever theme the page is in.
+  const exportGraph = () => {
+    const NS = "http://www.w3.org/2000/svg", FONT = "Segoe UI, Arial, Helvetica, sans-serif", FS = 14, CW = FS * 0.58, pad = 40;
+    // the layout may still be moving: let it finish first (synchronously) so the picture shows the settled graph, not a half-drawn one
+    if (SIM && SIM.alpha() > SIM.alphaMin()) {
+      SIM.stop(); for (let i = 0; i < 600 && SIM.alpha() > SIM.alphaMin(); i++) SIM.tick();
+      const f = SIM.on("tick"); if (f) f.call(SIM);
+    }
+    const c = svg.node().cloneNode(true);
+    ["style", "class"].forEach(a => c.removeAttribute(a));
+    const r = Array.from(c.children).find(n => n.tagName.toLowerCase() === "g"), [linkG, nodeG] = Array.from(r.children);
+    // every node with its FULL name (the screen truncates long names and hides most labels in dense graphs; the picture shows all of them).
+    // Long names are wrapped onto several short lines so crowded clusters stay readable.
+    const wrap = (s, m) => { if (s.length <= m + 4) return [s]; const out = []; let cur = ""; s.split(" ").forEach(w => { if (cur && (cur + " " + w).length > m) { out.push(cur); cur = w; } else cur = cur ? cur + " " + w : w; }); if (cur) out.push(cur); return out; };
+    const LH = FS * 1.18;
+    const items = Array.from(nodeG.children).map(gn => {
+      const m = /translate\(\s*([-\d.e+]+)[ ,]+([-\d.e+]+)\s*\)/.exec(gn.getAttribute("transform") || ""), tx = gn.querySelector("text"), ti = gn.querySelector("title");
+      const full = (ti && ti.textContent) || tx.textContent, text = full.length > 120 ? full.slice(0, 119) + "…" : full, lines = wrap(text, 24);
+      return { gn, tx, x0: m ? +m[1] : 0, y0: m ? +m[2] : 0, r: +gn.querySelector("circle").getAttribute("r"), lines,
+               w: Math.max(...lines.map(l => l.length)) * CW + 8, h: lines.length * LH };
+    });
+    const hit = (a, b) => a[0] < b[2] && b[0] < a[2] && a[1] < b[3] && b[1] < a[3];
+    // a crowded layout is spread out (positions only; node and text sizes stay) until every label has a free place; each label takes the first
+    // of 8 positions around its node (right, left, above, below and the four diagonals) that touches no other label or node
+    const place = k => {
+      const P = items.map(it => ({ it, x: it.x0 * k, y: it.y0 * k })), rects = P.map(q => [q.x - q.it.r, q.y - q.it.r, q.x + q.it.r, q.y + q.it.r]), placed = [];
+      let bad = 0;
+      P.map((q, idx) => ({ q, idx })).sort((a, b) => b.q.it.r - a.q.it.r).forEach(({ q, idx }) => {
+        const { w, h } = q.it, d = q.it.r + 5, x = q.x, y = q.y, dg = d * 0.8, up = -d * 0.9 - h;
+        const sp = (an, dx, ot) => [an, dx, ot, [an === "start" ? x + dx : an === "end" ? x + dx - w : x + dx - w / 2, y + ot, an === "start" ? x + dx + w : an === "end" ? x + dx : x + dx + w / 2, y + ot + h]];
+        const cands = [sp("start", d, -h / 2), sp("end", -d, -h / 2), sp("middle", 0, -d - 2 - h), sp("middle", 0, d + 2),
+                       sp("start", dg, up), sp("end", -dg, up), sp("start", dg, d * 0.9), sp("end", -dg, d * 0.9)];
+        let best = cands[0], bestN = 1e9;
+        for (const cd of cands) {
+          const n = placed.filter(o => hit(cd[3], o)).length * 2 + rects.filter((o, j) => j !== idx && hit(cd[3], o)).length;
+          if (n < bestN) { best = cd; bestN = n; if (!n) break; }
+        }
+        bad += bestN > 0; q.anchor = best[0]; q.dx = best[1]; q.ot = best[2]; placed.push(best[3]);
+      });
+      return { P, rects, placed, bad };
+    };
+    let k = items.length > 20 ? 1 + (items.length - 15) / 40 : 1, L = place(k);
+    while (L.bad > 0 && k < 4) { k += 0.2; L = place(k); }
+    linkG.querySelectorAll("line").forEach(l => ["x1", "y1", "x2", "y2"].forEach(a => l.setAttribute(a, (+l.getAttribute(a)) * k)));
+    L.P.forEach(q => {
+      q.it.gn.setAttribute("transform", `translate(${q.x},${q.y})`);
+      const tx = q.it.tx; tx.textContent = ""; tx.setAttribute("opacity", 1);
+      tx.setAttribute("text-anchor", q.anchor); tx.setAttribute("x", q.dx); tx.setAttribute("y", q.ot + FS * 0.85);
+      q.it.lines.forEach((ln, i) => { const s = document.createElementNS(NS, "tspan"); s.setAttribute("x", q.dx); if (i) s.setAttribute("dy", LH); s.textContent = ln; tx.appendChild(s); });
+    });
+    const all = [...L.rects, ...L.placed], x0 = Math.min(...all.map(a => a[0])), y0 = Math.min(...all.map(a => a[1])), x1 = Math.max(...all.map(a => a[2])), y1 = Math.max(...all.map(a => a[3]));
+    const W = Math.ceil(Math.max(x1 - x0, 1100) + 2 * pad), ls = Math.max(1, W / 1600);   // title and legend grow with a big picture
+    const LFS = 18 * ls, top = Math.round(78 * ls), bottom = Math.round(74 * ls), H = Math.ceil(Math.max(y1 - y0, 240) + top + bottom + pad);
+    c.setAttribute("xmlns", NS); c.setAttribute("width", W); c.setAttribute("height", H); c.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    r.setAttribute("transform", `translate(${pad - x0 + (W - 2 * pad - (x1 - x0)) / 2},${top - y0})`);
+    // print style: dark text with a white halo, selection ring visible on white, white background, title, legend
+    c.querySelectorAll("text").forEach(x => {
+      x.setAttribute("fill", "#1c2330"); x.setAttribute("font-family", FONT); x.setAttribute("font-size", FS);
+      x.setAttribute("stroke", "#ffffff"); x.setAttribute("stroke-width", 4); x.setAttribute("stroke-linejoin", "round"); x.setAttribute("paint-order", "stroke");
+    });
+    c.querySelectorAll("circle").forEach(x => { if (x.getAttribute("stroke") === "#fff") x.setAttribute("stroke", "#111"); });
+    const el = (tag, attrs, text) => { const e = document.createElementNS(NS, tag); for (const k2 in attrs) e.setAttribute(k2, attrs[k2]); if (text != null) e.textContent = text; return e; };
+    c.insertBefore(el("rect", { width: W, height: H, fill: "#ffffff" }), c.firstChild);
+    c.appendChild(el("text", { x: 20 * ls, y: 34 * ls, "font-size": 26 * ls, "font-weight": 600, fill: "#1c2330", "font-family": FONT }, g.mode === "core" ? "Reference core" : `${nm(C[start])} - neighbourhood`));
+    c.appendChild(el("text", { x: 20 * ls, y: 60 * ls, "font-size": 15 * ls, fill: "#6b7585", "font-family": FONT }, $("#gnote").textContent));
+    // legend (large) in a panel along the bottom
+    c.appendChild(el("rect", { x: 10 * ls, y: H - bottom + 6 * ls, width: W - 20 * ls, height: bottom - 16 * ls, rx: 8 * ls, fill: "#f3f5f8", stroke: "#dfe3ea" }));
+    let lx = 28 * ls; const ly = H - bottom / 2 - 2 * ls, lab = (x, s) => el("text", { x, y: ly + 6 * ls, "font-size": LFS, fill: "#1c2330", "font-family": FONT }, s), LW = s => s.length * LFS * 0.58;
+    [["#2563eb", "reference"], ["#d97706", "extension"], ["#0f766e", "fact"]].forEach(([col, s]) => { c.appendChild(el("circle", { cx: lx + 9 * ls, cy: ly, r: 9 * ls, fill: col })); c.appendChild(lab(lx + 26 * ls, s)); lx += 26 * ls + LW(s) + 30 * ls; });
+    [["#888", null, "subClassOf"], ["#c0392b", "6,4", "property"], ["#0f766e", "2,4", "instance"]].forEach(([col, dash, s]) => {
+      const ln = { x1: lx, x2: lx + 38 * ls, y1: ly, y2: ly, stroke: col, "stroke-width": 3 * ls }; if (dash) ln["stroke-dasharray"] = dash.split(",").map(v => v * ls).join(",");
+      c.appendChild(el("line", ln)); c.appendChild(lab(lx + 46 * ls, s)); lx += 46 * ls + LW(s) + 30 * ls; });
+    return { xml: new XMLSerializer().serializeToString(c), W, H };
+  };
+  const exportName = ext => "ontology-graph-" + (g.mode === "core" ? "core" : nm(C[start]).replace(/[^\w-]+/g, "_")) + "." + ext;
+  $("#gsvgb").onclick = () => download(exportName("svg"), exportGraph().xml, "image/svg+xml");
+  $("#gpng").onclick = () => {
+    const x = exportGraph(), img = new Image(), cv = document.createElement("canvas");
+    const s = Math.min(Math.max(2, 2400 / x.W), 8000 / Math.max(x.W, x.H));   // at least 2400 px wide, text stays crisp when zoomed
+    cv.width = Math.round(x.W * s); cv.height = Math.round(x.H * s);
+    img.onload = () => { const k = cv.getContext("2d"); k.fillStyle = "#ffffff"; k.fillRect(0, 0, cv.width, cv.height); k.drawImage(img, 0, 0, cv.width, cv.height);
+      cv.toBlob(b => { const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = exportName("png"); a.click(); }); };
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(x.xml);
+  };
+}
+function download(name, text, type) { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; a.click(); }
+
+/* ------------------------------------------------------------------ properties */
+function renderProps() {
+  const pp = S.pp, q = pp.q.toLowerCase();
+  let rows = DATA.props.filter(p => (S.f.kind === "both" || (S.f.kind === "ref") === !!p.ref) && (!S.f.docs.size || p.docs.some(d => S.f.docs.has(d)))
+    && (!q || (p.id + " " + p.l + " " + p.dom.join(" ") + " " + p.rng.join(" ")).toLowerCase().includes(q)));
+  const key = { name: p => nm(p).toLowerCase(), kind: p => p.k, dom: p => p.dom.join(), rng: p => p.rng.join(), src: p => p.ref ? "" : p.docs.join(), use: p => p.use };
+  rows.sort((a, b) => { const x = key[pp.sort](a), y = key[pp.sort](b); return (x > y ? 1 : x < y ? -1 : 0) * pp.dir; });
+  const per = 100, pages = Math.max(1, Math.ceil(rows.length / per)); pp.page = Math.min(pp.page, pages - 1);
+  const head = [["name", "Property"], ["kind", "Kind"], ["dom", "Domain"], ["rng", "Range"], ["src", "Source"], ["use", "Uses"]];
+  $("#main").innerHTML = `<div class="toolbar"><input type="search" id="pq" placeholder="filter properties" value="${esc(pp.q)}"><span class="mute small">${fmt(rows.length)} properties</span>
+    <button id="pprev">&lsaquo;</button><span class="small">page ${pp.page + 1} / ${pages}</span><button id="pnext">&rsaquo;</button></div>
+    <table><thead><tr>${head.map(([k, t]) => `<th data-k="${k}">${t}${pp.sort === k ? (pp.dir > 0 ? " &#9650;" : " &#9660;") : ""}</th>`).join("")}</tr></thead><tbody>
+    ${rows.slice(pp.page * per, pp.page * per + per).map(p => `<tr class="hl"><td><span class="dot ${p.ref ? "ref" : "ext"}"></span>${link("p", p.id, nm(p))}</td><td>${p.k === "o" ? "object" : "data"}</td>
+    <td>${p.dom.slice(0, 4).map(clink).join(", ")}${p.dom.length > 4 ? " +" + (p.dom.length - 4) : ""}</td><td>${p.rng.slice(0, 3).map(r => C[r] ? clink(r) : esc(r)).join(", ")}</td>
+    <td class="small">${p.ref ? '<span class="mute">reference</span>' : esc(p.docs.slice(0, 2).join(", "))}</td><td>${fmt(p.use)}</td></tr>`).join("")}</tbody></table>`;
+  $("#pq").oninput = e => { pp.q = e.target.value; pp.page = 0; const pos = e.target.selectionStart; renderProps(); const el = $("#pq"); el.focus(); el.setSelectionRange(pos, pos); };
+  $("#pprev").onclick = () => { pp.page = Math.max(0, pp.page - 1); renderProps(); }; $("#pnext").onclick = () => { pp.page = Math.min(pages - 1, pp.page + 1); renderProps(); };
+  $("#main").querySelectorAll("th").forEach(t => t.onclick = () => { const k = t.dataset.k; pp.dir = pp.sort === k ? -pp.dir : 1; pp.sort = k; renderProps(); });
+}
+
+/* ------------------------------------------------------------------ facts */
+function factRows() {
+  const f = S.ff, q = f.q.toLowerCase(), cq = f.cls.toLowerCase();
+  return DATA.inds.filter(i => (!f.doc || i.doc === f.doc) && (!f.src || (f.src === "has") === !!i.src)
+    && (!cq || i.cls.some(k => (k + " " + nm(C[k])).toLowerCase().includes(cq)))
+    && (!q || (i.id + " " + i.l + " " + i.src + " " + i.v.map(x => x.join(" ")).join(" ")).toLowerCase().includes(q))
+    && (!S.f.docs.size || S.f.docs.has(i.doc) || i.cls.some(k => C[k] && C[k].docs.some(d => S.f.docs.has(d)))));
+}
+function renderFacts() {
+  const f = S.ff, rows = factRows(), per = 50, pages = Math.max(1, Math.ceil(rows.length / per)); f.page = Math.min(f.page, pages - 1);
+  const docs = [...new Set(DATA.inds.map(i => i.doc).filter(Boolean))].sort();
+  $("#main").innerHTML = `<div class="toolbar"><input type="search" id="fq" placeholder="search facts" value="${esc(f.q)}"><input type="search" id="fc" placeholder="class contains" value="${esc(f.cls)}" size="14">
+    <select id="fd"><option value="">all documents</option>${docs.map(d => `<option ${d === f.doc ? "selected" : ""}>${esc(d)}</option>`).join("")}</select>
+    <select id="fs"><option value="">any source</option><option value="has" ${f.src === "has" ? "selected" : ""}>has :sourceClause</option><option value="no" ${f.src === "no" ? "selected" : ""}>no source</option></select>
+    <button id="fcsv">Export CSV</button><span class="mute small">${fmt(rows.length)} facts</span>
+    <button id="fprev">&lsaquo;</button><span class="small">page ${f.page + 1} / ${pages}</span><button id="fnext">&rsaquo;</button></div>
+    <table><thead><tr><th>Fact</th><th>Class</th><th>Values</th><th>Source clause</th></tr></thead><tbody>
+    ${rows.slice(f.page * per, f.page * per + per).map(i => `<tr class="hl"><td>${link("i", i.id, nm(i))}</td><td>${i.cls.slice(0, 2).map(clink).join(", ")}</td>
+    <td class="small">${esc(i.v.filter(x => !x[2]).slice(0, 4).map(x => x[0] + "=" + x[1].slice(0, 50)).join("; "))}</td><td class="small">${i.src ? esc(i.src) : '<span class="flag">none</span>'}</td></tr>`).join("")}</tbody></table>`;
+  const redo = (id, key, pos) => { renderFacts(); const el = $("#" + id); if (el) { el.focus(); if (pos != null) el.setSelectionRange(pos, pos); } };
+  $("#fq").oninput = e => { f.q = e.target.value; f.page = 0; redo("fq", 0, e.target.selectionStart); };
+  $("#fc").oninput = e => { f.cls = e.target.value; f.page = 0; redo("fc", 0, e.target.selectionStart); };
+  $("#fd").onchange = e => { f.doc = e.target.value; f.page = 0; renderFacts(); }; $("#fs").onchange = e => { f.src = e.target.value; f.page = 0; renderFacts(); };
+  $("#fprev").onclick = () => { f.page = Math.max(0, f.page - 1); renderFacts(); }; $("#fnext").onclick = () => { f.page = Math.min(pages - 1, f.page + 1); renderFacts(); };
+  $("#fcsv").onclick = () => {
+    const q = s => '"' + String(s ?? "").replace(/"/g, '""') + '"';
+    download("facts.csv", "id,label,class,values,source_clause,document\n" + factRows().map(i => [i.id, nm(i), i.cls.join("|"), i.v.map(x => x[0] + "=" + x[1]).join("; "), i.src, i.doc].map(q).join(",")).join("\n"), "text/csv");
+  };
+}
+
+/* ------------------------------------------------------------------ search */
+let resIdx = -1;
+function parseQuery(raw) {
+  const o = { kind: "", doc: "", text: raw };
+  o.text = raw.replace(/kind:(\w+)/i, (_, k) => { o.kind = k.toLowerCase(); return ""; }).replace(/doc:"([^"]+)"|doc:(\S+)/i, (_, a, b) => { o.doc = (a || b).toLowerCase(); return ""; }).trim().toLowerCase();
+  return o;
+}
+function doSearch() {
+  const raw = $("#q").value, res = $("#results");
+  if (!raw.trim()) { res.style.display = "none"; return; }
+  const o = parseQuery(raw), hit = [];
+  const match = (...f) => !o.text || f.join(" ").toLowerCase().includes(o.text);
+  const docOk = d => !o.doc || d.some(x => x.toLowerCase().includes(o.doc));
+  const groups = [];
+  if (!o.kind || o.kind.startsWith("c")) groups.push(["Classes", DATA.classes.filter(c => match(c.id, c.l, c.alt.join(" "), c.c.join(" ")) && docOk(c.docs)).sort((a, b) => (b.ref - a.ref) || (nm(a).toLowerCase().startsWith(o.text) ? 0 : 1) - (nm(b).toLowerCase().startsWith(o.text) ? 0 : 1) || b.tot - a.tot).slice(0, 12).map(c => ({ t: "c", id: c.id, label: nm(c), sub: c.ref ? "reference" : "extension", ref: c.ref }))]);
+  if (!o.kind || o.kind.startsWith("p")) groups.push(["Properties", DATA.props.filter(p => match(p.id, p.l, p.c.join(" ")) && docOk(p.docs)).slice(0, 8).map(p => ({ t: "p", id: p.id, label: nm(p), sub: p.k === "o" ? "object property" : "data property", ref: p.ref }))]);
+  if (!o.kind || o.kind.startsWith("i") || o.kind.startsWith("f")) groups.push(["Facts", DATA.inds.filter(i => match(i.id, i.l, i.src) && (!o.doc || i.doc.toLowerCase().includes(o.doc))).slice(0, 8).map(i => ({ t: "i", id: i.id, label: nm(i), sub: i.cls[0] || "", ref: -1 }))]);
+  let h = ""; resIdx = -1;
+  groups.forEach(([t, arr]) => { if (arr.length) { h += `<div class="g">${t}</div>` + arr.map(r => `<div class="r" data-t="${r.t}" data-id="${esc(r.id)}"><span class="dot ${r.ref === -1 ? "ind" : r.ref ? "ref" : "ext"}"></span>${esc(r.label)} <span class="mute small">${esc(r.sub)}</span></div>`).join(""); } });
+  res.innerHTML = h || '<div class="r mute">No matches</div>'; res.style.display = "block";
+  const b = $("#q").getBoundingClientRect(); res.style.left = b.left + "px"; res.style.top = (b.bottom + 4) + "px";
+}
+$("#q").addEventListener("input", doSearch);
+$("#q").addEventListener("keydown", e => {
+  const rs = [...document.querySelectorAll("#results .r[data-id]")];
+  if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); resIdx = (resIdx + (e.key === "ArrowDown" ? 1 : -1) + rs.length) % rs.length; rs.forEach((r, i) => r.classList.toggle("on", i === resIdx)); }
+  else if (e.key === "Enter" && rs.length) { const r = rs[resIdx >= 0 ? resIdx : 0]; pick(r); }
+  else if (e.key === "Escape") $("#results").style.display = "none";
+});
+$("#results").addEventListener("click", e => { const r = e.target.closest(".r[data-id]"); if (r) pick(r); });
+function pick(r) {
+  $("#results").style.display = "none";
+  if (r.dataset.t === "i") { setTab("facts", true); } else if (r.dataset.t === "p") { setTab("props", true); }
+  select(r.dataset.t, r.dataset.id);
+  if (r.dataset.t === "c" && S.tab !== "tree" && S.tab !== "graph") { /* details panel shows it */ }
+}
+document.addEventListener("click", e => { if (!e.target.closest("#results") && e.target !== $("#q")) $("#results").style.display = "none"; });
+
+/* ------------------------------------------------------------------ filters, tabs, theme, hash */
+function syncDocFilter() {
+  const n = S.f.docs.size; $("#fdocsum").textContent = n ? `Documents: ${n} selected` : "Documents: all";
+  $("#fdocpop").querySelectorAll("input").forEach(i => i.checked = S.f.docs.has(i.value));
+}
+$("#fdocpop").innerHTML = `<div class="small mute" style="margin-bottom:4px">Documents that added extension classes (counts)</div>` + DOCLIST.map(([d, n]) => `<label><input type="checkbox" value="${esc(d)}"> ${esc(d)} <span class="mute">(${fmt(n)})</span></label>`).join("");
+$("#fdocpop").addEventListener("change", e => { e.target.checked ? S.f.docs.add(e.target.value) : S.f.docs.delete(e.target.value); syncDocFilter(); renderMain(); });
+$("#fkind").onchange = e => { S.f.kind = e.target.value; renderMain(); };
+$("#fonly").onchange = e => { S.f.only = e.target.checked; renderMain(); };
+$("#fdesc").onchange = e => { S.f.desc = e.target.checked; renderMain(); };
+document.addEventListener("click", e => { const d = $("#fdocs"); if (d.open && !d.contains(e.target)) d.open = false; });
+$("#theme").onclick = () => { const t = document.documentElement.dataset.theme === "dark" ? "light" : "dark"; document.documentElement.dataset.theme = t; try { localStorage.setItem("ovTheme", t); } catch (e) { } if (S.tab === "graph") renderGraph(); };
+try { const t = localStorage.getItem("ovTheme"); if (t) document.documentElement.dataset.theme = t; else if (matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.dataset.theme = "dark"; } catch (e) { }
+
+function renderTabs() { $("#tabs").innerHTML = TABS.map(([k, t]) => `<button data-tab="${k}" class="${S.tab === k ? "on" : ""}">${t}</button>`).join(""); $("#tabs").querySelectorAll("button").forEach(b => b.onclick = () => setTab(b.dataset.tab)); }
+function setTab(t, quiet) { S.tab = t; renderTabs(); if (!quiet) renderMain(); else renderMain(); syncHash(); }
+function renderMain() { ({ overview: renderOverview, tree: renderTree, graph: renderGraph, props: renderProps, facts: renderFacts })[S.tab](); }
+function syncHash() { try { history.replaceState(null, "", "#tab=" + S.tab + (S.sel ? "&sel=" + S.sel.type + ":" + encodeURIComponent(S.sel.id) : "")); } catch (e) { } }
+function readHash() {
+  const m = Object.fromEntries(location.hash.slice(1).split("&").filter(Boolean).map(x => x.split("=")));
+  if (m.tab && TABS.some(t => t[0] === m.tab)) S.tab = m.tab;
+  if (m.sel) { const [t, ...r] = decodeURIComponent(m.sel).split(":"); const id = r.join(":"); if ((t === "c" && C[id]) || (t === "p" && P[id]) || (t === "i" && I[id])) S.sel = { type: t, id }; }
+  if (m.mode) S.g.mode = m.mode;
+}
+
+$("#meta").textContent = `${DATA.meta.file} · ${fmt(DATA.meta.triples)} triples` + (DATA.meta.built ? ` · built ${DATA.meta.built}` : "");
+readHash(); renderTabs(); renderMain(); if (S.sel) renderDetails();
+window.addEventListener("hashchange", () => { readHash(); renderTabs(); renderMain(); if (S.sel) renderDetails(); });
+</script>
+</body>
+</html>

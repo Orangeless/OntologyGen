@@ -247,7 +247,7 @@ if __name__ == "__main__":
     # LLM Setup
     print("\nConnecting to local vLLM server...")
     model_name = os.getenv("MODEL_NAME", "Qwen/Qwen3-30B-A3B-Instruct-2507-FP8")
-    llm = ChatOpenAI(model=model_name, base_url="http://localhost:8000/v1", api_key="not-needed", temperature=0)
+    llm = ChatOpenAI(model=model_name, base_url=os.getenv("LLM_BASE_URL", "http://localhost:8000/v1"), api_key=os.getenv("LLM_API_KEY", "not-needed"), temperature=0)
     llm_with_tools = llm.bind_tools([read_lines_from_file, write_file_with_range])
     print("✅ Successfully connected to vLLM.")
 

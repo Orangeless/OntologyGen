@@ -18,7 +18,7 @@ def insert_at_top_of_file(file_path: str, content: str) -> str:
     """
     print(f"Tool Call: Inserting at top of file: {file_path}")
     try:
-        with open(file_path, 'r+') as file:
+        with open(file_path, 'r+', encoding='utf-8') as file:
             existing_content = file.read()
             file.seek(0)
             file.write(content + '\n' + existing_content)
@@ -41,7 +41,7 @@ def insert_into_file(file_path: str, content: str, line_number: int) -> str:
     """
     print(f"Tool Call: Inserting into file: {file_path} at line {line_number}")
     try:
-        with open(file_path, 'r+') as file:
+        with open(file_path, 'r+', encoding='utf-8') as file:
             lines = file.readlines()
             # Adjust for 0-based index
             lines.insert(line_number - 1, content + '\n')
@@ -51,6 +51,34 @@ def insert_into_file(file_path: str, content: str, line_number: int) -> str:
         return f"Content inserted into {file_path} at line {line_number}."
     except Exception as e:
         return f"Error inserting into file {file_path}: {str(e)}"
+
+@tool
+def delete_lines_from_file(file_path: str, start: int, end: int) -> str:
+    """
+    Deletes a range of lines from a file.
+
+    Args:
+        file_path (str): The path to the file to delete lines from.
+        start (int): The first line to delete (1-based, inclusive).
+        end (int): The last line to delete (1-based, inclusive).
+
+    Returns:
+        str: Confirmation message or error message.
+    """
+    print(f"Tool Call: Deleting lines {start}-{end} from file: {file_path}")
+    try:
+        with open(file_path, 'r+', encoding='utf-8') as file:
+            lines = file.readlines()
+            if start < 1 or end < start or start > len(lines):
+                return f"Error: invalid range {start}-{end} for a file with {len(lines)} lines."
+            end = min(end, len(lines))
+            del lines[start - 1:end]
+            file.seek(0)
+            file.writelines(lines)
+            file.truncate()
+        return f"Deleted lines {start}-{end} from {file_path}."
+    except Exception as e:
+        return f"Error deleting lines from file {file_path}: {str(e)}"
 
 @tool
 def grep_file(file_path: str, query: str) -> str:
@@ -153,7 +181,7 @@ def append_to_file(file_path: str, content: str) -> str:
     """
     print(f"Tool Call: Appending to file: {file_path}")
     try:
-        with open(file_path, 'a') as file:
+        with open(file_path, 'a', encoding='utf-8') as file:
             file.write(content + '\n')
             
         print(f"--- TOOL OUTPUT: Appended content to {file_path} ---")
@@ -179,7 +207,7 @@ def write_file_with_range(file_path: str, content: str,start: int, end: int) -> 
     print(f"Tool Call: Writing to file: {file_path} from line {start} to {end}")
     print(f"--- CONTENT: {content} ---")
     try:
-        with open(file_path, 'r+') as file:
+        with open(file_path, 'r+', encoding='utf-8') as file:
             lines = file.readlines()
             # Adjust for 0-based index
             start_index = start - 1

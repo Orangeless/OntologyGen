@@ -1,0 +1,25 @@
+# Tested with Python 3.13 on Windows. The OWL consistency gate (HermiT through owlready2) needs a Java runtime (17+) on PATH.
+langchain-core
+langchain-openai
+langgraph
+openai
+pydantic
+python-dotenv
+rdflib
+owlready2
+owlrl
+pymupdf
+pyyaml
+numpy
+networkx
+# RAG evaluation (agents/vector_eval.py)
+dspy
+sentence-transformers
+rank-bm25
+# the paper's judge-agreement script (calculate_judge_agreement.py)
+krippendorff
+scikit-learn
+# Presentation/ (deck, figures)
+python-pptx
+pillow
+lxml
